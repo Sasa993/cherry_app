@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'invitations',
-    'django_select2',
+    'django_select2'
 ]
 
 SITE_ID = 4
