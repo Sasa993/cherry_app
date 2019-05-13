@@ -34,22 +34,23 @@ class BookForm(forms.ModelForm):
 	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
 	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
 	# co_author_name = forms.ModelChoiceField(queryset=Author.objects.all())
-	co_author_email = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
+	# co_author_email = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
+	# co_author_email = forms.CharField(required=False)
 
 	class Meta:
 		model = Book
-		fields = '__all__'
+		fields = ('title', 'subtitle', 'description', 'comparible', 'co_author_name', 'co_author_email', 'co_author_instructions', 'author', 'cover')
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 		self.fields['co_author_email'].queryset = Author.objects.none()
 
 		# SKONTAJ
-		# if('authorId[]' in self.data):
-		# 	try:
-		# 		country_id = int(self.data.get('authorId[]'))
-		# 		self.fields['co_author_email'].queryset = Author.objects.filter(country_id=country_id).order_by('name')
-		# 	except (ValueError, TypeError):
-		# 		pass  # invalid input from the client; ignore and fallback to empty City queryset
-		# elif(self.instance.pk):
-		# 	self.fields['co_author_email'].queryset = self.instance.authorId.city_set.order_by('name')
+		if('authorId' in self.data):
+			try:
+				country_id = int(self.data.get('authorId'))
+				self.fields['co_author_email'].queryset = Author.objects.filter(author_id=country_id)
+			except (ValueError, TypeError):
+				pass  # invalid input from the client; ignore and fallback to empty City queryset
+		elif(self.instance.pk):
+			self.fields['co_author_email'].queryset = self.instance.authorId.co_author_email_set

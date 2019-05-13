@@ -63,23 +63,23 @@
 					{{ field.label_tag }}
 
 					{% if form.is_bound %}
-						{% if field.errors %}
-							{% render_field field class="form-control is-invalid" %}
-							{% for error in field.errors %}
-								<div class="invalid-feedback">
-									{{ error }}
-								</div>
-							{% endfor %}
-						{% else %}
-							{% render_field field class="form-control is-valid" %}
-						{% endif %}
+					{% if field.errors %}
+						{% render_field field class="form-control is-invalid" %}
+						{% for error in field.errors %}
+							<div class="invalid-feedback">
+								{{ error }}
+							</div>
+						{% endfor %}
 					{% else %}
-						{% render_field field class="form-control" %}
+						{% render_field field class="form-control is-valid" %}
 					{% endif %}
+				{% else %}
+					{% render_field field class="form-control" %}
+				{% endif %}
 
-					{% if field.help_text %}
-						<small class="form-text text-muted">{{ field.help_text }}</small>
-					{% endif %}
+				{% if field.help_text %}
+					<small class="form-text text-muted">{{ field.help_text }}</small>
+				{% endif %}
 			</div>
 		{% else %}
 			<div class="form-group col-sm-6">
@@ -122,7 +122,7 @@
 		      $.ajax({                       // initialize an AJAX request
 		        url: url,                    // set the url of the request)
 		        data: {
-		          'authorId[]': authorId       // add the country id to the GET parameters
+		          'authorId': authorId       // add the country id to the GET parameters
 		        },
 		        success: function (data) {   // `data` is the return of the `load_cities` view function
 		          $("#id_co_author_email").html(data);  // replace the contents of the city input with the data that came from the server
