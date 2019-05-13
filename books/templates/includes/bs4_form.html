@@ -12,7 +12,7 @@
 {% endif %}
 <div class="row">
 	{% for field in form.visible_fields %}
-		{% if forloop.counter == 3 or forloop.counter == 7 %}
+		{% if forloop.counter == 3 or forloop.counter == 6 %}
 			<div class="form-group col-sm-12">
 				{{ field.label_tag }}
 
@@ -35,7 +35,7 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 4 or forloop.counter == 5 %}
+		{% elif forloop.counter == 4%}
 			<div class="form-group col-sm-4">
 				{{ field.label_tag }}
 
@@ -58,8 +58,8 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 6 %}
-			<div class="col-sm-4 form-group">
+		{% elif forloop.counter == 5 %}
+			<div class="form-group col-sm-4">
 					{{ field.label_tag }}
 
 					{% if form.is_bound %}
@@ -80,6 +80,11 @@
 				{% if field.help_text %}
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="id_co_author_name">Co author emails:</label>
+				<div id="id_co_author_email">
+				</div>
 			</div>
 		{% else %}
 			<div class="form-group col-sm-6">
