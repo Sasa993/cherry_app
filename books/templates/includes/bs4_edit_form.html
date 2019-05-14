@@ -35,7 +35,7 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 4%}
+		{% elif forloop.counter == 4 %}
 			<div class="form-group col-sm-4">
 				{{ field.label_tag }}
 
@@ -87,6 +87,31 @@
 					{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
 				</div>
 			</div>
+		{% elif forloop.counter == 8 %}
+			<div class="form-group col-sm-6">
+				{{ field.label_tag }}<br>
+				
+				<img src="/media/{{ book.cover }}" width="100px" height="100px">
+
+				{% if form.is_bound %}
+					{% if field.errors %}
+						{% render_field field class="form-control is-invalid" %}
+						{% for error in field.errors %}
+							<div class="invalid-feedback">
+								{{ error }}
+							</div>
+						{% endfor %}
+					{% else %}
+						{% render_field field class="form-control is-valid" %}
+					{% endif %}
+				{% else %}
+					{% render_field field class="form-control" %}
+				{% endif %}
+
+				{% if field.help_text %}
+					<small class="form-text text-muted">{{ field.help_text }}</small>
+				{% endif %}
+			</div>
 		{% else %}
 			<div class="form-group col-sm-6">
 				{{ field.label_tag }}
@@ -121,17 +146,17 @@
 	<script>
 		$(document).ready(function(){
 			$("#id_co_author_name").change(function () {
-		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_cities` view
+		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_emails` view
 		      var authorId = $(this).val();  // get the selected author ID from the HTML input
 		      console.log(authorId)
 
 		      $.ajax({                       // initialize an AJAX request
 		        url: url,                    // set the url of the request)
 		        data: {
-		          'authorId': authorId       // add the country id to the GET parameters
+		          'authorId': authorId       // add the author id to the GET parameters
 		        },
-		        success: function (data) {   // `data` is the return of the `load_cities` view function
-		          $("#id_co_author_email").html(data);  // replace the contents of the city input with the data that came from the server
+		        success: function (data) {   // `data` is the return of the `load_emails` view function
+		          $("#id_co_author_email").html(data);  // replace the contents of the email input with the data that came from the server
 		        }
 		      });
 

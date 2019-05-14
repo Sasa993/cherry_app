@@ -8,11 +8,14 @@
 	<div class="container">
 		<h1>Ovo je DASHBOARD!</h1>
 		<div class="row">
-			<div class="col-md-3" style="text-align: center">
-				<a href="{% url 'dashboard:enter_new_book' %}">
-					<img src='/media/cover_image/add_new.png' width='100%' height='350px' />
-				</a>
-			</div>
+			{# display add new book if we are on a first page of pagination #}
+			{% if request.get_full_path == "/dashboard/" or request.get_full_path == "/dashboard/?page=1" %}
+				<div class="col-md-3" style="text-align: center">
+					<a href="{% url 'dashboard:enter_new_book' %}">
+						<img src='/media/cover_image/add_new.png' width='100%' height='350px' />
+					</a>
+				</div>
+			{% endif %}
 			{% for book in books %}
 				<div class="col-md-3" style="text-align: center">
 					<a href="{% url 'dashboard:details_books' book.id %}">
@@ -23,5 +26,26 @@
 				</div>
 			{% endfor %}
 		</div>
+		{% if books.has_other_pages %}
+		  <ul class="pagination justify-content-end custom_pagination">
+		    {% if books.has_previous %}
+		      <li class="page-item"><a class="page-link" href="?page={{ books.previous_page_number }}">Previous</a></li>
+		    {% else %}
+		      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+		    {% endif %}
+		    {% for i in books.paginator.page_range %}
+		      {% if books.number == i %}
+		        <li class="page-item active"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a></li>
+		      {% else %}
+		        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+		      {% endif %}
+		    {% endfor %}
+		    {% if books.has_next %}
+		      <li class="page-item"><a class="page-link" href="?page={{ books.next_page_number }}">Next</a></li>
+		    {% else %}
+		      <li class="page-item disabled"><span class="page-link">Next</span></li>
+		    {% endif %}
+		  </ul>
+		{% endif %}
 	</div>
 {% endblock %}

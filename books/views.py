@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 from .models import Author, Book, BookForm
 from django.urls import reverse
+from django.core.paginator import Paginator
 
 
 def index(request):
@@ -11,7 +12,11 @@ def index(request):
 
 def dashboard(request):
 	# using order_by to make sure that the last added book shows as a first book
-	books = Book.objects.all().order_by('-id')
+	all_books = Book.objects.all().order_by('-id')
+	paginator = Paginator(all_books, 8)
+
+	page = request.GET.get('page')
+	books = paginator.get_page(page)
 	context = {'books': books}
 
 	return render(request, 'books/dashboard.html', context)

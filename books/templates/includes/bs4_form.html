@@ -120,17 +120,17 @@
 	<script>
 		$(document).ready(function(){
 			$("#id_co_author_name").change(function () {
-		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_cities` view
+		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_emails` view
 		      var authorId = $(this).val();  // get the selected author ID from the HTML input
 		      console.log(authorId)
 
 		      $.ajax({                       // initialize an AJAX request
 		        url: url,                    // set the url of the request)
 		        data: {
-		          'authorId': authorId       // add the country id to the GET parameters
+		          'authorId': authorId       // add the author id to the GET parameters
 		        },
-		        success: function (data) {   // `data` is the return of the `load_cities` view function
-		          $("#id_co_author_email").html(data);  // replace the contents of the city input with the data that came from the server
+		        success: function (data) {   // `data` is the return of the `load_emails` view function
+		          $("#id_co_author_email").html(data);  // replace the contents of the email input with the data that came from the server
 		        }
 		      });
 

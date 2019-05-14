@@ -17,7 +17,7 @@
 				<p>{{ book.description }}</p>
 				<h5>Authors:</h5>
 				{% for x in book.author.all %}
-					<p>{{ x }};</p>
+					<p>{{ x }}</p>
 				{% endfor %}
 				<h5>Comparible:</h5>
 				<a href="{{ book.comparible }}"><p>{{ book.comparible }}</p></a>
