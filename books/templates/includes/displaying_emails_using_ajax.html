@@ -1,0 +1,8 @@
+{% for mail in mails %}
+	{# we are checking if it's a last iteration of our loop - do not show the line inside of span tags, else - we need that line  #}
+	{% if forloop.last %}
+		<a href="mailto:{{ mail.email }}">{{ mail.email }}</a>
+	{% else %}
+		<a href="mailto:{{ mail.email }}">{{ mail.email }} <span style="color:black">|</span></a>
+	{% endif %}
+{% endfor %}

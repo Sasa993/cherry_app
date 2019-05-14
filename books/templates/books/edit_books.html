@@ -10,7 +10,7 @@
 
 {% block content %}
 	<div class="container">
-		<form method="post" novalidate enctype="multipart/form-data">
+		<form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 			{% csrf_token %}
 			{% include 'includes/bs4_edit_form.html' with form=form %}
 			<div class="row custom_buttons">

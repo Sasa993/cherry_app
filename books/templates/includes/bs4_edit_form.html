@@ -12,7 +12,7 @@
 {% endif %}
 <div class="row">
 	{% for field in form.visible_fields %}
-		{% if forloop.counter == 3 or forloop.counter == 7 %}
+		{% if forloop.counter == 3 or forloop.counter == 6 %}
 			<div class="form-group col-sm-12">
 				{{ field.label_tag }}
 
@@ -35,7 +35,7 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 4 or forloop.counter == 5 or forloop.counter == 6%}
+		{% elif forloop.counter == 4%}
 			<div class="form-group col-sm-4">
 				{{ field.label_tag }}
 
@@ -58,13 +58,11 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 9 %}
-			<div class="form-group col-sm-6">
-				{{ field.label_tag }}<br>
-				
-				<img src="/media/{{ book.cover }}" width="100px" height="100px">
+		{% elif forloop.counter == 5 %}
+			<div class="form-group col-sm-4">
+					{{ field.label_tag }}
 
-				{% if form.is_bound %}
+					{% if form.is_bound %}
 					{% if field.errors %}
 						{% render_field field class="form-control is-invalid" %}
 						{% for error in field.errors %}
@@ -82,6 +80,12 @@
 				{% if field.help_text %}
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="id_co_author_name">Co author emails:</label>
+				<div id="id_co_author_email">
+					{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
+				</div>
 			</div>
 		{% else %}
 			<div class="form-group col-sm-6">
@@ -109,3 +113,29 @@
 		{% endif %}
 	{% endfor %}
 </div>
+{% block other_js %}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			$("#id_co_author_name").change(function () {
+		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_cities` view
+		      var authorId = $(this).val();  // get the selected author ID from the HTML input
+		      console.log(authorId)
+
+		      $.ajax({                       // initialize an AJAX request
+		        url: url,                    // set the url of the request)
+		        data: {
+		          'authorId': authorId       // add the country id to the GET parameters
+		        },
+		        success: function (data) {   // `data` is the return of the `load_cities` view function
+		          $("#id_co_author_email").html(data);  // replace the contents of the city input with the data that came from the server
+		        }
+		      });
+
+		    });
+		});
+	</script>
+{% endblock %}

@@ -64,4 +64,4 @@ def load_emails(request):
 	# print(author_id)
 	mails = Author.objects.filter(pk__in=author_id)
 
-	return render(request, 'books/displaying_emails_using_ajax.html', {'mails': mails})
+	return render(request, 'includes/displaying_emails_using_ajax.html', {'mails': mails})
