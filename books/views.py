@@ -10,7 +10,8 @@ def index(request):
 
 
 def dashboard(request):
-	books = Book.objects.all()
+	# using order_by to make sure that the last added book shows as a first book
+	books = Book.objects.all().order_by('-id')
 	context = {'books': books}
 
 	return render(request, 'books/dashboard.html', context)
