@@ -46,7 +46,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'invitations',
-    'django_select2'
+    'django_select2',
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'two_factor',
+    'otp_yubikey',
 ]
 
 SITE_ID = 4
@@ -58,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -144,8 +150,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'cherry_app/media')
 
 # login/logout redirect URLs
-LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = 'two_factor:login'
+LOGIN_REDIRECT_URL = 'two_factor:profile'
 
 # invitations and allauth
 INVITATIONS_EMAIL_SUBJECT_PREFIX = 'Come and join us! '
@@ -155,7 +163,7 @@ INVITATIONS_INVITATION_ONLY = True
 # the login method to use – whether the user logs in by entering their username, e-mail address, or either one of both
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
-# the e-mail verification method during signup.When set to “mandatory” the user is blocked from logging in until the email address is verified. 
+# the e-mail verification method during signup.When set to “mandatory” the user is blocked from logging in until the email address is verified.
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # whether or not the user is automatically logged out after changing or setting their password.
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
@@ -215,3 +223,22 @@ JET_SIDE_MENU_ITEMS = [
         {'name': 'book'},
     ]},
 ]
+
+TWO_FACTOR_SMS_GATEWAY = 'two_factor.gateways.fake.Fake'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'two_factor': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        }
+    }
+} 
