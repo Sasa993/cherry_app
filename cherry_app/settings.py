@@ -150,10 +150,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'cherry_app/media')
 
 # login/logout redirect URLs
-# LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = 'two_factor:login'
-LOGIN_REDIRECT_URL = 'two_factor:profile'
+SIGNUP_REDIRECT_URL = '/'
+# LOGIN_URL = 'two_factor:login'
+# LOGIN_REDIRECT_URL = 'two_factor:profile'
 
 # invitations and allauth
 INVITATIONS_EMAIL_SUBJECT_PREFIX = 'Come and join us! '
@@ -224,6 +225,9 @@ JET_SIDE_MENU_ITEMS = [
     ]},
 ]
 
+# TWO_FACTOR_SMS_GATEWAY = 'two_factor.gateways.twilio.gateway.Twilio'
+
+# fake gateway - use only for development
 TWO_FACTOR_SMS_GATEWAY = 'two_factor.gateways.fake.Fake'
 
 LOGGING = {
@@ -241,4 +245,4 @@ LOGGING = {
             'level': 'INFO',
         }
     }
-} 
+}

@@ -25,6 +25,9 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="{% url 'dashboard:dashboard' %}">Dashboard</a>
 		      </li>
+		      <li class="nav-item">
+		      	<a class="nav-link" href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
+		      </li>
 		    </ul>
 		    {% if request.user.is_authenticated %}
 		    	<ul class="navbar-nav">
@@ -33,7 +36,7 @@
 		    				Welcome {{ request.user.username }}
 		    			</a>
 		    			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			          		<a class="dropdown-item" href="../admin/">Profile</a>
+			          		<a class="dropdown-item" href="{% url 'admin:password_change' %}">Profile</a>
 			          		<a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a>
 			          		<a class="dropdown-item" href="{% url 'account_change_password' %}">Change Password</a>
 			          		<a class="dropdown-item" href="{% url 'account_reset_password' %}">Reset Password</a>
