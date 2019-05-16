@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'two_factor.middleware.threadlocals.ThreadLocals',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -152,7 +153,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'cherry_app/media')
 # login/logout redirect URLs
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-SIGNUP_REDIRECT_URL = '/'
 # LOGIN_URL = 'two_factor:login'
 # LOGIN_REDIRECT_URL = 'two_factor:profile'
 
@@ -163,11 +163,13 @@ INVITATIONS_INVITATION_ONLY = True
 
 # the login method to use – whether the user logs in by entering their username, e-mail address, or either one of both
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 # the e-mail verification method during signup.When set to “mandatory” the user is blocked from logging in until the email address is verified.
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "optional"
 # whether or not the user is automatically logged out after changing or setting their password.
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+# controls the life time of the session. Default is to ask the user "Remember me?", False to not remember, and True to always remember
+# ACCOUNT_SESSION_REMEMBER = False
 
 # emailing
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -225,10 +227,17 @@ JET_SIDE_MENU_ITEMS = [
     ]},
 ]
 
+# sending real texts and making real calls using Twilio
+TWILIO_ACCOUNT_SID = 'ACc6c51b7569730a3f43fb79c33f15fda0'
+TWILIO_AUTH_TOKEN = '6808173965b907bf4e939473a8723eef'
+TWILIO_CALLER_ID = '+12055510466'
+
 # TWO_FACTOR_SMS_GATEWAY = 'two_factor.gateways.twilio.gateway.Twilio'
+# TWO_FACTOR_CALL_GATEWAY = 'two_factor.gateways.twilio.gateway.Twilio'
 
 # fake gateway - use only for development
 TWO_FACTOR_SMS_GATEWAY = 'two_factor.gateways.fake.Fake'
+TWO_FACTOR_CALL_GATEWAY = 'two_factor.gateways.fake.Fake'
 
 LOGGING = {
     'version': 1,
