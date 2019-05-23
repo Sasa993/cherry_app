@@ -25,11 +25,11 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="{% url 'dashboard:dashboard' %}">Dashboard</a>
 		      </li>
-		      <li class="nav-item">
-		      	<a class="nav-link" href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
-		      </li>
-		    </ul>
 		    {% if request.user.is_authenticated %}
+			      <li class="nav-item">
+			      	<a class="nav-link" href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
+			      </li>
+			    </ul>
 		    	<ul class="navbar-nav">
 		    		<li class="nav-item dropdown">
 		        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,6 +46,7 @@
 		    		</li>
 		    	</ul>
 		    {% else %}
+		    	</ul>
 			    <ul class="navbar-nav">
 			    	<li class="nav-item">
 			    		<a class="nav-link" href="{% url 'two_factor:login' %}">Login</a>
