@@ -29,6 +29,11 @@ class Book(models.Model):
 		return f"{self.title}"
 
 
+class BookRequest(models.Model):
+	authors_accepted = models.ManyToManyField(Author, related_name='book_authors')
+	book = models.ForeignKey('Book', on_delete=models.CASCADE,)
+
+
 class BookForm(forms.ModelForm):
 	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
 	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())

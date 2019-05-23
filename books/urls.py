@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:book_id>/edit/', views.edit_books, name='edit_books'),
     path('enter_new_book', views.enter_new_book, name="enter_new_book"),
     path('ajax/load-emails', views.load_emails, name='ajax_load_emails'),
+    path('book-request/<int:request_book_id>', views.book_requests, name='book-request')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
