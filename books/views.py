@@ -42,8 +42,7 @@ def enter_new_book(request):
 		form = BookForm(request.POST, request.FILES)
 		if (form.is_valid()):
 			f = form.save()
-			requested_book = BookRequest.objects.create(book=f)
-			book_request.send(sender=Book, authors=form.cleaned_data['author'], requested_book = requested_book.pk)
+			book_request.send(sender=Book, authors=form.cleaned_data['author'], requested_book = f.id)
 			if ('save_and_add_another' in request.POST):
 				return redirect('dashboard:enter_new_book')
 			else:
@@ -61,7 +60,7 @@ def send_request_to_authors(sender, **kwargs):
 
 	message = """You have been requested for a book creating. Please visit this link for more details:
 	http://localhost:8000/dashboard/book-request/""" + str(kwargs['requested_book'])
-	email = EmailMessage('Subject', message, to=authors_mail)
+	email = EmailMessage('Book request', message, to=authors_mail)
 	email.send()
 
 def edit_books(request, book_id):
@@ -78,16 +77,25 @@ def edit_books(request, book_id):
 
 	return render(request, 'books/edit_books.html', context)
 
+#we need to change author model, this example is only for presenting
 def book_requests(request, request_book_id):
 	context = {}
-	requested_book = BookRequest.objects.get(id=request_book_id)
+	book = Book.objects.get(id= request_book_id)
 	if request.method == 'POST':
-		print("you did this")
+		if request.POST['decision'] == '1':
+			author = Author.objects.filter(email=request.user.email)
+			BookRequest.objects.create(book=book,authors_accepted = author[0], deadline=request.POST['deadline'], decision = request.POST['decision'])
+		else:
+			author = Author.objects.filter(email=request.user.email)
+			BookRequest.objects.create(book=book, authors_accepted=author[0],decision=request.POST['decision'] )
 	else:
-		if request.user.email in requested_book.authors_accepted.all().values_list('email', flat=True):
+		requested_book = BookRequest.objects.filter(book=book).values_list('authors_accepted__email', flat=True)
+		if request.user.email in [mail for mail in requested_book]:
 			context["data"] = "decided"
 		else:
-			context["data"] = requested_book.book.title
+			context["data"] = book.title
+			context["desc"] = book.description
+			context["id"] = request_book_id
 
 	return render(request, 'books/book_request.html', context)
 

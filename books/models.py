@@ -2,6 +2,7 @@ from django.db import models
 # from django.forms import ModelForm
 from django import forms
 from django_select2.forms import Select2MultipleWidget
+from django.contrib.auth.models import User
 
 
 class Author(models.Model):
@@ -28,10 +29,14 @@ class Book(models.Model):
 	def __str__(self):
 		return f"{self.title}"
 
-
 class BookRequest(models.Model):
-	authors_accepted = models.ManyToManyField(Author, related_name='book_authors')
+	authors_accepted = models.ForeignKey('Author',blank=True, null=True, on_delete=models.SET_NULL)
 	book = models.ForeignKey('Book', on_delete=models.CASCADE,)
+	deadline = models.DateField(blank=True, null=True)
+	decision = models.BooleanField(default=False)
+
+	def __str__(self):
+		return f"{self.book}"
 
 
 class BookForm(forms.ModelForm):

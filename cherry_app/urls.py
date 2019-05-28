@@ -10,7 +10,7 @@ from two_factor.urls import urlpatterns as tf_urls
 from two_factor.gateways.twilio.urls import urlpatterns as tf_twilio_urls
 from two_factor.admin import AdminSiteOTPRequired
 
-admin.site.__class__ = AdminSiteOTPRequired
+# admin.site.__class__ = AdminSiteOTPRequired
 
 urlpatterns = [
 	path('2fa/', include(tf_urls)),
