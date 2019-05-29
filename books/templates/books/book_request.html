@@ -17,13 +17,11 @@
             <a class="info-box" id="yes-ans" href="#" style="display:inline; float:right;">YES</a>
         </div>
         <br>
-            <p>Description: {{desc}}</p>
-
-
+        <p>Description: {{desc}}</p>
     </div>
     {% else %}
         <div class="a-box alert-info-box"><p class="info-box">You have already decided!</p>
-    </div>
+        </div>
     {% endif %}
   <script>
 
@@ -56,7 +54,7 @@
     });
      $('.answer').on('click', '#no-ans', function(){
         $.ajax({
-            url: '/dashboard/book-request/1',
+            url: '/dashboard/book-request/{{id}}',
             type: 'POST',
             data: {
             'csrfmiddlewaretoken': '{{csrf_token}}',
@@ -73,5 +71,3 @@
     });
   </script>
 {% endblock %}
-
-

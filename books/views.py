@@ -6,10 +6,12 @@ from django.urls import reverse
 from django.core.paginator import Paginator
 from django.core.mail import EmailMessage
 import pdb
+from django.contrib.auth.decorators import login_required
 
 from django.dispatch import receiver, Signal
 
 book_request = Signal(providing_args=['authors', 'requested_book'])
+
 
 def index(request):
 
@@ -54,6 +56,7 @@ def enter_new_book(request):
 
 	return render(request, 'books/enter_new_book.html', context)
 
+
 @receiver(book_request)
 def send_request_to_authors(sender, **kwargs):
 	authors_mail = [x for x in kwargs['authors'].all().values_list('email', flat=True)]
@@ -62,6 +65,7 @@ def send_request_to_authors(sender, **kwargs):
 	http://localhost:8000/dashboard/book-request/""" + str(kwargs['requested_book'])
 	email = EmailMessage('Book request', message, to=authors_mail)
 	email.send()
+
 
 def edit_books(request, book_id):
 	book = Book.objects.get(pk=book_id)
@@ -77,17 +81,18 @@ def edit_books(request, book_id):
 
 	return render(request, 'books/edit_books.html', context)
 
-#we need to change author model, this example is only for presenting
+# we need to change author model, this example is only for presenting
+@login_required
 def book_requests(request, request_book_id):
 	context = {}
-	book = Book.objects.get(id= request_book_id)
+	book = Book.objects.get(id=request_book_id)
 	if request.method == 'POST':
 		if request.POST['decision'] == '1':
 			author = Author.objects.filter(email=request.user.email)
-			BookRequest.objects.create(book=book,authors_accepted = author[0], deadline=request.POST['deadline'], decision = request.POST['decision'])
+			BookRequest.objects.create(book=book, authors_accepted=author[0], deadline=request.POST['deadline'], decision=request.POST['decision'])
 		else:
 			author = Author.objects.filter(email=request.user.email)
-			BookRequest.objects.create(book=book, authors_accepted=author[0],decision=request.POST['decision'] )
+			BookRequest.objects.create(book=book, authors_accepted=author[0],decision=request.POST['decision'])
 	else:
 		requested_book = BookRequest.objects.filter(book=book).values_list('authors_accepted__email', flat=True)
 		if request.user.email in [mail for mail in requested_book]:
@@ -98,6 +103,7 @@ def book_requests(request, request_book_id):
 			context["id"] = request_book_id
 
 	return render(request, 'books/book_request.html', context)
+
 
 # getting AJAX's data and using it to query our DB
 def load_emails(request):
