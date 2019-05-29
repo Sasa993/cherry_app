@@ -1,0 +1,77 @@
+{% extends "books/base.html" %}
+
+{% block other_css %}
+	{{ form.media.css }}
+{% endblock %}
+
+{% block title %}
+	New Book
+{% endblock %}
+
+{% block content %}
+
+    {% if data != 'decided' %}
+    <div class="a-box alert-info-box"><p class="info-box">You have been requested for this book: {{ data }}</p>
+        <div class="answer" style="display:inline;">
+            <a class="info-box" id="no-ans" href="#" style="display:inline; float:right;">NO</a>
+            <a class="info-box" id="yes-ans" href="#" style="display:inline; float:right;">YES</a>
+        </div>
+        <br>
+            <p>Description: {{desc}}</p>
+
+
+    </div>
+    {% else %}
+        <div class="a-box alert-info-box"><p class="info-box">You have already decided!</p>
+    </div>
+    {% endif %}
+  <script>
+
+  $('.answer').on('click','#yes-ans', function(){
+    $('.answer').empty().append('<a id="x" style="display:inline;cursor:pointer; float:right;">X</a><input type="text" placeholder="Add deadline" id="datepicker" style="float:right;">\
+    <button style="float:right;display:inline" id="send-deadline">Send</button>')
+    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+  })
+  $('.answer').on('click', '#x',function(){
+     $('.answer').empty().append('<a class="info-box-decline" id="no-ans" href="#" style="display:inline; float:right;">NO</a>\
+         <a class="info-box-accept" id="yes-ans" href="#" style="display:inline; float:right;">YES</a>')
+  })
+  $('.answer').on('click', '#send-deadline', function(){
+        $.ajax({
+            url: '/dashboard/book-request/{{id}}',
+            type: 'POST',
+            data: {
+            'csrfmiddlewaretoken': '{{csrf_token}}',
+            'deadline': $('#datepicker').val(),
+            'decision': 1
+             },
+             success: function (data) {
+               alert('You accepted this request! Go on!')
+               window.location.href = 'http://localhost:8000/dashboard';
+             },
+             error: function(data){
+                console.log('error')
+             }
+        });
+    });
+     $('.answer').on('click', '#no-ans', function(){
+        $.ajax({
+            url: '/dashboard/book-request/1',
+            type: 'POST',
+            data: {
+            'csrfmiddlewaretoken': '{{csrf_token}}',
+            'decision': 0
+             },
+             success: function (data) {
+                alert('You declined this request')
+                window.location.href = 'http://localhost:8000/dashboard';
+             },
+             error: function(data){
+                console.log('error')
+             }
+        });
+    });
+  </script>
+{% endblock %}
+
+
