@@ -29,6 +29,7 @@ class Book(models.Model):
 	def __str__(self):
 		return f"{self.title}"
 
+
 class BookRequest(models.Model):
 	authors_accepted = models.ForeignKey('Author',blank=True, null=True, on_delete=models.SET_NULL)
 	book = models.ForeignKey('Book', on_delete=models.CASCADE,)
@@ -46,3 +47,7 @@ class BookForm(forms.ModelForm):
 	class Meta:
 		model = Book
 		fields = '__all__'
+		# widgets = {
+		# 	'author': Select2MultipleWidget,
+		# 	'co_author_name': Select2MultipleWidget
+		# }
