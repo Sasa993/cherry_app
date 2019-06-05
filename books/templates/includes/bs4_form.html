@@ -142,14 +142,13 @@
   crossorigin="anonymous"></script>
 	<script>
 		$(document).ready(function(){
-			var coAuthorName
+			var coAuthorName;
+			var authorName;
 
 			$("#id_co_author_name").change(function () {
 		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_emails` view
 		      var authorId = $(this).val();  // get the selected author ID from the HTML input
-		      coAuthorName = $(this).find("option:selected").text();
-
-		      // console.log("author je " + coAuthorName);
+		      coAuthorName = $(this).find("option:selected").val() + " - " + authorId[0];
 
 		      $.ajax({                       // initialize an AJAX request
 		        url: url,                    // set the url of the request)
@@ -160,32 +159,29 @@
 		          $("#id_co_author_email").html(data);  // replace the contents of the email input with the data that came from the server
 		        }
 		      });
-
-		      // $('.select2-results__options').find('li').each(function(){
-		      // 		// var current = "";
-		      // 		// current = $(this).text();
-
-		      // 		if(coAuthorName == $(this).text()) {
-		      // 			console.log("AHHAHAHAHA");
-		      // 		}
-
-		      // 		// console.log("evo ga druze - " + current);
-		      // 	});
-
 		    });
-		    $("#id_author").change(function() {
-		    	// console.log("Autor je " + coAuthorName);
-		    	$('#select2-id_author-results.select2-results__options').find('li').each(function(){
-		    		var current = $(this).text();
 
-		    		if(coAuthorName == current){
-		    			console.log("Deri Tedi!");
-		    			console.log(current + "---");
-		    			current = "";
-		    		};
-		    	});
+		    $('input').blur(function(){
+		    	var coAuthorList = [];
+		    	var authorList = [];
+
+		    	$("#id_co_author_name > option:selected").each(function(){
+		    		coAuthorList.push($(this).text());
+			    });
+
+			    $("#id_author > option:selected").each(function(){
+		    		authorList.push($(this).text());
+			    });
+
+			    var i;
+			    for (i = 0; i < coAuthorList.length; i++) {
+			    	if(authorList.indexOf(coAuthorList[i]) != -1 || coAuthorList[i].indexOf(authorList) != -1) {
+			    		console.log("Lista - " + authorList + " sadrzi - " + coAuthorList[i]);
+			    		console.log("Ne moze!");
+			    		break;
+			    	}
+			    }
 		    });
-		    // select2-id_author-results
 		});
 	</script>
 {% endblock %}
