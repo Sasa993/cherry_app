@@ -144,6 +144,7 @@
 		$(document).ready(function(){
 			var coAuthorName;
 			var authorName;
+			var submitForm = true;
 
 			$("#id_co_author_name").change(function () {
 		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_emails` view
@@ -161,10 +162,12 @@
 		      });
 		    });
 
-		    $('input').blur(function(){
+			// Co Author and Author Inputs Fix
+		    $('#enterNewBookForm').on('DOMSubtreeModified', function(){
 		    	var coAuthorList = [];
 		    	var authorList = [];
 
+		    	// takes every author that has been selected and push it to lists
 		    	$("#id_co_author_name > option:selected").each(function(){
 		    		coAuthorList.push($(this).text());
 			    });
@@ -173,14 +176,33 @@
 		    		authorList.push($(this).text());
 			    });
 
+			    // goes through the coAuthorList and if there is a same author in both lists, adds class "same-author", submitForm becomes false - unable to submit it and it breaks the loop AND if there is no same author in both lists, it removes the class "same-author" and submitForm becomes true - able to submit it
 			    var i;
 			    for (i = 0; i < coAuthorList.length; i++) {
 			    	if(authorList.indexOf(coAuthorList[i]) != -1 || coAuthorList[i].indexOf(authorList) != -1) {
-			    		console.log("Lista - " + authorList + " sadrzi - " + coAuthorList[i]);
-			    		console.log("Ne moze!");
+			    		$("li:contains('"+ coAuthorList[i] +"')").addClass("same-authors");
+			    		submitForm = false;
 			    		break;
 			    	}
+			    	else {
+			    		$("li").removeClass("same-authors");
+			    		submitForm = true;
+			    		continue;
+			    	}
 			    }
+
+			    // to make sure that "same-author" class is not being added while one of the author inputs are empty
+			    if (authorList.length == 0 || coAuthorList.length == 0) {
+			    	$("li").removeClass("same-authors");
+			    }
+		    });
+
+		    // alert method can be changed to something better - maybe a "fade-in" error message
+		    $('#enterNewBookForm').submit(function(e) {
+		    	if(!submitForm) {
+		    		e.preventDefault();
+		    		alert("You can not have one person as an author and co author! Please fix that in order to save your book.");
+		    	}
 		    });
 		});
 	</script>

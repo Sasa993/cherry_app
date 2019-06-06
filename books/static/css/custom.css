@@ -36,6 +36,7 @@
     padding-right:5px;
 }
 
-.kurcina {
-    color: red !important;
+.same-authors, .same-authors > span {
+    color: #fff !important;
+    background-color: #d43a3a !important;
 }
