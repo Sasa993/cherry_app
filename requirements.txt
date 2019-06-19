@@ -1,4 +1,5 @@
 Babel==2.6.0
+bleach==3.1.0
 certifi==2019.3.9
 chardet==3.0.4
 colorama==0.4.1
@@ -15,6 +16,7 @@ django-otp==0.6.0
 django-otp-yubikey==0.5.0
 django-phonenumber-field==1.3.0
 django-select2==7.0.3
+django-todo==2.4.8
 django-two-factor-auth==1.8.0
 django-widget-tweaks==1.4.3
 google-api-python-client==1.4.1
@@ -38,6 +40,8 @@ rsa==4.0
 six==1.12.0
 sqlparse==0.3.0
 twilio==6.27.0
+Unidecode==1.1.0
 uritemplate==3.0.0
 urllib3==1.24.3
+webencodings==0.5.1
 YubiOTP==0.2.2
