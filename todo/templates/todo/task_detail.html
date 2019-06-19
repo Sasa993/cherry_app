@@ -61,10 +61,22 @@
         </li>
         <li class="list-group-item">
           <strong>Assigned to:</strong>
-          {% if task.assigned_to %} {{ task.assigned_to.get_full_name }} {% else %} Anyone {% endif %}
+          {% if task.assigned_to %} 
+            {{ task.assigned_to.get_username }}
+            {# if the user has the full name (with lastname) it will be displayed inside the brackets #}
+            {% if task.assigned_to.get_full_name %}
+              <i>({{ task.assigned_to.get_full_name }})</i>
+            {% endif %}
+          {% else %} 
+            Anyone 
+          {% endif %}
         </li>
         <li class="list-group-item">
-          <strong>Reported by:</strong> {{ task.created_by.get_full_name }}
+          <strong>Reported by:</strong> 
+          {{ task.created_by.get_username }}
+          {% if task.created_by.get_full_name %}
+            ({{ task.created_by.get_full_name }})
+          {% endif %}
         </li>
         <li class="list-group-item">
           <strong>Due date:</strong> {{ task.due_date }}
