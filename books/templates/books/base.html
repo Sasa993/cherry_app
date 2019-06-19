@@ -45,7 +45,7 @@
 			      <li class="nav-item">
 			      	<a class="nav-link" href="{% url 'todo:import_csv' %}">Import CSV</a>
 			      </li>
-			      <form class="form-inline my-2 my-lg-0" action="/todo/search/" method="get" placeholder="Search" aria-label="Search" id="kita">
+			      <form class="form-inline my-2 my-lg-0" action="/todo/search/" method="get" placeholder="Search" aria-label="Search" id="searchForm">
 			      		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="" id="q">
 		            	{# <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Tasks</button> #}
 		          </form>
@@ -87,9 +87,22 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	
 	{% block other_js %} {% endblock %}
+	{# Search Bar Implementation #}
 	<script>
 		$(function() {
-			var urlPageLoad = $("#kita").attr("action");
+			// takes the action/url from the form
+			var urlPageLoad = $("#searchForm").attr("action");
+
+			// if the urls contains string "search" it will place "focus" on the input
+			if (window.location.href.indexOf("search") > -1) {
+				$('#q').focus();
+			}
+	
+			$('#q').click(function(){
+				if (window.location.href.indexOf("search") <= -1) {
+					location.href = "/todo/search/";
+				}
+			});
 
 		    $('#q').keyup(function() {
 		        $.ajax({
