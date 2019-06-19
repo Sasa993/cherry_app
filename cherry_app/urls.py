@@ -24,4 +24,5 @@ urlpatterns = [
 	path('accounts/', include('allauth.urls')),
 	path('invitations/', include('invitations.urls', namespace='invitations')),
 	# path('invitations/accept-invite/accounts/signup/', signup, name='signup'),
+	path('todo/', include('todo.urls', namespace="todo")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

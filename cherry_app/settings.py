@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_totp',
     'two_factor',
     'otp_yubikey',
+    'todo',
 ]
 
 SITE_ID = 4
@@ -256,3 +257,6 @@ LOGGING = {
     }
 }
 DATE_INPUT_FORMATS = ['%m-%d-%Y']
+
+# To-Do System - user doesn't need to have "is stuff" permission to access his tasks/task lists
+TODO_STAFF_ONLY = False

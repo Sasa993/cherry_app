@@ -8,9 +8,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'css/custom.css' %}" />
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	{% block other_css %} {% endblock %}
-	<!-- These JS files need to be inside head tags to make sure that datepicker is being displayed -->
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	{% block other_css %} {% endblock %}
+	{% block extrahead %} {% endblock extrahead %}
+	{% block extra_js %} {% endblock extra_js %}
+	<!-- These JS files need to be inside head tags to make sure that datepicker is being displayed -->
+	
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
@@ -32,6 +35,15 @@
 		    {% if request.user.is_authenticated %}
 			      <li class="nav-item">
 			      	<a class="nav-link" href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
+			      </li>
+			      <li class="nav-item">
+			      	<a class="nav-link" href="{% url 'todo:lists' %}">All Tasks</a>
+			      </li>
+			      <li class="nav-item">
+			      	<a class="nav-link" href="{% url 'todo:mine' %}">My Tasks</a>
+			      </li>
+			      <li class="nav-item">
+			      	<a class="nav-link" href="{% url 'todo:import_csv' %}">Import CSV</a>
 			      </li>
 			    </ul>
 		    	<ul class="navbar-nav">
