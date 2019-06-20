@@ -40,3 +40,56 @@
     color: #fff !important;
     background-color: #d43a3a !important;
 }
+
+/* Drag&Drop Effect */
+
+.tDnD_whileDrag {
+  background: #fdf1f1;
+  width: 180px;
+  padding: 0 0 0 40px;
+  color: #830f94;
+  line-height: 30px;
+  -moz-transition: -moz-transform 0.5s, box-shadow 0.5s;
+  -o-transition: -o-transform 0.5s, box-shadow 0.5s;
+  -webkit-transition: -webkit-transform 0.5s, box-shadow 0.5s;
+  transition: transform 0.5s, box-shadow 0.5s;
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+  -moz-box-shadow: rgba(0, 0, 0, 0.7) 10px 0px 20px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.7) 10px 0px 20px;
+  box-shadow: rgba(0, 0, 0, 0.7) 10px 0px 20px;
+}
+
+.tDnD_whileDrag:hover {
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+  -moz-box-shadow: #000 0 0 0;
+  -webkit-box-shadow: #000 0 0 0;
+  box-shadow: #000 0 0 0;
+}
+
+.tDnD_whileDrag:before {
+  position: absolute;
+  left: 14px;
+  font-size: 20px;
+  line-height: 26px;
+  color: #ac14c2;
+  text-shadow: 0 5px #000, 0 10px #000, 5px 0 #000, 5px 5px #000, 5px 10px #000, 10px 0 #000, 10px 5px #000, 10px 10px #000;
+}
+
+.tDnD_whileDrag > td, .tDnD_whileDrag > td > a{
+    color: #dc3545cc !important;
+    font-weight: 800 !important;
+    border: 0 !important;
+}
+
+.tDnD_whileDrag > td > form > button {
+    font-weight: 800 !important;
+    padding: 0.45rem 0.7rem !important;
+    background-color: #dc3545cc !important;
+    border-color: #dc3545cc !important;
+}
