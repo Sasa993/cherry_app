@@ -13,7 +13,6 @@
 	{% block extrahead %} {% endblock extrahead %}
 	{% block extra_js %} {% endblock extra_js %}
 	<!-- These JS files need to be inside head tags to make sure that datepicker is being displayed -->
-	
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
@@ -34,9 +33,6 @@
 		      </li>
 		    {% if request.user.is_authenticated %}
 			      <li class="nav-item">
-			      	<a class="nav-link" href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
-			      </li>
-			      <li class="nav-item">
 			      	<a class="nav-link" href="{% url 'todo:lists' %}">All Tasks</a>
 			      </li>
 			      <li class="nav-item">
@@ -44,6 +40,9 @@
 			      </li>
 			      <li class="nav-item">
 			      	<a class="nav-link" href="{% url 'todo:import_csv' %}">Import CSV</a>
+			      </li>
+			      <li class="nav-item">
+			      	<a class="nav-link" href="{% url 'sendemail:email' %}">Contact Us</a>
 			      </li>
 			      <form class="form-inline my-2 my-lg-0" action="/todo/search/" method="get" placeholder="Search" aria-label="Search" id="searchForm">
 			      		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="" id="q">
@@ -59,7 +58,7 @@
 			          		<a class="dropdown-item" href="{% url 'admin:index' %}">Profile</a>
 			          		<a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a>
 			          		<a class="dropdown-item" href="{% url 'account_change_password' %}">Change Password</a>
-			          		<a class="dropdown-item" href="{% url 'account_reset_password' %}">Reset Password</a>
+			          		<a class="dropdown-item" href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
 			          		<div class="dropdown-divider"></div>
 			         		<a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
 		        		</div>

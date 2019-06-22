@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'two_factor',
     'otp_yubikey',
     'todo',
+    'sendemail.apps.SendemailConfig',
 ]
 
 SITE_ID = 4
@@ -174,6 +175,8 @@ ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 
 # emailing
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# testing contact us form - it prints the content in console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
