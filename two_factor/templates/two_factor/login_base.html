@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>
+        Workflow - {% block title %} {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    <div class="form-container">
+    	<div class="wrapper">
+	    	<div class="login-form">
+				{% block content %}
+
+				{% endblock %}
+			</div>
+		</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+    	$(document).ready(function(){
+    		$('<img src="{% static "images/login/user.svg" %}" class="input-icon username-icon" />').insertAfter('#id_auth-username');
+            $('<img src="{% static "images/login/lock.svg" %}" class="input-icon username-icon" />').insertAfter('#id_auth-password');
+            $('<img src="{% static "images/login/auth.svg" %}" class="input-icon username-icon" />').insertAfter('#id_token-otp_token');
+            $('<img src="{% static "images/login/email.svg" %}" class="input-icon username-icon" />').insertAfter('#id_email');
+            $('#id_auth-username').attr({
+                "placeholder": "Username",
+                "autocomplete": "off"
+            });
+            $('#id_auth-password').attr("placeholder", "Password");
+            $('#id_email').attr({
+                "placeholder": "Enter your e-mail",
+                "autocomplete": "off"
+            });
+            $('#id_auth-username').blur();
+            $('#id_token-otp_token').blur();
+    	});
+    </script>
+</body>
+</html>
