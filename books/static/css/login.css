@@ -79,17 +79,17 @@ body{
 }
 
 /* Style placeholder and animate bottom-border on focus */ 
-#id_auth-username::placeholder, #id_auth-password::placeholder, #id_email::placeholder, #backup-token-input::placeholder{
+#id_auth-username::placeholder, #id_auth-password::placeholder, #id_email::placeholder, #id_backup-otp_token::placeholder{
     padding-left: 5px;
     font-size: 16px;
 }
 #id_auth-username:focus::placeholder, 
 #id_auth-password:focus::placeholder, 
 #id_email:focus::placeholder,
-#backup-token-input:focus::placeholder{
+#id_backup-otp_token:focus::placeholder{
     color: transparent;
 }
-#id_auth-username:focus, #id_auth-password:focus, #id_email:focus, #backup-token-input:focus{
+#id_auth-username:focus, #id_auth-password:focus, #id_email:focus, #id_backup-otp_token:focus{
     border-bottom: 1px solid ;
     animation: 2s opacityBorder;
 }
@@ -105,7 +105,7 @@ body{
 /* animate icons on focus */
 #id_auth-username:focus + img, 
 #id_auth-password:focus + img,
-#backup-token-input:focus + img,
+#id_backup-otp_token:focus + img,
 #id_token-otp_token:focus + img{
     top: -8px;
     transition: .5s top;
@@ -113,7 +113,7 @@ body{
 
 #id_auth-username:not(:focus) + img, 
 #id_auth-password:not(:focus) + img,
-#backup-token-input:not(:focus) + img,
+#id_backup-otp_token:not(:focus) + img,
 #id_token-otp_token:not(:focus) + img{
     top: 7px;
     transition: .6s top;
@@ -182,15 +182,15 @@ input.reset-password{
 /* Hidden input spinner */
 #id_token-otp_token[type=number]::-webkit-inner-spin-button,
 #id_token-otp_token[type=number]::-webkit-outer-spin-button,
-.backup-token-form .backup-token-input[type=number]::-webkit-inner-spin-button,
-.backup-token-form .backup-token-input[type=number]::-webkit-outer-spin-button{
+#id_backup-otp_token[type=number]::-webkit-inner-spin-button,
+#id_backup-otp_token[type=number]::-webkit-outer-spin-button{
     -webkit-appearance: none; 
     margin: 0; 
 }
 
 /* hide spinner for mozilla browsers */
 #id_token-otp_token[type=number],
-.backup-token-form .backup-token-input[type=number]{
+#id_backup-otp_token[type=number]{
     -moz-appearance:textfield;
 }
 
@@ -294,7 +294,7 @@ input.reset-password{
     margin-right: 30px;
 }
 
-/*dada */
+/* BE styling :( */
 
 table tbody tr {
     position: relative;
@@ -324,7 +324,7 @@ table tbody tr th, form p label {
     display: none;
 }
 
-#id_auth-username, #id_auth-password, #id_email {
+#id_auth-username, #id_auth-password, #id_email, #id_backup-otp_token {
     outline: none;
     border: none;
     background-color: transparent;
