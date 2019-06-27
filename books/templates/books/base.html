@@ -157,12 +157,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
     <script src="{% static 'script/script.js' %}"></script>
     {% block other_js %} {% endblock %}
-    {# Search Bar Implementation #}
+
+    {# RealTime Search Bar Implementation #}
     <script>
         $(function() {
-            // takes the action/url from the form
-            var urlPageLoad = $("#searchForm").attr("action");
-
             // if the urls contains string "search" it will place "focus" on the input
             if (window.location.href.indexOf("search") > -1) {
                 $('#q').focus();
@@ -170,14 +168,14 @@
     
             $('#q').click(function(){
                 if (window.location.href.indexOf("search") <= -1) {
-                    location.href = "/todo/search/";
+                    location.href = "/todo/search/?q=";
                 }
             });
 
             $('#q').keyup(function() {
                 $.ajax({
                     type: "GET",
-                    url: urlPageLoad,
+                    url: "/todo/search/",
                     data: {
                         'q' : $('#q').val(),
                         'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
