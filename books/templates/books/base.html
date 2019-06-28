@@ -52,7 +52,6 @@
                 </div>
               </div>
               <!-- sidebar-search  -->
-
                 <div class="sidebar-menu">
                     <ul>
                         <li>
@@ -67,58 +66,49 @@
                                 <span>Books</span>
                             </a>
                         </li>
-                        {% if request.user.is_authenticated %}
-                            <li>
-                                <a href="{% url 'todo:mine' %}">
-                                    <i class="fas fa-thumbtack"></i>
-                                    <span>My Tasks</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{% url 'todo:lists' %}">
-                                    <i class="fas fa-tasks"></i>
-                                    <span>All Tasks</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-dropdown">
-                                <a href="#!">
-                                    <i class="fa fa-user"></i>
-                                    <span>Welcome {{ request.user.username|title }}</span>
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="{% url 'admin:index' %}">My profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
-                                        </li>
-                                        <li>
-                                            <a href="{% url 'account_email' %}">Change E-Mail</a>
-                                        </li>
-                                        <li>
-                                            <a href="{% url 'account_change_password' %}">Change Password</a>
-                                        </li>
-                                        <li>
-                                            <a href="{% url 'account_logout' %}">Logout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="{% url 'todo:import_csv' %}">
-                                    <i class="fa fa-folder"></i>
-                                    <span>Import CSV</span>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <a href="{% url 'two_factor:login' %}">
-                                    <i class="fas fa-user"></i>
-                                    <span>Login</span>
-                                </a>
-                            </li>
-                        {% endif %}
+                        <li>
+                            <a href="{% url 'todo:mine' %}">
+                                <i class="fas fa-thumbtack"></i>
+                                <span>My Tasks</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'todo:lists' %}">
+                                <i class="fas fa-tasks"></i>
+                                <span>All Tasks</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#!">
+                                <i class="fa fa-user"></i>
+                                <span>Welcome {{ request.user.username|title }}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'admin:index' %}">My profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'account_email' %}">Change E-Mail</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'account_change_password' %}">Change Password</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'account_logout' %}">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="{% url 'todo:import_csv' %}">
+                                <i class="fa fa-folder"></i>
+                                <span>Import CSV</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="{% url 'sendemail:email' %}">
                                 <i class="fas fa-envelope-open"></i>
