@@ -93,3 +93,15 @@
     background-color: #dc3545cc !important;
     border-color: #dc3545cc !important;
 }
+
+/* END Drag&Drop Effect */
+
+.custom_task_count {
+  text-align: justify;
+  padding: 40px 0;
+}
+
+.custom_task_count span {
+  color: #8d0a15;
+  font-weight: 700;
+}

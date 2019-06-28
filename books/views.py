@@ -13,11 +13,13 @@ from django.dispatch import receiver, Signal
 book_request = Signal(providing_args=['authors', 'requested_book'])
 
 
+@login_required
 def index(request):
 
 	return render(request, 'books/index.html', {})
 
 
+@login_required
 def dashboard(request):
 	# using order_by to make sure that the last added book shows as a first book
 	all_books = Book.objects.all().order_by('-id')
@@ -30,6 +32,7 @@ def dashboard(request):
 	return render(request, 'books/dashboard.html', context)
 
 
+@login_required
 def details_books(request, book_id):
 	try:
 		book = Book.objects.get(pk=book_id)
@@ -39,6 +42,7 @@ def details_books(request, book_id):
 		raise Http404("Ne postoji ta knjiga!")
 
 
+@login_required
 def enter_new_book(request):
 	if (request.method == 'POST'):
 		form = BookForm(request.POST, request.FILES)
@@ -67,6 +71,7 @@ def send_request_to_authors(sender, **kwargs):
 	email.send()
 
 
+@login_required
 def edit_books(request, book_id):
 	book = Book.objects.get(pk=book_id)
 	if (request.method == 'POST'):

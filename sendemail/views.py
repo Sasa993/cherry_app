@@ -2,8 +2,10 @@ from django.core.mail import send_mail, BadHeaderError, EmailMultiAlternatives
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactForm
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def email_main(request):
     if request.method == 'GET':
         form = ContactForm()
