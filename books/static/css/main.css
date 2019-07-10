@@ -1,3 +1,273 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-size: 0.9rem;
+}
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+.form-container .wrapper h5{
+    color: white;
+    padding: 0 10px;
+}
+.form-container .wrapper a, .wrapper p{
+    text-decoration: none;
+    color: white;
+}
+.form-container{
+    margin: 0;
+    padding: 25px 0;
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    background: url('../images/logo.png') no-repeat, url('../images/background_img.png') no-repeat;
+    background-size: 450px 145px, cover;
+    background-position: 50% 0%, 50%;
+}
+.wrapper{
+    padding: 55px 0;
+    font-family: sans-serif;
+    height: 60%;
+    overflow: hidden;
+    width: 500px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(#8d0a15, #43161d);
+    border-radius: 10px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.50), 0 15px 18px rgba(0,0,0,0.62);
+}
+.login-form{
+    width: 500px;
+    position: absolute;
+    left: 0;
+    transition: 1s left;
+}
+.token-form{
+    width: 500px;
+    position: absolute;
+    right: -500px;
+    transition: 1s right;
+}
+.form-container .input-container{
+    position: relative;
+    margin-bottom: 25px;
+}
+.input-container .input-icon{
+    width: 15px;
+    top: 7px;
+    left: 30%;
+    position: absolute;
+}
+/* Input fields CSS */
+#username, #password, #email, #backup-token-input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 10px 0;
+    margin-left: 40px;
+    width: 40%;
+    color: white;
+    border-bottom: .2px solid  rgba(255, 255, 255, .3);
+}
+/* Style placeholder and animate bottom-border on focus */ 
+#username::placeholder, #password::placeholder, #email::placeholder, #token::placeholder, #backup-token-input::placeholder{
+    padding-left: 5px;
+    font-size: 16px;
+}
+#username:focus::placeholder, 
+#password:focus::placeholder, 
+#email:focus::placeholder,
+#token:focus::placeholder,
+#backup-token-input:focus::placeholder{
+    color: transparent;
+}
+#username:focus, #password:focus, #email:focus, #backup-token-input:focus{
+    border-bottom: 1px solid ;
+    animation: 2s opacityBorder;
+}
+@keyframes opacityBorder{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* animate icons on focus */
+#username:focus + img, 
+#password:focus + img,
+#email:focus + img,
+#backup-token-input:focus + img{
+    top: -8px;
+    transition: .5s top;
+}
+#username:not(:focus) + img, 
+#password:not(:focus) + img,
+#email:not(:focus) + img,
+#backup-token-input:not(:focus) + img{
+    top: 7px;
+    transition: .6s top;
+}
+.login-form .button-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0
+}
+.button-container a, .button-container input{
+    padding: 8px 25px;
+}
+.button-container input{
+    outline:none !important;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .login-form, .token-form, .reset-form{ 
+    width: 100%;
+  }
+}
+@media screen and (min-width: 568px) and (max-width: 568px){
+    .wrapper{
+         padding: 75px 0;
+    }
+}
+/* Positioning logo for devices with 320px */
+@media screen and (min-width: 320px) and (max-width: 320px){
+    .form-container{
+        background-position: 50% -5%, 50%;
+    }
+}
+/* Style separately token form input */
+.token-form .token-input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 10px 0;
+    width: 30%;
+    color: white;
+    border-bottom: .2px solid  rgba(255, 255, 255, .3);
+}
+/* Hidden input spinner */
+.token-form .token-input[type=number]::-webkit-inner-spin-button,
+.token-form .token-input[type=number]::-webkit-outer-spin-button,
+.backup-token-form .backup-token-input[type=number]::-webkit-inner-spin-button,
+.backup-token-form .backup-token-input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+/* hide spinner for mozilla browsers */
+.token-form .token-input[type=number],
+.backup-token-form .backup-token-input[type=number]{
+    -moz-appearance:textfield;
+}
+/* Style buttons and icons on the form */
+.token-form .token-input:focus{
+    border-bottom: 1px solid ;
+    animation: 2s opacityBorder;
+}
+.token-form .button-container div{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.token-form .button-container div .back{
+    margin-right: 30px;
+}
+.token-form .button-container div button,.token-form .button-container div a, .token-form .button-container .backup-token{
+    padding: 8px 25px;
+}
+.token-form .button-container div input, .token-form .button-container .backup-token{
+    outline:none !important;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+.token-form #token:focus + img{
+    top: -8px;
+    transition: .5s top;
+}
+.token-form #token:not(:focus) + img{
+    top: 7px;
+    transition: .6s top;
+}
+/* Button hover effect */
+.form-container #login_btn,
+.form-container #back,
+.form-container #next,
+.form-container .backup-token,
+.form-container .reset-form input,
+.form-container .backup-token-form .button-container input{
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+}
+.form-container #login_btn::after,
+.form-container #back::after,
+.form-container #next::after,
+.form-container .backup-token::after,
+.form-container input::after,
+.form-container .backup-token-form .button-container input::after{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+.form-container #login_btn:hover,
+.form-container #back:hover,
+.form-container #next:hover,
+.form-container .backup-token:hover,
+.form-container .reset-form .button-container input:hover,
+.form-container .backup-token-form .button-container input:hover{
+    transform: scale(1.1, 1.1);
+}
+/* End button hover CSS effect*/
+/* Reset password form CSS */
+.reset-form{
+    width: 100%;
+    position: absolute;
+    left: -500px;
+    transition: 1s;
+}
+.reset-form .button-container{
+    display: flex;
+    justify-content: center;
+}
+.reset-form .button-container .reset-password{
+    margin-right: 30px;
+}
+/* Backup token form CSS */
+.backup-token-form{
+    width: 100%;
+    position: absolute;
+    right: -500px;
+    transition: 1s; 
+}
+.backup-token-form .button-container{
+    display: flex;
+    justify-content: center;
+}
+.backup-token-form .button-container #back-token-btn{
+    margin-right: 30px;
+}
+
+/* ====- NAVBAR CSS -====*/
 @keyframes swing {
     0% {
         transform: rotate(0deg);
@@ -58,16 +328,17 @@ body {
 }
 @media screen and (min-width: 768px) {
     .page-wrapper.toggled .page-content {
-        padding-left: 300px;
+        padding-left: 260px;
     }
 }
 /*----------------show sidebar button----------------*/
 #show-sidebar {
     position: fixed;
     left: 0;
-    top: 10px;
+    top: 7.5px;
     border-radius: 0 4px 4px 0px;
-    width: 55px;
+    width: 40px;
+    height: 35px;
     transition-delay: 0.3s;
     background: linear-gradient(#8d0a15, #43161d);    /*linear-radient(#8d0a15, #43161d);*/
 }
@@ -75,7 +346,8 @@ body {
     left: -40px;
 }
 .fa-bars{
-    color: #ffffff;    
+    color: #ffffff; 
+    vertical-align: middle;
 }
 /*----------------sidebar-wrapper----------------*/
 .sidebar-wrapper {
@@ -85,7 +357,7 @@ body {
     position: fixed;
     top: 0;
     left: -300px;
-    z-index: 999;
+    z-index: 2000;
     box-shadow: 5px 0 15px -3px #888;
 }
 .sidebar-wrapper ul {
@@ -155,8 +427,7 @@ body {
     background: 0 0;
     position: absolute;
     right: 15px;
-    /*top: 14px;*/
-    top: 9px;
+    top: 14px;
 }
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
     padding: 5px 0;
@@ -192,47 +463,48 @@ body {
 .page-wrapper .page-content {
     display: inline-block;
     width: 100%;
-    padding-left: 15px;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 .page-wrapper .page-content > div {
     padding: 20px 40px;
 }
+/*
 .page-wrapper .page-content {
     overflow-x: hidden;
 }
-/*------scroll bar---------------------*/
-::-webkit-scrollbar {
+*/
+/*------sidebar scroll bar---------------------*/
+.sidebar-content::-webkit-scrollbar {
     width: 4px;
     height: 7px;
 }
-::-webkit-scrollbar-button {
+.sidebar-content::-webkit-scrollbar-button {
     width: 0px;
     height: 0px;
 }
-::-webkit-scrollbar-thumb {
+.sidebar-content::-webkit-scrollbar-thumb {
     background: #525965;
     border: 0px none #ffffff;
     border-radius: 0px;
 }
-::-webkit-scrollbar-thumb:hover {
+.sidebar-content::-webkit-scrollbar-thumb:hover {
     background: #525965;
 }
-::-webkit-scrollbar-thumb:active {
+.sidebar-content::-webkit-scrollbar-thumb:active {
     background: #525965;
 }
-::-webkit-scrollbar-track {
+.sidebar-content::-webkit-scrollbar-track {
     background: transparent;
     border: 0px none #ffffff;
     border-radius: 50px;
 }
-::-webkit-scrollbar-track:hover {
+.sidebar-content::-webkit-scrollbar-track:hover {
     background: transparent;
 }
-::-webkit-scrollbar-track:active {
+.sidebar-content::-webkit-scrollbar-track:active {
     background: transparent;
 }
-::-webkit-scrollbar-corner {
+.sidebar-content::-webkit-scrollbar-corner {
     background: transparent;
 }
 /*-----------------------------chiller-theme-------------------------------------------------*/
@@ -304,4 +576,113 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
 .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
     background: transparent;
+}
+
+/* ====- FOOTER CSS -==== */
+footer p{
+    color: #8d0a15;
+    margin-bottom: 4px;
+}
+footer .copyright{
+    background-color: #d9d9d9;
+    font-size: 0.8rem;
+}
+footer .useful-links{
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 4px;
+}
+footer .useful-links li a{
+    padding: 0 8px;
+    color: #8d0a15;
+    text-decoration: none;
+}
+footer .useful-links li{
+    display: inline-block;
+}
+
+/* ====- CHANGE PASSWORD CSS -==== */
+.change_pass_form{
+    padding-bottom: 2px;
+}
+.change_pass_form form input{
+    background-color: #d9d9d9;
+}
+.change_pass_form form input:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #8d0a15;
+    transition: 1s all;
+}
+.change_pass_form form input::placeholder{
+    color: #8a8a8a;
+}
+/*
+.change_pass_form .change_pass_btn{
+    width: 100%;
+    padding: 10px 0;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid #d9d9d9;
+    border-right: 2px solid #d9d9d9;
+    background-color: ;
+    margin-bottom: 2px;
+    color: #8a8a8a;
+    font-size: 1.2rem;
+      display: inline-block;
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+.change_pass_form .change_pass_btn:hover{
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+*/
+.change_pass_form .change_pass_btn{
+  width: 100%;
+  background:transparent;
+  color:#8a8a8a;
+  border:none;
+  position:relative;
+  font-size:1.2rem;
+  padding:10px 0;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid #d9d9d9;
+  border-right: 2px solid #d9d9d9;
+}
+.change_pass_form .change_pass_btn:hover{
+  background:#fff;
+  color:#8d0a15;
+        border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+.change_pass_form .change_pass_btn:before,.change_pass_form .change_pass_btn:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #8d0a15;
+  transition:400ms ease all;
+}
+.change_pass_form .change_pass_btn:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.change_pass_form .change_pass_btn:hover:before,.change_pass_form .change_pass_btn:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+.change_pass_form .change_pass_btn:active {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    transition: 0ms;
 }
