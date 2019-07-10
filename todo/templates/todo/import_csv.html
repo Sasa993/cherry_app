@@ -10,10 +10,9 @@
 
   <p>
     Batch-import tasks by uploading a specifically-formatted CSV.
-    See documentation for formatting rules.
+    Download to template to create CSV easier. Updated CSV files will update the task list as well.
     Successs and failures will be reported here.
   </p>
-
   {% if results %}
     <div class="card mb-4">
       <div class="card-header">
@@ -71,6 +70,7 @@
       Upload Tasks
     </div>
     <div class="card-body">
+      <a href="{% static 'todo/import_example.csv' %}" download="import_example.csv" style="float:right"><button type="submit" class="btn btn-primary">Download the template</button></a>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
