@@ -105,3 +105,34 @@
   color: #8d0a15;
   font-weight: 700;
 }
+
+/* Change Password */
+
+.alert.alert-danger {
+  background-color: #8d0a15;
+  border: none !important;
+  color: #fff;
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+
+.alert.alert-danger ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); background: #8d0a15; }
+    100% { transform: translateY(-10px); background: #d21020; }
+}
+@keyframes mover {
+    0% { transform: translateY(0); background: #8d0a15; }
+    100% { transform: translateY(-10px); background: #d21020; }
+}
+
+button.change_pass_btn {
+  margin: 0;
+}
+
+/* END Change Password */

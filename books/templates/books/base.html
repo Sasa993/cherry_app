@@ -150,7 +150,7 @@
                                 </ul>
                             </div>
                             <div class="col-md-6 mt-1">
-                                <p>© <span id="copyright"></span> Cherry Media. All Rights Reserved</p>
+                                <p>© <script>document.write(new Date().getFullYear());</script> Cherry Media. All Rights Reserved</p>
                             </div>
                         </div>
                     </div>
@@ -200,6 +200,11 @@
         {
             $('.post_list').html($(data).find('.post_list').html());
         }
+
+        $(".change_pass_btn").click(function(){
+            console.log("evo ga: " + $(".alert-danger").show());
+            $(".alert-danger").fadeIn();
+        });
     </script>
 </body>
 </html>
