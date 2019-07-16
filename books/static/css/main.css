@@ -601,88 +601,154 @@ footer .useful-links li{
     display: inline-block;
 }
 
-/* ====- CHANGE PASSWORD CSS -==== */
-.change_pass_form{
-    padding-bottom: 2px;
+/* ====- CHANGE EMAIL CSS -==== */
+.change_email_form .change_email_header{
+    background: url('../images/change_email_banner.png') no-repeat;
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
-.change_pass_form form input{
+.change_email_form .change_email_header h3{
+    color: #ffffff;
+    padding: 50px 0
+}
+.change_email_form .form .checkbox_option{
+    font-weight:700
+}
+.change_email_form .form .checkbox_option .unverified_text{
+    margin-left: 25px;
+}
+.change_email_form .form .button_group{
+    display: flex;
+    justify-content: space-between
+}
+.change_email_form .form .button_group button{
     background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
 }
-.change_pass_form form input:focus{
+.change_email_form .form .button_group button:focus, .change_email_form .add_email:focus{
     outline: none;
+}
+.change_email_form .form .button_group button:hover, .change_email_form .add_email:hover{
+    border-bottom: 2px solid #8d0a15;
+    transition: .5s border-bottom linear;
+}
+.change_email_form .form .email_input_group .email_input_container span, .email_input_group form span{
+    background-color: #d9d9d9;    
+}
+.change_email_form .form .email_input_group .email_input_container img, .email_input_group form img{
+    width: 19px;
+}
+.change_email_form .form .email_input_group .email_input_container input{
+    border-radius: none;
+}
+.change_email_form .form .email_input_group input:focus, .email_input_group form input:focus{
     box-shadow: none;
     border: 1px solid #8d0a15;
     transition: 1s all;
 }
-.change_pass_form form input::placeholder{
+.change_email_form .add_email{
+    background-color: #d9d9d9;
     color: #8a8a8a;
+    padding: 8px 45px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
 }
-/*
-.change_pass_form .change_pass_btn{
-    width: 100%;
-    padding: 10px 0;
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    border-left: 2px solid #d9d9d9;
-    border-right: 2px solid #d9d9d9;
-    background-color: ;
-    margin-bottom: 2px;
+@media screen and (max-width: 450px){   
+    .change_email_form .form .button_group{
+        display: block;
+    }
+    .change_email_form .form .button_group button{
+        margin-bottom: 5px;
+    }
+    .change_email_form .change_email_header{
+        background-position: center
+    }
+    .change_email_form .change_email_header h3{
+        padding: 5px;
+    }
+}
+
+/* ====- CHANGE PASSWORD CSS -==== */
+.change_pass_form .change_pass_header{
+    background: url('../images/change_password_banner.png') no-repeat;
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.change_pass_form .change_pass_header h3{
+    color: #ffffff;
+    padding: 50px 0
+}
+.change_pass_form .pass_form .pass_input_container img{
+    width: 19px;
+}
+.change_pass_form .pass_form .pass_input_container input:focus{
+    box-shadow: none;
+    border: 1px solid #8d0a15;
+    transition: 1s all;
+}
+.change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+    background-color: #d9d9d9;
     color: #8a8a8a;
-    font-size: 1.2rem;
-      display: inline-block;
-  transition-duration: 0.3s;
-  transition-property: box-shadow;
-  -webkit-tap-highlight-color: transparent;
-  transform: translateZ(0);
-  box-shadow: 0 0 1px transparent;
+    padding: 8px 45px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
 }
-.change_pass_form .change_pass_btn:hover{
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+.change_pass_form .pass_form .change_pass_btn_container .change_pass_btn:focus{
+    outline: none;
 }
-*/
-.change_pass_form .change_pass_btn{
-  width: 100%;
-  background:transparent;
-  color:#8a8a8a;
-  border:none;
-  position:relative;
-  font-size:1.2rem;
-  padding:10px 0;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  border-left: 2px solid #d9d9d9;
-  border-right: 2px solid #d9d9d9;
+.change_pass_form .pass_form .change_pass_btn_container .change_pass_btn:hover{
+   border-bottom: 2px solid #8d0a15;
+   transition: .5s border-bottom linear; 
+}  
+@media screen and (max-width: 450px){ 
+    change_pass_form .change_pass_header{
+        background-position: top left;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 5px;
+    }
 }
-.change_pass_form .change_pass_btn:hover{
-  background:#fff;
-  color:#8d0a15;
-        border-left: 2px solid transparent;
-    border-right: 2px solid transparent;
+
+/* ====- 2FA settings CSS -==== */
+.two_fa_settings_form .two_fa_settings_header{
+    background: url('../images/2FA_banner.png') no-repeat;
+    background-position: 0;
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
-.change_pass_form .change_pass_btn:before,.change_pass_form .change_pass_btn:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #8d0a15;
-  transition:400ms ease all;
+.two_fa_settings_form .two_fa_settings_header h3{
+    color: #ffffff;
+    padding: 50px 0 
 }
-.change_pass_form .change_pass_btn:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
+.two_fa_settings_form .two_fa_settings_btn_container .two_fa_settings_btn{
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
 }
-.change_pass_form .change_pass_btn:hover:before,.change_pass_form .change_pass_btn:hover:after{
-  width:100%;
-  transition:800ms ease all;
+.two_fa_settings_form .two_fa_settings_btn_container .two_fa_settings_btn:hover{
+   border-bottom: 2px solid #8d0a15;
+   transition: .5s border-bottom linear; 
 }
-.change_pass_form .change_pass_btn:active {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-    transition: 0ms;
+.two_fa_settings_form .two_fa_settings_btn_container .two_fa_settings_btn:focus{
+    outline: none;
+}
+@media screen and (max-width: 450px){ 
+    .two_fa_settings_form .two_fa_settings_header{
+        background-position: top left;
+    }
+    .two_fa_settings_form .two_fa_settings_header h3{
+        padding: 5px;
+    }
 }

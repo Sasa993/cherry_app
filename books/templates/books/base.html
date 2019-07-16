@@ -201,10 +201,14 @@
             $('.post_list').html($(data).find('.post_list').html());
         }
 
-        $(".change_pass_btn").click(function(){
-            console.log("evo ga: " + $(".alert-danger").show());
-            $(".alert-danger").fadeIn();
-        });
+        // erros and messages disappear after certain time - 3 secs and 10 secs
+        setTimeout(function(){
+            $('.alert-danger').fadeOut();
+        }, 3000);
+
+        setTimeout(function(){
+            $('.custom_alert-danger').fadeOut();
+        }, 10000);
     </script>
 </body>
 </html>

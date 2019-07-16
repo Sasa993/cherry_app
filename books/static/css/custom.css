@@ -1,8 +1,12 @@
+button {
+  cursor: pointer;
+}
+
 .custom_buttons {
 	padding: 0 0 20px 0;
 }
 
-.custom_buttons a, button {
+.custom_buttons a {
 	margin: 0 14px;
 }
 
@@ -108,15 +112,16 @@
 
 /* Change Password */
 
-.alert.alert-danger {
+.custom_alert.custom_alert-danger {
   background-color: #8d0a15;
   border: none !important;
   color: #fff;
+  padding: 10px;
   -webkit-animation: mover 1s infinite  alternate;
   animation: mover 1s infinite  alternate;
 }
 
-.alert.alert-danger ul {
+.custom_alert.custom_alert-danger ul {
   list-style: none;
   margin: 0;
   padding: 0;
