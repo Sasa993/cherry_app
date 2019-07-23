@@ -2,6 +2,7 @@
 {% load i18n %}
 
 {% block content %}
+  <!--
   <h1>{% block title %}{% trans "Add Backup Phone" %}{% endblock %}</h1>
 
   {% if wizard.steps.current == 'setup' %}
@@ -21,4 +22,28 @@
 
     {% include "two_factor/_wizard_actions.html" %}
   </form>
+-->
+  <div class="backup_phone_form mt-4">
+    <div class="col-md-6 offset-md-3">
+      <div class="card-body backup_phone_header">
+        <h3 class="mb-1">{% trans "BACKUP PHONE" %}</h3>
+      </div>
+      <div class="card-body backup_phone_container">
+        {% if wizard.steps.current == 'setup' %}
+          <h6>{% blocktrans %}Backup phone number will be used if your primary method of registration is not available.{% endblocktrans %}</h6>
+        {% elif wizard.steps.current == 'validation' %}
+          <h6>{% blocktrans %}We've sent a token to your phone number. Please enter the token you've received.{% endblocktrans %}</h6>
+        {% endif %}
+        <form class="backup_form" action="" method="POST">
+          {% csrf_token %}
+          {% include "two_factor/_wizard_forms.html" %}
+
+          {# hidden submit button to enable [enter] key #}
+          <div style="margin-left: -9999px"><input type="submit" value=""/></div>
+
+          {% include "two_factor/_wizard_actions.html" %}
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

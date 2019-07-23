@@ -788,3 +788,47 @@ footer .useful-links li{
         font-size: 1.2rem;
     }
 }
+/* ====- PHONE BACKUP CSS -==== */
+.backup_phone_form  .backup_phone_header{
+    background: url('../images/phone_backup.png') no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.backup_phone_form  .backup_phone_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.backup_phone_form .backup_phone_container .backup_form .backup_input_container img{
+    width: 19px;
+}
+.backup_phone_form .backup_phone_container .backup_form .backup_input_container input:focus{
+    box-shadow: none;
+    border: 1px solid #8d0a15;
+    transition: 1s all;
+}
+.backup_phone_form .backup_phone_container .backup_form .backup_phone_btn_container button{
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
+}
+.backup_phone_form .backup_phone_container .backup_form .backup_phone_btn_container button:hover{
+   border-bottom: 2px solid #8d0a15;
+   transition: .5s border-bottom linear; 
+}
+.backup_phone_form .backup_phone_container .backup_form .backup_phone_btn_container button:focus{
+    outline: none;
+}
+@media screen and (max-width: 450px){
+    .backup_phone_form  .backup_phone_header{
+        background-position: top left;
+    }
+    .backup_phone_form  .backup_phone_header h3{
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+}
