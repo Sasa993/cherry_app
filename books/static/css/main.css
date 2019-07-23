@@ -752,3 +752,39 @@ footer .useful-links li{
         padding: 5px;
     }
 }
+/* ====- DISABLE 2FA CSS -==== */
+.disable_2fa_form .disable_2fa_header{
+    background: url('../images/2FA_banner.png') no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.disable_2fa_form .disable_2fa_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.disable_2fa_form .disable_2fa_btn{
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
+}
+.disable_2fa_form .disable_2fa_btn:hover{
+   border-bottom: 2px solid #8d0a15;
+   transition: .5s border-bottom linear; 
+}
+.disable_2fa_form .disable_2fa_btn:focus{
+    outline: none;
+}
+@media screen and (max-width: 450px){
+    .disable_2fa_form .disable_2fa_header{
+        background-position: top left;
+    }
+    .disable_2fa_form .disable_2fa_header h3{
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+}

@@ -2,13 +2,28 @@
 {% load i18n %}
 
 {% block content %}
-  <h1>{% block title %}{% trans "Disable Two-factor Authentication" %}{% endblock %}</h1>
-  <p>{% blocktrans %}You are about to disable two-factor authentication. This
-    weakens your account security, are you sure?{% endblocktrans %}</p>
-  <form method="post">
-    {% csrf_token %}
-    <table>{{ form }}</table>
-    <button class="btn btn-danger"
-            type="submit">{% trans "Disable" %}</button>
-  </form>
+  	<div class="disable_2fa_form mt-4">
+	    <div class="col-md-6 offset-md-3">
+	        <div class="card-body disable_2fa_header">
+	        	<h3 class="mb-0">{% trans "DISABLE 2FA" %}</h3>
+	        </div>
+	        <div class="card-body">
+	            <h6>You are about to disable 2FA authentication. <br> This Weaknes your account security </h6>
+	            <div class="form-group">
+	                <form method="POST">
+	                    <div class="form-check">
+							{% csrf_token %}
+							{% for field in form %}
+								<input class="form-check-input" type="checkbox" id="{{ field.id_for_label }}" required="" name="{{ field.name }}">
+								<label class="form-check-label" for="{{ field.id_for_label }}">
+				                    <b>Yes, I am sure</b>
+				                </label>
+							{% endfor %}
+						</div><br>
+						<button type="submit" class="disable_2fa_btn">Disable</button>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+    </div>
 {% endblock %}
