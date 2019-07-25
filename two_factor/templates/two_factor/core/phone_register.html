@@ -1,28 +1,8 @@
 {% extends "two_factor/_base_focus.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
-  <!--
-  <h1>{% block title %}{% trans "Add Backup Phone" %}{% endblock %}</h1>
-
-  {% if wizard.steps.current == 'setup' %}
-      <p>{% blocktrans %}You'll be adding a backup phone number to your
-        account. This number will be used if your primary method of
-        registration is not available.{% endblocktrans %}</p>
-  {% elif wizard.steps.current == 'validation' %}
-      <p>{% blocktrans %}We've sent a token to your phone number. Please
-        enter the token you've received.{% endblocktrans %}</p>
-  {% endif %}
-
-  <form action="" method="post">{% csrf_token %}
-    {% include "two_factor/_wizard_forms.html" %}
-
-    {# hidden submit button to enable [enter] key #}
-    <div style="margin-left: -9999px"><input type="submit" value=""/></div>
-
-    {% include "two_factor/_wizard_actions.html" %}
-  </form>
--->
   <div class="backup_phone_form mt-4">
     <div class="col-md-6 offset-md-3">
       <div class="card-body backup_phone_header">
@@ -36,14 +16,43 @@
         {% endif %}
         <form class="backup_form" action="" method="POST">
           {% csrf_token %}
-          {% include "two_factor/_wizard_forms.html" %}
+          <div class="backup_phone_group">
+            {% include "two_factor/_wizard_forms_bp.html" %}
 
-          {# hidden submit button to enable [enter] key #}
-          <div style="margin-left: -9999px"><input type="submit" value=""/></div>
-
-          {% include "two_factor/_wizard_actions.html" %}
+            {% include "two_factor/_wizard_actions_bp.html" %}
+            {# hidden submit button to enable [enter] key #}
+            <div style="margin-left: -9999px"><input type="submit" value=""/></div>
+          </div>
         </form>
       </div>
     </div>
   </div>
+{% endblock %}
+{% block other_js %}
+  <script>
+    $(document).ready(function(){
+      var backup_phone_input = $('#id_setup-number');
+      var backup_token_input = $('#id_validation-token');
+
+      backup_phone_input.wrap('<div class="input-group mb-3 backup_input_container"></div>').addClass("form-control").attr({
+        "placeholder": "Phone Number",
+      });
+      $('<div class="input-group-prepend"><span class="input-group-text"><img src="{% static 'images/profile_phone_icon.svg' %}"></span></div>').insertBefore(backup_phone_input);
+      $("label[for='id_setup-number']").remove();
+      $("ul#id_setup-method").prev().remove();
+
+      $("label[for='id_setup-method_0']").addClass('form-check');
+      $("label[for='id_setup-method_0'] input").addClass('form-check-input');
+
+      $("label[for='id_setup-method_1']").addClass('form-check');
+      $("label[for='id_setup-method_1'] input").addClass('form-check-input');
+
+      backup_token_input.wrap('<div class="input-group mb-3 backup_input_container"></div>').addClass("form-control").attr({
+        "placeholder": "Enter Token",
+      });
+      $('<div class="input-group-prepend"><span class="input-group-text"><img src="{% static 'images/profile_token_icon.svg' %}"></span></div>').insertBefore(backup_token_input);
+      $("label[for='id_validation-token']").remove();
+      $(".backup_phone_group table").css("display", "none");
+    });
+  </script>
 {% endblock %}

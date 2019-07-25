@@ -141,3 +141,13 @@ button.change_pass_btn {
 }
 
 /* END Change Password */
+
+/*Backup Phone*/
+
+
+#id_setup-method {
+  list-style: none;
+  padding: 0;
+}
+
+/*END Backup Phone*/
