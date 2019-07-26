@@ -46,7 +46,6 @@ button {
 }
 
 /* Drag&Drop Effect */
-
 .tDnD_whileDrag {
   background: #fdf1f1;
   width: 180px;
@@ -97,7 +96,6 @@ button {
     background-color: #dc3545cc !important;
     border-color: #dc3545cc !important;
 }
-
 /* END Drag&Drop Effect */
 
 .custom_task_count {
@@ -111,7 +109,6 @@ button {
 }
 
 /* Change Password */
-
 .custom_alert.custom_alert-danger {
   background-color: #8d0a15;
   border: none !important;
@@ -139,15 +136,14 @@ button {
 button.change_pass_btn {
   margin: 0;
 }
-
 /* END Change Password */
 
-/*Backup Phone*/
-
-
+/* Backup Phone & Backup Tokens */
 #id_setup-method {
   list-style: none;
   padding: 0;
 }
-
-/*END Backup Phone*/
+.custom_no_backup_codes {
+  color: #dc3545cc !important;
+}
+/* END Backup Phone */

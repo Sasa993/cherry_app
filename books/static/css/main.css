@@ -7,8 +7,6 @@ body{
 body::-webkit-scrollbar {
     width: 0px;
 }
-
-
 .form-container .wrapper h5{
     color: white;
     padding: 0 10px;
@@ -65,7 +63,8 @@ body::-webkit-scrollbar {
     left: 30%;
     position: absolute;
 }
-/* Input fields CSS */
+
+/* Input Fields */
 #username, #password, #email, #backup-token-input{
     outline: none;
     border: none;
@@ -76,7 +75,8 @@ body::-webkit-scrollbar {
     color: white;
     border-bottom: .2px solid  rgba(255, 255, 255, .3);
 }
-/* Style placeholder and animate bottom-border on focus */ 
+
+/* Style Placeholder and Animate Bottom-Border on Focus */ 
 #username::placeholder, #password::placeholder, #email::placeholder, #token::placeholder, #backup-token-input::placeholder{
     padding-left: 5px;
     font-size: 16px;
@@ -100,7 +100,8 @@ body::-webkit-scrollbar {
         opacity: 1;
     }
 }
-/* animate icons on focus */
+
+/* Animate Icons on Focus */
 #username:focus + img, 
 #password:focus + img,
 #email:focus + img,
@@ -141,13 +142,15 @@ body::-webkit-scrollbar {
          padding: 75px 0;
     }
 }
-/* Positioning logo for devices with 320px */
+
+/* Positioning Logo for Devices With 320px */
 @media screen and (min-width: 320px) and (max-width: 320px){
     .form-container{
         background-position: 50% -5%, 50%;
     }
 }
-/* Style separately token form input */
+
+/* Style Separately Token Form Input */
 .token-form .token-input{
     outline: none;
     border: none;
@@ -157,7 +160,8 @@ body::-webkit-scrollbar {
     color: white;
     border-bottom: .2px solid  rgba(255, 255, 255, .3);
 }
-/* Hidden input spinner */
+
+/* Hidden Input Spinner */
 .token-form .token-input[type=number]::-webkit-inner-spin-button,
 .token-form .token-input[type=number]::-webkit-outer-spin-button,
 .backup-token-form .backup-token-input[type=number]::-webkit-inner-spin-button,
@@ -165,12 +169,14 @@ body::-webkit-scrollbar {
     -webkit-appearance: none; 
     margin: 0; 
 }
-/* hide spinner for mozilla browsers */
+
+/* Hide Spinner for Mozilla Browser */
 .token-form .token-input[type=number],
 .backup-token-form .backup-token-input[type=number]{
     -moz-appearance:textfield;
 }
-/* Style buttons and icons on the form */
+
+/* Style Buttons and Icons on the Form */
 .token-form .token-input:focus{
     border-bottom: 1px solid ;
     animation: 2s opacityBorder;
@@ -202,7 +208,8 @@ body::-webkit-scrollbar {
     top: 7px;
     transition: .6s top;
 }
-/* Button hover effect */
+
+/* Button Hover Effect */
 .form-container #login_btn,
 .form-container #back,
 .form-container #next,
@@ -237,8 +244,8 @@ body::-webkit-scrollbar {
 .form-container .backup-token-form .button-container input:hover{
     transform: scale(1.1, 1.1);
 }
-/* End button hover CSS effect*/
-/* Reset password form CSS */
+
+/* Reset Password Form */
 .reset-form{
     width: 100%;
     position: absolute;
@@ -252,7 +259,8 @@ body::-webkit-scrollbar {
 .reset-form .button-container .reset-password{
     margin-right: 30px;
 }
-/* Backup token form CSS */
+
+/* Backup Token Form */
 .backup-token-form{
     width: 100%;
     position: absolute;
@@ -267,7 +275,7 @@ body::-webkit-scrollbar {
     margin-right: 30px;
 }
 
-/* ====- NAVBAR CSS -====*/
+/* Navbar */
 @keyframes swing {
     0% {
         transform: rotate(0deg);
@@ -300,7 +308,8 @@ body::-webkit-scrollbar {
 body {
     font-size: 0.9rem;
 }
-/* CSS transitions */
+
+/* Sidebar Transitions */
 .page-wrapper .sidebar-wrapper,
 .sidebar-wrapper .sidebar-header > a,
 .sidebar-wrapper .sidebar-dropdown > a:after,
@@ -318,11 +327,13 @@ body {
     -o-transition: all 0.3s ease;
     transition: all .5s ease;
 }
-/*----------------page-wrapper----------------*/
+
+/* Page Wrapper */
 .page-wrapper {
     height: 100vh;
 }
-/*----------------toggeled sidebar----------------*/
+
+/* Toggeled Sidebar */
 .page-wrapper.toggled .sidebar-wrapper {
     left: 0px;
 }
@@ -331,7 +342,8 @@ body {
         padding-left: 260px;
     }
 }
-/*----------------show sidebar button----------------*/
+
+/* Show Sidebar Button */
 #show-sidebar {
     position: fixed;
     left: 0;
@@ -349,7 +361,8 @@ body {
     color: #ffffff; 
     vertical-align: middle;
 }
-/*----------------sidebar-wrapper----------------*/
+
+/* Sidebar Wrapper */
 .sidebar-wrapper {
     width: 260px;
     height: 100%;
@@ -368,14 +381,16 @@ body {
 .sidebar-wrapper a {
     text-decoration: none;
 }
-/*----------------sidebar-content----------------*/
+
+/* Sidebar Content */
 .sidebar-content {
     max-height: calc(100% - 10px);
     height: calc(100% - 10px);
     overflow-y: auto;
     position: relative;
 }
-/*--------------------sidebar-header----------------------*/
+
+/* Sidebar Header */
 .sidebar-wrapper .sidebar-header {
     padding: 10px 20px;
     display: flex;
@@ -390,7 +405,8 @@ body {
     cursor: pointer;
     font-size: 20px;
 }
-/*----------------------sidebar-menu-------------------------*/
+
+/* Sidebar Menu */
 .sidebar-wrapper .sidebar-menu {
     padding-bottom: 10px;
 }
@@ -459,7 +475,8 @@ body {
     transform: rotate(90deg);
     right: 17px;
 }
-/*--------------------------page-content-----------------------------*/
+
+/* Page Content */
 .page-wrapper .page-content {
     display: inline-block;
     width: 100%;
@@ -473,7 +490,8 @@ body {
     overflow-x: hidden;
 }
 */
-/*------sidebar scroll bar---------------------*/
+
+/* Sidebar Scroll Bar */
 .sidebar-content::-webkit-scrollbar {
     width: 4px;
     height: 7px;
@@ -507,7 +525,8 @@ body {
 .sidebar-content::-webkit-scrollbar-corner {
     background: transparent;
 }
-/*-----------------------------chiller-theme-------------------------------------------------*/
+
+/* Chiller Theme */
 .chiller-theme .sidebar-wrapper {
     background-color: #E6E6E6;
 }
@@ -538,7 +557,7 @@ body {
     transform: scale(1.2)
 }
 
-/* Search input CSS */
+/* Search input */
 .sidebar-wrapper .sidebar-search > div {
   padding: 10px 20px;
 }
@@ -578,7 +597,7 @@ body {
     background: transparent;
 }
 
-/* ====- FOOTER CSS -==== */
+/* Footer */
 footer p{
     color: #8d0a15;
     margin-bottom: 4px;
@@ -601,7 +620,7 @@ footer .useful-links li{
     display: inline-block;
 }
 
-/* ====- CHANGE EMAIL CSS -==== */
+/* Change Email */
 .change_email_form .change_email_header{
     background: url('../images/change_email_banner.png') no-repeat;
     background-size: cover;
@@ -674,9 +693,9 @@ footer .useful-links li{
     }
 }
 
-/* ====- CHANGE PASSWORD CSS -==== */
+/* Change Password */
 .change_pass_form .change_pass_header{
-    background: url('../images/change_password_banner.png') no-repeat;
+    background: url('../images/password_banner.png') no-repeat;
     background-size: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -717,7 +736,7 @@ footer .useful-links li{
     }
 }
 
-/* ====- 2FA settings CSS -==== */
+/* 2FA settings */
 .two_fa_settings_form .two_fa_settings_header{
     background: url('../images/2FA_banner.png') no-repeat;
     background-position: 0;
@@ -752,7 +771,8 @@ footer .useful-links li{
         padding: 5px;
     }
 }
-/* ====- DISABLE 2FA CSS -==== */
+
+/* Disable 2FA */
 .disable_2fa_form .disable_2fa_header{
     background: url('../images/2FA_banner.png') no-repeat;
     background-size: cover;
@@ -788,7 +808,8 @@ footer .useful-links li{
         font-size: 1.2rem;
     }
 }
-/* ====- PHONE BACKUP CSS -==== */
+
+/* Phone Backup */
 .backup_phone_form  .backup_phone_header{
     background: url('../images/phone_backup.png') no-repeat;
     background-size: cover;
@@ -828,6 +849,112 @@ footer .useful-links li{
         background-position: top left;
     }
     .backup_phone_form  .backup_phone_header h3{
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Token Backup */
+.backup_token_form  .backup_token_header{
+    background: url('../images/token_security.png') no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.backup_token_form  .backup_token_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.backup_token_form .backup_token_container .token_backup_form .backup_token_input_container img{
+    width: 19px;
+}
+.backup_token_form .backup_token_container .token_backup_form .backup_token_input_container input:focus{
+    box-shadow: none;
+    border: 1px solid #8d0a15;
+    transition: 1s all;
+}
+.backup_token_form .backup_token_container .token_backup_form .backup_token_btn_container button{
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
+}
+.backup_token_form .backup_token_container .token_backup_form .backup_token_btn_container button:hover{
+   border-bottom: 2px solid #8d0a15;
+   transition: .5s border-bottom linear; 
+}
+..backup_token_form .backup_token_container .token_backup_form .backup_token_btn_container button:focus{
+    outline: none;
+}
+@media screen and (max-width: 450px){
+    .backup_token_form  .backup_token_header{
+        background-position: top left;
+    }
+    .backup_token_form  .backup_token_header h3{
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Token List */
+.token_list_form .token_list_header{
+    background: url('../images/token_security.png') no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.token_list_form .token_list_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.token_list_form .token_list_container .token_list{
+    padding: 0;
+    list-style: none;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+.token_list_form .token_list_container .token_list li{
+    border-bottom: 2px solid #d9d9d9;
+    padding: 2px 0;
+    font-weight: 500;
+}
+.token_list_form .token_list_container .token_list li:hover{
+    border-bottom: 2px solid #8d0a15;
+    color: #8d0a15;
+    background-color: #d9d9d9;
+    transition: 1s all linear
+}
+.token_list_form .token_list_container .token_list_btn_container a{
+    text-decoration: none;
+}
+.token_list_form .token_list_container .token_list_btn_container a:hover{
+   color: #8d0a15; 
+}
+.token_list_form .token_list_container .token_list_btn_container .token_list_generate{
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
+}
+.token_list_form .token_list_container .token_list_btn_container .token_list_generate:hover{
+   border-bottom: 2px solid #8d0a15;
+   transition: .5s border-bottom linear; 
+}
+.token_list_form .token_list_container .token_list_btn_container .token_list_generate:focus{
+    outline: none;
+}
+@media screen and (max-width: 450px){
+    .token_list_form .token_list_header{
+        background-position: top left;
+    }
+    .token_list_form .token_list_header h3{
         padding: 5px;
         font-size: 1.2rem;
     }
