@@ -19,9 +19,10 @@
           <div class="backup_phone_group">
             {% include "two_factor/_wizard_forms_bp.html" %}
 
-            {% include "two_factor/_wizard_actions_bp.html" %}
             {# hidden submit button to enable [enter] key #}
-            <div style="margin-left: -9999px"><input type="submit" value=""/></div>
+            <div style="margin-left: -9999px; overflow: hidden; float: left;"><input type="submit" value=""/></div>
+
+            {% include "two_factor/_wizard_actions_bp.html" %}
           </div>
         </form>
       </div>

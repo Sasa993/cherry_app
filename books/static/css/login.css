@@ -175,7 +175,7 @@ input.reset-password{
     color: white;
     border-bottom: .2px solid  rgba(255, 255, 255, .3);
     position: relative;
-    margin-bottom: 25px;
+    /*margin-bottom: 25px;*/
 }
 
 
@@ -389,5 +389,5 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 #login_btn {
-    top: -20px;
+    /*top: -20px;*/
 }

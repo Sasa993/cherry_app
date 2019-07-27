@@ -4,12 +4,68 @@
 {% endblock %}
 
 {% block content %}
-<h1>Contact Us</h1>
+<!--<h1>Contact Us</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <div class="form-actions">
       <button type="submit">Send</button>
     </div>
-</form>
+</form>-->
+
+	<div class="contact_us_form mt-4">
+		<div class="col-md-6 offset-md-3">
+	    	<div class="card-body contact_us_header">
+	        	<h3 class="mb-0">GET IN TOUCH</h3>
+	        </div>
+	        <div class="card-body">
+	        	<h6 class="text-center">Our team is happy to answer your questions. <br> Fill out the form and we'll be in touch as soon as possible</h6>
+	            <form method="post" class="contact_us_form_container mt-4" role="form">
+	            	{% csrf_token %}
+	            	{% for field in form %}
+						<div class="form-group">
+							{% if field.errors %}
+								<div class="custom_alert custom_alert-danger">
+									{{ field.errors }}
+								</div>
+							{% endif %}
+						</div>
+						<div class="contact_us_input_container">
+							<div class="input-group mb-3">
+								{{ field }}
+							</div>
+						</div>
+					{% endfor %}
+					<div class="form-group contact_us_btn_container">
+	                	<button type="submit" class="contact_us_btn">Send</button>
+	                </div>
+				</form>
+
+	            	<!--<div class="contact_us_input_container">
+	                	<div class="input-group mb-3">
+	                    	<input type="text" class="form-control rounded_top_corner" placeholder="Your Name" aria-label="Username" aria-describedby="basic-addon1">
+	                    </div>
+	                </div>
+	                <div class="contact_us_input_container">
+	                	<div class="input-group mb-3">
+	                    	<input type="text" class="form-control" placeholder="Your Email" aria-label="Username" aria-describedby="basic-addon1">
+	                    </div>
+					</div>
+	                <div class="contact_us_input_container">
+	                	<div class="input-group mb-3">
+	                    	<input type="text" class="form-control" placeholder="Subject" aria-label="Username" aria-describedby="basic-addon1">
+	                    </div>
+	                </div>
+	                <div class="contact_us_input_container">
+	                	<div class="input-group mb-3">
+	                    	<textarea class="form-control" placeholder="Your Message..." rows="3"></textarea>
+	                    </div>
+	                </div>
+	                <div class="form-group contact_us_btn_container">
+	                	<button type="submit" class="contact_us_btn">Send</button>
+	                </div>
+	            </form>-->
+	        </div>
+	    </div>
+	</div>
 {% endblock %}

@@ -959,3 +959,73 @@ footer .useful-links li{
         font-size: 1.2rem;
     }
 }
+
+/* Contact Us */
+.contact_us_form .contact_us_header{
+    background: url('../images/contact_header.png') no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.contact_us_form .contact_us_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.contact_us_form .contact_us_form_container .contact_us_input_container .rounded_top_corner{
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.contact_us_form .contact_us_form_container .contact_us_input_container textarea{
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.contact_us_form .contact_us_form_container .contact_us_input_container input:focus,
+.contact_us_form .contact_us_form_container .contact_us_input_container textarea:focus{
+    box-shadow: none;
+    border: 1px solid #8d0a15;
+    transition: 1s all;
+}
+.contact_us_form .contact_us_form_container .contact_us_btn_container .contact_us_btn{
+    padding: 10px 65px;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    background-image: linear-gradient(to right, #8d0a15 0%, #43161d 100%);
+    background-size: 300% 100%;
+    border-radius: 5px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.contact_us_form .contact_us_form_container .contact_us_btn_container .contact_us_btn:focus{
+    outline: none;
+}
+.contact_us_form .contact_us_form_container .contact_us_btn_container .contact_us_btn:hover{
+    background-position: 50% 0%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}  
+@media screen and (max-width: 450px){
+    .contact_us_form .contact_us_header{
+        background-position: top left;
+    }
+    .contact_us_form .contact_us_header h3{
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+}
+.contact_us_form .contact_us_form_container .contact_us_input_container textarea::-webkit-scrollbar {
+    width: 4px;
+}
+.contact_us_form .contact_us_form_container .contact_us_input_container textarea::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(141, 10, 21 ,0.5); 
+    border-radius: 10px;
+}
+.contact_us_form .contact_us_form_container .contact_us_input_container textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(141, 10, 21 ,1); 
+}

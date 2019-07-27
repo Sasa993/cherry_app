@@ -30,14 +30,14 @@
     {% include "two_factor/_wizard_forms.html" %}
     
     {# hidden submit button to enable [enter] key #}
-    <div style="margin-left: -9999px"><input type="submit" value=""/></div>
+    <div style="margin-left: -9999px; overflow: hidden; float: left;"><input type="submit" value=""/></div>
 
     {% if other_devices %}
       <p>{% trans "Or, alternatively, use one of your backup phones:" %}</p>
       <p>
         {% for other in other_devices %}
         <button name="challenge_device" value="{{ other.persistent_id }}"
-                class="btn btn-default btn-block" type="submit">
+                class="btn btn-default btn-block backup-token" type="submit">
           {{ other|device_action }}
         </button>
       {% endfor %}</p>
