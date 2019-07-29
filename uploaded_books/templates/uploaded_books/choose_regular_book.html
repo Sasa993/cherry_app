@@ -1,0 +1,13 @@
+{% extends "books/base.html" %}
+
+{% block title %} Choose Regular Book {% endblock %}
+
+{% block content %}
+	<a href="{% url 'uploaded_books:upload_5x8' %}"><button class="btn btn-outline-secondary">5x8</button></a>
+	<a href="{% url 'uploaded_books:upload_a5_hardcover' %}"><button class="btn btn-outline-secondary">A5 Hardcover</button></a>
+	<a href="{% url 'uploaded_books:upload_115x18_fnsku' %}"><button class="btn btn-outline-secondary">11,5x18 FNSKU</button></a>
+	<a href="{% url 'uploaded_books:upload_115x18_isbn' %}"><button class="btn btn-outline-secondary">11,5x18 ISBN</button></a>
+	<a href="{% url 'uploaded_books:upload_125x19_hardcover' %}"><button class="btn btn-outline-secondary">12,5x19 Hardcover</button></a>
+	<a href="{% url 'uploaded_books:upload_125x19_fnsku' %}"><button class="btn btn-outline-secondary">12,5x19 FNSKU</button></a>
+	<a href="{% url 'uploaded_books:upload_125x19_isbn' %}"><button class="btn btn-outline-secondary">12,5x19 ISBN</button></a>
+{% endblock %}

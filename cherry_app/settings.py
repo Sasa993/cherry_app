@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'otp_yubikey',
     'todo',
     'sendemail.apps.SendemailConfig',
+    'uploaded_books',
 ]
 
 SITE_ID = 4
