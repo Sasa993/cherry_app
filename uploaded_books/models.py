@@ -12,6 +12,7 @@ class EBook(models.Model):
 	def __str__(self):
 		return f"{self.title}"
 
+
 class Book5x8(models.Model):
 	name = models.CharField(max_length=50, default='5x8 Book', editable=False)
 	title = models.CharField(max_length=100)
@@ -21,6 +22,10 @@ class Book5x8(models.Model):
 	indesign_file = models.FileField()
 	pdf_old_version_file = models.FileField()
 	barcode_file = models.FileField()
+
+	def __str__(self):
+		return f"{self.title}"
+
 
 class BookA5Hardcover(models.Model):
 	name = models.CharField(max_length=50, default='A5 Hardcover Book', editable=False)
@@ -34,6 +39,10 @@ class BookA5Hardcover(models.Model):
 	cover_interiour_pdf = models.FileField()
 	cover_interiour_psd = models.FileField()
 
+	def __str__(self):
+		return f"{self.title}"
+
+
 class Book115x18Fnsku(models.Model):
 	name = models.CharField(max_length=50, default='11,5x18 FNSKU Book', editable=False)
 	title = models.CharField(max_length=100)
@@ -45,6 +54,10 @@ class Book115x18Fnsku(models.Model):
 	barcode_file = models.FileField()
 	cover_interiour_pdf = models.FileField()
 	cover_interiour_psd = models.FileField()
+
+	def __str__(self):
+		return f"{self.title}"
+
 
 class Book115x18Isbn(models.Model):
 	name = models.CharField(max_length=50, default='11,5x18 ISBN Book', editable=False)
@@ -58,6 +71,10 @@ class Book115x18Isbn(models.Model):
 	cover_interiour_pdf = models.FileField()
 	cover_interiour_psd = models.FileField()
 
+	def __str__(self):
+		return f"{self.title}"
+
+
 class Book125x19Hardcover(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 Hardcover Book', editable=False)
 	title = models.CharField(max_length=100)
@@ -69,6 +86,10 @@ class Book125x19Hardcover(models.Model):
 	barcode_file = models.FileField()
 	cover_interiour_pdf = models.FileField()
 	cover_interiour_psd = models.FileField()
+
+	def __str__(self):
+		return f"{self.title}"
+
 
 class Book125x19Fnsku(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 FNSKU Book', editable=False)
@@ -82,6 +103,10 @@ class Book125x19Fnsku(models.Model):
 	cover_interiour_pdf = models.FileField()
 	cover_interiour_psd = models.FileField()
 
+	def __str__(self):
+		return f"{self.title}"
+
+
 class Book125x19Isbn(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 ISBN Book', editable=False)
 	title = models.CharField(max_length=100)
@@ -93,3 +118,6 @@ class Book125x19Isbn(models.Model):
 	barcode_file = models.FileField()
 	cover_interiour_pdf = models.FileField()
 	cover_interiour_psd = models.FileField()
+
+	def __str__(self):
+		return f"{self.title}"

@@ -5,8 +5,18 @@
 {% block content %}
 	<a href="{% url 'uploaded_books:choose_regular_book' %}"><button class="btn btn-outline-secondary">Book</button></a>
 	<a href="{% url 'uploaded_books:upload_ebook' %}"><button class="btn btn-outline-secondary">E-Book</button></a>
-	<div style="margin-top:15px;">
+	<!--<div style="margin-top:15px;">
 		{% for x in all_ebooks %}
+			<a href="#">{{ x.name }} - {{ x.title }}</a><br>
+		{% endfor %}
+	</div>
+	<div style="margin-top:15px;">
+		{% for x in all_books2 %}
+			<a href="#">{{ x.name }} - {{ x.title }}</a><br>
+		{% endfor %}
+	</div>-->
+	<div style="margin-top:15px;">
+		{% for x in neki_kurac %}
 			<a href="#">{{ x.name }} - {{ x.title }}</a><br>
 		{% endfor %}
 	</div>
