@@ -16,8 +16,8 @@
 		{% endfor %}
 	</div>-->
 	<div style="margin-top:15px;">
-		{% for x in neki_kurac %}
-			<a href="#">{{ x.name }} - {{ x.title }}</a><br>
+		{% for x in every_fking_book %}
+			<a href="{{ x.name }}/{{ x.id }}">{{ x.name }} - {{ x.title }}</a><br>
 		{% endfor %}
 	</div>
 {% endblock %}

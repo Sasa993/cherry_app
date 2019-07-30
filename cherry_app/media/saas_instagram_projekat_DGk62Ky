@@ -1,0 +1,13 @@
+PHP&MySQL - Laravel 2 (20+ working hours per week)
+- ako ne zna Larvel, moze uciti Laravel 2 sedmice
+
+* SaaS (Software as a Service) *
+https://docs.dmpilot.live
+https://codecanyon.net/item/nextpost-auto-post-schedule-manage-your-instagram-multi-accounts-php-script/19456996?ref=postcode
+
+- run ChatBots for promoting and generating traffic for user's Shopify store
+- User registers > connects his Shopify store/stores > sets up up to 150 Instagram accounts within his account (different tabs with different Instagram accounts) > people should be able sign in with their Instagram credentials > auto-comments(Spintax format - add different words and it will randomly generate a string - so that it's not too obvious that you're using a bot), leave likes and auto-respond to messages (in a sequence - when you receive a message, wait 2 minutes then answer etc.)
+- there is no need for "active" messaging (texting people without them texting us first)
+- proxy functionality (two Instagram accounts always have to share the same IP address) - there's already a service that can be used to accomplish this (via API)
+- phone verification - service smspva.com (API for SMS validation)
+- search for posts that are marked with certain hastag (basic bots' functionality)
