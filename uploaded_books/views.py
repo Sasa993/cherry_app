@@ -21,7 +21,6 @@ def all_uploaded_books(request):
 
 	every_fking_book = chain(all_ebooks, all_books_5x8, all_books_a5hardcover, all_books_115x18fnsku, all_books_115x18isbn, all_books_125x19hardcover, all_books_125x19fnsku, all_books_125x19isbn)
 
-	# context = {'all_ebooks': all_ebooks, 'all_books2': all_books2}
 	context = {'every_fking_book': every_fking_book}
 
 	return render(request, 'uploaded_books/all_uploaded_books.html', context)
@@ -153,14 +152,13 @@ def upload_125x19_isbn(request):
 	return render(request, 'uploaded_books/upload_125x19_isbn.html', context)
 
 # details
-
 @login_required
 def details_ebook(request, book_id):
 	try:
 		book = EBook.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_ebook.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_ebook.html', context)
+	except Exception:
 		raise Http404("We can not find that E-Book in our database.")
 
 
@@ -169,17 +167,18 @@ def details_5x8(request, book_id):
 	try:
 		book = Book5x8.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_5x8.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_5x8.html', context)
+	except Exception:
 		raise Http404("We can not find that Book 5x8 in our database.")
+
 
 @login_required
 def details_a5_hardcover(request, book_id):
 	try:
 		book = BookA5Hardcover.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_a5_hardcover.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_a5_hardcover.html', context)
+	except Exception:
 		raise Http404("We can not find that Book A5 Hardcover in our database.")
 
 
@@ -188,8 +187,8 @@ def details_115x18_fnsku(request, book_id):
 	try:
 		book = Book115x18Fnsku.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_115x18_fnsku.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_115x18_fnsku.html', context)
+	except Exception:
 		raise Http404("We can not find that Book 115x18 FNSKU in our database.")
 
 
@@ -198,8 +197,8 @@ def details_115x18_isbn(request, book_id):
 	try:
 		book = Book115x18Isbn.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_115x18_isbn.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_115x18_isbn.html', context)
+	except Exception:
 		raise Http404("We can not find that Book 115x18 ISBN in our database.")
 
 
@@ -208,8 +207,8 @@ def details_125x19_hardcover(request, book_id):
 	try:
 		book = Book125x19Hardcover.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_125x19_hardcover.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_125x19_hardcover.html', context)
+	except Exception:
 		raise Http404("We can not find that Book 125x19 Hardcover in our database.")
 
 
@@ -218,8 +217,8 @@ def details_125x19_fnsku(request, book_id):
 	try:
 		book = Book125x19Fnsku.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_125x19_fnsku.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_125x19_fnsku.html', context)
+	except Exception:
 		raise Http404("We can not find that Book 125x19 FNSKU in our database.")
 
 
@@ -228,6 +227,6 @@ def details_125x19_isbn(request, book_id):
 	try:
 		book = Book125x19Isbn.objects.get(pk=book_id)
 		context = {'book': book}
-		return render(request, 'uploaded_books/details_125x19_isbn.html', context)
-	except:
+		return render(request, 'uploaded_books/details/details_125x19_isbn.html', context)
+	except Exception:
 		raise Http404("We can not find that Book 125x19 ISBN in our database.")
