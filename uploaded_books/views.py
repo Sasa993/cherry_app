@@ -32,7 +32,7 @@ def upload_ebook(request):
 		form = EBookForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = EBookForm()
 
@@ -53,7 +53,7 @@ def upload_5x8(request):
 		form = Book5x8Form(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = Book5x8Form()
 
@@ -68,7 +68,7 @@ def upload_a5_hardcover(request):
 		form = BookA5HardcoverForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = BookA5HardcoverForm()
 
@@ -83,7 +83,7 @@ def upload_115x18_fnsku(request):
 		form = Book115x18FnskuForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = Book115x18FnskuForm()
 
@@ -98,7 +98,7 @@ def upload_115x18_isbn(request):
 		form = Book115x18IsbnForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = Book115x18IsbnForm()
 
@@ -113,7 +113,7 @@ def upload_125x19_hardcover(request):
 		form = Book125x19HardcoverForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = Book125x19HardcoverForm()
 
@@ -128,7 +128,7 @@ def upload_125x19_fnsku(request):
 		form = Book125x19FnskuForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = Book125x19FnskuForm()
 
@@ -143,7 +143,7 @@ def upload_125x19_isbn(request):
 		form = Book125x19IsbnForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('uploaded_books:all_uploaded_books')
+			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = Book125x19IsbnForm()
 

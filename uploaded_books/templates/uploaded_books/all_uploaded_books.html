@@ -3,8 +3,13 @@
 {% block title %} All Uploaded Books {% endblock %}
 
 {% block content %}
-	<a href="{% url 'uploaded_books:choose_regular_book' %}"><button class="btn btn-outline-secondary">Book</button></a>
-	<a href="{% url 'uploaded_books:upload_ebook' %}"><button class="btn btn-outline-secondary">E-Book</button></a>
+	<p>Do you want to upload the <strong>whole book</strong> or only <strong>files</strong>?</p>
+	<a href="{% url 'dashboard:enter_new_book' %}"><button class="btn btn-outline-secondary">Whole Book</button></a>
+	<a href="#" class="custom_click"><button class="btn btn-outline-secondary">Only Files</button></a><br><br>
+	<div id="custom_box" class="custom_input_hidden">
+		<a href="{% url 'uploaded_books:choose_regular_book' %}"><button class="btn btn-outline-secondary">Book</button></a>
+		<a href="{% url 'uploaded_books:upload_ebook' %}"><button class="btn btn-outline-secondary">E-Book</button></a>
+	</div>
 	<!--<div style="margin-top:15px;">
 		{% for x in all_ebooks %}
 			<a href="#">{{ x.name }} - {{ x.title }}</a><br>
@@ -17,7 +22,17 @@
 	</div>-->
 	<div style="margin-top:15px;">
 		{% for x in every_fking_book %}
-			<a href="{{ x.name }}/{{ x.id }}">{{ x.name }} - {{ x.title }}</a><br>
+			<a href="../uploaded_books/{{ x.name }}/{{ x.id }}">{{ x.name }} - {{ x.title }}</a><br>
 		{% endfor %}
 	</div>
+{% endblock %}
+
+{% block other_js %}
+	<script>
+		$(document).ready(function(){
+			$('.custom_click').on('click', function(){
+				$('#custom_box').slideToggle("slow");
+			});
+		});
+	</script>
 {% endblock %}

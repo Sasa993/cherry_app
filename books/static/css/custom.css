@@ -147,3 +147,7 @@ button.change_pass_btn {
   color: #dc3545cc !important;
 }
 /* END Backup Phone */
+
+.custom_input_hidden {
+  display: none;
+}
