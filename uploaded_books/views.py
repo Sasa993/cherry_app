@@ -6,6 +6,7 @@ from uploaded_books.forms import (
 from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
 from itertools import chain
+import operator
 
 
 @login_required
@@ -20,6 +21,7 @@ def all_uploaded_books(request):
 	all_books_125x19isbn = Book125x19Isbn.objects.all()
 
 	every_fking_book = chain(all_ebooks, all_books_5x8, all_books_a5hardcover, all_books_115x18fnsku, all_books_115x18isbn, all_books_125x19hardcover, all_books_125x19fnsku, all_books_125x19isbn)
+	every_fking_book = sorted(every_fking_book, key=operator.attrgetter('uploaded_at'), reverse=True)
 
 	context = {'every_fking_book': every_fking_book}
 

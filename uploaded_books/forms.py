@@ -6,46 +6,46 @@ from uploaded_books.models import (
 class EBookForm(forms.ModelForm):
 	class Meta:
 		model = EBook
-		exclude = ('name', )
+		exclude = ('name',)
 
 
 class Book5x8Form(forms.ModelForm):
 	class Meta:
 		model = Book5x8
-		exclude = ('name', )
+		exclude = ('name',)
 
 
 class BookA5HardcoverForm(forms.ModelForm):
 	class Meta:
 		model = BookA5Hardcover
-		exclude = ('name', )
+		exclude = ('name',)
 
 
 class Book115x18FnskuForm(forms.ModelForm):
 	class Meta:
 		model = Book115x18Fnsku
-		exclude = ('name', )
+		exclude = ('name',)
 
 
 class Book115x18IsbnForm(forms.ModelForm):
 	class Meta:
 		model = Book115x18Isbn
-		exclude = ('name', )
+		exclude = ('name',)
 
 
 class Book125x19HardcoverForm(forms.ModelForm):
 	class Meta:
 		model = Book125x19Hardcover
-		exclude = ('name', )
+		exclude = ('name',)
 
 
 class Book125x19FnskuForm(forms.ModelForm):
 	class Meta:
 		model = Book125x19Fnsku
-		exclude = ('name', )
+		exclude = ('name',)
 
 
 class Book125x19IsbnForm(forms.ModelForm):
 	class Meta:
 		model = Book125x19Isbn
-		exclude = ('name', )
+		exclude = ('name',)

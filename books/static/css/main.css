@@ -1029,3 +1029,123 @@ footer .useful-links li{
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(141, 10, 21 ,1); 
 }
+
+/* All Uploaded Books */
+.upload_books_front .upload_books_front_header{
+    background: url('../images/upload-books.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.upload_books_front .upload_books_front_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+} 
+.upload_books_front .upload_books_btn_container button{
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    margin-right: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    
+}
+.upload_books_front .upload_books_btn_container button:hover{
+    color: #8d0a15;
+    border-bottom: 1px solid #8d0a15;
+    transition: all 1s;
+}
+.upload_books_front .upload_books_btn_container button b{
+    padding-left: 5px;
+}
+.upload_books_front tbody {
+    display:block;
+    height:345px;
+    overflow:auto;
+}
+/* scrollbar Width */
+.upload_books_front table tbody::-webkit-scrollbar {
+  width: 7px;
+}
+/* scrollbar Track */
+.upload_books_front table tbody::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(141, 10, 21 ,0.5); 
+    border-radius: 10px;
+}
+/* scrollbar Handle */
+.upload_books_front table tbody::-webkit-scrollbar-thumb {
+   border-radius: 10px;
+    background-color: rgba(141, 10, 21 ,1);
+}
+.upload_books_front thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.upload_books_front thead {
+    width: calc( 100% - 1em )
+}
+.upload_books_front tbody tr td span{
+    color: #8a8a8a;
+    font-size: .75rem;
+}
+.upload_books_front table tbody tr:hover{
+    background-color: rgba(138,138,138, 0.2);
+}
+.upload_books_front table thead tr th{
+    border-top: none;
+}
+.upload_books_front table thead tr th:hover{
+    cursor: pointer;
+    background-color: rgba(138,138,138, 0.2);
+}
+@media screen and (max-width: 450px){
+    .upload_books_front .upload_books_front_header{
+        background-position: 70%;
+    }
+    .upload_books_front .upload_books_front_header h3{
+        padding: 8px 0 8px 0;
+        font-size: 1rem;
+    }
+    .upload_books_front .table_container table tbody td img{
+        display: none;
+    }
+}
+
+/* Upload Books Types*/
+.upload_book .upload_book_header{
+    background: url('../images/upload_book_banner.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.upload_book .upload_book_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.upload_book .version_book_container .format_wrapper{
+    border: 2px solid #8d0a15;
+    height: 85%;
+    border-radius: 8px;
+    width: 75%;
+    margin: 20px auto;
+}
+.upload_book .version_book_container .format_wrapper a{
+    text-decoration: none;
+    color: #8a8a8a;
+    font-weight: 500;
+}
+@media screen and (max-width: 450px){
+    .upload_book .upload_book_header{
+        background-position: 70%;
+    }
+    .upload_book .upload_book_header h3{
+        padding: 8px 0 8px 0;
+        font-size: 1rem;
+    }
+    .upload_book .version_book_container .format_wrapper{
+        width: 100%;
+        height: 135px;
+    }
+}

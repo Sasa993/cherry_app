@@ -4,6 +4,7 @@ from django.db import models
 class EBook(models.Model):
 	name = models.CharField(max_length=50, default='E-Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	source_file = models.FileField()
 	epub_file = models.FileField()
 	mobi_file = models.FileField()
@@ -16,6 +17,7 @@ class EBook(models.Model):
 class Book5x8(models.Model):
 	name = models.CharField(max_length=50, default='5x8 Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	cover_pdf_file = models.FileField()
 	cover_psd_file = models.FileField()
 	pdf_file = models.FileField()
@@ -30,6 +32,7 @@ class Book5x8(models.Model):
 class BookA5Hardcover(models.Model):
 	name = models.CharField(max_length=50, default='A5 Hardcover Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	cover_pdf_file = models.FileField()
 	cover_psd_file = models.FileField()
 	pdf_file = models.FileField()
@@ -46,6 +49,7 @@ class BookA5Hardcover(models.Model):
 class Book115x18Fnsku(models.Model):
 	name = models.CharField(max_length=50, default='11,5x18 FNSKU Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	cover_pdf_file = models.FileField()
 	cover_psd_file = models.FileField()
 	pdf_file = models.FileField()
@@ -62,6 +66,7 @@ class Book115x18Fnsku(models.Model):
 class Book115x18Isbn(models.Model):
 	name = models.CharField(max_length=50, default='11,5x18 ISBN Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	cover_pdf_file = models.FileField()
 	cover_psd_file = models.FileField()
 	pdf_file = models.FileField()
@@ -78,6 +83,7 @@ class Book115x18Isbn(models.Model):
 class Book125x19Hardcover(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 Hardcover Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	cover_pdf_file = models.FileField()
 	cover_psd_file = models.FileField()
 	pdf_file = models.FileField()
@@ -94,6 +100,7 @@ class Book125x19Hardcover(models.Model):
 class Book125x19Fnsku(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 FNSKU Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	cover_pdf_file = models.FileField()
 	cover_psd_file = models.FileField()
 	pdf_file = models.FileField()
@@ -110,6 +117,7 @@ class Book125x19Fnsku(models.Model):
 class Book125x19Isbn(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 ISBN Book', editable=False)
 	title = models.CharField(max_length=100)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	cover_pdf_file = models.FileField()
 	cover_psd_file = models.FileField()
 	pdf_file = models.FileField()

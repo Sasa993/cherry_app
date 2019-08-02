@@ -2,29 +2,55 @@
 
 {% block title %} All Uploaded Books {% endblock %}
 
+{% load static %}
+
 {% block content %}
-	<p>Do you want to upload the <strong>whole book</strong> or only <strong>files</strong>?</p>
-	<a href="{% url 'dashboard:enter_new_book' %}"><button class="btn btn-outline-secondary">Whole Book</button></a>
-	<a href="#" class="custom_click"><button class="btn btn-outline-secondary">Only Files</button></a><br><br>
-	<div id="custom_box" class="custom_input_hidden">
-		<a href="{% url 'uploaded_books:choose_regular_book' %}"><button class="btn btn-outline-secondary">Book</button></a>
-		<a href="{% url 'uploaded_books:upload_ebook' %}"><button class="btn btn-outline-secondary">E-Book</button></a>
-	</div>
-	<!--<div style="margin-top:15px;">
-		{% for x in all_ebooks %}
-			<a href="#">{{ x.name }} - {{ x.title }}</a><br>
-		{% endfor %}
-	</div>
-	<div style="margin-top:15px;">
-		{% for x in all_books2 %}
-			<a href="#">{{ x.name }} - {{ x.title }}</a><br>
-		{% endfor %}
-	</div>-->
-	<div style="margin-top:15px;">
-		{% for x in every_fking_book %}
-			<a href="../uploaded_books/{{ x.name }}/{{ x.id }}">{{ x.name }} - {{ x.title }}</a><br>
-		{% endfor %}
-	</div>
+	<div class="upload_books_front mt-4">
+	                    <div class="row">
+	                        <div class="col-12 col-md-8 offset-md-2">
+	                        <div class="card-body upload_books_front_header">
+	                            <h3 class="mb-0">BOOK UPLOAD</h3>
+	                        </div>
+	                        <div class="card-body">
+	                           {# <h6 class="text-center">Please choose version of book to upload</h6> #}
+	                           <h6>Do you want to upload the <strong>whole book</strong> or <strong>only files</strong>?</h6>
+	                            <div class="upload_books_btn_container text-center mt-4">
+	                                {# <button class="btn"><i class="fas fa-book fa-lg"></i><b>BOOK</b></button> #}
+	                                {# <button class="btn"><i class="fas fa-book fa-lg"></i><b>E-BOOK</b></button> #}
+
+	                                <a href="{% url 'dashboard:enter_new_book' %}"><button class="btn"><i class="fas fa-book fa-lg"></i><b>WHOLE BOOK</b></button></a>
+	                                <a href="#"><button class="btn custom_click"><i class="fas fa-book fa-lg"></i><b>ONLY FILES</b></button></a>
+	                                <div id="custom_box" class="custom_input_hidden">
+										<a href="{% url 'uploaded_books:choose_regular_book' %}"><button class="btn"><i class="fas fa-book fa-lg"></i><b>BOOK</b></button></a>
+										<a href="{% url 'uploaded_books:upload_ebook' %}"><button class="btn"><i class="fas fa-book fa-lg"></i><b>E-BOOK</b></button></a>
+									</div>
+	                            </div>
+	                             <!-- Table -->
+	                            <div class="table_container table-responsive mt-5">
+	                                 <table id="file_list_table" class="table sortable">
+	                                        <thead>
+	                                            <tr>
+	                                                <th class="pr-0">Title</th>
+	                                                <th class="pr-0">Uploaded</th>
+	                                                <th class="pr-0">Type</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            {% for x in every_fking_book %}
+		                                            	<tr>
+															<td class="hvr-pulse"><img src="{% static 'images/file_icon.png' %}" class="mr-2" alt="file icon" width="25px"><a href="../uploaded_books/{{ x.name }}/{{ x.id }}" >{{ x.title }}</a></td>
+															<td>{{ x.uploaded_at|date:'d/m/Y, H:i' }}</td>
+															<td>{{ x.name }}</td>
+														</tr>
+	                                            {% endfor %}
+	                                        </tbody>
+	                                    </table>
+	                             </div>
+	                            
+	                        </div>
+	                    </div>
+	                    </div>
+	                </div>
 {% endblock %}
 
 {% block other_js %}
@@ -32,7 +58,9 @@
 		$(document).ready(function(){
 			$('.custom_click').on('click', function(){
 				$('#custom_box').slideToggle("slow");
+				$('.custom_click').toggleClass('custom_promjena_buttona');
 			});
 		});
 	</script>
+	<script src="{% static 'script/sorttable.js' %}"></script>
 {% endblock %}
