@@ -2,12 +2,81 @@
 
 {% block title %} Choose Regular Book {% endblock %}
 
+{% load static %}
+
 {% block content %}
-	<a href="{% url 'uploaded_books:upload_5x8' %}"><button class="btn btn-outline-secondary">5x8</button></a>
-	<a href="{% url 'uploaded_books:upload_a5_hardcover' %}"><button class="btn btn-outline-secondary">A5 Hardcover</button></a>
-	<a href="{% url 'uploaded_books:upload_115x18_fnsku' %}"><button class="btn btn-outline-secondary">11,5x18 FNSKU</button></a>
-	<a href="{% url 'uploaded_books:upload_115x18_isbn' %}"><button class="btn btn-outline-secondary">11,5x18 ISBN</button></a>
-	<a href="{% url 'uploaded_books:upload_125x19_hardcover' %}"><button class="btn btn-outline-secondary">12,5x19 Hardcover</button></a>
-	<a href="{% url 'uploaded_books:upload_125x19_fnsku' %}"><button class="btn btn-outline-secondary">12,5x19 FNSKU</button></a>
-	<a href="{% url 'uploaded_books:upload_125x19_isbn' %}"><button class="btn btn-outline-secondary">12,5x19 ISBN</button></a>
+	<div class="upload_book">
+		<div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+            	<div class="card-body upload_book_header">
+                	<h3 class="mb-0">BOOK</h3>
+                </div>  
+                <div class="card-body">
+                	<h6 class="text-center">Please choose format of book to upload</h6>
+                    <div class="version_book_container">
+                       	<div class="row d-flex justify-content-center text-center">
+                           	<div class="col-6 col-md-3">
+                               	<div class="format_wrapper hvr-grow-shadow">
+                                   	<a href="{% url 'uploaded_books:upload_5x8' %}">
+                                       	<img src="{% static 'images/blank_book.svg' %}" alt="">
+                                        <p>5 x 8</p>
+									</a>
+                            	</div>
+                    		</div>
+		                    <div class="col-6 col-md-3">
+		                        <div class="format_wrapper hvr-grow-shadow">
+		                            <a href="{% url 'uploaded_books:upload_a5_hardcover' %}">
+		                            	<img src="{% static 'images/blank_book.svg' %}" alt="">
+		                                <p>A5 <br>Hardcover</p>
+		                            </a>
+		                        </div>
+		                    </div>
+		                    <div class="col-6 col-md-3">
+		                        <div class="format_wrapper hvr-grow-shadow">
+		                            <a href="{% url 'uploaded_books:upload_115x18_fnsku' %}">
+		                                <img src="{% static 'images/blank_book.svg' %}" alt="">
+		                                <p>11,5 x 18 <br>FNSKU</p>
+		                            </a>
+		                        </div>
+		                    </div>
+		                    <div class="col-6 col-md-3">
+		                        <div class="format_wrapper hvr-grow-shadow">                                                 
+		                            <a href="{% url 'uploaded_books:upload_115x18_isbn' %}">
+		                                <img src="{% static 'images/blank_book.svg' %}" alt="">
+		                                <p>11,5 x 18 <br>ISBN</p>
+		                            </a>
+		                        </div>
+		                    </div>
+                        </div>
+                        <div class="row d-flex justify-content-center text-center">
+                            <div class="col-6 col-md-3">
+                                <div class="format_wrapper hvr-grow-shadow">
+                                    <a href="{% url 'uploaded_books:upload_125x19_hardcover' %}">
+                                        <img src="{% static 'images/blank_book.svg' %}" alt="">
+                                        <p>12,5 x 19 <br>Hardcover</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="format_wrapper hvr-grow-shadow">
+                                    <a href="{% url 'uploaded_books:upload_125x19_fnsku' %}">
+                                        <img src="{% static 'images/blank_book.svg' %}" alt="">
+                                        <p>12,5 x 19 <br>FNSKU</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="format_wrapper hvr-grow-shadow">
+                                    <a href="{% url 'uploaded_books:upload_125x19_isbn' %}">
+                                        <img src="{% static 'images/blank_book.svg' %}" alt="">
+                                        <p>12,5 x 19 <br>ISBN</p>
+                                    </a>
+                                </div>
+                           	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
