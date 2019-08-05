@@ -1149,3 +1149,65 @@ footer .useful-links li{
         height: 135px;
     }
 }
+
+/* Upload E-Book */
+.upload_e-book .upload_e-book_header{
+    background: url('../images/upload_e-book_banner.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.upload_e-book .upload_e-book_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.upload_e-book form .e-book_title:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #8d0a15;
+    transition: 1s border-color linear
+}
+.upload_e-book form .e-book_btn_container #real-file{
+    display: none;
+}
+.upload_e-book form .e-book_btn_container .e-book_btn_wrapper{
+    padding-left: 0;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+}
+.upload_e-book form .e-book_btn_container .e-book_btn_wrapper span{
+    color: #8a8a8a;
+    margin-left: 10px;
+}
+.upload_e-book form .e-book_btn_container .e-book_btn{
+    padding-right: 15px;
+    border-right: 1px solid #8a8a8a;
+    border-radius: 0;
+}
+.upload_e-book form .e-book_btn_container button:focus,.upload_e-book form .e-book_btn_container .upload_e-book:focus{
+    outline: none;
+    box-shadow: none;
+}
+.upload_e-book form .e-book_btn_container button img{
+    width: 40px
+}
+.upload_e-book form .e-book_btn_container .upload_e-book{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    margin-left: -15px;
+    border-bottom: 2px solid #8a8a8a;
+}
+.upload_e-book form .e-book_btn_container .upload_e-book:hover{
+    color: #8d0a15;
+    border-bottom: 2px solid #8d0a15;
+}
+.upload_e-book form .e-book_btn_container .upload_e-book i{
+    padding-right: 10px;
+}
+@media screen and (max-width: 450px){
+    .upload_e-book .upload_e-book_header h3{
+        padding: 8px 0 8px 0;
+        font-size: 1rem;
+    }
+}
