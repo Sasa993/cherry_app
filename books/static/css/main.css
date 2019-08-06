@@ -1211,3 +1211,60 @@ footer .useful-links li{
         font-size: 1rem;
     }
 }
+
+/* Single Book Details*/
+.single_book_detail .single_book_detail_header{
+    background: url('../images/detail_book_banner.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.single_book_detail .single_book_detail_header h3{
+    color: #ffffff;
+    padding: 50px 0 
+}
+.single_book_detail .book_info p .book_file{
+    width: 40px;
+}
+.single_book_detail .book_info .book_container div{
+    display: inline-block;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+.single_book_detail .book_info .book_container div:hover{
+    border: 1px solid red;
+    transition: .5s all linear;
+}
+.single_book_detail .book_info .book_container .download_single_btn, .single_book_detail .book_info .book_container .download_all_btn{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    border-bottom: 2px solid #8a8a8a;
+}
+.single_book_detail .book_info .book_container .download_single_btn:focus, .single_book_detail .book_info .book_container .download_all_btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+.single_book_detail .book_info .book_container .download_single_btn i , .single_book_detail .book_info .book_container .download_all_btn i{
+        padding-right: 10px;
+}
+.single_book_detail .book_info .book_container .download_single_btn:hover, .single_book_detail .book_info .book_container .download_all_btn:hover{
+    color: #8d0a15;
+    border-bottom: 2px solid #8d0a15;
+}
+@media screen and (max-width: 450px){
+    .single_book_detail .single_book_detail_header h3{
+        padding: 8px 0 8px 0;
+        font-size: 1rem;
+    }
+    .single_book_detail .book_info p .book_file{
+        width: 25px;
+    }
+    .single_book_detail .book_info .book_container .download_single_btn, .single_book_detail .book_info .book_container .download_all_btn{
+        font-size: .7rem;
+    }
+    .single_book_detail .book_info .book_container .download_single_btn i, .single_book_detail .book_info .book_container .download_all_btn i{
+        display: none;
+    }
+}

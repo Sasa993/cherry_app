@@ -300,3 +300,7 @@ button.change_pass_btn {
 .custom_alert_upload_books {
   margin-bottom: 5px !important;
 }
+
+.custom_file_name {
+  font-size: 0.9rem !important;
+}

@@ -1,8 +1,73 @@
 {% extends "books/base.html" %}
 
 {% block title %}
+	{{ book.title }} - {{ book.name }}
 {% endblock %}
 
+{% load static %}
+
 {% block content %}
-	<h1>{{ book.name }} - {{ book.title }}</h1>
+	<div class="single_book_detail">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <div class="card-body single_book_detail_header">
+                    <h3 class="mb-0">{{ book.name|upper }} - {{ book.title }}</h3>
+                </div>  
+                <div class="card-body book_info">
+                    <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
+                    <div class="row">
+                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                            <div>
+                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
+                                {# <h4 class="custom_file_name book_title">{{ book.source_file }}</h4> #}
+                                <h4 class="book_title">Source File</h4>
+                                <p class="book_size">Size: <small>{{ book.source_file.size|filesizeformat }}</small></p>
+                                <p>
+                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                            <div>
+                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
+                                {# <h4 class="custom_file_name book_title">{{ book.epub_file }}</h4> #}
+                                <h4 class="book_title">EPUB File</h4>
+                                <p class="book_size">Size: <small>{{ book.epub_file.size|filesizeformat }}</small></p>
+                                <p>
+                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                            <div>
+                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
+                                {# <h4 class="custom_file_name book_title">{{ book.mobi_file }}</h4> #}
+                                <h4 class="book_title">MOBI File</h4>
+                                <p class="book_size">Size: <small>{{ book.mobi_file.size|filesizeformat }}</small></p>
+                                <p>
+                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                            <div>
+                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
+                                {# <h4 class="custom_file_name book_title">{{ book.cover_file }}</h4> #}
+                                <h4 class="book_title">Cover File</h4>
+                                <p class="book_size">Size: <small>{{ book.cover_file.size|filesizeformat }}</small></p>
+                                <p>
+                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-4 text-center mt-4 book_container">
+                            <button class="download_all_btn btn" type="submit"><i class="fas fa-download"></i>Download all</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
