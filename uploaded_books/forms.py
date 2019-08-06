@@ -34,33 +34,93 @@ class BookA5HardcoverForm(forms.ModelForm):
 	class Meta:
 		model = BookA5Hardcover
 		exclude = ('name',)
+		labels = {
+			'cover_pdf_file': _('Cover PDF File'),
+			'cover_psd_file': _('Cover PSD File'),
+			'pdf_file': _('PDF File'),
+			'indesign_file': _('InDesign File'),
+			'pdf_old_version_file': _('PDF Old Version File'),
+			'barcode_file': _('Barcode File'),
+			'cover_interiour_pdf': _('Cover Interiour PDF'),
+			'cover_interiour_psd': _('Cover Interiour PSD'),
+		}
 
 
 class Book115x18FnskuForm(forms.ModelForm):
 	class Meta:
 		model = Book115x18Fnsku
 		exclude = ('name',)
+		labels = {
+			'cover_pdf_file': _('Cover PDF File'),
+			'cover_psd_file': _('Cover PSD File'),
+			'pdf_file': _('PDF File'),
+			'indesign_file': _('InDesign File'),
+			'pdf_old_version_file': _('PDF Old Version File'),
+			'barcode_file': _('Barcode File'),
+			'cover_interiour_pdf': _('Cover Interiour PDF'),
+			'cover_interiour_psd': _('Cover Interiour PSD'),
+		}
 
 
 class Book115x18IsbnForm(forms.ModelForm):
 	class Meta:
 		model = Book115x18Isbn
 		exclude = ('name',)
+		labels = {
+			'cover_pdf_file': _('Cover PDF File'),
+			'cover_psd_file': _('Cover PSD File'),
+			'pdf_file': _('PDF File'),
+			'indesign_file': _('InDesign File'),
+			'pdf_old_version_file': _('PDF Old Version File'),
+			'barcode_file': _('Barcode File'),
+			'cover_interiour_pdf': _('Cover Interiour PDF'),
+			'cover_interiour_psd': _('Cover Interiour PSD'),
+		}
 
 
 class Book125x19HardcoverForm(forms.ModelForm):
 	class Meta:
 		model = Book125x19Hardcover
 		exclude = ('name',)
+		labels = {
+			'cover_pdf_file': _('Cover PDF File'),
+			'cover_psd_file': _('Cover PSD File'),
+			'pdf_file': _('PDF File'),
+			'indesign_file': _('InDesign File'),
+			'pdf_old_version_file': _('PDF Old Version File'),
+			'barcode_file': _('Barcode File'),
+			'cover_interiour_pdf': _('Cover Interiour PDF'),
+			'cover_interiour_psd': _('Cover Interiour PSD'),
+		}
 
 
 class Book125x19FnskuForm(forms.ModelForm):
 	class Meta:
 		model = Book125x19Fnsku
 		exclude = ('name',)
+		labels = {
+			'cover_pdf_file': _('Cover PDF File'),
+			'cover_psd_file': _('Cover PSD File'),
+			'pdf_file': _('PDF File'),
+			'indesign_file': _('InDesign File'),
+			'pdf_old_version_file': _('PDF Old Version File'),
+			'barcode_file': _('Barcode File'),
+			'cover_interiour_pdf': _('Cover Interiour PDF'),
+			'cover_interiour_psd': _('Cover Interiour PSD'),
+		}
 
 
 class Book125x19IsbnForm(forms.ModelForm):
 	class Meta:
 		model = Book125x19Isbn
 		exclude = ('name',)
+		labels = {
+			'cover_pdf_file': _('Cover PDF File'),
+			'cover_psd_file': _('Cover PSD File'),
+			'pdf_file': _('PDF File'),
+			'indesign_file': _('InDesign File'),
+			'pdf_old_version_file': _('PDF Old Version File'),
+			'barcode_file': _('Barcode File'),
+			'cover_interiour_pdf': _('Cover Interiour PDF'),
+			'cover_interiour_psd': _('Cover Interiour PSD'),
+		}
