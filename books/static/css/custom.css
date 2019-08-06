@@ -304,3 +304,8 @@ button.change_pass_btn {
 .custom_file_name {
   font-size: 0.9rem !important;
 }
+
+/* changing sidebar z-index due to the model's - popup z-index */
+.sidebar-wrapper {
+  z-index: 1000 !important;
+}

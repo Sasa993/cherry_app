@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from uploaded_books.forms import (
 	EBookForm, Book5x8Form, BookA5HardcoverForm, Book115x18FnskuForm, Book115x18IsbnForm, Book125x19HardcoverForm, Book125x19FnskuForm, Book125x19IsbnForm)
 from uploaded_books.models import (
@@ -28,6 +29,7 @@ def all_uploaded_books(request):
 	return render(request, 'uploaded_books/all_uploaded_books.html', context)
 
 
+# e-book
 @login_required
 def upload_ebook(request):
 	if request.method == 'POST':
@@ -41,6 +43,30 @@ def upload_ebook(request):
 	context = {'form': form}
 
 	return render(request, 'uploaded_books/upload_ebook.html', context)
+
+
+@login_required
+def edit_ebook(request, book_id):
+	book = EBook.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = EBookForm(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_ebook', args=[book_id]))
+	else:
+		form = EBookForm(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_ebook.html', context)
+
+
+@login_required
+def delete_ebook(request, book_id):
+	book = EBook.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
 
 # regular_books
 @login_required
