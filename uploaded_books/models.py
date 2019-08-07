@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+import os
 
 
 class EBook(models.Model):
@@ -12,6 +14,14 @@ class EBook(models.Model):
 
 	def __str__(self):
 		return f"{self.title}"
+
+	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
+	def delete(self, *args, **kwargs):
+		os.remove(os.path.join(settings.MEDIA_ROOT, self.source_file.name))
+		os.remove(os.path.join(settings.MEDIA_ROOT, self.epub_file.name))
+		os.remove(os.path.join(settings.MEDIA_ROOT, self.mobi_file.name))
+		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_file.name))
+		super(EBook, self).delete(*args, **kwargs)
 
 
 class Book5x8(models.Model):
