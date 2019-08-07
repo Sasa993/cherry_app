@@ -7,6 +7,7 @@ class EBook(models.Model):
 	name = models.CharField(max_length=50, default='E-Book', editable=False)
 	title = models.CharField(max_length=100)
 	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 	source_file = models.FileField()
 	epub_file = models.FileField()
 	mobi_file = models.FileField()

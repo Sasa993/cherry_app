@@ -4,6 +4,7 @@
 	{{ book.title }} - {{ book.name }}
 {% endblock %}
 
+{% load shorten_file_name %}
 {% load static %}
 
 {% block content %}
@@ -12,66 +13,79 @@
             <div class="col-12 col-md-8 offset-md-2">
                 <div class="card-body single_book_detail_header">
                     <h3 class="mb-0">{{ book.name|upper }} - {{ book.title }}</h3>
+                    <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
+                    {% if book.uploaded_at == book.modified_at %}
+                        <p>It hasn't been modified yet!</p>
+                    {% else %}
+                        <p>Modified: <small>{{ book.modified_at|date:'d/m/Y, H:i' }}</small></p>
+                    {% endif %}
                 </div>  
                 <div class="card-body book_info">
-                    <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
                     <div class="row">
-                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
                             <div>
-                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
-                                {# <h4 class="custom_file_name book_title">{{ book.source_file }}</h4> #}
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.source_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookSource"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
                                 <h4 class="book_title">Source File</h4>
                                 <p class="book_size">Size: <small>{{ book.source_file.size|filesizeformat }}</small></p>
-                                <p>
-                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
-                                </p>
                             </div>
                         </div>
-                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
                             <div>
-                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
-                                {# <h4 class="custom_file_name book_title">{{ book.epub_file }}</h4> #}
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.epub_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookEpub"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
                                 <h4 class="book_title">EPUB File</h4>
                                 <p class="book_size">Size: <small>{{ book.epub_file.size|filesizeformat }}</small></p>
-                                <p>
-                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
-                                </p>
                             </div>
                         </div>
-                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
                             <div>
-                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
-                                {# <h4 class="custom_file_name book_title">{{ book.mobi_file }}</h4> #}
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.mobi_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookMobi"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
                                 <h4 class="book_title">MOBI File</h4>
                                 <p class="book_size">Size: <small>{{ book.mobi_file.size|filesizeformat }}</small></p>
-                                <p>
-                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
-                                </p>
                             </div>
                         </div>
-                        <div class="col-6 col-md-6 text-center mt-4 book_container">
+                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
                             <div>
-                                <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt=""></p>
-                                {# <h4 class="custom_file_name book_title">{{ book.cover_file }}</h4> #}
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.cover_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookCover"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
                                 <h4 class="book_title">Cover File</h4>
                                 <p class="book_size">Size: <small>{{ book.cover_file.size|filesizeformat }}</small></p>
-                                <p>
-                                    <button class="download_single_btn btn" type="submit"><i class="fas fa-download"></i>Download</button>
-                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-md-4 text-center mt-4 book_container">
+                        <div class="col-6 col-md-4 text-center mt-5 book_container">
                             <button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Download All Files</button>
                         </div>
-                        <div class="col-6 col-md-4 text-center mt-4 book_container">
+                        <div class="col-6 col-md-4 text-center mt-5 book_container">
                             <a href="edit/"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Edit Book</button></a>
                         </div>
-                        <div class="col-6 col-md-4 text-center mt-4 book_container">
+                        <div class="col-6 col-md-4 text-center mt-5 book_container">
                             {# <a href="{% url 'uploaded_books:delete_ebook' book.id %}"><button class="download_all_btn btn" type="submit"><i class="fas fa-download"></i>Delete Book</button></a> #}
                             <!-- Button trigger modal -->
-                            <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                            <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteWholeEBook">
                                 <i class="fas fa-download"></i>Delete Book
                             </button>
                         </div>
@@ -80,5 +94,9 @@
             </div>
         </div>
     </div>
-    {% include 'uploaded_books/modal_delete_book.html' %}
+    {% include 'uploaded_books/modals/ebook/modal_delete_ebook.html' %}
+    {% include 'uploaded_books/modals/ebook/modal_download_ebook_source.html' %}
+    {% include 'uploaded_books/modals/ebook/modal_download_ebook_epub.html' %}
+    {% include 'uploaded_books/modals/ebook/modal_download_ebook_mobi.html' %}
+    {% include 'uploaded_books/modals/ebook/modal_download_ebook_cover.html' %}
 {% endblock %}
