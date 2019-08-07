@@ -11,7 +11,7 @@
         How do you want to download your <strong>{{ book.epub_file }}</strong> file?
       </div>
       <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-secondary">Download raw!</button></a>
+        <a href="/media/{{ book.epub_file }}" download="{{ book.epub_file }}"><button type="button" class="btn btn-secondary">Download raw!</button></a>
         <a href="#"><button type="button" class="btn btn-secondary">Download zipped!</button></a>
       </div>
     </div>
