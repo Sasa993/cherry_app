@@ -11,8 +11,8 @@
         How do you want to download your <strong>{{ book.mobi_file }}</strong> file?
       </div>
       <div class="modal-footer">
-        <a href="/media/{{book.mobi_file}}" download="{{book.mobi_file}}"><button type="button" class="btn btn-secondary">Download raw!</button></a>
-        <a href="#"><button type="button" class="btn btn-secondary">Download zipped!</button></a>
+        <a href="/media/{{ book.mobi_file }}" download="{{ book.mobi_file }}"><button type="button" class="btn btn-secondary">Download raw!</button></a>
+        <a href="{% url 'uploaded_books:zip_single_ebook' book_id=book.id ebook_type='MOBI' %}"><button type="button" class="btn btn-secondary">Download zipped!</button></a>
       </div>
     </div>
   </div>

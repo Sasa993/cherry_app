@@ -77,13 +77,12 @@
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-4 text-center mt-5 book_container">
-                            <button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Download All Files</button>
+                            <a href="zip_whole_ebook/"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Download All Files</button></a>
                         </div>
                         <div class="col-6 col-md-4 text-center mt-5 book_container">
                             <a href="edit/"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Edit Book</button></a>
                         </div>
                         <div class="col-6 col-md-4 text-center mt-5 book_container">
-                            {# <a href="{% url 'uploaded_books:delete_ebook' book.id %}"><button class="download_all_btn btn" type="submit"><i class="fas fa-download"></i>Delete Book</button></a> #}
                             <!-- Button trigger modal -->
                             <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteWholeEBook">
                                 <i class="fas fa-download"></i>Delete Book

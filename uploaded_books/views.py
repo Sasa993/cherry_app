@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from uploaded_books.forms import (
@@ -8,6 +8,8 @@ from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
 from itertools import chain
 import operator
+
+import zipfile
 
 
 @login_required
@@ -66,6 +68,43 @@ def delete_ebook(request, book_id):
 	book = EBook.objects.get(pk=book_id)
 	book.delete()
 	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_ebook(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = EBook.objects.get(pk=book_id)
+	zf.write(book.source_file.path, f'{book.source_file}')
+	zf.write(book.epub_file.path, f'{book.epub_file}')
+	zf.write(book.mobi_file.path, f'{book.mobi_file}')
+	zf.write(book.cover_file.path, f'{book.cover_file}')
+
+	response['Content-Disposition'] = f'attachment; filename=EBook-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_ebook(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = EBook.objects.get(pk=book_id)
+
+	if ebook_type == 'Source':
+		zf.write(book.source_file.path, f'{book.source_file}')
+	elif ebook_type == 'EPUB':
+		zf.write(book.epub_file.path, f'{book.epub_file}')
+	elif ebook_type == 'MOBI':
+		zf.write(book.mobi_file.path, f'{book.mobi_file}')
+	else:
+		zf.write(book.cover_file.path, f'{book.cover_file}')
+
+	response['Content-Disposition'] = f'attachment; filename=EBook-{book.title}-{ebook_type} File.zip'
+
+	return response
 
 
 # regular_books
