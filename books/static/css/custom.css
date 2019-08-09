@@ -382,3 +382,20 @@ button.change_pass_btn {
 .modal-body strong {
   color: #8d0a15;
 }
+
+/* Changin the color of bootstrap's tooltip */
+
+.tooltip-inner {
+  background: #8d0a15;
+  color: #fff;
+}
+
+.bs-tooltip-auto[x-placement^=right] .arrow::before,
+  .bs-tooltip-right .arrow::before {
+    border-right-color: #8d0a15;
+  }
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+  .bs-tooltip-bottom .arrow::before {
+    border-bottom-color: #8d0a15;
+  }

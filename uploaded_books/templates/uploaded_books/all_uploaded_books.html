@@ -38,26 +38,30 @@
 						</div>
 	                </div>
 	                <!-- Table -->
-	                <div class="table_container table-responsive mt-5">
-	                    <table id="file_list_table" class="table sortable">
-	                        <thead>
-	                            <tr>
-	                                <th class="pr-0">Title</th>
-	                                <th class="pr-0">Uploaded</th>
-	                                <th class="pr-0">Type</th>
-	                            </tr>
-	                        </thead>
-	                        <tbody>
-	                            {% for x in every_fking_book %}
+	                {% if every_fking_book %}
+		                <div class="table_container table-responsive mt-5">
+		                    <table id="file_list_table" class="table sortable">
+		                        <thead>
 		                            <tr>
-										<td class="hvr-pulse"><img src="{% static 'images/file_icon.png' %}" class="mr-2" alt="file icon" width="25px"><a href="../uploaded_books/{{ x.name }}/{{ x.id }}" >{{ x.title }}</a></td>
-										<td>{{ x.uploaded_at|date:'d/m/Y, H:i' }}</td>
-										<td>{{ x.name }}</td>
-									</tr>
-	                            {% endfor %}
-	                        </tbody>
-	                    </table>
-	                </div>
+		                                <th class="pr-0">Title</th>
+		                                <th class="pr-0">Uploaded</th>
+		                                <th class="pr-0">Type</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                            {% for x in every_fking_book %}
+			                            <tr>
+											<td class="hvr-pulse"><img src="{% static 'images/file_icon.png' %}" class="mr-2" alt="file icon" width="25px"><a href="../uploaded_books/{{ x.name }}/{{ x.id }}" >{{ x.title }}</a></td>
+											<td>{{ x.uploaded_at|date:'d/m/Y, H:i' }}</td>
+											<td>{{ x.name }}</td>
+										</tr>
+		                            {% endfor %}
+		                        </tbody>
+		                    </table>
+		                </div>
+		            {% else %}
+		            	<h1>Nema Druze!</h1>
+		            {% endif %}
 	            </div>
 	        </div>
 	    </div>

@@ -1,0 +1,28 @@
+<div class="modal fade" id="deleteWhole115x18Fnsku" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Deleting "{{ book.title }}" {{ book.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this book: <strong>{{ book.title }}</strong>?<br>
+        If you delete this book, uploaded files will be permantly removed as well:<br><br>
+        1. <strong>{{ book.cover_pdf_file.name }}</strong><br>
+        2. <strong>{{ book.cover_psd_file.name }}</strong><br>
+        3. <strong>{{ book.pdf_file.name }}</strong><br>
+        4. <strong>{{ book.indesign_file.name }}</strong><br>
+        5. <strong>{{ book.pdf_old_version_file.name }}</strong><br>
+        6. <strong>{{ book.barcode_file.name }}</strong><br>
+        7. <strong>{{ book.cover_interiour_pdf.name }}</strong><br>
+        8. <strong>{{ book.cover_interiour_psd.name }}</strong><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">No, go back!</button>
+        <a href="{% url 'uploaded_books:delete_115x18_fnsku' book.id %}"><button type="button" class="btn btn-danger">Yes, I am sure!</button></a>
+      </div>
+    </div>
+  </div>
+</div>

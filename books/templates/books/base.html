@@ -209,6 +209,11 @@
         setTimeout(function(){
             $('.custom_alert-danger').fadeOut();
         }, 10000);
+
+        // enabling bootstrap's tooltip
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
 </body>
 </html>

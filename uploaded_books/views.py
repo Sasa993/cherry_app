@@ -31,7 +31,7 @@ def all_uploaded_books(request):
 	return render(request, 'uploaded_books/all_uploaded_books.html', context)
 
 
-# e-book
+# E-Book
 @login_required
 def upload_ebook(request):
 	if request.method == 'POST':
@@ -61,6 +61,16 @@ def edit_ebook(request, book_id):
 	context = {'book': book, 'form': form}
 
 	return render(request, 'uploaded_books/edit_ebook.html', context)
+
+
+@login_required
+def details_ebook(request, book_id):
+	try:
+		book = EBook.objects.get(pk=book_id)
+		context = {'book': book}
+		return render(request, 'uploaded_books/details/details_ebook.html', context)
+	except Exception:
+		raise Http404("We can not find that E-Book in our database.")
 
 
 @login_required
@@ -114,6 +124,7 @@ def choose_regular_book(request):
 	return render(request, 'uploaded_books/choose_regular_book.html', {})
 
 
+# 5x8 Book
 @login_required
 def upload_5x8(request):
 	if request.method == 'POST':
@@ -127,6 +138,82 @@ def upload_5x8(request):
 	context = {'form': form}
 
 	return render(request, 'uploaded_books/upload_5x8.html', context)
+
+
+@login_required
+def edit_5x8(request, book_id):
+	book = Book5x8.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = Book5x8Form(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_5x8', args=[book_id]))
+	else:
+		form = Book5x8Form(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_5x8.html', context)
+
+
+@login_required
+def details_5x8(request, book_id):
+	try:
+		book = Book5x8.objects.get(pk=book_id)
+		context = {'book': book}
+		return render(request, 'uploaded_books/details/details_5x8.html', context)
+	except Exception:
+		raise Http404("We can not find that Book 5x8 in our database.")
+
+
+@login_required
+def delete_5x8(request, book_id):
+	book = Book5x8.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_5x8(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book5x8.objects.get(pk=book_id)
+	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book5x8-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_5x8(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book5x8.objects.get(pk=book_id)
+
+	if ebook_type == 'Cover PDF':
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	elif ebook_type == 'Cover PSD':
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	elif ebook_type == 'PDF':
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	elif ebook_type == 'InDesign':
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	elif ebook_type == 'PDF Old Version':
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	else:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book5x8-{book.title}-{ebook_type} File.zip'
+
+	return response
 
 
 @login_required
@@ -145,6 +232,88 @@ def upload_a5_hardcover(request):
 
 
 @login_required
+def details_a5_hardcover(request, book_id):
+	try:
+		book = BookA5Hardcover.objects.get(pk=book_id)
+		context = {'book': book}
+		return render(request, 'uploaded_books/details/details_a5_hardcover.html', context)
+	except Exception:
+		raise Http404("We can not find that Book A5 Hardcover in our database.")
+
+
+@login_required
+def edit_a5_hardcover(request, book_id):
+	book = BookA5Hardcover.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = BookA5HardcoverForm(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_a5_hardcover', args=[book_id]))
+	else:
+		form = BookA5HardcoverForm(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_a5_hardcover.html', context)
+
+
+@login_required
+def delete_a5_hardcover(request, book_id):
+	book = BookA5Hardcover.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_a5_hardcover(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = BookA5Hardcover.objects.get(pk=book_id)
+	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=BookA5Hardcover-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_a5_hardcover(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = BookA5Hardcover.objects.get(pk=book_id)
+
+	if ebook_type == 'Cover PDF':
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	elif ebook_type == 'Cover PSD':
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	elif ebook_type == 'PDF':
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	elif ebook_type == 'InDesign':
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	elif ebook_type == 'PDF Old Version':
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	elif ebook_type == 'Barcode':
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	elif ebook_type == 'Cover Interiour PDF':
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	else:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=BookA5Hardcover-{book.title}-{ebook_type} File.zip'
+
+	return response
+
+
+@login_required
 def upload_115x18_fnsku(request):
 	if request.method == 'POST':
 		form = Book115x18FnskuForm(request.POST, request.FILES)
@@ -160,6 +329,88 @@ def upload_115x18_fnsku(request):
 
 
 @login_required
+def details_115x18_fnsku(request, book_id):
+	try:
+		book = Book115x18Fnsku.objects.get(pk=book_id)
+		context = {'book': book}
+		return render(request, 'uploaded_books/details/details_115x18_fnsku.html', context)
+	except Exception:
+		raise Http404("We can not find that Book 115x18 FNSKU in our database.")
+
+
+@login_required
+def edit_115x18_fnsku(request, book_id):
+	book = Book115x18Fnsku.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = Book115x18FnskuForm(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_115x18_fnsku', args=[book_id]))
+	else:
+		form = Book115x18FnskuForm(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_115x18_fnsku.html', context)
+
+
+@login_required
+def delete_115x18_fnsku(request, book_id):
+	book = Book115x18Fnsku.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_115x18_fnsku(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book115x18Fnsku.objects.get(pk=book_id)
+	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book115x18Fnsku-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_115x18_fnsku(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book115x18Fnsku.objects.get(pk=book_id)
+
+	if ebook_type == 'Cover PDF':
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	elif ebook_type == 'Cover PSD':
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	elif ebook_type == 'PDF':
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	elif ebook_type == 'InDesign':
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	elif ebook_type == 'PDF Old Version':
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	elif ebook_type == 'Barcode':
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	elif ebook_type == 'Cover Interiour PDF':
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	else:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book115x18Fnsku-{book.title}-{ebook_type} File.zip'
+
+	return response
+
+
+@login_required
 def upload_115x18_isbn(request):
 	if request.method == 'POST':
 		form = Book115x18IsbnForm(request.POST, request.FILES)
@@ -172,6 +423,88 @@ def upload_115x18_isbn(request):
 	context = {'form': form}
 
 	return render(request, 'uploaded_books/upload_115x18_isbn.html', context)
+
+
+@login_required
+def details_115x18_isbn(request, book_id):
+	try:
+		book = Book115x18Isbn.objects.get(pk=book_id)
+		context = {'book': book}
+		return render(request, 'uploaded_books/details/details_115x18_isbn.html', context)
+	except Exception:
+		raise Http404("We can not find that Book 115x18 ISBN in our database.")
+
+
+@login_required
+def edit_115x18_isbn(request, book_id):
+	book = Book115x18Isbn.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = Book115x18IsbnForm(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_115x18_isbn', args=[book_id]))
+	else:
+		form = Book115x18IsbnForm(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_115x18_isbn.html', context)
+
+
+@login_required
+def delete_115x18_isbn(request, book_id):
+	book = Book115x18Isbn.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_115x18_isbn(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book115x18Isbn.objects.get(pk=book_id)
+	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book115x18Isbn-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_115x18_isbn(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book115x18Isbn.objects.get(pk=book_id)
+
+	if ebook_type == 'Cover PDF':
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	elif ebook_type == 'Cover PSD':
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	elif ebook_type == 'PDF':
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	elif ebook_type == 'InDesign':
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	elif ebook_type == 'PDF Old Version':
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	elif ebook_type == 'Barcode':
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	elif ebook_type == 'Cover Interiour PDF':
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	else:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book115x18Isbn-{book.title}-{ebook_type} File.zip'
+
+	return response
 
 
 @login_required
@@ -219,54 +552,9 @@ def upload_125x19_isbn(request):
 	return render(request, 'uploaded_books/upload_125x19_isbn.html', context)
 
 # details
-@login_required
-def details_ebook(request, book_id):
-	try:
-		book = EBook.objects.get(pk=book_id)
-		context = {'book': book}
-		return render(request, 'uploaded_books/details/details_ebook.html', context)
-	except Exception:
-		raise Http404("We can not find that E-Book in our database.")
 
 
-@login_required
-def details_5x8(request, book_id):
-	try:
-		book = Book5x8.objects.get(pk=book_id)
-		context = {'book': book}
-		return render(request, 'uploaded_books/details/details_5x8.html', context)
-	except Exception:
-		raise Http404("We can not find that Book 5x8 in our database.")
 
-
-@login_required
-def details_a5_hardcover(request, book_id):
-	try:
-		book = BookA5Hardcover.objects.get(pk=book_id)
-		context = {'book': book}
-		return render(request, 'uploaded_books/details/details_a5_hardcover.html', context)
-	except Exception:
-		raise Http404("We can not find that Book A5 Hardcover in our database.")
-
-
-@login_required
-def details_115x18_fnsku(request, book_id):
-	try:
-		book = Book115x18Fnsku.objects.get(pk=book_id)
-		context = {'book': book}
-		return render(request, 'uploaded_books/details/details_115x18_fnsku.html', context)
-	except Exception:
-		raise Http404("We can not find that Book 115x18 FNSKU in our database.")
-
-
-@login_required
-def details_115x18_isbn(request, book_id):
-	try:
-		book = Book115x18Isbn.objects.get(pk=book_id)
-		context = {'book': book}
-		return render(request, 'uploaded_books/details/details_115x18_isbn.html', context)
-	except Exception:
-		raise Http404("We can not find that Book 115x18 ISBN in our database.")
 
 
 @login_required
