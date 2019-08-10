@@ -523,6 +523,88 @@ def upload_125x19_hardcover(request):
 
 
 @login_required
+def details_125x19_hardcover(request, book_id):
+	try:
+		book = Book125x19Hardcover.objects.get(pk=book_id)
+		context = {'book': book}
+		return render(request, 'uploaded_books/details/details_125x19_hardcover.html', context)
+	except Exception:
+		raise Http404("We can not find that Book 125x19 Hardcover in our database.")
+
+
+@login_required
+def edit_125x19_hardcover(request, book_id):
+	book = Book125x19Hardcover.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = Book125x19HardcoverForm(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_125x19_hardcover', args=[book_id]))
+	else:
+		form = Book125x19HardcoverForm(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_125x19_hardcover.html', context)
+
+
+@login_required
+def delete_125x19_hardcover(request, book_id):
+	book = Book125x19Hardcover.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_125x19_hardcover(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book125x19Hardcover.objects.get(pk=book_id)
+	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book125x19Hardcover-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_125x19_hardcover(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book125x19Hardcover.objects.get(pk=book_id)
+
+	if ebook_type == 'Cover PDF':
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	elif ebook_type == 'Cover PSD':
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	elif ebook_type == 'PDF':
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	elif ebook_type == 'InDesign':
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	elif ebook_type == 'PDF Old Version':
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	elif ebook_type == 'Barcode':
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	elif ebook_type == 'Cover Interiour PDF':
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	else:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book125x19Hardcover-{book.title}-{ebook_type} File.zip'
+
+	return response
+
+
+@login_required
 def upload_125x19_fnsku(request):
 	if request.method == 'POST':
 		form = Book125x19FnskuForm(request.POST, request.FILES)
@@ -535,6 +617,88 @@ def upload_125x19_fnsku(request):
 	context = {'form': form}
 
 	return render(request, 'uploaded_books/upload_125x19_fnsku.html', context)
+
+
+@login_required
+def details_125x19_fnsku(request, book_id):
+	try:
+		book = Book125x19Fnsku.objects.get(pk=book_id)
+		context = {'book': book}
+		return render(request, 'uploaded_books/details/details_125x19_fnsku.html', context)
+	except Exception:
+		raise Http404("We can not find that Book 125x19 FNSKU in our database.")
+
+
+@login_required
+def edit_125x19_fnsku(request, book_id):
+	book = Book125x19Fnsku.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = Book125x19FnskuForm(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_125x19_fnsku', args=[book_id]))
+	else:
+		form = Book125x19FnskuForm(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_125x19_fnsku.html', context)
+
+
+@login_required
+def delete_125x19_fnsku(request, book_id):
+	book = Book125x19Fnsku.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_125x19_fnsku(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book125x19Fnsku.objects.get(pk=book_id)
+	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book125x19Fnsku-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_125x19_fnsku(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book125x19Fnsku.objects.get(pk=book_id)
+
+	if ebook_type == 'Cover PDF':
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	elif ebook_type == 'Cover PSD':
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	elif ebook_type == 'PDF':
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	elif ebook_type == 'InDesign':
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	elif ebook_type == 'PDF Old Version':
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	elif ebook_type == 'Barcode':
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	elif ebook_type == 'Cover Interiour PDF':
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	else:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book125x19Fnsku-{book.title}-{ebook_type} File.zip'
+
+	return response
 
 
 @login_required
@@ -551,31 +715,6 @@ def upload_125x19_isbn(request):
 
 	return render(request, 'uploaded_books/upload_125x19_isbn.html', context)
 
-# details
-
-
-
-
-
-@login_required
-def details_125x19_hardcover(request, book_id):
-	try:
-		book = Book125x19Hardcover.objects.get(pk=book_id)
-		context = {'book': book}
-		return render(request, 'uploaded_books/details/details_125x19_hardcover.html', context)
-	except Exception:
-		raise Http404("We can not find that Book 125x19 Hardcover in our database.")
-
-
-@login_required
-def details_125x19_fnsku(request, book_id):
-	try:
-		book = Book125x19Fnsku.objects.get(pk=book_id)
-		context = {'book': book}
-		return render(request, 'uploaded_books/details/details_125x19_fnsku.html', context)
-	except Exception:
-		raise Http404("We can not find that Book 125x19 FNSKU in our database.")
-
 
 @login_required
 def details_125x19_isbn(request, book_id):
@@ -585,3 +724,75 @@ def details_125x19_isbn(request, book_id):
 		return render(request, 'uploaded_books/details/details_125x19_isbn.html', context)
 	except Exception:
 		raise Http404("We can not find that Book 125x19 ISBN in our database.")
+
+
+@login_required
+def edit_125x19_isbn(request, book_id):
+	book = Book125x19Isbn.objects.get(pk=book_id)
+	if request.method == 'POST':
+		form = Book125x19IsbnForm(request.POST, request.FILES, instance=book)
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('uploaded_books:details_125x19_isbn', args=[book_id]))
+	else:
+		form = Book125x19IsbnForm(instance=book)
+
+	context = {'book': book, 'form': form}
+
+	return render(request, 'uploaded_books/edit_125x19_isbn.html', context)
+
+
+@login_required
+def delete_125x19_isbn(request, book_id):
+	book = Book125x19Isbn.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
+
+
+@login_required
+def zip_whole_125x19_isbn(request, book_id):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book125x19Isbn.objects.get(pk=book_id)
+	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book125x19Isbn-{book.title}.zip'
+
+	return response
+
+
+@login_required
+def zip_single_125x19_isbn(request, book_id, ebook_type):
+	response = HttpResponse(content_type='application/zip')
+	zf = zipfile.ZipFile(response, 'w')
+
+	book = Book125x19Isbn.objects.get(pk=book_id)
+
+	if ebook_type == 'Cover PDF':
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	elif ebook_type == 'Cover PSD':
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	elif ebook_type == 'PDF':
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	elif ebook_type == 'InDesign':
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	elif ebook_type == 'PDF Old Version':
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	elif ebook_type == 'Barcode':
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	elif ebook_type == 'Cover Interiour PDF':
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	else:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+
+	response['Content-Disposition'] = f'attachment; filename=Book125x19Isbn-{book.title}-{ebook_type} File.zip'
+
+	return response

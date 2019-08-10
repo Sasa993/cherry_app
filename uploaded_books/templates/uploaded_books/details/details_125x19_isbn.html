@@ -1,8 +1,157 @@
 {% extends "books/base.html" %}
 
 {% block title %}
+    {{ book.title }} - {{ book.name }}
 {% endblock %}
 
+{% load shorten_file_name %}
+{% load static %}
+
 {% block content %}
-	<h1>{{ book.name }} - {{ book.title }}</h1>
+    <div class="single_book_detail">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <div class="card-body single_book_detail_header">
+                    <h3 class="mb-0">{{ book.name|upper }} - {{ book.title }}</h3>
+                    <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
+                    {% if book.uploaded_at == book.modified_at %}
+                        <p>It hasn't been modified yet!</p>
+                    {% else %}
+                        <p>Modified: <small>{{ book.modified_at|date:'d/m/Y, H:i' }}</small></p>
+                    {% endif %}
+                </div>  
+                <div class="card-body book_info">
+                    <div class="row">
+                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.cover_pdf_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnCoverPdf"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">Cover PDF File</h4>
+                                <p class="book_size">Size: <small>{{ book.cover_pdf_file.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.cover_psd_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnCoverPsd"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">Cover PSD File</h4>
+                                <p class="book_size">Size: <small>{{ book.cover_psd_file.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.pdf_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnPdf"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">PDF File</h4>
+                                <p class="book_size">Size: <small>{{ book.pdf_file.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.indesign_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnIndesign"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">InDesign File</h4>
+                                <p class="book_size">Size: <small>{{ book.indesign_file.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.pdf_old_version_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnPdfOldVersion"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">PDF Old Version File</h4>
+                                <p class="book_size">Size: <small>{{ book.pdf_old_version_file.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.barcode_file|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnBarcode"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">Barcode File</h4>
+                                <p class="book_size">Size: <small>{{ book.barcode_file.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.cover_interiour_pdf|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnCoverInteriourPdf"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">Cover Interiour PDF File</h4>
+                                <p class="book_size">Size: <small>{{ book.cover_interiour_pdf.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
+                            <div>
+                                <div class="show_hover_container">
+                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                    <p class="show_hover_title">{{ book.cover_interiour_psd|shorten_file_name }}</p>
+                                    <div class="show_hover_overlay"></div>
+                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#download125x19IsbnCoverInteriourPsd"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                </div>
+                                <h4 class="book_title">Cover Interiour PSD File</h4>
+                                <p class="book_size">Size: <small>{{ book.cover_interiour_psd.size|filesizeformat }}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-4 text-center mt-5 book_container">
+                            <a href="zip_whole_125x19_isbn/"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Download All Files</button></a>
+                        </div>
+                        <div class="col-6 col-md-4 text-center mt-5 book_container">
+                            <a href="edit/"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Edit Book</button></a>
+                        </div>
+                        <div class="col-6 col-md-4 text-center mt-5 book_container">
+                            <!-- Button trigger modal -->
+                            <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteWhole125x19Isbn">
+                                <i class="fas fa-download"></i>Delete Book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'uploaded_books/modals/125x19_isbn/modal_delete_125x19_isbn.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_cover_pdf.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_cover_psd.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_pdf.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_indesign.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_pdf_old_version.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_barcode.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_cover_interiour_pdf.html' %}
+    {% include 'uploaded_books/modals/125x19_isbn/modal_download_125x19_isbn_cover_interiour_psd.html' %}
 {% endblock %}

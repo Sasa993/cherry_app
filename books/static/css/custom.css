@@ -399,3 +399,9 @@ button.change_pass_btn {
   .bs-tooltip-bottom .arrow::before {
     border-bottom-color: #8d0a15;
   }
+
+.custom_h1_nobooks {
+  text-align: center;
+  margin-top: 35px;
+  color: #8d0a15;
+}

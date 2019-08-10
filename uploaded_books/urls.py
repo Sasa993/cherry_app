@@ -48,9 +48,21 @@ urlpatterns = [
     path('11,5x18 ISBN Book/<int:book_id>/zip_single_115x18_isbn/<str:ebook_type>', views.zip_single_115x18_isbn, name='zip_single_115x18_isbn'),
 
     path('12,5x19 Hardcover Book/<int:book_id>/', views.details_125x19_hardcover, name='details_125x19_hardcover'),
+    path('12,5x19 Hardcover Book/<int:book_id>/edit/', views.edit_125x19_hardcover, name='edit_125x19_hardcover'),
+    path('12,5x19 Hardcover Book/<int:book_id>/delete/', views.delete_125x19_hardcover, name='delete_125x19_hardcover'),
+    path('12,5x19 Hardcover Book/<int:book_id>/zip_whole_125x19_hardcover/', views.zip_whole_125x19_hardcover, name='zip_whole_125x19_hardcover'),
+    path('12,5x19 Hardcover Book/<int:book_id>/zip_single_125x19_hardcover/<str:ebook_type>', views.zip_single_125x19_hardcover, name='zip_single_125x19_hardcover'),
 
     path('12,5x19 FNSKU Book/<int:book_id>/', views.details_125x19_fnsku, name='details_125x19_fnsku'),
+    path('12,5x19 FNSKU Book/<int:book_id>/edit/', views.edit_125x19_fnsku, name='edit_125x19_fnsku'),
+    path('12,5x19 FNSKU Book/<int:book_id>/delete/', views.delete_125x19_fnsku, name='delete_125x19_fnsku'),
+    path('12,5x19 FNSKU Book/<int:book_id>/zip_whole_125x19_fnsku/', views.zip_whole_125x19_fnsku, name='zip_whole_125x19_fnsku'),
+    path('12,5x19 FNSKU Book/<int:book_id>/zip_single_125x19_fnsku/<str:ebook_type>', views.zip_single_125x19_fnsku, name='zip_single_125x19_fnsku'),
 
     path('12,5x19 ISBN Book/<int:book_id>/', views.details_125x19_isbn, name='details_125x19_isbn'),
+    path('12,5x19 ISBN Book/<int:book_id>/edit/', views.edit_125x19_isbn, name='edit_125x19_isbn'),
+    path('12,5x19 ISBN Book/<int:book_id>/delete/', views.delete_125x19_isbn, name='delete_125x19_isbn'),
+    path('12,5x19 ISBN Book/<int:book_id>/zip_whole_125x19_isbn/', views.zip_whole_125x19_isbn, name='zip_whole_125x19_isbn'),
+    path('12,5x19 ISBN Book/<int:book_id>/zip_single_125x19_isbn/<str:ebook_type>', views.zip_single_125x19_isbn, name='zip_single_125x19_isbn'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
