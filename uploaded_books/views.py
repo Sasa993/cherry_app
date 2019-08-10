@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.urls import reverse
 from uploaded_books.forms import (
 	EBookForm, Book5x8Form, BookA5HardcoverForm, Book115x18FnskuForm, Book115x18IsbnForm, Book125x19HardcoverForm, Book125x19FnskuForm, Book125x19IsbnForm)
@@ -8,7 +8,6 @@ from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
 from itertools import chain
 import operator
-
 import zipfile
 
 
@@ -33,6 +32,7 @@ def all_uploaded_books(request):
 
 # E-Book
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_ebook(request):
 	if request.method == 'POST':
 		form = EBookForm(request.POST, request.FILES)
@@ -48,6 +48,7 @@ def upload_ebook(request):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_ebook(request, book_id):
 	book = EBook.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -74,6 +75,7 @@ def details_ebook(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_ebook(request, book_id):
 	book = EBook.objects.get(pk=book_id)
 	book.delete()
@@ -126,6 +128,7 @@ def choose_regular_book(request):
 
 # 5x8 Book
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_5x8(request):
 	if request.method == 'POST':
 		form = Book5x8Form(request.POST, request.FILES)
@@ -141,6 +144,7 @@ def upload_5x8(request):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_5x8(request, book_id):
 	book = Book5x8.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -167,6 +171,7 @@ def details_5x8(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_5x8(request, book_id):
 	book = Book5x8.objects.get(pk=book_id)
 	book.delete()
@@ -217,6 +222,7 @@ def zip_single_5x8(request, book_id, ebook_type):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_a5_hardcover(request):
 	if request.method == 'POST':
 		form = BookA5HardcoverForm(request.POST, request.FILES)
@@ -242,6 +248,7 @@ def details_a5_hardcover(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_a5_hardcover(request, book_id):
 	book = BookA5Hardcover.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -258,6 +265,7 @@ def edit_a5_hardcover(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_a5_hardcover(request, book_id):
 	book = BookA5Hardcover.objects.get(pk=book_id)
 	book.delete()
@@ -314,6 +322,7 @@ def zip_single_a5_hardcover(request, book_id, ebook_type):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_115x18_fnsku(request):
 	if request.method == 'POST':
 		form = Book115x18FnskuForm(request.POST, request.FILES)
@@ -339,6 +348,7 @@ def details_115x18_fnsku(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_115x18_fnsku(request, book_id):
 	book = Book115x18Fnsku.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -355,6 +365,7 @@ def edit_115x18_fnsku(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_115x18_fnsku(request, book_id):
 	book = Book115x18Fnsku.objects.get(pk=book_id)
 	book.delete()
@@ -411,6 +422,7 @@ def zip_single_115x18_fnsku(request, book_id, ebook_type):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_115x18_isbn(request):
 	if request.method == 'POST':
 		form = Book115x18IsbnForm(request.POST, request.FILES)
@@ -436,6 +448,7 @@ def details_115x18_isbn(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_115x18_isbn(request, book_id):
 	book = Book115x18Isbn.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -452,6 +465,7 @@ def edit_115x18_isbn(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_115x18_isbn(request, book_id):
 	book = Book115x18Isbn.objects.get(pk=book_id)
 	book.delete()
@@ -508,6 +522,7 @@ def zip_single_115x18_isbn(request, book_id, ebook_type):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_125x19_hardcover(request):
 	if request.method == 'POST':
 		form = Book125x19HardcoverForm(request.POST, request.FILES)
@@ -533,6 +548,7 @@ def details_125x19_hardcover(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_125x19_hardcover(request, book_id):
 	book = Book125x19Hardcover.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -549,6 +565,7 @@ def edit_125x19_hardcover(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_125x19_hardcover(request, book_id):
 	book = Book125x19Hardcover.objects.get(pk=book_id)
 	book.delete()
@@ -605,6 +622,7 @@ def zip_single_125x19_hardcover(request, book_id, ebook_type):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_125x19_fnsku(request):
 	if request.method == 'POST':
 		form = Book125x19FnskuForm(request.POST, request.FILES)
@@ -630,6 +648,7 @@ def details_125x19_fnsku(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_125x19_fnsku(request, book_id):
 	book = Book125x19Fnsku.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -646,6 +665,7 @@ def edit_125x19_fnsku(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_125x19_fnsku(request, book_id):
 	book = Book125x19Fnsku.objects.get(pk=book_id)
 	book.delete()
@@ -702,6 +722,7 @@ def zip_single_125x19_fnsku(request, book_id, ebook_type):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def upload_125x19_isbn(request):
 	if request.method == 'POST':
 		form = Book125x19IsbnForm(request.POST, request.FILES)
@@ -727,6 +748,7 @@ def details_125x19_isbn(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_125x19_isbn(request, book_id):
 	book = Book125x19Isbn.objects.get(pk=book_id)
 	if request.method == 'POST':
@@ -743,6 +765,7 @@ def edit_125x19_isbn(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_125x19_isbn(request, book_id):
 	book = Book125x19Isbn.objects.get(pk=book_id)
 	book.delete()

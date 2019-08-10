@@ -48,7 +48,7 @@ button {
 /* Drag&Drop Effect */
 .tDnD_whileDrag {
   background: #fdf1f1;
-  width: 180px;
+  width: 100%;
   padding: 0 0 0 40px;
   color: #830f94;
   line-height: 30px;
@@ -398,6 +398,11 @@ button.change_pass_btn {
 .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
   .bs-tooltip-bottom .arrow::before {
     border-bottom-color: #8d0a15;
+  }
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before,
+  .bs-tooltip-top .arrow::before {
+    border-top-color: #8d0a15;
   }
 
 .custom_h1_nobooks {

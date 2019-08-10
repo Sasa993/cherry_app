@@ -11,32 +11,35 @@
 	            <div class="card-body upload_books_front_header">
 	                <h3 class="mb-0">BOOK UPLOAD</h3>
 	            </div>
+
 	            <div class="card-body">
-	                <h6>Do you want to upload the <strong>whole book</strong> or <strong>only files</strong>?</h6>
-	                <div class="upload_books_btn_container text-center mt-4">
-	                    <a href="{% url 'dashboard:enter_new_book' %}">
-	                    	<button class="btn"><i class="fas fa-book fa-lg"></i>
-	                    		<b>WHOLE BOOK</b>
-	                    	</button>
-	                    </a>
-	                    <a href="#">
-	                    	<button class="btn custom_click"><i class="fas fa-book fa-lg"></i>
-	                    		<b>ONLY FILES</b>
-	                    	</button>
-	                    </a>
-	                    <div id="custom_box" class="custom_input_hidden">
-							<a href="{% url 'uploaded_books:choose_regular_book' %}">
-								<button class="btn"><i class="fas fa-book fa-lg"></i>
-									<b>BOOK</b>
-								</button>
-							</a>
-							<a href="{% url 'uploaded_books:upload_ebook' %}">
-								<button class="btn"><i class="fas fa-book fa-lg"></i>
-									<b>E-BOOK</b>
-								</button>
-							</a>
-						</div>
-	                </div>
+	            	{% if request.user.is_superuser %}
+						<h6>Do you want to upload the <strong>whole book</strong> or <strong>only files</strong>?</h6>
+		                <div class="upload_books_btn_container text-center mt-4">
+		                    <a href="{% url 'dashboard:enter_new_book' %}">
+		                    	<button class="btn"><i class="fas fa-book fa-lg"></i>
+		                    		<b>WHOLE BOOK</b>
+		                    	</button>
+		                    </a>
+		                    <a href="#">
+		                    	<button class="btn custom_click"><i class="fas fa-book fa-lg"></i>
+		                    		<b>ONLY FILES</b>
+		                    	</button>
+		                    </a>
+		                    <div id="custom_box" class="custom_input_hidden">
+								<a href="{% url 'uploaded_books:choose_regular_book' %}">
+									<button class="btn"><i class="fas fa-book fa-lg"></i>
+										<b>BOOK</b>
+									</button>
+								</a>
+								<a href="{% url 'uploaded_books:upload_ebook' %}">
+									<button class="btn"><i class="fas fa-book fa-lg"></i>
+										<b>E-BOOK</b>
+									</button>
+								</a>
+							</div>
+		                </div>
+	            	{% endif %}
 	                <!-- Table -->
 	                {% if every_fking_book %}
 		                <div class="table_container table-responsive mt-5">
@@ -60,7 +63,7 @@
 		                    </table>
 		                </div>
 		            {% else %}
-		            	<h2 class="custom_h1_nobooks">There's no book in your database.</h2>
+		            	<h2 class="custom_h1_nobooks">There's no books in our database.</h2>
 		            {% endif %}
 	            </div>
 	        </div>
