@@ -2,6 +2,10 @@
 
 {% block title %} Upload 12,5 x 19 FNSKU Book {% endblock %}
 
+{% block other_css %}
+	{{ form.media.css }}
+{% endblock %}
+
 {% load static %}
 
 {% block content %}
@@ -11,56 +15,51 @@
             	<div class="card-body upload_e-book_header">
                 	<h3 class="mb-0">12,5 x 19 FNSKU BOOK</h3>
                 </div>  
-                <div class="card-body">
-                	<h6 class="text-center">Please select files in order to upload 12,5 x 19 FNSKU Book</h6>
-                    <form method="post" enctype="multipart/form-data">
-                    	{% csrf_token %}
-                    	{% for field in form %}
-                    		{% if forloop.counter == 1 %}
-								<div class="form-group mt-3">
-				                    <div class="col-sm-6 offset-sm-3">
-				                    	<input type="text" id="{{ field.id_for_label }}" class="form-control e-book_title" placeholder="Enter Book's Title" name="{{ field.name }}" required="">
-				                    </div>
-				                </div>
-				            {% endif %}
-		                {% endfor %}
-		                <div class="e-book_btn_container">
-		                	{% for field in form %}
-								{% if field.errors %}
-										<div class="custom_alert_upload_books custom_alert custom_alert-danger">
-											{{ field.label }} is required!
-										</div>
+                <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
+					{% csrf_token %}
+					{% include 'includes/bs4_form.html' with form=form %}
+					<div class="custom_card_body card-body">
+                		<h6 class="text-center">Please select files in order to upload an 12,5 x 19 FNSKU Book</h6>
+                    	<div class="e-book_btn_container">
+                    		{% for field in form %}
+                    			{% if forloop.counter > 7 %}
+									{% if field.errors %}
+											<div class="custom_alert_upload_books custom_alert custom_alert-danger">
+												{{ field.label }} is required!
+											</div>
 									{% endif %}
+								{% endif %}
 		                	{% endfor %}
-		                	<div class="row">
-		                		{% for field in form %}
-		                			{% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 6 or forloop.counter == 8 %}
-				                		<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">Choose {{ field.label }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 3 or forloop.counter == 5 or forloop.counter == 7 or forloop.counter == 9 %}
-		                            	<div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">Choose {{ field.label }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% endif %}
-	                            {% endfor %}
-                            </div>
-                            <div class="row">
-                            	<div  class="col-12 col-md-4 offset-md-2 mt-3">
-                                	<button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>Upload Book</button>
-                                </div>
-                            </div>
+			                <div class="row">
+			                	{% for field in form %}
+			                		{% if forloop.counter == 8 or forloop.counter == 10 or forloop.counter == 12 or forloop.counter == 14 %}
+					                	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
+			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
+			                                <span class="custom_text">Choose {{ field.label }}</span>
+			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+			                            </div>
+			                        {% elif forloop.counter == 9 or forloop.counter == 11 or forloop.counter == 13 or forloop.counter == 15 %}
+			                            <div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
+			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
+			                                <span class="custom_text">Choose {{ field.label }}</span>
+			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+			                            </div>
+			                        {% endif %}
+		                        {% endfor %}
+	                        </div>
+	                        <div class="row">
+	                            <div  class="col-12 col-md-4 offset-md-2 mt-3">
+	                                <button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>Upload Book</button>
+	                            </div>
+	                        </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+				</form>
             </div>
         </div>
     </div>
 {% endblock %}
 {% block other_js %}
 	<script src="{% static 'script/upload_book_input.js' %}"></script>
+	{{ form.media.js }}
 {% endblock %}

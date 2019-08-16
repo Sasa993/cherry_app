@@ -410,3 +410,7 @@ button.change_pass_btn {
   margin-top: 35px;
   color: #8d0a15;
 }
+
+.custom_card_body {
+  padding: 0 0 1.25rem 0;
+}

@@ -1,10 +1,15 @@
 from django import forms
+from django_select2.forms import Select2MultipleWidget
+from books.models import Author, Book, BookForm
 from django.utils.translation import ugettext_lazy as _
 from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
 
 
 class EBookForm(forms.ModelForm):
+	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
+	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
+
 	class Meta:
 		model = EBook
 		exclude = ('name',)
@@ -16,7 +21,7 @@ class EBookForm(forms.ModelForm):
 		}
 
 
-class Book5x8Form(forms.ModelForm):
+class Book5x8Form(EBookForm):
 	class Meta:
 		model = Book5x8
 		exclude = ('name',)
@@ -30,7 +35,7 @@ class Book5x8Form(forms.ModelForm):
 		}
 
 
-class BookA5HardcoverForm(forms.ModelForm):
+class BookA5HardcoverForm(EBookForm):
 	class Meta:
 		model = BookA5Hardcover
 		exclude = ('name',)
@@ -46,7 +51,7 @@ class BookA5HardcoverForm(forms.ModelForm):
 		}
 
 
-class Book115x18FnskuForm(forms.ModelForm):
+class Book115x18FnskuForm(EBookForm):
 	class Meta:
 		model = Book115x18Fnsku
 		exclude = ('name',)
@@ -62,7 +67,7 @@ class Book115x18FnskuForm(forms.ModelForm):
 		}
 
 
-class Book115x18IsbnForm(forms.ModelForm):
+class Book115x18IsbnForm(EBookForm):
 	class Meta:
 		model = Book115x18Isbn
 		exclude = ('name',)
@@ -78,7 +83,7 @@ class Book115x18IsbnForm(forms.ModelForm):
 		}
 
 
-class Book125x19HardcoverForm(forms.ModelForm):
+class Book125x19HardcoverForm(EBookForm):
 	class Meta:
 		model = Book125x19Hardcover
 		exclude = ('name',)
@@ -94,7 +99,7 @@ class Book125x19HardcoverForm(forms.ModelForm):
 		}
 
 
-class Book125x19FnskuForm(forms.ModelForm):
+class Book125x19FnskuForm(EBookForm):
 	class Meta:
 		model = Book125x19Fnsku
 		exclude = ('name',)
@@ -110,7 +115,7 @@ class Book125x19FnskuForm(forms.ModelForm):
 		}
 
 
-class Book125x19IsbnForm(forms.ModelForm):
+class Book125x19IsbnForm(EBookForm):
 	class Meta:
 		model = Book125x19Isbn
 		exclude = ('name',)

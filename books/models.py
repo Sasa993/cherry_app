@@ -3,6 +3,8 @@ from django.db import models
 from django import forms
 from django_select2.forms import Select2MultipleWidget
 from django.contrib.auth.models import User
+# from django.conf import settings
+# import os
 
 
 class Author(models.Model):
@@ -24,7 +26,9 @@ class Book(models.Model):
 	# co_author_email = models.ManyToManyField(Author, related_name='co_author_email')
 	co_author_instructions = models.TextField()
 	author = models.ManyToManyField(Author, related_name='author')
-	cover = models.ImageField(upload_to='cover_image/', blank=False)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
+	# cover = models.ImageField(upload_to='cover_image/', blank=False)
 
 	def __str__(self):
 		return f"{self.title}"
