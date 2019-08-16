@@ -16,6 +16,9 @@ class EBook(models.Model):
 	def __str__(self):
 		return f"{self.title}"
 
+	def _testiramo(cls, self):
+		return f"{self.name}"
+
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
 		os.remove(os.path.join(settings.MEDIA_ROOT, self.source_file.name))

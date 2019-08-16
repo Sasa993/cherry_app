@@ -31,7 +31,7 @@ class Book(models.Model):
 
 
 class BookRequest(models.Model):
-	authors_accepted = models.ForeignKey('Author',blank=True, null=True, on_delete=models.SET_NULL)
+	authors_accepted = models.ForeignKey('Author', blank=True, null=True, on_delete=models.SET_NULL)
 	book = models.ForeignKey('Book', on_delete=models.CASCADE,)
 	deadline = models.DateField(blank=True, null=True)
 	decision = models.BooleanField(default=False)
