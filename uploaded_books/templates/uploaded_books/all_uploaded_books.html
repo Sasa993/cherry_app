@@ -14,19 +14,9 @@
 
 	            <div class="card-body">
 	            	{% if request.user.is_superuser %}
-						<h6>Do you want to upload the <strong>whole book</strong> or <strong>only files</strong>?</h6>
+						<h6>If you want to upload a new <strong>book</strong>, please choose a desired <strong>type</strong>:</h6>
 		                <div class="upload_books_btn_container text-center mt-4">
-		                    <a href="{% url 'dashboard:enter_new_book' %}">
-		                    	<button class="btn"><i class="fas fa-book fa-lg"></i>
-		                    		<b>WHOLE BOOK</b>
-		                    	</button>
-		                    </a>
-		                    <a href="#">
-		                    	<button class="btn custom_click"><i class="fas fa-book fa-lg"></i>
-		                    		<b>ONLY FILES</b>
-		                    	</button>
-		                    </a>
-		                    <div id="custom_box" class="custom_input_hidden">
+		                    <div>
 								<a href="{% url 'uploaded_books:choose_regular_book' %}">
 									<button class="btn"><i class="fas fa-book fa-lg"></i>
 										<b>BOOK</b>
