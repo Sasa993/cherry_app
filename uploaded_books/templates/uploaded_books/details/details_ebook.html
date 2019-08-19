@@ -22,6 +22,10 @@
                 </div>
                 <div class="card-body book_info">
                     <div class="row">
+                        <div class="col-12 text-center mt-4 book_container">
+                            <h5>Working Number:</h5>
+                            {{ book.working_number }}
+                        </div>
                         <div class="col-6 text-center mt-4 book_container">
                             <h5>Title:</h5>
                             {{ book.title }}
@@ -72,58 +76,66 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
-                            <div>
-                                <div class="show_hover_container">
-                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
-                                    <p class="show_hover_title">{{ book.source_file|shorten_file_name }}</p>
-                                    <div class="show_hover_overlay"></div>
-                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
-                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookSource"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                        {% if book.source_file %}
+                            <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
+                                <div>
+                                    <div class="show_hover_container">
+                                        <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                        <p class="show_hover_title">{{ book.source_file|shorten_file_name }}</p>
+                                        <div class="show_hover_overlay"></div>
+                                        <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                        <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookSource"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                    </div>
+                                    <h4 class="book_title">Source File</h4>
+                                    <p class="book_size">Size: <small>{{ book.source_file.size|filesizeformat }}</small></p>
                                 </div>
-                                <h4 class="book_title">Source File</h4>
-                                <p class="book_size">Size: <small>{{ book.source_file.size|filesizeformat }}</small></p>
                             </div>
-                        </div>
-                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
-                            <div>
-                                <div class="show_hover_container">
-                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
-                                    <p class="show_hover_title">{{ book.epub_file|shorten_file_name }}</p>
-                                    <div class="show_hover_overlay"></div>
-                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
-                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookEpub"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                        {% endif %}
+                        {% if book.epub_file %}
+                            <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
+                                <div>
+                                    <div class="show_hover_container">
+                                        <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                        <p class="show_hover_title">{{ book.epub_file|shorten_file_name }}</p>
+                                        <div class="show_hover_overlay"></div>
+                                        <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                        <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookEpub"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                    </div>
+                                    <h4 class="book_title">EPUB File</h4>
+                                    <p class="book_size">Size: <small>{{ book.epub_file.size|filesizeformat }}</small></p>
                                 </div>
-                                <h4 class="book_title">EPUB File</h4>
-                                <p class="book_size">Size: <small>{{ book.epub_file.size|filesizeformat }}</small></p>
                             </div>
-                        </div>
-                        <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
-                            <div>
-                                <div class="show_hover_container">
-                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
-                                    <p class="show_hover_title">{{ book.mobi_file|shorten_file_name }}</p>
-                                    <div class="show_hover_overlay"></div>
-                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
-                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookMobi"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                        {% endif %}
+                        {% if book.mobi_file %}
+                            <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
+                                <div>
+                                    <div class="show_hover_container">
+                                        <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                        <p class="show_hover_title">{{ book.mobi_file|shorten_file_name }}</p>
+                                        <div class="show_hover_overlay"></div>
+                                        <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                        <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookMobi"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                    </div>
+                                    <h4 class="book_title">MOBI File</h4>
+                                    <p class="book_size">Size: <small>{{ book.mobi_file.size|filesizeformat }}</small></p>
                                 </div>
-                                <h4 class="book_title">MOBI File</h4>
-                                <p class="book_size">Size: <small>{{ book.mobi_file.size|filesizeformat }}</small></p>
                             </div>
-                        </div>
-                        <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
-                            <div>
-                                <div class="show_hover_container">
-                                    <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
-                                    <p class="show_hover_title">{{ book.cover_file|shorten_file_name }}</p>
-                                    <div class="show_hover_overlay"></div>
-                                    <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
-                                    <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookCover"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                        {% endif %}
+                        {% if book.cover_file %}
+                            <div class="col-6 offset-md-2 col-md-4 text-center mt-4 book_container">
+                                <div>
+                                    <div class="show_hover_container">
+                                        <p><img class="book_file" src="{% static 'images/Pdf.svg' %}" alt="" /></p>
+                                        <p class="show_hover_title">{{ book.cover_file|shorten_file_name }}</p>
+                                        <div class="show_hover_overlay"></div>
+                                        <div class="show_hover_button show_hover_button_link"><a href="#" class="hvr-pop hvr-icon-pop"><i class="fas fa-download hvr-icon"></i>Create Link</a></div>
+                                        <div class="show_hover_button"><a href="#" class="hvr-pop hvr-icon-pop" data-toggle="modal" data-target="#downloadEBookCover"><i class="fas fa-download hvr-icon"></i>Download</a></div>
+                                    </div>
+                                    <h4 class="book_title">Cover File</h4>
+                                    <p class="book_size">Size: <small>{{ book.cover_file.size|filesizeformat }}</small></p>
                                 </div>
-                                <h4 class="book_title">Cover File</h4>
-                                <p class="book_size">Size: <small>{{ book.cover_file.size|filesizeformat }}</small></p>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-4 text-center mt-5 book_container">

@@ -7,8 +7,8 @@ from uploaded_books.models import (
 
 
 class EBookForm(forms.ModelForm):
-	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
-	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
+	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all(), required=False)
+	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all(), required=False)
 
 	class Meta:
 		model = EBook
@@ -18,6 +18,7 @@ class EBookForm(forms.ModelForm):
 			'epub_file': _('EPUB File'),
 			'mobi_file': _('MOBI File'),
 			'cover_file': _('Cover File'),
+			'working_number': _('Working No'),
 		}
 
 
@@ -32,6 +33,7 @@ class Book5x8Form(EBookForm):
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),
+			'working_number': _('Working No'),
 		}
 
 
@@ -48,6 +50,7 @@ class BookA5HardcoverForm(EBookForm):
 			'barcode_file': _('Barcode File'),
 			'cover_interiour_pdf': _('Cover Interiour PDF'),
 			'cover_interiour_psd': _('Cover Interiour PSD'),
+			'working_number': _('Working No'),
 		}
 
 
@@ -64,6 +67,7 @@ class Book115x18FnskuForm(EBookForm):
 			'barcode_file': _('Barcode File'),
 			'cover_interiour_pdf': _('Cover Interiour PDF'),
 			'cover_interiour_psd': _('Cover Interiour PSD'),
+			'working_number': _('Working No'),
 		}
 
 
@@ -80,6 +84,7 @@ class Book115x18IsbnForm(EBookForm):
 			'barcode_file': _('Barcode File'),
 			'cover_interiour_pdf': _('Cover Interiour PDF'),
 			'cover_interiour_psd': _('Cover Interiour PSD'),
+			'working_number': _('Working No'),
 		}
 
 
@@ -96,6 +101,7 @@ class Book125x19HardcoverForm(EBookForm):
 			'barcode_file': _('Barcode File'),
 			'cover_interiour_pdf': _('Cover Interiour PDF'),
 			'cover_interiour_psd': _('Cover Interiour PSD'),
+			'working_number': _('Working No'),
 		}
 
 
@@ -112,6 +118,7 @@ class Book125x19FnskuForm(EBookForm):
 			'barcode_file': _('Barcode File'),
 			'cover_interiour_pdf': _('Cover Interiour PDF'),
 			'cover_interiour_psd': _('Cover Interiour PSD'),
+			'working_number': _('Working No'),
 		}
 
 
@@ -128,4 +135,5 @@ class Book125x19IsbnForm(EBookForm):
 			'barcode_file': _('Barcode File'),
 			'cover_interiour_pdf': _('Cover Interiour PDF'),
 			'cover_interiour_psd': _('Cover Interiour PSD'),
+			'working_number': _('Working No'),
 		}

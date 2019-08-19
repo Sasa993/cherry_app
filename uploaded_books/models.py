@@ -6,10 +6,10 @@ import os
 
 class EBook(Book):
 	name = models.CharField(max_length=50, default='E-Book', editable=False)
-	source_file = models.FileField()
-	epub_file = models.FileField()
-	mobi_file = models.FileField()
-	cover_file = models.FileField()
+	source_file = models.FileField(blank=True)
+	epub_file = models.FileField(blank=True)
+	mobi_file = models.FileField(blank=True)
+	cover_file = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -25,12 +25,12 @@ class EBook(Book):
 
 class Book5x8(Book):
 	name = models.CharField(max_length=50, default='5x8 Book', editable=False)
-	cover_pdf_file = models.FileField()
-	cover_psd_file = models.FileField()
-	pdf_file = models.FileField()
-	indesign_file = models.FileField()
-	pdf_old_version_file = models.FileField()
-	barcode_file = models.FileField()
+	cover_pdf_file = models.FileField(blank=True)
+	cover_psd_file = models.FileField(blank=True)
+	pdf_file = models.FileField(blank=True)
+	indesign_file = models.FileField(blank=True)
+	pdf_old_version_file = models.FileField(blank=True)
+	barcode_file = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -48,14 +48,14 @@ class Book5x8(Book):
 
 class BookA5Hardcover(Book):
 	name = models.CharField(max_length=50, default='A5 Hardcover Book', editable=False)
-	cover_pdf_file = models.FileField()
-	cover_psd_file = models.FileField()
-	pdf_file = models.FileField()
-	indesign_file = models.FileField()
-	pdf_old_version_file = models.FileField()
-	barcode_file = models.FileField()
-	cover_interiour_pdf = models.FileField()
-	cover_interiour_psd = models.FileField()
+	cover_pdf_file = models.FileField(blank=True)
+	cover_psd_file = models.FileField(blank=True)
+	pdf_file = models.FileField(blank=True)
+	indesign_file = models.FileField(blank=True)
+	pdf_old_version_file = models.FileField(blank=True)
+	barcode_file = models.FileField(blank=True)
+	cover_interiour_pdf = models.FileField(blank=True)
+	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -75,14 +75,14 @@ class BookA5Hardcover(Book):
 
 class Book115x18Fnsku(Book):
 	name = models.CharField(max_length=50, default='11,5x18 FNSKU Book', editable=False)
-	cover_pdf_file = models.FileField()
-	cover_psd_file = models.FileField()
-	pdf_file = models.FileField()
-	indesign_file = models.FileField()
-	pdf_old_version_file = models.FileField()
-	barcode_file = models.FileField()
-	cover_interiour_pdf = models.FileField()
-	cover_interiour_psd = models.FileField()
+	cover_pdf_file = models.FileField(blank=True)
+	cover_psd_file = models.FileField(blank=True)
+	pdf_file = models.FileField(blank=True)
+	indesign_file = models.FileField(blank=True)
+	pdf_old_version_file = models.FileField(blank=True)
+	barcode_file = models.FileField(blank=True)
+	cover_interiour_pdf = models.FileField(blank=True)
+	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -102,14 +102,14 @@ class Book115x18Fnsku(Book):
 
 class Book115x18Isbn(Book):
 	name = models.CharField(max_length=50, default='11,5x18 ISBN Book', editable=False)
-	cover_pdf_file = models.FileField()
-	cover_psd_file = models.FileField()
-	pdf_file = models.FileField()
-	indesign_file = models.FileField()
-	pdf_old_version_file = models.FileField()
-	barcode_file = models.FileField()
-	cover_interiour_pdf = models.FileField()
-	cover_interiour_psd = models.FileField()
+	cover_pdf_file = models.FileField(blank=True)
+	cover_psd_file = models.FileField(blank=True)
+	pdf_file = models.FileField(blank=True)
+	indesign_file = models.FileField(blank=True)
+	pdf_old_version_file = models.FileField(blank=True)
+	barcode_file = models.FileField(blank=True)
+	cover_interiour_pdf = models.FileField(blank=True)
+	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -129,14 +129,14 @@ class Book115x18Isbn(Book):
 
 class Book125x19Hardcover(Book):
 	name = models.CharField(max_length=50, default='12,5x19 Hardcover Book', editable=False)
-	cover_pdf_file = models.FileField()
-	cover_psd_file = models.FileField()
-	pdf_file = models.FileField()
-	indesign_file = models.FileField()
-	pdf_old_version_file = models.FileField()
-	barcode_file = models.FileField()
-	cover_interiour_pdf = models.FileField()
-	cover_interiour_psd = models.FileField()
+	cover_pdf_file = models.FileField(blank=True)
+	cover_psd_file = models.FileField(blank=True)
+	pdf_file = models.FileField(blank=True)
+	indesign_file = models.FileField(blank=True)
+	pdf_old_version_file = models.FileField(blank=True)
+	barcode_file = models.FileField(blank=True)
+	cover_interiour_pdf = models.FileField(blank=True)
+	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -156,14 +156,14 @@ class Book125x19Hardcover(Book):
 
 class Book125x19Fnsku(Book):
 	name = models.CharField(max_length=50, default='12,5x19 FNSKU Book', editable=False)
-	cover_pdf_file = models.FileField()
-	cover_psd_file = models.FileField()
-	pdf_file = models.FileField()
-	indesign_file = models.FileField()
-	pdf_old_version_file = models.FileField()
-	barcode_file = models.FileField()
-	cover_interiour_pdf = models.FileField()
-	cover_interiour_psd = models.FileField()
+	cover_pdf_file = models.FileField(blank=True)
+	cover_psd_file = models.FileField(blank=True)
+	pdf_file = models.FileField(blank=True)
+	indesign_file = models.FileField(blank=True)
+	pdf_old_version_file = models.FileField(blank=True)
+	barcode_file = models.FileField(blank=True)
+	cover_interiour_pdf = models.FileField(blank=True)
+	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -183,14 +183,14 @@ class Book125x19Fnsku(Book):
 
 class Book125x19Isbn(Book):
 	name = models.CharField(max_length=50, default='12,5x19 ISBN Book', editable=False)
-	cover_pdf_file = models.FileField()
-	cover_psd_file = models.FileField()
-	pdf_file = models.FileField()
-	indesign_file = models.FileField()
-	pdf_old_version_file = models.FileField()
-	barcode_file = models.FileField()
-	cover_interiour_pdf = models.FileField()
-	cover_interiour_psd = models.FileField()
+	cover_pdf_file = models.FileField(blank=True)
+	cover_psd_file = models.FileField(blank=True)
+	pdf_file = models.FileField(blank=True)
+	indesign_file = models.FileField(blank=True)
+	pdf_old_version_file = models.FileField(blank=True)
+	barcode_file = models.FileField(blank=True)
+	cover_interiour_pdf = models.FileField(blank=True)
+	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
 		return f"{self.title}"

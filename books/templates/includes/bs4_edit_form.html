@@ -12,7 +12,7 @@
 {% endif %}
 <div class="row">
 	{% for field in form.visible_fields %}
-		{% if forloop.counter == 1 or forloop.counter == 2 %}
+		{% if forloop.counter == 1 %}
 			<div class="form-group col-sm-6">
 				{{ field.label_tag }}
 
@@ -35,7 +35,53 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 3 or forloop.counter == 6 %}
+		{% elif forloop.counter == 2 %}
+			<div class="form-group col-sm-4">
+				{{ field.label_tag }}
+
+				{% if form.is_bound %}
+					{% if field.errors %}
+						{% render_field field class="form-control is-invalid" %}
+						{% for error in field.errors %}
+							<div class="invalid-feedback">
+								{{ error }}
+							</div>
+					  	{% endfor %}
+					{% else %}
+						{% render_field field class="form-control is-valid" %}
+					{% endif %}
+				{% else %}
+					{% render_field field class="form-control" %}
+				{% endif %}
+
+				{% if field.help_text %}
+					<small class="form-text text-muted">{{ field.help_text }}</small>
+				{% endif %}
+			</div>
+		{% elif forloop.counter == 3 %}
+			<div class="form-group col-sm-2">
+				{{ field.label_tag }}
+
+				{% if form.is_bound %}
+					{% if field.errors %}
+						{% render_field field class="form-control is-invalid" %}
+						{% for error in field.errors %}
+							<div class="invalid-feedback">
+								{{ error }}
+							</div>
+					  	{% endfor %}
+					{% else %}
+						{% render_field field class="form-control is-valid" %}
+					{% endif %}
+				{% else %}
+					{% render_field field class="form-control" %}
+				{% endif %}
+
+				{% if field.help_text %}
+					<small class="form-text text-muted">{{ field.help_text }}</small>
+				{% endif %}
+			</div>
+		{% elif forloop.counter == 4 or forloop.counter == 7 %}
 			<div class="form-group col-sm-12">
 				{{ field.label_tag }}
 
@@ -58,7 +104,7 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 4 %}
+		{% elif forloop.counter == 5 %}
 			<div class="form-group col-sm-4">
 				{{ field.label_tag }}
 
@@ -81,7 +127,7 @@
 					<small class="form-text text-muted">{{ field.help_text }}</small>
 				{% endif %}
 			</div>
-		{% elif forloop.counter == 5 %}
+		{% elif forloop.counter == 6 %}
 			<div class="form-group col-sm-4">
 					{{ field.label_tag }}
 
@@ -110,7 +156,7 @@
 					{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
 				</div>
 			</div>
-		{% elif forloop.counter == 7 %}
+		{% elif forloop.counter == 8 %}
 			<div class="form-group col-sm-6">
 				{{ field.label_tag }}<br>
 

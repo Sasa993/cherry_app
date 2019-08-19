@@ -19,16 +19,16 @@ class Author(models.Model):
 class Book(models.Model):
 	title = models.CharField(max_length=200)
 	subtitle = models.CharField(max_length=200)
-	description = models.TextField()
-	comparible = models.URLField(max_length=200)
+	working_number = models.PositiveIntegerField()
+	description = models.TextField(blank=True)
+	comparible = models.URLField(max_length=200, blank=True)
 	co_author_name = models.ManyToManyField(Author, related_name='co_author')
 	# co_author_email = models.CharField(max_length=100)
 	# co_author_email = models.ManyToManyField(Author, related_name='co_author_email')
-	co_author_instructions = models.TextField()
+	co_author_instructions = models.TextField(blank=True)
 	author = models.ManyToManyField(Author, related_name='author')
 	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	modified_at = models.DateTimeField(auto_now=True, blank=True)
-	# cover = models.ImageField(upload_to='cover_image/', blank=False)
 
 	def __str__(self):
 		return f"{self.title}"
@@ -45,8 +45,8 @@ class BookRequest(models.Model):
 
 
 class BookForm(forms.ModelForm):
-	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
-	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all())
+	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all(), required=False)
+	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all(), required=False)
 
 	class Meta:
 		model = Book

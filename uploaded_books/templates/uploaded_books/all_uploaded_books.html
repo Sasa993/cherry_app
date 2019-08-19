@@ -38,6 +38,7 @@
 		                            <tr>
 		                                <th class="pr-0">Title</th>
 		                                <th class="pr-0">Uploaded</th>
+		                                <th class="pr-0">Working No</th>
 		                                <th class="pr-0">Type</th>
 		                            </tr>
 		                        </thead>
@@ -46,6 +47,7 @@
 			                            <tr>
 											<td class="hvr-pulse"><img src="{% static 'images/file_icon.png' %}" class="mr-2" alt="file icon" width="25px"><a href="../uploaded_books/{{ x.name }}/{{ x.id }}" >{{ x.title }}</a></td>
 											<td>{{ x.uploaded_at|date:'d/m/Y, H:i' }}</td>
+											<td>{{ x.working_number }}</td>
 											<td>{{ x.name }}</td>
 										</tr>
 		                            {% endfor %}
