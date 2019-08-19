@@ -1033,7 +1033,7 @@ footer .useful-links li{
 
 /* All Uploaded Books */
 .upload_books_front .upload_books_front_header{
-    background: url('../images/upload-books.svg') no-repeat;
+    background: url('../images/detail_book_banner.png') no-repeat;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 8px;
@@ -1115,7 +1115,7 @@ footer .useful-links li{
 
 /* Upload Books Types*/
 .upload_book .upload_book_header{
-    background: url('../images/upload_book_banner.svg') no-repeat;
+    background: url('../images/detail_book_banner.png') no-repeat;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 8px;
@@ -1153,7 +1153,7 @@ footer .useful-links li{
 
 /* Upload E-Book */
 .upload_e-book .upload_e-book_header{
-    background: url('../images/upload_e-book_banner.svg') no-repeat;
+    background: url('../images/detail_book_banner.png') no-repeat;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 8px;
