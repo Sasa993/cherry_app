@@ -9,11 +9,8 @@
       </div>
       <div class="modal-body">
         Are you sure you want to delete this book: <strong>{{ book.title }}</strong>?<br>
-        If you delete this book, uploaded files will be permantly removed as well:<br><br>
-        1. <strong>{{ book.source_file.name }}</strong><br>
-        2. <strong>{{ book.epub_file.name }}</strong><br>
-        3. <strong>{{ book.mobi_file.name }}</strong><br>
-        4. <strong>{{ book.cover_file.name }}</strong><br>
+        - Created on <strong>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</strong><br>
+        - Last Modified on <strong>{{ book.modified_at|date:'d/m/Y, H:i' }}</strong>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">No, go back!</button>

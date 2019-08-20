@@ -88,10 +88,14 @@ def zip_whole_ebook(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = EBook.objects.get(pk=book_id)
-	zf.write(book.source_file.path, f'{book.source_file}')
-	zf.write(book.epub_file.path, f'{book.epub_file}')
-	zf.write(book.mobi_file.path, f'{book.mobi_file}')
-	zf.write(book.cover_file.path, f'{book.cover_file}')
+	if book.source_file:
+		zf.write(book.source_file.path, f'{book.source_file}')
+	if book.epub_file:
+		zf.write(book.epub_file.path, f'{book.epub_file}')
+	if book.mobi_file:
+		zf.write(book.mobi_file.path, f'{book.mobi_file}')
+	if book.cover_file:
+		zf.write(book.cover_file.path, f'{book.cover_file}')
 
 	response['Content-Disposition'] = f'attachment; filename=EBook-{book.title}.zip'
 
@@ -184,12 +188,18 @@ def zip_whole_5x8(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = Book5x8.objects.get(pk=book_id)
-	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
-	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
-	zf.write(book.pdf_file.path, f'{book.pdf_file}')
-	zf.write(book.indesign_file.path, f'{book.indesign_file}')
-	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
-	zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	if book.cover_pdf_file:
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	if book.cover_psd_file:
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	if book.pdf_file:
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	if book.indesign_file:
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	if book.pdf_old_version_file:
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	if book.barcode_file:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
 
 	response['Content-Disposition'] = f'attachment; filename=Book5x8-{book.title}.zip'
 
@@ -278,14 +288,22 @@ def zip_whole_a5_hardcover(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = BookA5Hardcover.objects.get(pk=book_id)
-	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
-	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
-	zf.write(book.pdf_file.path, f'{book.pdf_file}')
-	zf.write(book.indesign_file.path, f'{book.indesign_file}')
-	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
-	zf.write(book.barcode_file.path, f'{book.barcode_file}')
-	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
-	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+	if book.cover_pdf_file:
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	if book.cover_psd_file:
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	if book.pdf_file:
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	if book.indesign_file:
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	if book.pdf_old_version_file:
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	if book.barcode_file:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	if book.cover_interiour_pdf:
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	if book.cover_interiour_psd:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
 	response['Content-Disposition'] = f'attachment; filename=BookA5Hardcover-{book.title}.zip'
 
@@ -378,14 +396,22 @@ def zip_whole_115x18_fnsku(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = Book115x18Fnsku.objects.get(pk=book_id)
-	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
-	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
-	zf.write(book.pdf_file.path, f'{book.pdf_file}')
-	zf.write(book.indesign_file.path, f'{book.indesign_file}')
-	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
-	zf.write(book.barcode_file.path, f'{book.barcode_file}')
-	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
-	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+	if book.cover_pdf_file:
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	if book.cover_psd_file:
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	if book.pdf_file:
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	if book.indesign_file:
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	if book.pdf_old_version_file:
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	if book.barcode_file:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	if book.cover_interiour_pdf:
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	if book.cover_interiour_psd:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
 	response['Content-Disposition'] = f'attachment; filename=Book115x18Fnsku-{book.title}.zip'
 
@@ -478,14 +504,22 @@ def zip_whole_115x18_isbn(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = Book115x18Isbn.objects.get(pk=book_id)
-	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
-	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
-	zf.write(book.pdf_file.path, f'{book.pdf_file}')
-	zf.write(book.indesign_file.path, f'{book.indesign_file}')
-	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
-	zf.write(book.barcode_file.path, f'{book.barcode_file}')
-	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
-	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+	if book.cover_pdf_file:
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	if book.cover_psd_file:
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	if book.pdf_file:
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	if book.indesign_file:
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	if book.pdf_old_version_file:
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	if book.barcode_file:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	if book.cover_interiour_pdf:
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	if book.cover_interiour_psd:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
 	response['Content-Disposition'] = f'attachment; filename=Book115x18Isbn-{book.title}.zip'
 
@@ -578,14 +612,22 @@ def zip_whole_125x19_hardcover(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = Book125x19Hardcover.objects.get(pk=book_id)
-	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
-	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
-	zf.write(book.pdf_file.path, f'{book.pdf_file}')
-	zf.write(book.indesign_file.path, f'{book.indesign_file}')
-	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
-	zf.write(book.barcode_file.path, f'{book.barcode_file}')
-	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
-	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+	if book.cover_pdf_file:
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	if book.cover_psd_file:
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	if book.pdf_file:
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	if book.indesign_file:
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	if book.pdf_old_version_file:
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	if book.barcode_file:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	if book.cover_interiour_pdf:
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	if book.cover_interiour_psd:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
 	response['Content-Disposition'] = f'attachment; filename=Book125x19Hardcover-{book.title}.zip'
 
@@ -678,14 +720,22 @@ def zip_whole_125x19_fnsku(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = Book125x19Fnsku.objects.get(pk=book_id)
-	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
-	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
-	zf.write(book.pdf_file.path, f'{book.pdf_file}')
-	zf.write(book.indesign_file.path, f'{book.indesign_file}')
-	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
-	zf.write(book.barcode_file.path, f'{book.barcode_file}')
-	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
-	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+	if book.cover_pdf_file:
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	if book.cover_psd_file:
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	if book.pdf_file:
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	if book.indesign_file:
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	if book.pdf_old_version_file:
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	if book.barcode_file:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	if book.cover_interiour_pdf:
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	if book.cover_interiour_psd:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
 	response['Content-Disposition'] = f'attachment; filename=Book125x19Fnsku-{book.title}.zip'
 
@@ -778,14 +828,22 @@ def zip_whole_125x19_isbn(request, book_id):
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = Book125x19Isbn.objects.get(pk=book_id)
-	zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
-	zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
-	zf.write(book.pdf_file.path, f'{book.pdf_file}')
-	zf.write(book.indesign_file.path, f'{book.indesign_file}')
-	zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
-	zf.write(book.barcode_file.path, f'{book.barcode_file}')
-	zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
-	zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
+	if book.cover_pdf_file:
+		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
+	if book.cover_psd_file:
+		zf.write(book.cover_psd_file.path, f'{book.cover_psd_file}')
+	if book.pdf_file:
+		zf.write(book.pdf_file.path, f'{book.pdf_file}')
+	if book.indesign_file:
+		zf.write(book.indesign_file.path, f'{book.indesign_file}')
+	if book.pdf_old_version_file:
+		zf.write(book.pdf_old_version_file.path, f'{book.pdf_old_version_file}')
+	if book.barcode_file:
+		zf.write(book.barcode_file.path, f'{book.barcode_file}')
+	if book.cover_interiour_pdf:
+		zf.write(book.cover_interiour_pdf.path, f'{book.cover_interiour_pdf}')
+	if book.cover_interiour_psd:
+		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
 	response['Content-Disposition'] = f'attachment; filename=Book125x19Isbn-{book.title}.zip'
 

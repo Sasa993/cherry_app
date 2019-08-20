@@ -6,6 +6,7 @@ import os
 
 class EBook(Book):
 	name = models.CharField(max_length=50, default='E-Book', editable=False)
+	# source_file = models.FileField(blank=True, default='no-file/no-file.png')
 	source_file = models.FileField(blank=True)
 	epub_file = models.FileField(blank=True)
 	mobi_file = models.FileField(blank=True)
@@ -16,10 +17,14 @@ class EBook(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.source_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.epub_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.mobi_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_file.name))
+		if self.source_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.source_file.name))
+		if self.epub_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.epub_file.name))
+		if self.mobi_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.mobi_file.name))
+		if self.cover_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_file.name))
 		super(EBook, self).delete(*args, **kwargs)
 
 
@@ -37,12 +42,19 @@ class Book5x8(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+		if self.cover_pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
+		if self.cover_psd_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
+		if self.pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
+		if self.indesign_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
+		if self.pdf_old_version_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
+		if self.barcode_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+
 		super(Book5x8, self).delete(*args, **kwargs)
 
 
@@ -62,14 +74,23 @@ class BookA5Hardcover(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+		if self.cover_pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
+		if self.cover_psd_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
+		if self.pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
+		if self.indesign_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
+		if self.pdf_old_version_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
+		if self.barcode_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+		if self.cover_interiour_pdf:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
+		if self.cover_interiour_psd:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+
 		super(BookA5Hardcover, self).delete(*args, **kwargs)
 
 
@@ -89,14 +110,23 @@ class Book115x18Fnsku(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+		if self.cover_pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
+		if self.cover_psd_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
+		if self.pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
+		if self.indesign_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
+		if self.pdf_old_version_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
+		if self.barcode_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+		if self.cover_interiour_pdf:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
+		if self.cover_interiour_psd:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+
 		super(Book115x18Fnsku, self).delete(*args, **kwargs)
 
 
@@ -116,14 +146,23 @@ class Book115x18Isbn(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+		if self.cover_pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
+		if self.cover_psd_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
+		if self.pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
+		if self.indesign_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
+		if self.pdf_old_version_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
+		if self.barcode_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+		if self.cover_interiour_pdf:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
+		if self.cover_interiour_psd:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+
 		super(Book115x18Isbn, self).delete(*args, **kwargs)
 
 
@@ -143,14 +182,23 @@ class Book125x19Hardcover(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+		if self.cover_pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
+		if self.cover_psd_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
+		if self.pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
+		if self.indesign_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
+		if self.pdf_old_version_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
+		if self.barcode_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+		if self.cover_interiour_pdf:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
+		if self.cover_interiour_psd:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+
 		super(Book125x19Hardcover, self).delete(*args, **kwargs)
 
 
@@ -170,14 +218,23 @@ class Book125x19Fnsku(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+		if self.cover_pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
+		if self.cover_psd_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
+		if self.pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
+		if self.indesign_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
+		if self.pdf_old_version_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
+		if self.barcode_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+		if self.cover_interiour_pdf:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
+		if self.cover_interiour_psd:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+
 		super(Book125x19Fnsku, self).delete(*args, **kwargs)
 
 
@@ -197,12 +254,21 @@ class Book125x19Isbn(Book):
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
-		os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+		if self.cover_pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_pdf_file.name))
+		if self.cover_psd_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_psd_file.name))
+		if self.pdf_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_file.name))
+		if self.indesign_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.indesign_file.name))
+		if self.pdf_old_version_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.pdf_old_version_file.name))
+		if self.barcode_file:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.barcode_file.name))
+		if self.cover_interiour_pdf:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
+		if self.cover_interiour_psd:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
+			
 		super(Book125x19Isbn, self).delete(*args, **kwargs)

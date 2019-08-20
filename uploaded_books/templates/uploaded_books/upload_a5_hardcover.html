@@ -32,13 +32,13 @@
 		                	{% endfor %}
 			                <div class="row">
 			                	{% for field in form %}
-			                		{% if forloop.counter == 9 or forloop.counter == 11 or forloop.counter == 13 or forloop.counter == 14 %}
+			                		{% if forloop.counter == 9 or forloop.counter == 11 or forloop.counter == 13 or forloop.counter == 15 %}
 					                	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
 			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
 			                                <span class="custom_text">Choose {{ field.label }}</span>
 			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
 			                            </div>
-			                        {% elif forloop.counter == 10 or forloop.counter == 12 or forloop.counter == 14 or forloop.counter == 15 %}
+			                        {% elif forloop.counter == 10 or forloop.counter == 12 or forloop.counter == 14 or forloop.counter == 16 %}
 			                            <div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
 			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
 			                                <span class="custom_text">Choose {{ field.label }}</span>
