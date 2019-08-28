@@ -6,6 +6,7 @@ from uploaded_books.forms import (
 	EBookForm, Book5x8Form, BookA5HardcoverForm, Book115x18FnskuForm, Book115x18IsbnForm, Book125x19HardcoverForm, Book125x19FnskuForm, Book125x19IsbnForm)
 from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
+from books.models import Book, BookForm
 from itertools import chain
 import operator
 import zipfile
@@ -13,19 +14,21 @@ import zipfile
 
 @login_required
 def all_uploaded_books(request):
-	all_ebooks = EBook.objects.all()
-	all_books_5x8 = Book5x8.objects.all()
-	all_books_a5hardcover = BookA5Hardcover.objects.all()
-	all_books_115x18fnsku = Book115x18Fnsku.objects.all()
-	all_books_115x18isbn = Book115x18Isbn.objects.all()
-	all_books_125x19hardcover = Book125x19Hardcover.objects.all()
-	all_books_125x19fnsku = Book125x19Fnsku.objects.all()
-	all_books_125x19isbn = Book125x19Isbn.objects.all()
+	# all_ebooks = EBook.objects.all()
+	# all_books_5x8 = Book5x8.objects.all()
+	# all_books_a5hardcover = BookA5Hardcover.objects.all()
+	# all_books_115x18fnsku = Book115x18Fnsku.objects.all()
+	# all_books_115x18isbn = Book115x18Isbn.objects.all()
+	# all_books_125x19hardcover = Book125x19Hardcover.objects.all()
+	# all_books_125x19fnsku = Book125x19Fnsku.objects.all()
+	# all_books_125x19isbn = Book125x19Isbn.objects.all()
 
-	every_fking_book = chain(all_ebooks, all_books_5x8, all_books_a5hardcover, all_books_115x18fnsku, all_books_115x18isbn, all_books_125x19hardcover, all_books_125x19fnsku, all_books_125x19isbn)
-	every_fking_book = sorted(every_fking_book, key=operator.attrgetter('uploaded_at'), reverse=True)
+	# every_fking_book = chain(all_ebooks, all_books_5x8, all_books_a5hardcover, all_books_115x18fnsku, all_books_115x18isbn, all_books_125x19hardcover, all_books_125x19fnsku, all_books_125x19isbn)
+	# every_fking_book = sorted(every_fking_book, key=operator.attrgetter('uploaded_at'), reverse=True)
 
-	context = {'every_fking_book': every_fking_book}
+	all_books = Book.objects.all().order_by('-uploaded_at')
+
+	context = {'all_books': all_books}
 
 	return render(request, 'uploaded_books/all_uploaded_books.html', context)
 
@@ -33,42 +36,50 @@ def all_uploaded_books(request):
 # E-Book
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
-def upload_ebook(request):
+def upload_ebook(request, book_id):
+	main_book = Book.objects.get(pk=book_id)
 	if request.method == 'POST':
 		form = EBookForm(request.POST, request.FILES)
+		form_main_book = BookForm(instance=main_book)
 		if form.is_valid():
-			form.save()
+			form2 = form.save(commit=False)
+			form2.save()
+			form3 = form_main_book.save(commit=False)
+			form3.ebook = EBook.objects.get(pk=form2.pk)
+			form3.save()
 			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = EBookForm()
 
-	context = {'form': form}
+	context = {'main_book': main_book, 'form': form}
 
 	return render(request, 'uploaded_books/upload_ebook.html', context)
 
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
-def edit_ebook(request, book_id):
+def edit_ebook(request, main_book_id, book_id):
 	book = EBook.objects.get(pk=book_id)
+	main_book = Book.objects.get(pk=main_book_id)
 	if request.method == 'POST':
 		form = EBookForm(request.POST, request.FILES, instance=book)
 		if form.is_valid():
 			form.save()
-			return redirect(reverse('uploaded_books:details_ebook', args=[book_id]))
+			return redirect(reverse('uploaded_books:details_ebook', args=[main_book_id, book_id]))
 	else:
 		form = EBookForm(instance=book)
 
-	context = {'book': book, 'form': form}
+	context = {'book': book, 'main_book': main_book, 'form': form}
 
 	return render(request, 'uploaded_books/edit_ebook.html', context)
 
 
 @login_required
-def details_ebook(request, book_id):
+def details_ebook(request, main_book_id, book_id):
 	try:
 		book = EBook.objects.get(pk=book_id)
-		context = {'book': book}
+		main_book = Book.objects.get(pk=main_book_id)
+		context = {'book': book, 'main_book': main_book}
 		return render(request, 'uploaded_books/details/details_ebook.html', context)
 	except Exception:
 		raise Http404("We can not find that E-Book in our database.")

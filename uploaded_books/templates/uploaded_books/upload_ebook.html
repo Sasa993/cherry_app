@@ -12,33 +12,33 @@
 	<div class="upload_e-book">
 		<div class="row">
         	<div class="col-12 col-md-8 offset-md-2">
-            	<div class="card-body upload_e-book_header">
-                	<h3 class="mb-0">E-BOOK</h3>
+            	<div class="card-body single_book_detail_header upload_e-book_header">
+                	{# <h3 class="mb-0">E-BOOK - {{ main_book }} [{{ main_book.working_number }}]</h3> #}
+                	<h3 class="mb-0">[{{ main_book.working_number }}] {{ main_book }} - E Book</h3>
+                	<p>Uploaded: <small>-</small></p>
+                    <p>Modified: <small>-</small></p>
                 </div>  
                 <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 					{% csrf_token %}
-					{% include 'includes/bs4_form.html' with form=form %}
 					<div class="custom_card_body card-body">
                 		<h6 class="text-center">Please select files in order to upload an E-Book</h6>
                     	<div class="e-book_btn_container">
                     		{% for field in form %}
-                    			{% if forloop.counter > 8 %}
-									{% if field.errors %}
-											<div class="custom_alert_upload_books custom_alert custom_alert-danger">
-												{{ field.label }} is required!
-											</div>
-									{% endif %}
+								{% if field.errors %}
+										<div class="custom_alert_upload_books custom_alert custom_alert-danger">
+											{{ field.label }} is required!
+										</div>
 								{% endif %}
 		                	{% endfor %}
 			                <div class="row">
 			                	{% for field in form %}
-			                		{% if forloop.counter == 9 or forloop.counter == 11 %}
+			                		{% if forloop.counter == 1 or forloop.counter == 3 %}
 					                	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
 			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
 			                                <span class="custom_text">Choose {{ field.label }}</span>
 			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
 			                            </div>
-			                        {% elif forloop.counter == 10 or forloop.counter == 12 %}
+			                        {% elif forloop.counter == 2 or forloop.counter == 4 %}
 			                            <div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
 			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
 			                                <span class="custom_text">Choose {{ field.label }}</span>

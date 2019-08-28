@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-12 col-md-8 offset-md-2">
                 <div class="card-body single_book_detail_header">
-                    <h3 class="mb-0">{{ book.name|upper }} - {{ book.title }}</h3>
+                    <h3 class="mb-0">{{ book.name|upper }} - [{{ main_book.working_number }}] {{ main_book }}</h3>
                     <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
                     {% if book.uploaded_at == book.modified_at %}
                         <p>It hasn't been modified yet!</p>
@@ -22,60 +22,6 @@
                 </div>
                 <div class="card-body book_info">
                     <div class="row">
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>Working Number:</h5>
-                            {{ book.working_number }}
-                        </div>
-                        <div class="col-6 text-center mt-4 book_container">
-                            <h5>Title:</h5>
-                            {{ book.title }}
-                        </div>
-                        <div class="col-6 text-center mt-4 book_container">
-                            <h5>Subtitle:</h5>
-                            {{ book.subtitle }}
-                        </div>
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>Description:</h5>
-                            {{ book.description }}
-                        </div>
-                        <div class="col-4 text-center mt-4 book_container">
-                            <h5>Comparible:</h5>
-                            {{ book.comparible }}
-                        </div>
-                        <div class="col-4 text-center mt-4 book_container">
-                            <h5>Co Authors:</h5>
-                            {% for co_author in book.co_author_name.all %}
-                                {% if forloop.last %}
-                                    {{ co_author }}
-                                {% else %}
-                                    {{ co_author }},<br>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <div class="col-4 text-center mt-4 book_container">
-                            <h5>Co Author Emails:</h5>
-                            {% for co_author in book.co_author_name.all %}
-                                {% if forloop.last %}
-                                    {{ co_author.email }}
-                                {% else %}
-                                    {{ co_author.email }},<br>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>Co Authors Instructions:</h5>
-                            {{ book.co_author_instructions }}
-                        </div>
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>Authors:</h5>
-                            {% for author in book.author.all %}
-                                {% if forloop.last %}
-                                    {{ author }}
-                                {% else %}
-                                    {{ author }},<br>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
                         {% if book.source_file %}
                             <div class="col-6 offset-md-1 col-md-4 text-center mt-4 book_container">
                                 <div>
@@ -143,23 +89,24 @@
                         </div>
                         {% if request.user.is_superuser %}
                             <div class="col-6 col-md-4 text-center mt-5 book_container">
-                                <a href="edit/"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Edit Book</button></a>
+                                <a href="{% url 'uploaded_books:edit_ebook' main_book_id=main_book.id book_id=book.id %}"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Edit E-Book</button></a>
                             </div>
                             <div class="col-6 col-md-4 text-center mt-5 book_container">
                                 <!-- Button trigger modal -->
                                 <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteWholeEBook">
-                                    <i class="fas fa-download"></i>Delete Book
+                                    <i class="fas fa-download"></i>Delete E-Book
                                 </button>
                             </div>
                         {% else %}
                             <div class="col-6 col-md-4 text-center mt-5 book_container" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
-                                <button class="download_all_btn btn" type="button" disabled><i class="fas fa-download"></i>Edit Book</button>
+                                <button class="download_all_btn btn" type="button" disabled><i class="fas fa-download"></i>Edit E-Book</button>
                             </div>
                             <div class="col-6 col-md-4 text-center mt-5 book_container" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
                                 <!-- Button trigger modal -->
                                 <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteWholeEBook" disabled>
-                                    <i class="fas fa-download"></i>Delete Book
+                                    <i class="fas fa-download"></i>Delete E-Book
                                 </button>
+                            </div>
                         {% endif %}
                     </div>
                 </div>

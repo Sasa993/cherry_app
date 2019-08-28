@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 app_name = 'uploaded_books'
 urlpatterns = [
     # path('', views.all_uploaded_books, name='all_uploaded_books'),
-    path('upload_ebook/', views.upload_ebook, name='upload_ebook'),
+    path('upload_ebook/<int:book_id>/', views.upload_ebook, name='upload_ebook'),
     path('choose_regular_book/', views.choose_regular_book, name='choose_regular_book'),
     path('choose_regular_book/upload_5x8/', views.upload_5x8, name='upload_5x8'),
     path('choose_regular_book/upload_a5_hardcover/', views.upload_a5_hardcover, name='upload_a5_hardcover'),
@@ -17,8 +17,8 @@ urlpatterns = [
     path('choose_regular_book/upload_125x19_fnsku', views.upload_125x19_fnsku, name='upload_125x19_fnsku'),
     path('choose_regular_book/upload_125x19_isbn', views.upload_125x19_isbn, name='upload_125x19_isbn'),
 
-    path('E-Book/<int:book_id>/', views.details_ebook, name='details_ebook'),
-    path('E-Book/<int:book_id>/edit/', views.edit_ebook, name='edit_ebook'),
+    path('<int:main_book_id>/E-Book/<int:book_id>/', views.details_ebook, name='details_ebook'),
+    path('<int:main_book_id>/E-Book/<int:book_id>/edit/', views.edit_ebook, name='edit_ebook'),
     path('E-Book/<int:book_id>/delete/', views.delete_ebook, name='delete_ebook'),
     path('E-Book/<int:book_id>/zip_whole_ebook/', views.zip_whole_ebook, name='zip_whole_ebook'),
     path('E-Book/<int:book_id>/zip_single_ebook/<str:ebook_type>', views.zip_single_ebook, name='zip_single_ebook'),

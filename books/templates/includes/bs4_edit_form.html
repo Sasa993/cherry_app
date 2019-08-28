@@ -156,7 +156,7 @@
 					{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
 				</div>
 			</div>
-		{% elif forloop.counter == 8 %}
+		{% elif forloop.counter == 8 or forloop.counter == 9 %}
 			<div class="form-group col-sm-6">
 				{{ field.label_tag }}<br>
 

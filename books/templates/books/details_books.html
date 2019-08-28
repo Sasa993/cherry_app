@@ -1,41 +1,141 @@
 {% extends "books/base.html" %}
+{% load static %}
 
 {% block title %}
 	Book - {{ book.title }}
 {% endblock %}
 
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-			</div>
-			<div class="col-md-6" style="text-align: center">
-				<img src='/media/{{ book.cover }}' width='70%' height='450px' />
-				<h1>{{ book.title }}</h1>
-				<p>{{ book.subtitle }}</p>
-				<h5>Description:</h5>
-				<p>{{ book.description }}</p>
-				<h5>Authors:</h5>
-				{% for x in book.author.all %}
-					<p>{{ x }}</p>
-				{% endfor %}
-				<h5>Comparible:</h5>
-				<a href="{{ book.comparible }}"><p>{{ book.comparible }}</p></a>
-				<h5>Co authors:</h5>
-				{% for x in book.co_author_name.all %}
-					<p>{{ x }}</p>
-				{% endfor %}
-				<h5>Co authors emails:</h5>
-				{% for x in book.co_author_name.all %}
-					<a href="mailto:{{x.email}}"><p>{{ x.email }}</p></a>
-				{% endfor %}
-				<h5>Co authors instructions:</h5>
-				<p>{{ book.co_author_instructions }}</p>
-				<a href="../" class="btn btn-outline-danger page-scroll btn-lg page-scroll">Back</a>
-				<a href="edit/" class="btn btn-outline-primary btn-lg page-scroll">Edit</a>
-			</div>
-			<div class="col-md-3">
-			</div>
-		</div>
-	</div>
+	<div class="single_book_detail">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <div class="card-body single_book_detail_header">
+                    <h3 class="mb-0">[{{ book.working_number }}] {{ book.title }}</h3>
+                    <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
+                    {% if book.uploaded_at == book.modified_at %}
+                        <p>It hasn't been modified yet!</p>
+                    {% else %}
+                        <p>Modified: <small>{{ book.modified_at|date:'d/m/Y, H:i' }}</small></p>
+                    {% endif %}
+                </div>
+                <div class="card-body book_info">
+                    <div class="row">
+                    	<div class="col-12 text-center mt-4 book_container">
+                            <h5>Cover:</h5>
+                            {% if book.cover %}
+                            	<img src="/media/{{ book.cover }}" width="30%" />
+                            {% else %}
+                            	<p>Not uploaded!</p>
+                            {% endif %}
+                        </div>
+                        <div class="col-12 text-center mt-4 book_container">
+                            <h5>Working Number:</h5>
+                            {{ book.working_number }}
+                        </div>
+                        <div class="col-6 text-center mt-4 book_container">
+                            <h5>Title:</h5>
+                            {{ book.title }}
+                        </div>
+                        <div class="col-6 text-center mt-4 book_container">
+                            <h5>Subtitle:</h5>
+                            {{ book.subtitle }}
+                        </div>
+                        <div class="col-12 text-center mt-4 book_container">
+                            <h5>Description:</h5>
+                            {{ book.description }}
+                        </div>
+                        <div class="col-4 text-center mt-4 book_container">
+                            <h5>Comparible:</h5>
+                            {{ book.comparible }}
+                        </div>
+                        <div class="col-4 text-center mt-4 book_container">
+                            <h5>Co Authors:</h5>
+                            {% for co_author in book.co_author_name.all %}
+                                {% if forloop.last %}
+                                    {{ co_author }}
+                                {% else %}
+                                    {{ co_author }},<br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-4 text-center mt-4 book_container">
+                            <h5>Co Author Emails:</h5>
+                            {% for co_author in book.co_author_name.all %}
+                                {% if forloop.last %}
+                                    {{ co_author.email }}
+                                {% else %}
+                                    {{ co_author.email }},<br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-12 text-center mt-4 book_container">
+                            <h5>Co Authors Instructions:</h5>
+                            {{ book.co_author_instructions }}
+                        </div>
+                        <div class="col-12 text-center mt-4 book_container">
+                            <h5>Authors:</h5>
+                            {% for author in book.author.all %}
+                                {% if forloop.last %}
+                                    {{ author }}
+                                {% else %}
+                                    {{ author }},<br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% if book.ebook %}
+	                        <div class="upload_books_front col-4">
+		                        <div class="upload_books_btn_container text-center mt-4">
+					                <div>
+										<a href="{% url 'uploaded_books:details_ebook' main_book_id=book.id book_id=book.ebook.id %}">
+											<button class="btn"><i class="fas fa-book fa-lg"></i>
+												<b>OPEN E-BOOK</b>
+											</button>
+										</a>
+									</div>
+					            </div>
+					        </div>
+	                    {% else %}
+		                    <div class="upload_books_front col-4">
+		                        <div class="upload_books_btn_container text-center mt-4">
+					                <div>
+										<a href="{% url 'uploaded_books:upload_ebook' book_id=book.id %}">
+											<button class="btn"><i class="fas fa-book fa-lg"></i>
+												<b>CREATE E-BOOK</b>
+											</button>
+										</a>
+									</div>
+					            </div>
+					        </div>
+	                    {% endif %}
+                    </div>
+                    <div class="row">
+	                    {% if request.user.is_superuser %}
+	                        <div class="col-6 col-md-6 text-center mt-5 book_container">
+	                        	<a href="{% url 'dashboard:edit_books' book_id=book.id %}">
+	                        		<button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>Edit Book</button>
+	                        	</a>
+	                        </div>
+	                        <div class="col-6 col-md-6 text-center mt-5 book_container">
+	                        	<!-- Button trigger modal -->
+	                            <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteBook">
+	                            	<i class="fas fa-download"></i>Delete Book
+	                            </button>
+	                        </div>
+	                    {% else %}
+	                    	<div class="col-6 col-md-6 text-center mt-5 book_container" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+	                        	<button class="download_all_btn btn" type="button" disabled><i class="fas fa-download"></i>Edit Book</button>
+	                        </div>
+	                        <div class="col-6 col-md-6 text-center mt-5 book_container" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+	                        	<!-- Button trigger modal -->
+	                            <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteWholeEBook" disabled>
+	                            	<i class="fas fa-download"></i>Delete Book
+	                            </button>
+	                        </div>
+	                    {% endif %}
+	               	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'books/modals/modal_delete_book.html' %}
 {% endblock %}

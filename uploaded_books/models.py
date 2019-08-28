@@ -1,19 +1,22 @@
 from django.db import models
 from django.conf import settings
-from books.models import Book
+# from books.models import Book
 import os
 
 
-class EBook(Book):
+class EBook(models.Model):
 	name = models.CharField(max_length=50, default='E-Book', editable=False)
 	# source_file = models.FileField(blank=True, default='no-file/no-file.png')
 	source_file = models.FileField(blank=True)
 	epub_file = models.FileField(blank=True)
 	mobi_file = models.FileField(blank=True)
 	cover_file = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
+	# book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
@@ -28,7 +31,7 @@ class EBook(Book):
 		super(EBook, self).delete(*args, **kwargs)
 
 
-class Book5x8(Book):
+class Book5x8(models.Model):
 	name = models.CharField(max_length=50, default='5x8 Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
@@ -58,7 +61,7 @@ class Book5x8(Book):
 		super(Book5x8, self).delete(*args, **kwargs)
 
 
-class BookA5Hardcover(Book):
+class BookA5Hardcover(models.Model):
 	name = models.CharField(max_length=50, default='A5 Hardcover Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
@@ -94,7 +97,7 @@ class BookA5Hardcover(Book):
 		super(BookA5Hardcover, self).delete(*args, **kwargs)
 
 
-class Book115x18Fnsku(Book):
+class Book115x18Fnsku(models.Model):
 	name = models.CharField(max_length=50, default='11,5x18 FNSKU Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
@@ -130,7 +133,7 @@ class Book115x18Fnsku(Book):
 		super(Book115x18Fnsku, self).delete(*args, **kwargs)
 
 
-class Book115x18Isbn(Book):
+class Book115x18Isbn(models.Model):
 	name = models.CharField(max_length=50, default='11,5x18 ISBN Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
@@ -166,7 +169,7 @@ class Book115x18Isbn(Book):
 		super(Book115x18Isbn, self).delete(*args, **kwargs)
 
 
-class Book125x19Hardcover(Book):
+class Book125x19Hardcover(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 Hardcover Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
@@ -202,7 +205,7 @@ class Book125x19Hardcover(Book):
 		super(Book125x19Hardcover, self).delete(*args, **kwargs)
 
 
-class Book125x19Fnsku(Book):
+class Book125x19Fnsku(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 FNSKU Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
@@ -238,7 +241,7 @@ class Book125x19Fnsku(Book):
 		super(Book125x19Fnsku, self).delete(*args, **kwargs)
 
 
-class Book125x19Isbn(Book):
+class Book125x19Isbn(models.Model):
 	name = models.CharField(max_length=50, default='12,5x19 ISBN Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
@@ -270,5 +273,5 @@ class Book125x19Isbn(Book):
 			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_pdf.name))
 		if self.cover_interiour_psd:
 			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover_interiour_psd.name))
-			
+
 		super(Book125x19Isbn, self).delete(*args, **kwargs)

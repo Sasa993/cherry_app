@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
 from .models import (Author, Book, BookForm,
-					 BookRequest)
+					BookRequest)
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django.core.mail import EmailMessage
@@ -38,7 +38,7 @@ def details_books(request, book_id):
 		book = Book.objects.get(pk=book_id)
 		context = {'book': book}
 		return render(request, 'books/details_books.html', context)
-	except:
+	except Exception:
 		raise Http404("Ne postoji ta knjiga!")
 
 
@@ -52,7 +52,7 @@ def enter_new_book(request):
 			if ('save_and_add_another' in request.POST):
 				return redirect('dashboard:enter_new_book')
 			else:
-				return redirect('dashboard:dashboard')
+				return redirect('dashboard:all_uploaded_books')
 	else:
 		form = BookForm()
 
@@ -85,6 +85,13 @@ def edit_books(request, book_id):
 	context = {'book': book, 'form': form}
 
 	return render(request, 'books/edit_books.html', context)
+
+
+@login_required
+def delete_books(request, book_id):
+	book = Book.objects.get(pk=book_id)
+	book.delete()
+	return redirect(reverse('dashboard:all_uploaded_books'))
 
 # we need to change author model, this example is only for presenting
 @login_required
