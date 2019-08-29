@@ -3,7 +3,8 @@ from django.db import models
 from django import forms
 from django_select2.forms import Select2MultipleWidget
 from django.contrib.auth.models import User
-from uploaded_books.models import EBook, Book5x8
+from uploaded_books.models import (
+	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
 # from django.conf import settings
 # import os
 
@@ -33,6 +34,12 @@ class Book(models.Model):
 	cover = models.ImageField(upload_to='cover_image/', blank=True)
 	ebook = models.ForeignKey(EBook, on_delete=models.SET_NULL, blank=True, null=True)
 	book5x8 = models.ForeignKey(Book5x8, on_delete=models.SET_NULL, blank=True, null=True)
+	book_A5_hardcover = models.ForeignKey(BookA5Hardcover, on_delete=models.SET_NULL, blank=True, null=True)
+	book_115x18_fnsku = models.ForeignKey(Book115x18Fnsku, on_delete=models.SET_NULL, blank=True, null=True)
+	book_115x18_isbn = models.ForeignKey(Book115x18Isbn, on_delete=models.SET_NULL, blank=True, null=True)
+	book_125x19_hardcover = models.ForeignKey(Book125x19Hardcover, on_delete=models.SET_NULL, blank=True, null=True)
+	book_125x19_fnsku = models.ForeignKey(Book125x19Fnsku, on_delete=models.SET_NULL, blank=True, null=True)
+	book_125x19_isbn = models.ForeignKey(Book125x19Isbn, on_delete=models.SET_NULL, blank=True, null=True)
 
 	def __str__(self):
 		return f"{self.title}"

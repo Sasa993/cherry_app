@@ -75,7 +75,7 @@ class BookA5Hardcover(models.Model):
 	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
@@ -111,7 +111,7 @@ class Book115x18Fnsku(models.Model):
 	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
@@ -147,7 +147,7 @@ class Book115x18Isbn(models.Model):
 	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
@@ -183,7 +183,7 @@ class Book125x19Hardcover(models.Model):
 	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
@@ -219,7 +219,7 @@ class Book125x19Fnsku(models.Model):
 	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
@@ -255,7 +255,7 @@ class Book125x19Isbn(models.Model):
 	cover_interiour_psd = models.FileField(blank=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
