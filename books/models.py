@@ -3,7 +3,7 @@ from django.db import models
 from django import forms
 from django_select2.forms import Select2MultipleWidget
 from django.contrib.auth.models import User
-from uploaded_books.models import EBook
+from uploaded_books.models import EBook, Book5x8
 # from django.conf import settings
 # import os
 
@@ -32,6 +32,7 @@ class Book(models.Model):
 	modified_at = models.DateTimeField(auto_now=True, blank=True)
 	cover = models.ImageField(upload_to='cover_image/', blank=True)
 	ebook = models.ForeignKey(EBook, on_delete=models.SET_NULL, blank=True, null=True)
+	book5x8 = models.ForeignKey(Book5x8, on_delete=models.SET_NULL, blank=True, null=True)
 
 	def __str__(self):
 		return f"{self.title}"

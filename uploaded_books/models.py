@@ -16,7 +16,7 @@ class EBook(models.Model):
 	# book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
 
 	def __str__(self):
-		return f"{self.name}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):
@@ -39,9 +39,11 @@ class Book5x8(models.Model):
 	indesign_file = models.FileField(blank=True)
 	pdf_old_version_file = models.FileField(blank=True)
 	barcode_file = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 
 	def __str__(self):
-		return f"{self.title}"
+		return f"ID:{self.pk}-{self.name}"
 
 	# overriding the default "delete" method in order to delete all the uploaded files of the certain book
 	def delete(self, *args, **kwargs):

@@ -94,11 +94,12 @@ def delete_ebook(request, book_id):
 
 
 @login_required
-def zip_whole_ebook(request, book_id):
+def zip_whole_ebook(request, main_book_id, book_id):
 	response = HttpResponse(content_type='application/zip')
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = EBook.objects.get(pk=book_id)
+	main_book = Book.objects.get(pk=main_book_id)
 	if book.source_file:
 		zf.write(book.source_file.path, f'{book.source_file}')
 	if book.epub_file:
@@ -108,7 +109,7 @@ def zip_whole_ebook(request, book_id):
 	if book.cover_file:
 		zf.write(book.cover_file.path, f'{book.cover_file}')
 
-	response['Content-Disposition'] = f'attachment; filename=EBook-{book.title}.zip'
+	response['Content-Disposition'] = f'attachment; filename=EBook-[{main_book.working_number}] {main_book.title}.zip'
 
 	return response
 
@@ -129,7 +130,7 @@ def zip_single_ebook(request, book_id, ebook_type):
 	else:
 		zf.write(book.cover_file.path, f'{book.cover_file}')
 
-	response['Content-Disposition'] = f'attachment; filename=EBook-{book.title}-{ebook_type} File.zip'
+	response['Content-Disposition'] = f'attachment; filename=EBook-{ebook_type} File.zip'
 
 	return response
 
@@ -144,42 +145,50 @@ def choose_regular_book(request):
 # 5x8 Book
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
-def upload_5x8(request):
+def upload_5x8(request, book_id):
+	main_book = Book.objects.get(pk=book_id)
 	if request.method == 'POST':
 		form = Book5x8Form(request.POST, request.FILES)
+		form_main_book = BookForm(instance=main_book)
 		if form.is_valid():
-			form.save()
+			form2 = form.save(commit=False)
+			form2.save()
+			form3 = form_main_book.save(commit=False)
+			form3.book5x8 = Book5x8.objects.get(pk=form2.pk)
+			form3.save()
 			return redirect('dashboard:all_uploaded_books')
 	else:
 		form = Book5x8Form()
 
-	context = {'form': form}
+	context = {'main_book': main_book, 'form': form}
 
 	return render(request, 'uploaded_books/upload_5x8.html', context)
 
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
-def edit_5x8(request, book_id):
+def edit_5x8(request, main_book_id, book_id):
 	book = Book5x8.objects.get(pk=book_id)
+	main_book = Book.objects.get(pk=main_book_id)
 	if request.method == 'POST':
 		form = Book5x8Form(request.POST, request.FILES, instance=book)
 		if form.is_valid():
 			form.save()
-			return redirect(reverse('uploaded_books:details_5x8', args=[book_id]))
+			return redirect(reverse('uploaded_books:details_5x8', args=[main_book_id, book_id]))
 	else:
 		form = Book5x8Form(instance=book)
 
-	context = {'book': book, 'form': form}
+	context = {'book': book, 'main_book': main_book, 'form': form}
 
 	return render(request, 'uploaded_books/edit_5x8.html', context)
 
 
 @login_required
-def details_5x8(request, book_id):
+def details_5x8(request, main_book_id, book_id):
 	try:
 		book = Book5x8.objects.get(pk=book_id)
-		context = {'book': book}
+		main_book = Book.objects.get(pk=main_book_id)
+		context = {'book': book, 'main_book': main_book}
 		return render(request, 'uploaded_books/details/details_5x8.html', context)
 	except Exception:
 		raise Http404("We can not find that Book 5x8 in our database.")
@@ -194,11 +203,12 @@ def delete_5x8(request, book_id):
 
 
 @login_required
-def zip_whole_5x8(request, book_id):
+def zip_whole_5x8(request, main_book_id, book_id):
 	response = HttpResponse(content_type='application/zip')
 	zf = zipfile.ZipFile(response, 'w')
 
 	book = Book5x8.objects.get(pk=book_id)
+	main_book = Book.objects.get(pk=main_book_id)
 	if book.cover_pdf_file:
 		zf.write(book.cover_pdf_file.path, f'{book.cover_pdf_file}')
 	if book.cover_psd_file:
@@ -212,7 +222,7 @@ def zip_whole_5x8(request, book_id):
 	if book.barcode_file:
 		zf.write(book.barcode_file.path, f'{book.barcode_file}')
 
-	response['Content-Disposition'] = f'attachment; filename=Book5x8-{book.title}.zip'
+	response['Content-Disposition'] = f'attachment; filename=Book5x8-[{main_book.working_number}] {main_book.title}.zip'
 
 	return response
 
@@ -237,7 +247,7 @@ def zip_single_5x8(request, book_id, ebook_type):
 	else:
 		zf.write(book.barcode_file.path, f'{book.barcode_file}')
 
-	response['Content-Disposition'] = f'attachment; filename=Book5x8-{book.title}-{ebook_type} File.zip'
+	response['Content-Disposition'] = f'attachment; filename=Book5x8-{ebook_type} File.zip'
 
 	return response
 

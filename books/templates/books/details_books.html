@@ -107,6 +107,31 @@
 					            </div>
 					        </div>
 	                    {% endif %}
+	                    {% if book.book5x8 %}
+	                    	<div class="upload_books_front col-4">
+		                        <div class="upload_books_btn_container text-center mt-4">
+					                <div>
+										<a href="{% url 'uploaded_books:details_5x8' main_book_id=book.id book_id=book.book5x8.id %}">
+											<button class="btn"><i class="fas fa-book fa-lg"></i>
+												<b>OPEN 5x8 BOOK</b>
+											</button>
+										</a>
+									</div>
+					            </div>
+					        </div>
+	                    {% else %}
+	                    	<div class="upload_books_front col-4">
+		                        <div class="upload_books_btn_container text-center mt-4">
+					                <div>
+										<a href="{% url 'uploaded_books:upload_5x8' book_id=book.id %}">
+											<button class="btn"><i class="fas fa-book fa-lg"></i>
+												<b>CREATE 5x8 BOOK</b>
+											</button>
+										</a>
+									</div>
+					            </div>
+					        </div>
+	                    {% endif %}
                     </div>
                     <div class="row">
 	                    {% if request.user.is_superuser %}
