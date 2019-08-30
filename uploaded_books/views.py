@@ -364,7 +364,7 @@ def zip_single_a5_hardcover(request, book_id, ebook_type):
 	else:
 		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
-	response['Content-Disposition'] = f'attachment; filename=BookA5Hardcover-{book.title}-{ebook_type} File.zip'
+	response['Content-Disposition'] = f'attachment; filename=BookA5Hardcover-{ebook_type} File.zip'
 
 	return response
 

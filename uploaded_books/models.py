@@ -73,6 +73,8 @@ class BookA5Hardcover(models.Model):
 	barcode_file = models.FileField(blank=True)
 	cover_interiour_pdf = models.FileField(blank=True)
 	cover_interiour_psd = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 
 	def __str__(self):
 		return f"ID:{self.pk}-{self.name}"
@@ -109,6 +111,8 @@ class Book115x18Fnsku(models.Model):
 	barcode_file = models.FileField(blank=True)
 	cover_interiour_pdf = models.FileField(blank=True)
 	cover_interiour_psd = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 
 	def __str__(self):
 		return f"ID:{self.pk}-{self.name}"
@@ -145,6 +149,8 @@ class Book115x18Isbn(models.Model):
 	barcode_file = models.FileField(blank=True)
 	cover_interiour_pdf = models.FileField(blank=True)
 	cover_interiour_psd = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 
 	def __str__(self):
 		return f"ID:{self.pk}-{self.name}"
@@ -181,6 +187,8 @@ class Book125x19Hardcover(models.Model):
 	barcode_file = models.FileField(blank=True)
 	cover_interiour_pdf = models.FileField(blank=True)
 	cover_interiour_psd = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 
 	def __str__(self):
 		return f"ID:{self.pk}-{self.name}"
@@ -217,6 +225,8 @@ class Book125x19Fnsku(models.Model):
 	barcode_file = models.FileField(blank=True)
 	cover_interiour_pdf = models.FileField(blank=True)
 	cover_interiour_psd = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 
 	def __str__(self):
 		return f"ID:{self.pk}-{self.name}"
@@ -253,6 +263,8 @@ class Book125x19Isbn(models.Model):
 	barcode_file = models.FileField(blank=True)
 	cover_interiour_pdf = models.FileField(blank=True)
 	cover_interiour_psd = models.FileField(blank=True)
+	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
+	modified_at = models.DateTimeField(auto_now=True, blank=True)
 
 	def __str__(self):
 		return f"ID:{self.pk}-{self.name}"
