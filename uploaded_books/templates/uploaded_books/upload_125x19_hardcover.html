@@ -19,7 +19,6 @@
                 </div> 
                 <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 					{% csrf_token %}
-					{% include 'includes/bs4_form.html' with form=form %}
 					<div class="custom_card_body card-body">
                 		<h6 class="text-center">Please select files in order to upload an 12,5 x 19 Hardcover Book</h6>
                     	<div class="e-book_btn_container">

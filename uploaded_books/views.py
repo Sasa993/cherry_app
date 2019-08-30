@@ -47,7 +47,7 @@ def upload_ebook(request, book_id):
 			form3 = form_main_book.save(commit=False)
 			form3.ebook = EBook.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = EBookForm()
 
@@ -156,7 +156,7 @@ def upload_5x8(request, book_id):
 			form3 = form_main_book.save(commit=False)
 			form3.book5x8 = Book5x8.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = Book5x8Form()
 
@@ -265,7 +265,7 @@ def upload_a5_hardcover(request, book_id):
 			form3 = form_main_book.save(commit=False)
 			form3.book_A5_hardcover = BookA5Hardcover.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = BookA5HardcoverForm()
 
@@ -382,7 +382,7 @@ def upload_115x18_fnsku(request, book_id):
 			form3 = form_main_book.save(commit=False)
 			form3.book_115x18_fnsku = Book115x18Fnsku.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = Book115x18FnskuForm()
 
@@ -499,7 +499,7 @@ def upload_115x18_isbn(request, book_id):
 			form3 = form_main_book.save(commit=False)
 			form3.book_115x18_isbn = Book115x18Isbn.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = Book115x18IsbnForm()
 
@@ -616,7 +616,7 @@ def upload_125x19_hardcover(request, book_id):
 			form3 = form_main_book.save(commit=False)
 			form3.book_125x19_hardcover = Book125x19Hardcover.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = Book125x19HardcoverForm()
 
@@ -731,9 +731,9 @@ def upload_125x19_fnsku(request, book_id):
 			form2 = form.save(commit=False)
 			form2.save()
 			form3 = form_main_book.save(commit=False)
-			form3.book_15x19_fnsku = Book125x19Fnsku.objects.get(pk=form2.pk)
+			form3.book_125x19_fnsku = Book125x19Fnsku.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = Book125x19FnskuForm()
 
@@ -850,7 +850,7 @@ def upload_125x19_isbn(request, book_id):
 			form3 = form_main_book.save(commit=False)
 			form3.book_125x19_isbn = Book125x19Isbn.objects.get(pk=form2.pk)
 			form3.save()
-			return redirect('dashboard:all_uploaded_books')
+			return redirect(reverse('dashboard:details_books', args=[book_id]))
 	else:
 		form = Book125x19IsbnForm()
 

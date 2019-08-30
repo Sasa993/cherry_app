@@ -95,17 +95,19 @@
 					            </div>
 					        </div>
 	                    {% else %}
-		                    <div class="upload_books_front col-6">
-		                        <div class="upload_books_btn_container text-center mt-4">
-					                <div>
-										<a href="{% url 'uploaded_books:upload_ebook' book_id=book.id %}">
-											<button class="btn"><i class="fas fa-book fa-lg"></i>
-												<b>CREATE E-BOOK</b>
-											</button>
-										</a>
-									</div>
-					            </div>
-					        </div>
+                            {% if request.user.is_superuser %}
+    		                    <div class="upload_books_front col-6">
+    		                        <div class="upload_books_btn_container text-center mt-4">
+    					                <div>
+    										<a href="{% url 'uploaded_books:upload_ebook' book_id=book.id %}">
+    											<button class="btn"><i class="fas fa-book fa-lg"></i>
+    												<b>CREATE E-BOOK</b>
+    											</button>
+    										</a>
+    									</div>
+    					            </div>
+    					        </div>
+                            {% endif %}
 	                    {% endif %}
 	                    {% if book.book5x8 %}
 	                    	<div class="upload_books_front col-6">
@@ -120,17 +122,19 @@
 					            </div>
 					        </div>
 	                    {% else %}
-	                    	<div class="upload_books_front col-6">
-		                        <div class="upload_books_btn_container text-center mt-4">
-					                <div>
-										<a href="{% url 'uploaded_books:upload_5x8' book_id=book.id %}">
-											<button class="btn"><i class="fas fa-book fa-lg"></i>
-												<b>CREATE 5x8 BOOK</b>
-											</button>
-										</a>
-									</div>
-					            </div>
-					        </div>
+                            {% if request.user.is_superuser %}
+    	                    	<div class="upload_books_front col-6">
+    		                        <div class="upload_books_btn_container text-center mt-4">
+    					                <div>
+    										<a href="{% url 'uploaded_books:upload_5x8' book_id=book.id %}">
+    											<button class="btn"><i class="fas fa-book fa-lg"></i>
+    												<b>CREATE 5x8 BOOK</b>
+    											</button>
+    										</a>
+    									</div>
+    					            </div>
+    					        </div>
+                            {% endif %}
 	                    {% endif %}
                         {% if book.book_A5_hardcover %}
                             <div class="upload_books_front col-6">
@@ -145,17 +149,19 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:upload_a5_hardcover' book_id=book.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>CREATE A5 HARDCOVER BOOK</b>
-                                            </button>
-                                        </a>
+                            {% if request.user.is_superuser %}
+                                <div class="upload_books_front col-6">
+                                    <div class="upload_books_btn_container text-center mt-4">
+                                        <div>
+                                            <a href="{% url 'uploaded_books:upload_a5_hardcover' book_id=book.id %}">
+                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
+                                                    <b>CREATE A5 HARDCOVER BOOK</b>
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endif %}
                         {% if book.book_115x18_fnsku %}
                             <div class="upload_books_front col-6">
@@ -170,17 +176,19 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:upload_115x18_fnsku' book_id=book.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>CREATE 115x18 FNSKU BOOK</b>
-                                            </button>
-                                        </a>
+                            {% if request.user.is_superuser %}
+                                <div class="upload_books_front col-6">
+                                    <div class="upload_books_btn_container text-center mt-4">
+                                        <div>
+                                            <a href="{% url 'uploaded_books:upload_115x18_fnsku' book_id=book.id %}">
+                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
+                                                    <b>CREATE 115x18 FNSKU BOOK</b>
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endif %}
                         {% if book.book_115x18_isbn %}
                             <div class="upload_books_front col-6">
@@ -195,17 +203,19 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:upload_115x18_isbn' book_id=book.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>CREATE 115x18 ISBN BOOK</b>
-                                            </button>
-                                        </a>
+                            {% if request.user.is_superuser %}
+                                <div class="upload_books_front col-6">
+                                    <div class="upload_books_btn_container text-center mt-4">
+                                        <div>
+                                            <a href="{% url 'uploaded_books:upload_115x18_isbn' book_id=book.id %}">
+                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
+                                                    <b>CREATE 115x18 ISBN BOOK</b>
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endif %}
                         {% if book.book_125x19_hardcover %}
                             <div class="upload_books_front col-6">
@@ -220,17 +230,19 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:upload_125x19_hardcover' book_id=book.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>CREATE 125X19 HARDCOVER BOOK</b>
-                                            </button>
-                                        </a>
+                            {% if request.user.is_superuser %}
+                                <div class="upload_books_front col-6">
+                                    <div class="upload_books_btn_container text-center mt-4">
+                                        <div>
+                                            <a href="{% url 'uploaded_books:upload_125x19_hardcover' book_id=book.id %}">
+                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
+                                                    <b>CREATE 125X19 HARDCOVER BOOK</b>
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endif %}
                         {% if book.book_125x19_fnsku %}
                             <div class="upload_books_front col-6">
@@ -245,17 +257,19 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:upload_125x19_fnsku' book_id=book.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>CREATE 125X19 FNSKU BOOK</b>
-                                            </button>
-                                        </a>
+                            {% if request.user.is_superuser %}
+                                <div class="upload_books_front col-6">
+                                    <div class="upload_books_btn_container text-center mt-4">
+                                        <div>
+                                            <a href="{% url 'uploaded_books:upload_125x19_fnsku' book_id=book.id %}">
+                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
+                                                    <b>CREATE 125X19 FNSKU BOOK</b>
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endif %}
                         {% if book.book_125x19_isbn %}
                             <div class="upload_books_front col-6">
@@ -270,17 +284,17 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:upload_125x19_isbn' book_id=book.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>CREATE 125X19 ISBN BOOK</b>
-                                            </button>
-                                        </a>
+                            {% if request.user.is_superuser %}
+                                <div class="upload_books_front col-6">
+                                    <div class="upload_books_btn_container text-center mt-4" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+                                        <div>
+                                            <a href="{% url 'uploaded_books:upload_125x19_isbn' book_id=book.id %}">
+                                                <button class="btn"><i class="fas fa-book fa-lg"></i><b>CREATE 125X19 ISBN BOOK</b></button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endif %}
                     </div>
                     <div class="row">
