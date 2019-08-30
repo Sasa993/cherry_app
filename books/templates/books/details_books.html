@@ -286,7 +286,7 @@
                         {% else %}
                             {% if request.user.is_superuser %}
                                 <div class="upload_books_front col-6">
-                                    <div class="upload_books_btn_container text-center mt-4" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+                                    <div class="upload_books_btn_container text-center mt-4">
                                         <div>
                                             <a href="{% url 'uploaded_books:upload_125x19_isbn' book_id=book.id %}">
                                                 <button class="btn"><i class="fas fa-book fa-lg"></i><b>CREATE 125X19 ISBN BOOK</b></button>
