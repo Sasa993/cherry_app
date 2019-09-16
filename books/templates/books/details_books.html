@@ -13,8 +13,7 @@
                     <h3 class="mb-0">[{{ book.working_number }}] {{ book.title }}</h3>
                     <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
                     {% if book.uploaded_at == book.modified_at %}
-                        {# <p>It hasn't been modified yet!</p> #}
-                        <p>Blablabla</p>
+                        <p>It hasn't been modified yet!</p>
                     {% else %}
                         <p>Modified: <small>{{ book.modified_at|date:'d/m/Y, H:i' }}</small></p>
                     {% endif %}
