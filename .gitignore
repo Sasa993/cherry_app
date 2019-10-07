@@ -3,3 +3,4 @@ env/
 .env
 .cache
 *.pyc
+db.sqlite3
