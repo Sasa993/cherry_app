@@ -7,6 +7,8 @@ from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
 # from django.conf import settings
 # import os
+from .validators import (
+	validate_underscore, validate_digits_after_underscore, validate_alpha_before_underscore, validate_two_letters)
 
 
 class Author(models.Model):
@@ -21,7 +23,7 @@ class Author(models.Model):
 class Book(models.Model):
 	title = models.CharField(max_length=200)
 	subtitle = models.CharField(max_length=200)
-	working_number = models.PositiveIntegerField()
+	working_number = models.CharField(max_length=12, validators=[validate_underscore, validate_digits_after_underscore, validate_alpha_before_underscore, validate_two_letters])
 	description = models.TextField(blank=True)
 	comparible = models.URLField(max_length=200, blank=True)
 	co_author_name = models.ManyToManyField(Author, related_name='co_author')
