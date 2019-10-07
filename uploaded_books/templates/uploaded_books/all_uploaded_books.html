@@ -52,7 +52,7 @@
 					                            {% endfor %}
 											</td>
 											<td>{{ x.uploaded_at|date:'d/m/Y, H:i' }}</td>
-											<td>{{ x.working_number }}</td>
+											<td>{{ x.working_number|upper }}</td>
 											{# <td>{{ x.name }}</td> #}
 										</tr>
 		                            {% endfor %}

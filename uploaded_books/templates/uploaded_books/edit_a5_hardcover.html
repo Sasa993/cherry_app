@@ -14,7 +14,7 @@
 		<div class="row">
         	<div class="col-12 col-md-8 offset-md-2">
             	<div class="card-body upload_e-book_header single_book_detail_header">
-                	<h3 class="mb-0">{{ book.name|upper }} - [{{ main_book.working_number }}] {{ main_book }}</h3>
+                	<h3 class="mb-0">{{ book.name|upper }} - [{{ main_book.working_number|upper }}] {{ main_book }}</h3>
                 	<p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
                     {% if book.uploaded_at == book.modified_at %}
                         <p>It hasn't been modified yet!</p>
