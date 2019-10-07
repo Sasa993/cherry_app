@@ -4,81 +4,109 @@
 {% block title %}Import CSV{% endblock %}
 
 {% block content %}
-  <h2>
-    Import CSV
-  </h2>
-
-  <p>
-    Batch-import tasks by uploading a specifically-formatted CSV.
-    Download to template to create CSV easier. Updated CSV files will update the task list as well.
-    Successs and failures will be reported here.
-  </p>
-  {% if results %}
-    <div class="card mb-4">
-      <div class="card-header">
-        Results of CSV upload
-      </div>
-      <div class="card-body">
-
-        {% if results.summaries %}
-          <p>
-            <b>Summary:</b>
-          </p>
-          <ul>
-            {% for line in results.summaries %}
-              <li>{{ line }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-        {% if results.upserts %}
-          <p>
-            <b>Upserts (tasks created or updated):</b>
-          </p>
-          <ul>
-            {% for line in results.upserts %}
-              <li>{{ line }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-        {% if results.errors %}
-          <p>
-            <b>Errors (tasks NOT created or updated):</b>
-          </p>
-          <ul>
-            {% for error_row in results.errors %}
-              {% for k, error_list in error_row.items  %}
-                <li>CSV row {{ k }}</li>
-                <ul>
-                  {% for err in error_list %}
-                    <li>{{ err }}</li>
-                  {% endfor %}
-                </ul>
-              {% endfor %}
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-
-      </div>
-    </div>
-  {% endif %}
-
-  <div class="card">
-    <div class="card-header">
-      Upload Tasks
-    </div>
-    <div class="card-body">
-      <a href="{% static 'todo/import_example.csv' %}" download="import_example.csv" style="float:right"><button type="submit" class="btn btn-primary">Download the template</button></a>
-      <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div>
-          <input type="file" name="csvfile" accept="text/csv">
+  <div class="import_csv mt-4">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card-body import_csv_header">
+          <h3 class="mb-1">IMPORT CSV</h3>
         </div>
-        <button type="submit" class="btn btn-primary mt-4">Upload</button>
-      </form>
+        <div class="card-body import_csv_container">
+          <h6>Batch-import tasks by uploading a specifically-formated CSV.</h6>
+          <h6>Updated CSV files will update the task list as well. Success and failure will be reported here</h6>
+          {% if results %}
+            <div class="card mb-4">
+              <div class="card-header">
+                Results of CSV upload
+              </div>
+              <div class="card-body">
+                {% if results.summaries %}
+                  <p>
+                    <b>Summary:</b>
+                  </p>
+                  <ul>
+                    {% for line in results.summaries %}
+                      <li>{{ line }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+                {% if results.upserts %}
+                  <p>
+                    <b>Upserts (tasks created or updated):</b>
+                  </p>
+                  <ul>
+                    {% for line in results.upserts %}
+                      <li>{{ line }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+                {% if results.errors %}
+                  <p>
+                    <b>Errors (tasks NOT created or updated):</b>
+                  </p>
+                  <ul>
+                    {% for error_row in results.errors %}
+                      {% for k, error_list in error_row.items  %}
+                        <li>CSV row {{ k }}</li>
+                        <ul>
+                          {% for err in error_list %}
+                            <li>{{ err }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% endfor %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="row">
+            <form method="post" enctype="multipart/form-data" style="display: contents;">
+              {% csrf_token %}
+              <div class="col-12 col-sm-5 offset-sm-1 col-md-5 offset-md-1 mt-3 mr-4 import_csv_wrapper">
+                <button class="btn import_csv_btn hvr-sweep-to-right" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
+                <span class="custom_csv_text" id="custom_csv_text">Choose Source File</span>
+                <input type="file" name="csvfile" accept="text/csv" class="real_csv_file" id="import_csv_real_file" required>
+              </div>
+              <div class="col-12 col-sm-4 offset-sm-1 col-md-4 offset-md-1 mt-3">
+                <button class="upload_csv_btn btn" type="submit"><i class="fas fa-upload"></i>Upload</button>
+              </div>
+            </form>
+          </div>
+          <div>
+            <h6 class="text-center mt-4 mb-3">Download the template to create CSV easier.</h6>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 offset-md-3 text-center">
+              <a href="{% static 'todo/import_example.csv' %}" download="import_example.csv"><button class="download_cvs_template_btn btn" type="submit"><i class="fas fa-download"></i>Download template</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+{% endblock %}
 
+{% block other_js %}
+  <script>
+    const realCSVFileBtn = document.getElementById("import_csv_real_file");
+    const customCSVBtn = document.getElementById("custom_csv_button");
+    const customCSVText = document.getElementById("custom_csv_text");
+    customCSVBtn.addEventListener('click', function(){
+      realCSVFileBtn.click();
+    });
+    realCSVFileBtn.addEventListener('change', function(){
+      if(realCSVFileBtn.value){
+        if(realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].length > 15){
+          customCSVText.innerHTML = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].substring(0, 15) + '...';
+        }else{
+          customCSVText.innerHTML = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+        }
+      }else{
+        customCSVText.innerHTML = "No file choosen, yet.";
+      }
+    });
+  </script>
 {% endblock %}
