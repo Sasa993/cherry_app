@@ -1,0 +1,719 @@
+/* ***** Mobile Media Query ***** */
+
+/* ====- 320px width Media Query -====*/
+@media screen and (min-width: 320px) and (max-width: 320px) and (height: 480px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        width: 80%;
+        padding-top: 10px;
+    }
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .reset-password{
+        margin-right: 7px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+/* ====- 480px width 320px height Media Query -====*/
+@media screen and (min-width: 480px) and (max-width: 480px) and (height: 320px){
+    body{
+        font-size: 85%;
+    }
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    .form-container .wrapper{
+        width: 80%; 
+        padding-bottom: 90px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+/* ====- 568px width and 320px height Media Query -====*/
+@media screen and (min-width: 568px) and (max-width: 568px) and (height: 320px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-top: 35px;
+    }
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 360px width Media Query -====*/
+@media screen and (min-width: 360px) and (max-width: 360px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-top: 5px;
+        width: 85%;
+    }
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 640px width and 360px height Media Query -====*/
+@media screen and (min-width: 640px) and (max-width: 640px) and (height: 360px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        width: 75%;
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 740px width and 360px height Media Query -====*/
+@media screen and (min-width: 740px) and (max-width: 740px) and (height: 360px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 375px width Media Query -====*/
+@media screen and (min-width: 375px) and (max-width: 375px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        width: 75%;
+        padding: 20px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+}
+
+/* ====- 667px width and 375px height Media Query -====*/
+@media screen and (min-width: 667px) and (max-width: 667px) and (height: 375px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 375px width and 812px height Media Query -====*/
+@media screen and (min-width: 375px) and (max-width: 375px) and (height: 812px){
+    .form-container .wrapper{
+        margin-top: -90px;
+    }
+}
+
+/* ====- 812px width and 375px height Media Query -====*/
+@media screen and (min-width: 812px) and (max-width: 812px) and (height: 375px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+
+/* ====- 412px width Media Query -====*/
+@media screen and (min-width: 412px) and (max-width: 412px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        width: 75%;
+        padding: 20px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+}
+
+/* ====- 732px width and 412px height Media Query -====*/
+@media screen and (min-width: 732px) and (max-width: 732px) and (height: 412px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 847px width and 412px height Media Query -====*/
+@media screen and (min-width: 847px) and (max-width: 847px) and (height: 412px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+
+}
+
+
+/* ====- 414px width Media Query -====*/
+@media screen and (min-width: 414px) and (max-width: 414px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        width: 75%;
+        padding: 20px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+}
+
+
+/* ====- 736px width and 414px height Media Query -====*/
+@media screen and (min-width: 736px) and (max-width: 736px) and (height: 414px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+
+}
+
+
+/* ====- 896px width and 414px height Media Query -====*/
+@media screen and (min-width: 896px) and (max-width: 896px) and (height: 414px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+
+}
+
+/* ====- 360px width and 480px height Media Query -====*/
+@media screen and (min-width: 360px) and (max-width: 360px) and (height: 480px){
+    .form-container{
+        background-position: 50% -5%, 50%;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+}
+/* ====- 480px width and 360px height Media Query -====*/
+@media screen and (min-width: 480px) and (max-width: 480px) and (height: 360px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+        width: 80%;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 480px width and 8530px height Media Query -====*/
+@media screen and (min-width: 480px) and (max-width: 480px) and (height: 853px){
+    body{
+        font-size: 85%;
+    }
+    .form-container .wrapper{
+        padding-bottom: 70px;
+        width: 80%;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 853px width and 480px height Media Query -====*/
+@media screen and (min-width: 853px) and (max-width: 853px) and (height: 480px){
+    body{
+        font-size: 85%;
+    }
+    .form-container{
+        background-position: 50% 15%, 50%;
+    }
+    .f
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+}
+
+/* ====- 400px width and 240px height Media Query -====*/
+@media screen and (min-width: 400px) and (max-width: 400px) and (height: 240px){
+    body{
+        font-size: 80%;
+    }
+    .form-container .wrapper{
+        width: 80%;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .80rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .input-icon{
+        display: none;
+    }
+    .form-container .wrapper h5{
+        margin: -20px 0 5px 0;
+    }
+    .form-container .wrapper table tr td input{
+        padding: 0!important;
+        margin-left: 0!important;
+    }
+    .form-container .wrapper #id_email{
+        margin-left: 0!important;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 150px;
+    }
+}
+
+/* ====- 240px width and 400px height Media Query -====*/
+@media screen and (min-width: 240px) and (max-width: 240px) and (height: 400px){
+    body{
+        font-size: 80%;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .80rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .input-icon{
+        display: none;
+    }
+    .form-container .wrapper table tr td input{
+        padding: 0!important;
+        margin-left: 0!important;
+    }
+    .form-container .wrapper #id_email{
+        margin-left: 0!important;
+        width: 60%;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 150px;
+    }
+    .form-container .wrapper .reset-password{
+        margin-right: 0;
+    }
+}

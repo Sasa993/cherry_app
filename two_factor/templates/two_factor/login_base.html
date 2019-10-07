@@ -9,6 +9,7 @@
         Workflow - {% block title %} {% endblock %}
     </title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
 </head>
 
 <body>
@@ -28,7 +29,7 @@
     		$('<img src="{% static "images/login/user.svg" %}" class="input-icon username-icon" />').insertAfter('#id_auth-username');
             $('<img src="{% static "images/login/lock.svg" %}" class="input-icon username-icon" />').insertAfter('#id_auth-password');
             $('<img src="{% static "images/login/auth.svg" %}" class="input-icon username-icon" />').insertAfter('#id_token-otp_token');
-            $('<img src="{% static "images/login/email.svg" %}" class="input-icon username-icon" />').insertAfter('#id_email');
+            $('<img src="{% static "images/login/email.svg" %}" class="input-icon username-icon reset_pass_email_icon" />').insertAfter('#id_email');
             $('<img src="{% static "images/login/identification.svg" %}" class="input-icon username-icon" />').insertAfter('#id_backup-otp_token');
             
             $('#id_auth-username').attr({
