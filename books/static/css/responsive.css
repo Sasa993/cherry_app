@@ -961,3 +961,39 @@
 
 /* **** Desktop Media Query **** */
 /* **** Medium Devices **** */
+
+/* ====- 1024px width Media Query -====*/
+@media screen and (min-width: 1024px) and (max-width: 1024px){
+    body{
+        font-size:  100%;
+    }
+    .form-container .wrapper{
+        padding-top: 10px;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .9rem!important;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    } 
+}
+
+/* ====- 1366px width Media Query -====*/
+@media screen and (min-width: 1366px) and (max-width: 1366px){
+    body{
+        font-size:  100%;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    } 
+}
