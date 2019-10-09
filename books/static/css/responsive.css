@@ -1,4 +1,5 @@
 /* ***** Mobile Media Query ***** */
+/* **** Extra Small Devices **** */
 
 /* ====- 320px width Media Query -====*/
 @media screen and (min-width: 320px) and (max-width: 320px) and (height: 480px){
@@ -131,11 +132,10 @@
 /* ====- 640px width and 360px height Media Query -====*/
 @media screen and (min-width: 640px) and (max-width: 640px) and (height: 360px){
     body{
-        font-size: 85%;
+        font-size: 95%;
     }
     .form-container .wrapper{
-        width: 75%;
-        padding-bottom: 70px;
+        padding-bottom: 80px;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder, 
@@ -151,10 +151,10 @@
         padding: 6px 20px;
     }
     #id_email:not(:focus) + img{
-        top: 85px;
+        top: 95px;
     }
     #id_email:focus + img{
-        top: 70px;
+        top: 80px;
     }
     .form-container .wrapper .forgot-password{
         top: 200px;
@@ -309,7 +309,6 @@
     }
 }
 
-
 /* ====- 412px width Media Query -====*/
 @media screen and (min-width: 412px) and (max-width: 412px){
     body{
@@ -417,7 +416,6 @@
 
 }
 
-
 /* ====- 414px width Media Query -====*/
 @media screen and (min-width: 414px) and (max-width: 414px){
     body{
@@ -450,7 +448,6 @@
         top: 70px;
     }
 }
-
 
 /* ====- 736px width and 414px height Media Query -====*/
 @media screen and (min-width: 736px) and (max-width: 736px) and (height: 414px){
@@ -487,7 +484,6 @@
     }
 
 }
-
 
 /* ====- 896px width and 414px height Media Query -====*/
 @media screen and (min-width: 896px) and (max-width: 896px) and (height: 414px){
@@ -717,3 +713,251 @@
         margin-right: 0;
     }
 }
+
+
+/* **** Tablet Media Query **** */
+/* **** Small Devices **** */
+
+/* ====- 600px width Media Query -====*/
+@media screen and (min-width: 600px) and (max-width: 600px){
+    body{
+        font-size: 110%;
+    }
+    #id_email:not(:focus) + img{
+        top: 110px;
+    }
+    #id_email:focus + img{
+        top: 95px;
+    }
+}
+
+/* ====- 960px width Media Query -====*/
+@media screen and (min-width: 960px) and (max-width: 960px){
+    body{
+        font-size: 110%;
+    }
+    .form-container .wrapper{
+        padding-top: 10px;
+    }
+    #id_email:not(:focus) + img{
+        top: 115px;
+    }
+    #id_email:focus + img{
+        top: 105px;
+    }
+}
+
+/* ====- 480px width and 640px height Media Query -====*/
+@media screen and (min-width: 480px) and (max-width: 480px) and (height: 640px){
+    .form-container .wrapper{
+       width: 80%;
+       padding-top: 10px;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    }
+}
+
+/* ====- 640px width and 480px height Media Query -====*/
+@media screen and (min-width: 640px) and (max-width: 640px) and (height: 480px){
+    .form-container{
+        background-position: 50% -5%, 50%;
+    }
+    .form-container .wrapper{
+        padding-top: 10px;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    }
+}
+
+/* ====- 768px width Media Query -====*/
+@media screen and (min-width: 768px) and (max-width: 768px){
+    body{
+        font-size: 110%;
+    }
+    .form-container .wrapper{
+        padding: 0;
+        margin-top: -50px;
+    }
+    #id_email:not(:focus) + img{
+        top: 110px;
+    }
+    #id_email:focus + img{
+        top: 100px;
+    }    
+}
+
+/* ====- 1024px width Media Query -====*/
+@media screen and (min-width: 1024px) and (max-width: 1024px){
+    body{
+        font-size: 110%;
+    }
+    #id_email:not(:focus) + img{
+        top: 110px;
+    }
+    #id_email:focus + img{
+        top: 100px;
+    }  
+}
+
+/* ====- 800px width Media Query -====*/
+@media screen and (min-width: 800px) and (max-width: 800px){
+    body{
+        font-size: 110%;
+    }
+    .form-container{
+        background-position: 50% 5%, 50%;
+    }
+    .form-container .wrapper{
+        padding: 0;
+    }
+    #id_email:not(:focus) + img{
+        top: 110px;
+    }
+    #id_email:focus + img{
+        top: 100px;
+    }  
+}
+
+/* ====- 1208px width Media Query -====*/
+@media screen and (min-width: 1280px) and (max-width: 1280px){
+    body{
+        font-size: 110%;
+    }
+    #id_email:not(:focus) + img{
+        top: 110px;
+    }
+    #id_email:focus + img{
+        top: 100px;
+    } 
+}
+
+/* ====- 800px width and 480px height Media Query -====*/
+@media screen and (min-width: 800px) and (max-width: 800px) and (height: 480px){
+    body{
+        font-size: 90%;
+    }
+    .form-container .wrapper{
+        padding: 55px 0;
+    }
+    /*Placeholder css*/
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder, 
+    .form-container ::-webkit-input-placeholder{
+       font-size: .9rem!important;
+    }
+    #id_email:not(:focus) + img{
+        top: 90px;
+    }
+    #id_email:focus + img{
+        top: 80px;
+    } 
+    .form-container .wrapper .forgot-password{
+        top: 200px;
+    }
+}
+/* ====- 480px width and 800px height Media Query -====*/
+@media screen and (min-width: 480px) and (max-width: 480px) and (height: 800px){
+    body{
+        font-size: 100%;
+    }
+    .form-container .wrapper{
+        width: 85%;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    } 
+}
+/* ====- 854px width and 480px height Media Query -====*/
+@media screen and (min-width: 854px) and (max-width: 854px) and (height: 480px){
+    body{
+        font-size: 100%;
+    }
+    .form-container{
+        background-position: 50% 5%, 50%;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 210px;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    } 
+}
+
+/* ====- 480px width and 854px height Media Query -====*/
+@media screen and (min-width: 480px) and (max-width: 480px) and (height: 854px){
+    .form-container .wrapper{
+        width: 85%;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    } 
+}
+
+/* ====- 960px width and 540px height Media Query -====*/
+@media screen and (min-width: 960px) and (max-width: 960px) and (height: 540px){
+    body{
+        font-size: 110%;
+    }
+    .form-container{
+        background-position: 50% -5%, 50%;
+    }
+    #id_email:not(:focus) + img{
+        top: 110px;
+    }
+    #id_email:focus + img{
+        top: 100px;
+    } 
+}
+/* ====- 540px width and 960px height Media Query -====*/
+@media screen and (min-width: 540px) and (max-width: 540px) and (height: 960px){
+    body{
+        font-size: 100%;
+    }
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    } 
+}
+
+/* ====- 960px width and 640px height Media Query -====*/
+@media screen and (min-width: 960px) and (max-width: 960px) and (height: 640px){
+    #id_email:not(:focus) + img{
+        top: 110px;
+    }
+    #id_email:focus + img{
+        top: 100px;
+    }  
+}
+/* ====- 640px width and 960px height Media Query -====*/
+@media screen and (min-width: 640px) and (max-width: 640px) and (height: 960px){
+    #id_email:not(:focus) + img{
+        top: 100px;
+    }
+    #id_email:focus + img{
+        top: 90px;
+    }  
+}
+
+
+/* **** Desktop Media Query **** */
+/* **** Medium Devices **** */
