@@ -4,28 +4,69 @@
 {% block content_title %}<h2 class="page_title">Search</h2>{% endblock %}
 
 {% block content %}
-  <div class="post_list">
-  {% if found_tasks %}
-  <h2>{{found_tasks.count}} search results for term: "{{ query_string }}"</h2>
-  {# <div class="post_list"> #}
-    {% for f in found_tasks %}
-    <p>
-      <strong>
-        <a href="{% url 'todo:task_detail' f.id %}">{{ f.title }}</a>
-      </strong>
-      <br />
-      <span class="minor">
-        In list:
-        <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}">
-          {{ f.task_list.name }}
-        </a>
-        <br /> Assigned to: {% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}
-        <br /> Complete: {{ f.completed|yesno:"Yes,No" }}
-      </span>
-    </p>
-    {% endfor %}
+  <div class="search_results mt-4">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 offset-md-3">
+        <div class="card-body search_results_header">
+          <h3 class="mb-1">SEARCH RESULTS</h3>
+        </div>
+        <div class="card-body search_results_container post_list">
+          {% if found_tasks %}
+            <h6>{{ found_tasks.count }} search results for term: <strong>{{ query_string }}</strong></h6>
+
+            <ul class="list-group">
+              {% for f in found_tasks %}
+                <li class="list-group-item search_list_item">
+                  <div class="row justify-content-between align-items-center">
+                    <div class="col-12 col-md-6 col-lg-3">
+                      <a href="{% url 'todo:task_detail' f.id %}"><h5>{{ f.title }}</h5></a>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-9">
+                      <p>In list: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
+                      <p>Assigned to: <strong>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
+                      <p>Completed: 
+                        {% if f.completed %}
+                          <b class="completed">
+                        {% else %}
+                          <b class="not_completed">
+                        {% endif %}
+                        {{ f.completed|yesno:"Yes,No" }}
+                        </b>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+              <!--<li class="list-group-item search_list_item">
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-12 col-lg-3">
+                    <h5>Lorem Ipsum</h5>
+                  </div>
+                  <div class="col-12 col-lg-9">
+                    <p>In list: <a href="#!" class="list_name">Some List</a></p>
+                    <p>Assigned to: <a href="#!" class="user">Sale</a></p>
+                    <p>Completed: <b class="completed">Yes</b></p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item search_list_item">
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-12 col-lg-3">
+                    <h5>Lorem Ipsum</h5>
+                  </div>
+                  <div class="col-12 col-lg-9">
+                    <p>In list: <a href="#!" class="list_name">Some List</a></p>
+                    <p>Assigned to: <a href="#!" class="user">Sale</a></p>
+                    <p>Completed: <b class="completed">No</b></p>
+                  </div>
+                </div>
+              </li>-->
+            </ul> 
+          {% else %}
+            <h2>No results to show, sorry.</h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
   </div>
-  {% else %}
-    <h2> No results to show, sorry.</h2>
-  {% endif %}
 {% endblock %}

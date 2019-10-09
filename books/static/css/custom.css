@@ -414,3 +414,8 @@ button.change_pass_btn {
 .custom_card_body {
   padding: 0 0 1.25rem 0;
 }
+
+/* Search Results Title Hover */
+.list-group .list-group-item.search_list_item .row.justify-content-between.align-items-center a:hover {
+  color: #8d0a15;
+}
