@@ -1460,3 +1460,28 @@ footer .useful-links li{
         font-size: .8rem;
     }
 }
+
+/* CSV Upload Results */
+.csv_upload_result .csv_upload_result_header{
+    background: url('../images/csv_upload_result_banner.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.csv_upload_result .csv_upload_result_header h3{
+    color: #ffffff;
+    padding: 50px 0
+}
+.csv_upload_result .csv_upload_result_container .summary_group .list-group-item,
+.csv_upload_result .csv_upload_result_container .created_task .list-group-item{
+    margin: 6px 0;
+    border-radius: 8px;
+    color: #8a8a8a;
+}
+@media screen and (max-width: 450px){
+    .csv_upload_result .csv_upload_result_header h3{
+        padding: 8px 0 8px 0;
+        font-size: .8rem;
+    }
+}

@@ -419,3 +419,14 @@ button.change_pass_btn {
 .list-group .list-group-item.search_list_item .row.justify-content-between.align-items-center a:hover {
   color: #8d0a15;
 }
+
+.custom_poderror {
+  padding: 0 25px 0 25px;
+  font-style: italic;
+}
+.list-group.created_task li, .list-group.summary_group li {
+  background-color: navajowhite;
+}
+.custom_poderror li {
+  background-color: beige !important;
+}

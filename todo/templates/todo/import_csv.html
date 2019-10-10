@@ -4,62 +4,51 @@
 {% block title %}Import CSV{% endblock %}
 
 {% block content %}
-  <div class="import_csv mt-4">
+  <div class="import_csv csv_upload_result mt-4">
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="card-body import_csv_header">
           <h3 class="mb-1">IMPORT CSV</h3>
         </div>
-        <div class="card-body import_csv_container">
+        <div class="card-body import_csv_container csv_upload_result_container">
           <h6>Batch-import tasks by uploading a specifically-formated CSV.</h6>
           <h6>Updated CSV files will update the task list as well. Success and failure will be reported here</h6>
           {% if results %}
-            <div class="card mb-4">
-              <div class="card-header">
-                Results of CSV upload
-              </div>
-              <div class="card-body">
-                {% if results.summaries %}
-                  <p>
-                    <b>Summary:</b>
-                  </p>
-                  <ul>
-                    {% for line in results.summaries %}
-                      <li>{{ line }}</li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
+                  <div class="card-body csv_upload_result_container">
+                    {% if results.summaries %}
+                      <h6>SUMMARY: </h6>
+                      <ul class="list-group summary_group">
+                        {% for line in results.summaries %}
+                          <li class="list-group-item">{{ line }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
-                {% if results.upserts %}
-                  <p>
-                    <b>Upserts (tasks created or updated):</b>
-                  </p>
-                  <ul>
-                    {% for line in results.upserts %}
-                      <li>{{ line }}</li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
+                    {% if results.upserts %}
+                      <h6 class="mt-4">UPSERTS (TASKS CREATED OR UPDATED): </h6>
+                      <ul class="list-group created_task">
+                        {% for line in results.upserts %}
+                          <li class="list-group-item">{{ line }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
-                {% if results.errors %}
-                  <p>
-                    <b>Errors (tasks NOT created or updated):</b>
-                  </p>
-                  <ul>
-                    {% for error_row in results.errors %}
-                      {% for k, error_list in error_row.items  %}
-                        <li>CSV row {{ k }}</li>
-                        <ul>
-                          {% for err in error_list %}
-                            <li>{{ err }}</li>
+                    {% if results.errors %}
+                      <h6 class="mt-4">ERRORS (TASKS NOT CREATED OR UPDATED): </h6>
+                      <ul class="list-group created_task">
+                        {% for error_row in results.errors %}
+                          {% for k, error_list in error_row.items  %}
+                            <li class="list-group-item">CSV row {{ k }}</li>
+                            <ul class="custom_poderror">
+                              {% for err in error_list %}
+                                <li class="list-group-item">{{ err }}</li>
+                              {% endfor %}
+                            </ul>
                           {% endfor %}
-                        </ul>
-                      {% endfor %}
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </div>
-            </div>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </div>
           {% endif %}
 
           <div class="row">
