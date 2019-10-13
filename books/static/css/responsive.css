@@ -1,14 +1,18 @@
 /* ***** Mobile Media Query ***** */
 /* **** Extra Small Devices **** */
 
-/* ====- 320px width Media Query -====*/
+/* ====- 320px width and 480px height Media Query -====*/
 @media screen and (min-width: 320px) and (max-width: 320px) and (height: 480px){
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         width: 80%;
         padding-top: 10px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     .form-container ::-webkit-input-placeholder,
     .form-container ::-webkit-input-placeholder,
@@ -28,12 +32,50 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 20px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: top left;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 5px;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 70%;
+    }
+
+    /* -- End of change password template -- */
 }
+
 /* ====- 480px width 320px height Media Query -====*/
 @media screen and (min-width: 480px) and (max-width: 480px) and (height: 320px){
     body{
         font-size: 85%;
     }
+    /* hamburger button */
+    #show-sidebar {
+        z-index: 3;
+    }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container ::-webkit-input-placeholder,
     .form-container ::-webkit-input-placeholder,
     .form-container ::-webkit-input-placeholder,
@@ -44,6 +86,9 @@
         width: 80%;
         padding-bottom: 90px;
     }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
+    }
     .form-container .wrapper .forgot-password{
         top: 200px;
     }
@@ -62,14 +107,52 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%; 
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 5px;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 70%;
+    }
+
+    /* -- End of change password template -- */
 }
-/* ====- 568px width and 320px height Media Query -====*/
-@media screen and (min-width: 568px) and (max-width: 568px) and (height: 320px){
+
+/* ====- 320px width and 568px height Media Query -====*/
+@media screen and (min-width: 320px) and (max-width: 320px) and (height: 568px){
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-top: 35px;
+        width: 90%;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     .form-container ::-webkit-input-placeholder,
     .form-container ::-webkit-input-placeholder,
@@ -95,6 +178,113 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 35px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: top left;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 5px;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 73%;
+    }
+
+    /* -- End of change password template -- */
+
+}
+/* ====- 568px width and 320px height Media Query -====*/
+@media screen and (min-width: 568px) and (max-width: 568px) and (height: 320px){
+    body{
+        font-size: 85%;
+    }
+
+    /* -- Login on startup css, forgot password, token entry -- */
+    .form-container .wrapper{
+        padding-top: 35px;
+        height: 77%;
+    }
+    .form-container .wrapper h5{
+        margin-top: -30px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
+    }
+    .form-container ::-webkit-input-placeholder,
+    .form-container ::-webkit-input-placeholder,
+    .form-container ::-webkit-input-placeholder,
+    .form-container ::-webkit-input-placeholder{
+       font-size: .85rem!important;
+    }
+    /* Login padding buttons */
+    .form-container  #login_btn,
+    .form-container #back,
+    .form-container .reset-password{
+        padding: 6px 20px;
+    }
+    .form-container .wrapper .forgot-password{
+        top: 230px;
+    }
+    #id_email:not(:focus) + img{
+        top: 85px;
+    }
+    #id_email:focus + img{
+        top: 70px;
+    }
+    .form-container .wrapper .input-icon{
+        width: 13px;
+    }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%; 
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 5px;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 70%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 360px width Media Query -====*/
@@ -102,9 +292,14 @@
     body{
         font-size: 85%;
     }
+
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-top: 5px;
         width: 85%;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     .form-container ::-webkit-input-placeholder,
     .form-container ::-webkit-input-placeholder,
@@ -127,6 +322,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+     /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 35px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: top left;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 5px;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 73%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 640px width and 360px height Media Query -====*/
@@ -134,8 +361,12 @@
     body{
         font-size: 95%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 80px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -162,6 +393,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 740px width and 360px height Media Query -====*/
@@ -169,8 +432,12 @@
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -197,6 +464,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 375px width Media Query -====*/
@@ -204,9 +503,13 @@
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         width: 75%;
         padding: 20px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -230,6 +533,38 @@
     #id_email:focus + img{
         top: 70px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 35px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: top left;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 5px;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 73%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 667px width and 375px height Media Query -====*/
@@ -237,8 +572,12 @@
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -265,12 +604,47 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 375px width and 812px height Media Query -====*/
 @media screen and (min-width: 375px) and (max-width: 375px) and (height: 812px){
     .form-container .wrapper{
         margin-top: -90px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
 }
 
@@ -279,8 +653,12 @@
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -307,6 +685,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 412px width Media Query -====*/
@@ -314,9 +724,19 @@
     body{
         font-size: 85%;
     }
+    
+    /* hamburger button */
+    #show-sidebar {
+        z-index: 3;
+    }
+
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         width: 75%;
         padding: 20px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -340,6 +760,38 @@
     #id_email:focus + img{
         top: 70px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 45px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 732px width and 412px height Media Query -====*/
@@ -347,8 +799,17 @@
     body{
         font-size: 85%;
     }
+    
+    /* hamburger button */
+    #show-sidebar {
+        z-index: 3;
+    }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -378,6 +839,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% center;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 847px width and 412px height Media Query -====*/
@@ -385,8 +878,13 @@
     body{
         font-size: 85%;
     }
+
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -413,7 +911,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
 
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% center;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 414px width Media Query -====*/
@@ -421,9 +950,13 @@
     body{
         font-size: 85%;
     }
+    /* --Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         width: 75%;
         padding: 20px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -447,6 +980,38 @@
     #id_email:focus + img{
         top: 70px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 45px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 736px width and 414px height Media Query -====*/
@@ -454,8 +1019,16 @@
     body{
         font-size: 85%;
     }
+    /* hamburger button */
+    #show-sidebar {
+        z-index: 3;
+    }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -482,7 +1055,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
 
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% center;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 896px width and 414px height Media Query -====*/
@@ -490,8 +1094,12 @@
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -518,6 +1126,38 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% center;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 
 }
 
@@ -525,6 +1165,9 @@
 @media screen and (min-width: 360px) and (max-width: 360px) and (height: 480px){
     .form-container{
         background-position: 50% -5%, 50%;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     .form-container .wrapper .forgot-password{
         top: 200px;
@@ -535,9 +1178,18 @@
     body{
         font-size: 85%;
     }
+    /* hamburger button */
+    #show-sidebar {
+        z-index: 3;
+    }
+
+    /* -- End of login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
         width: 80%;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -564,16 +1216,52 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% center;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
-/* ====- 480px width and 8530px height Media Query -====*/
-@media screen and (min-width: 480px) and (max-width: 480px) and (height: 853px){
+/* ====- 480px width and 853px height Media Query -====*/
+@media screen and (min-width: 480px) and (max-width: 480px) and (height: 854px){
     body{
         font-size: 85%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-bottom: 70px;
         width: 80%;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -600,17 +1288,53 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 45px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 853px width and 480px height Media Query -====*/
-@media screen and (min-width: 853px) and (max-width: 853px) and (height: 480px){
+@media screen and (min-width: 854px) and (max-width: 854px) and (height: 480px){
     body{
         font-size: 85%;
     }
+
+     /* -- Login on startup css, forgot password, token entry -- */
     .form-container{
         background-position: 50% 15%, 50%;
     }
-    .f
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
+    }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
     .form-container ::-webkit-input-placeholder,
@@ -636,6 +1360,39 @@
     .form-container .wrapper .input-icon{
         width: 13px;
     }
+     /* -- End of login on startup css, forgot password, token entry -- */
+
+     /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% center;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
+
 }
 
 /* ====- 400px width and 240px height Media Query -====*/
@@ -643,8 +1400,18 @@
     body{
         font-size: 80%;
     }
+
+    /* hamburger button */
+    #show-sidebar {
+        z-index: 3;
+    }
+
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         width: 80%;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /*Placeholder css*/
     .form-container ::-webkit-input-placeholder,
@@ -664,6 +1431,7 @@
     }
     .form-container .wrapper h5{
         margin: -20px 0 5px 0;
+        padding-bottom: 10px;
     }
     .form-container .wrapper table tr td input{
         padding: 0!important;
@@ -675,9 +1443,42 @@
     .form-container .wrapper .forgot-password{
         top: 150px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .page-wrapper .page-content > div {
+        padding: 20px 30px;
+    }
+    .page-wrapper .page-content{
+        padding-top: 0px;
+    }
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form ::-webkit-input-placeholder{
+       font-size: .8rem!important;
+    }
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 12px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 78%;
+    }
+
+    /* -- End of change password template -- */
 }
 
 /* ====- 240px width and 400px height Media Query -====*/
+/* SKIP CSS FOR 240px RESOLUTION??*/
 @media screen and (min-width: 240px) and (max-width: 240px) and (height: 400px){
     body{
         font-size: 80%;
@@ -688,6 +1489,9 @@
     .form-container ::-webkit-input-placeholder,
     .form-container ::-webkit-input-placeholder{
        font-size: .80rem!important;
+    }
+    .form-container .wrapper table tbody tr td input{
+        border-bottom: .2px solid rgba(255, 255, 255, .8)!important;
     }
     /* Login padding buttons */
     .form-container  #login_btn,
@@ -713,6 +1517,7 @@
         margin-right: 0;
     }
 }
+
 
 
 /* **** Tablet Media Query **** */
