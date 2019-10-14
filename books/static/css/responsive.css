@@ -1537,7 +1537,24 @@
     }
     /* -- End of login on startup css, forgot password, token entry -- */
 
-
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+        font-size: 95%;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 /* ====- 960px width Media Query -====*/
 @media screen and (min-width: 960px) and (max-width: 960px){
