@@ -1528,19 +1528,23 @@
     body{
         font-size: 110%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     #id_email:not(:focus) + img{
         top: 110px;
     }
     #id_email:focus + img{
         top: 95px;
     }
-}
+    /* -- End of login on startup css, forgot password, token entry -- */
 
+
+}
 /* ====- 960px width Media Query -====*/
 @media screen and (min-width: 960px) and (max-width: 960px){
     body{
         font-size: 110%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding-top: 10px;
     }
@@ -1550,10 +1554,13 @@
     #id_email:focus + img{
         top: 105px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
 }
+
 
 /* ====- 480px width and 640px height Media Query -====*/
 @media screen and (min-width: 480px) and (max-width: 480px) and (height: 640px){
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
        width: 80%;
        padding-top: 10px;
@@ -1564,10 +1571,31 @@
     #id_email:focus + img{
         top: 90px;
     }
-}
+    /* -- End of login on startup css, forgot password, token entry -- */
 
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
+}
 /* ====- 640px width and 480px height Media Query -====*/
 @media screen and (min-width: 640px) and (max-width: 640px) and (height: 480px){
+
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container{
         background-position: 50% -5%, 50%;
     }
@@ -1580,13 +1608,37 @@
     #id_email:focus + img{
         top: 90px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
+
 
 /* ====- 768px width Media Query -====*/
 @media screen and (min-width: 768px) and (max-width: 768px){
     body{
         font-size: 110%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding: 0;
         margin-top: -50px;
@@ -1597,6 +1649,29 @@
     #id_email:focus + img{
         top: 100px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 35%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+        font-size: 75%;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 
 /* ====- 1024px width Media Query -====*/
@@ -1604,12 +1679,35 @@
     body{
         font-size: 110%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     #id_email:not(:focus) + img{
         top: 110px;
     }
     #id_email:focus + img{
         top: 100px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 45%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 
 /* ====- 800px width Media Query -====*/
@@ -1617,6 +1715,7 @@
     body{
         font-size: 110%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container{
         background-position: 50% 5%, 50%;
     }
@@ -1629,19 +1728,65 @@
     #id_email:focus + img{
         top: 100px;
     }
+    /* -- End of ogin on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 100%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 
-/* ====- 1208px width Media Query -====*/
+/* ====- 1280px width Media Query -====*/
 @media screen and (min-width: 1280px) and (max-width: 1280px){
     body{
         font-size: 110%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     #id_email:not(:focus) + img{
         top: 110px;
     }
     #id_email:focus + img{
         top: 100px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 45%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 30px 0;
+        font-size: 100%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+        font-size: 75%;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 
 /* ====- 800px width and 480px height Media Query -====*/
@@ -1649,6 +1794,7 @@
     body{
         font-size: 90%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         padding: 55px 0;
     }
@@ -1668,12 +1814,14 @@
     .form-container .wrapper .forgot-password{
         top: 200px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
 }
 /* ====- 480px width and 800px height Media Query -====*/
 @media screen and (min-width: 480px) and (max-width: 480px) and (height: 800px){
     body{
         font-size: 100%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         width: 85%;
     }
@@ -1683,12 +1831,37 @@
     #id_email:focus + img{
         top: 90px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 45%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
+
 }
+
 /* ====- 854px width and 480px height Media Query -====*/
 @media screen and (min-width: 854px) and (max-width: 854px) and (height: 480px){
     body{
         font-size: 100%;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
     .form-container{
         background-position: 50% 5%, 50%;
     }
@@ -1701,10 +1874,11 @@
     #id_email:focus + img{
         top: 90px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
 }
-
 /* ====- 480px width and 854px height Media Query -====*/
 @media screen and (min-width: 480px) and (max-width: 480px) and (height: 854px){
+    /* -- End of login on startup css, forgot password, token entry -- */
     .form-container .wrapper{
         width: 85%;
     }
@@ -1714,6 +1888,7 @@
     #id_email:focus + img{
         top: 90px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
 }
 
 /* ====- 960px width and 540px height Media Query -====*/
@@ -1721,6 +1896,7 @@
     body{
         font-size: 110%;
     }
+     /* -- Login on startup css, forgot password, token entry -- */
     .form-container{
         background-position: 50% -5%, 50%;
     }
@@ -1730,37 +1906,128 @@
     #id_email:focus + img{
         top: 100px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 /* ====- 540px width and 960px height Media Query -====*/
 @media screen and (min-width: 540px) and (max-width: 540px) and (height: 960px){
     body{
         font-size: 100%;
     }
+    /* -- Login on startup css, forgot password, token entry -- */
     #id_email:not(:focus) + img{
         top: 100px;
     }
     #id_email:focus + img{
         top: 90px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 45%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 
 /* ====- 960px width and 640px height Media Query -====*/
 @media screen and (min-width: 960px) and (max-width: 960px) and (height: 640px){
+    /* -- Login on startup css, forgot password, token entry -- */
     #id_email:not(:focus) + img{
         top: 110px;
     }
     #id_email:focus + img{
         top: 100px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 25%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 /* ====- 640px width and 960px height Media Query -====*/
 @media screen and (min-width: 640px) and (max-width: 640px) and (height: 960px){
+    /* -- Login on startup css, forgot password, token entry -- */
     #id_email:not(:focus) + img{
         top: 100px;
     }
     #id_email:focus + img{
         top: 90px;
     }
+    /* -- End of login on startup css, forgot password, token entry -- */
+
+    /* -- Change password template -- */
+    .change_pass_form .change_pass_header{
+        background-position: 50% 45%;
+    }
+    .change_pass_form .change_pass_header h3{
+        padding: 10px 0;
+        font-size: 85%;
+    } 
+    .change_pass_form .pass_form .pass_input_container img {
+        width: 13px;
+    }
+    .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
+        padding: 5px 25px;
+        margin-bottom: 2rem;
+    }
+    /*errorlist css*/
+    .change_pass_form .custom_alert .errorlist li{
+        font-size: 80%;
+    }
+    /* -- End of change password template -- */
 }
 
 
