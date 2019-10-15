@@ -2299,6 +2299,7 @@
     }
     .form-container{
         background-position: 50% 10%, 50%;
+        background-size: 550px 185px, cover;
     }
     .form-container .wrapper{
         height: 50%;
@@ -2332,13 +2333,14 @@
 
 
 
-/* ====- 2560px width height Media Query -====*/
+/* ====- 2560px width Media Query -====*/
 @media screen and (width: 2560px){
     body{
         font-size: 115%;
     }
     .form-container{
         background-position: 50% 10%, 50%;
+        background-size: 550px 185px, cover;
     }
     .form-container .wrapper{
         height: 50%;
