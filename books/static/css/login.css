@@ -21,7 +21,7 @@ body{
     display: flex; 
     align-items: center; 
     justify-content: center;
-    background: url('../images/login/logo.png') no-repeat, url('../images/login/background_img.png') no-repeat;
+    background: url('../images/login/500_logo.png') no-repeat, url('../images/login/background_img.png') no-repeat;
     background-size: 100%, cover;
     background-position: 50% 0%, 50%;
 }

@@ -1,3 +1,4 @@
+/* ====- Mobile devices -==== */
 @media screen and (min-width: 360px) and (max-width: 363px){
     .form-container{
         background-position: 50% -5%, 50%;
@@ -6,5 +7,31 @@
 @media screen and (min-width: 384px) and (max-width: 386px){
     .form-container{
         background-position: 50% -4%, 50%;
+    }
+}
+
+/* ====- Tablet devices -==== */
+@media screen and (min-width: 768px) and (max-width: 768px){
+    .form-container{
+        background-position: 50% -4%, 50%;
+    }
+}
+
+@media screen and (min-width: 834px) and (max-width: 834px){
+    .form-container{
+        background-position: 50% -4%, 50%;
+    }
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1366px){
+    .form-container{
+        background-size: 110%, cover;
+    }
+}
+
+/* ====- Large devices -==== */
+@media screen and (min-width: 1280px) and (max-width: 2560px){
+    .form-container{
+        background-size: 40%, cover;
     }
 }
