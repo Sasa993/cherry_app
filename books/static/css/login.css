@@ -16,19 +16,19 @@ body{
 
 .form-container{
     margin: 0;
-    padding: 25px 0;
+    padding: 30px 0;
     height: 100vh; 
     display: flex; 
     align-items: center; 
     justify-content: center;
     background: url('../images/login/logo.png') no-repeat, url('../images/login/background_img.png') no-repeat;
-    background-size: 450px 145px, cover;
+    background-size: 100%, cover;
     background-position: 50% 0%, 50%;
 }
 .wrapper{
     padding: 55px 0;
     font-family: sans-serif;
-    height: 60%;
+    min-height: 60%;
     overflow: hidden;
     width: 500px;
     display: flex;
@@ -161,7 +161,7 @@ input.reset-password{
 /* Positioning logo for devices with 320px */
 @media screen and (min-width: 320px) and (max-width: 320px){
     .form-container{
-        background-position: 50% -5%, 50%;
+        background-position: 50% -3%, 50%;
     }
 }
 
@@ -316,7 +316,7 @@ table tbody tr::after {
 
 .input-icon {
     width: 15px;
-    left: 30%;
+    left: 25%;
     position: absolute;
 }
 
@@ -329,7 +329,7 @@ table tbody tr th, form p label {
     border: none;
     background-color: transparent;
     padding: 10px 0;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     width: 40%;
     color: white;
     border-bottom: .2px solid  rgba(255, 255, 255, .3);
