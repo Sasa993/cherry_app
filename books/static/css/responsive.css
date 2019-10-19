@@ -1,17 +1,20 @@
 /* ====- Mobile devices -==== */
-@media screen and (min-width: 360px) and (max-width: 363px){
+/* /* @media screen and (min-width: 360px) and (max-width: 363px){
     .form-container{
         background-position: 50% -5%, 50%;
     }
-}
-@media screen and (min-width: 384px) and (max-width: 386px){
+} */
+/* @media screen and (min-width: 384px) and (max-width: 386px){
     .form-container{
         background-position: 50% -4%, 50%;
     }
 }
+@media screen and (min-width: 320px) and (max-width: 323px){
+
+}  */
 
 /* ====- Tablet devices -==== */
-@media screen and (min-width: 768px) and (max-width: 768px){
+/* @media screen and (min-width: 768px) and (max-width: 768px){
     .form-container{
         background-position: 50% -4%, 50%;
     }
@@ -27,11 +30,17 @@
     .form-container{
         background-size: 110%, cover;
     }
-}
+} */
 
 /* ====- Large devices -==== */
-@media screen and (min-width: 1280px) and (max-width: 2560px){
+/* @media screen and (min-width: 1280px) and (max-width: 2560px){
     .form-container{
-        background-size: 40%, cover;
+        background-size: 35%, cover;
+        background-position: 50% -2%, 50%;
     }
 }
+@media screen and (min-width: 2033px){
+    body{
+        font-size: 120%
+    };
+} */

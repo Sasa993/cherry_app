@@ -11,47 +11,55 @@
 body{
     margin: 0;
     padding: 0;
+    font-size: 100%;
     overflow-x: hidden;
+    background-image: url('../images/login/background_img.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
 }
 
-.form-container{
-    margin: 0;
-    padding: 30px 0;
-    height: 100vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    background: url('../images/login/500_logo.png') no-repeat, url('../images/login/background_img.png') no-repeat;
-    background-size: 100%, cover;
-    background-position: 50% 0%, 50%;
+.form-container{ 
+    max-width: 600px;
+    margin:  25px auto 50px;
+    text-align: center;
 }
 .wrapper{
     padding: 55px 0;
     font-family: sans-serif;
-    min-height: 60%;
     overflow: hidden;
-    width: 500px;
-    display: flex;
+    max-width: 500px;
+    margin: auto;
+    /* min-height: 280px; */
+    /* display: flex;
     align-items: center; 
     justify-content: center;
-    text-align: center;
-    position: relative;
+    text-align: center; */
+    /* position: relative; */
     background: linear-gradient(#8d0a15, #43161d);
     border-radius: 10px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.50), 0 15px 18px rgba(0,0,0,0.62);
 }
 
+/* Logo CSS*/
+.login_logo_container{
+    text-align: center;
+}
+.login_logo_container .login_logo{
+    padding-top: 10px;
+    max-width: 100%;
+}
+/* /Logo CSS */
+
 .login-form{
-    width: 500px;
-    position: absolute;
-    left: 0;
-    transition: 1s left;
+    max-width: 100%;
 }
 .token-form{
-    width: 500px;
+    /* width: 500px;
     position: absolute;
     right: -500px;
-    transition: 1s right;
+    transition: 1s right; */
 }
 
 .form-container .input-container{
@@ -119,13 +127,17 @@ body{
     transition: .6s top;
 }
 
+.form-container .wrapper .login-form form p{
+    position: relative;
+}
+
 #id_email:focus + img {
-    top: 82px;
+    top: -2px;
     transition: .5s top;
 }
 
 #id_email:not(:focus) + img {
-    top: 97px;
+    top: 9px;
     transition: .6s top;
 }
 
@@ -316,7 +328,7 @@ table tbody tr::after {
 
 .input-icon {
     width: 15px;
-    left: 25%;
+    left: 20%;
     position: absolute;
 }
 
@@ -330,7 +342,7 @@ table tbody tr th, form p label {
     background-color: transparent;
     padding: 10px 0;
     /* margin-left: 40px; */
-    width: 40%;
+    width: 50%;
     color: white;
     border-bottom: .2px solid  rgba(255, 255, 255, .3);
 }
