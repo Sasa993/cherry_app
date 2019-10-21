@@ -183,9 +183,9 @@ input.reset-password{
     border: none;
     background-color: transparent;
     padding: 10px 0;
-    width: 30%;
+    width: 50%;
     color: white;
-    border-bottom: .2px solid  rgba(255, 255, 255, .3);
+    border-bottom: .2px solid  rgba(255, 255, 255, .5);
     position: relative;
     /*margin-bottom: 25px;*/
 }

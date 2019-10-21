@@ -1,3 +1,91 @@
+/* Extra Small Devices Breakpoint*/
+@media screen and (max-width: 575.98px ){
+    body{
+        font-size: 90%;
+    }
+    #show-sidebar{
+        z-index: 3;
+    }
+    /*Change email template CSS*/
+    .page-wrapper .page-content > div{
+        padding: 20px 10px;
+        margin-bottom: 20px;
+    }
+    .change_email_form .change_email_header h3{
+        padding: 0px;
+        font-size: 1rem;
+    }
+    .change_email_form h4{
+        font-size: .9rem;
+    }
+    /* End of Change email template CSS*/
+
+}
+
+/*Small Devices Breakpoint */
+@media (min-width: 576px) and (max-width: 767.98px){
+    body{
+        font-size: 95%;
+    }
+     /*Change email template CSS*/
+    .page-wrapper .page-content > div{
+        margin-bottom: 20px;
+    }
+    .change_email_form .change_email_header h3{
+        padding: 0px;
+        font-size: 1.4rem;
+    }
+    .change_email_form h4{
+        font-size: 1.3rem;
+    }
+    /* End of Change email template CSS*/
+}
+
+/* Tablet Devices Breakpoint */
+@media (min-width: 768px) and (max-width: 991.98px){
+    body{
+        font-size: 105%;
+    }
+    /*Change email template CSS*/
+    .change_email_form .change_email_header h3{
+        padding: 0px;
+        font-size: 1.4rem;
+    }
+    .change_email_form h4{
+        font-size: 1.3rem;
+    }
+    /* End of Change email template CSS*/
+}
+
+/* Large Devices Breakpoint */
+@media (min-width: 992px) and (max-width: 1199.98px){
+    body{
+        font-size: 115%;
+    }
+    /*Change email template CSS*/
+    .change_email_form .change_email_header h3{
+        padding: 25px 0px;
+        font-size: 1.5rem;
+    }
+    .change_email_form h4{
+        font-size: 1.4rem;
+    }
+    /* End of Change email template CSS*/
+}
+
+/* Extra Large Devices Breakpoint */
+@media (min-width: 1200px){
+    body{
+        font-size: 120%;
+    }
+}
+
+
+
+
+
+
+
 /* ====- Mobile devices -==== */
 /* /* @media screen and (min-width: 360px) and (max-width: 363px){
     .form-container{
