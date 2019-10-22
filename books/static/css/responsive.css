@@ -44,7 +44,7 @@
 /* Tablet Devices Breakpoint */
 @media (min-width: 768px) and (max-width: 991.98px){
     body{
-        font-size: 105%;
+        font-size: 100%;
     }
     /*Change email template CSS*/
     .change_email_form .change_email_header h3{
@@ -60,7 +60,7 @@
 /* Large Devices Breakpoint */
 @media (min-width: 992px) and (max-width: 1199.98px){
     body{
-        font-size: 115%;
+        font-size: 100%;
     }
     /*Change email template CSS*/
     .change_email_form .change_email_header h3{
@@ -76,7 +76,7 @@
 /* Extra Large Devices Breakpoint */
 @media (min-width: 1200px){
     body{
-        font-size: 120%;
+        font-size: 100%;
     }
 }
 
