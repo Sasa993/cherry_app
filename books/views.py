@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.http import Http404
 from .models import (Author, Book, BookForm,
 					BookRequest)
@@ -9,6 +9,7 @@ import pdb
 from django.contrib.auth.decorators import login_required
 
 from django.dispatch import receiver, Signal
+
 
 book_request = Signal(providing_args=['authors', 'requested_book'])
 
@@ -124,3 +125,9 @@ def load_emails(request):
 	mails = Author.objects.filter(pk__in=author_id)
 
 	return render(request, 'includes/displaying_emails_using_ajax.html', {'mails': mails})
+
+
+def handler404(request, exception, template_name="error_404.html"):
+    response = render_to_response("error_404.html")
+    response.status_code = 404
+    return response

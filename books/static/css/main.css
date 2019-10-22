@@ -1485,3 +1485,33 @@ footer .useful-links li{
         font-size: .8rem;
     }
 }
+
+/* Error 404 */
+.not_found_page h1{
+    color: #d9d9d9;
+    font-size: 8em;
+    font-weight: bold;
+    text-shadow: 9px 11px 10px rgba(0,0,0,0.79);
+
+}
+.not_found_page .not_found_btn{
+     color: #8a8a8a;
+    background-color: #d9d9d9;
+    border-bottom: 2px solid #8a8a8a;   
+}
+.not_found_page .not_found_btn:hover{
+    color: #8d0a15;
+    border-bottom: 2px solid #8d0a15;  
+}
+.not_found_page .not_found_btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+@media screen and (max-width: 450px){
+    .not_found_page h2{
+        padding-bottom: 0px;
+    }
+    .not_found_page h3{
+       font-size: 1rem 
+    }
+}

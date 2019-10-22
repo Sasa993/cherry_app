@@ -28,3 +28,5 @@ urlpatterns = [
 	path('contact_us/', include('sendemail.urls')),
 	path('uploaded_books/', include('uploaded_books.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'books.views.handler404'
