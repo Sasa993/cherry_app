@@ -30,3 +30,4 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'books.views.handler404'
+# handler500 = 'books.views.handler500'

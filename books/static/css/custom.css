@@ -430,3 +430,8 @@ button.change_pass_btn {
 .custom_poderror li {
   background-color: beige !important;
 }
+
+.custom_book_id_error {
+  color: #8d0a15 !important;
+  font-weight: 900 !important;
+}

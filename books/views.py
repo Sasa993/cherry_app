@@ -39,8 +39,8 @@ def details_books(request, book_id):
 		book = Book.objects.get(pk=book_id)
 		context = {'book': book}
 		return render(request, 'books/details_books.html', context)
-	except Exception:
-		raise Http404("Ne postoji ta knjiga!")
+	except Book.DoesNotExist:
+		return render(request, 'errors/no_book_found.html', {'book_id': book_id})
 
 
 @login_required
@@ -127,7 +127,13 @@ def load_emails(request):
 	return render(request, 'includes/displaying_emails_using_ajax.html', {'mails': mails})
 
 
-def handler404(request, exception, template_name="error_404.html"):
-    response = render_to_response("error_404.html")
-    response.status_code = 404
-    return response
+def handler404(request, exception, template_name="errors/error_404.html"):
+	response = render_to_response("errors/error_404.html")
+	response.status_code = 404
+	return response
+
+
+# def handler500(request, template_name="error_500.html"):
+# 	response = render_to_response("error_500.html")
+# 	response.status_code = 500
+# 	return response
