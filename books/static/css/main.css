@@ -1515,3 +1515,71 @@ footer .useful-links li{
        font-size: 1rem 
     }
 }
+
+/* All Tasks */
+.all_tasks .all_tasks_header{
+    background: url('../images/all_tasks_banner.png') no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.all_tasks .all_tasks_header h3{
+    color: #ffffff;
+    padding: 50px 0
+}
+.all_tasks .all_tasks_container .all_tasks_btn{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    margin-left: -15px;
+    border-bottom: 2px solid #8a8a8a;    
+}
+.all_tasks .all_tasks_container .all_tasks_btn:hover{
+    color: #8d0a15;
+    border-bottom: 2px solid #8d0a15;
+}
+.all_tasks .all_tasks_container .all_tasks_btn i{
+    padding-left: 10px;
+}
+.all_tasks .all_tasks_container ul .list-group-item{
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #8a8a8a
+}
+.all_tasks .all_tasks_container .list-group a .list-group-item span{
+    background-color: #d9d9d9;
+    padding: 5px 9px;
+    color: #8a8a8a
+}
+.all_tasks .all_tasks_container ul a{
+    margin: 3px 0;
+    text-decoration: none;
+}
+.all_tasks .all_tasks_container ul a:hover .list-group-item{
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.55);
+    transition: .2s box-shadow linear;
+    color: #8d0a15;
+}
+.all_tasks .all_tasks_container ul a:hover .list-group-item span{
+    background-color:  #8d0a15;
+    color: #ffffff;
+}
+.all_tasks .all_tasks_container .all_tasks_btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+@media screen and (max-width: 450px){
+    .all_tasks .all_tasks_header h3{
+        padding: 8px 0 8px 0;
+        font-size: .8rem;
+    }
+    .all_tasks .all_tasks_container .all_tasks_btn{
+        float: left;
+    }
+    .all_tasks .all_tasks_container .task_num{
+        order: 2
+    }
+}

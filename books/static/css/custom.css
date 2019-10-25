@@ -435,3 +435,12 @@ button.change_pass_btn {
   color: #8d0a15 !important;
   font-weight: 900 !important;
 }
+
+/* Button Disabled */
+.btn.disabled, button.disabled {
+  cursor: not-allowed !important;
+}
+
+.custom_all_tasks_ul {
+  margin-bottom: 20px;
+}
