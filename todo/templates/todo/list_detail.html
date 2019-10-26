@@ -1,81 +1,94 @@
 {% extends "todo/base.html" %}
 {% load static %}
 
-{% block title %}Todo List: {{ task_list.name }}{% endblock %}
+{% block title %}My Tasks{% endblock %}
 
 {% block content %}
 
-  {% if list_slug != "mine" %}
-    <button class="btn btn-primary" id="AddTaskButton" type="button"
-      data-toggle="collapse" data-target="#AddEditTask">Add Task</button>
+  <div class="details_tasks2 mt-4">
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2">
+        <div class="card-body details_tasks2_header">
+          {% if list_slug == "mine" %}
+            <h3 class="mb-1">MY TASKS</h3>
+            <p class="custom_task_subtitle">Tasks assigned to me (in all groups)</p>
+          {% else %}
+            <h3 class="mb-1">{{ view_completed|yesno:"COMPLETED, TASKS" }} IN "{{ task_list.name }}"</h3>
+            <p class="custom_task_subtitle">In workgroup "{{ task_list.group }}" - <i>drag rows to set priorities.</i></p>
+          {% endif %}
+        </div>
+        <div class="card-body details_tasks2_container">
+          {% if list_slug != "mine" %}
+            <div class="row">
+              <div class="col-12 col-sm-6 col-md-6 offset-sm-6 offset-md-6 new_task_btn col">
+                {% if user.is_staff %}
+                  <button class="all_tasks_btn btn float-right custom_tasks_button_add_new" id="AddTaskButton" type="button" data-toggle="collapse" data-target="#AddEditTask">Create New Task<i class="fas fa-plus"></i></button>
+                {% else %}
+                  <button class="all_tasks_btn btn float-right custom_tasks_button_add_new disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Create New Task<i class="fas fa-plus"></i></button>
+                {% endif %}
+              </div>
+            </div>
 
-    {# Task edit / new task form #}
-    <div id="AddEditTask" class="collapse">
-      {% include 'todo/include/task_edit.html' %}
+            {# Task edit / new task form #}
+            <div id="AddEditTask" class="collapse">
+              {% include 'todo/include/task_edit.html' %}
+            </div>
+          {% endif %}
+
+          {% if tasks %}
+            <table class="table" id="tasktable">
+              <tr class="nodrop">
+                <th>Task</th>
+                <th>Created</th>
+                <th>Due on</th>
+                <th>Owner</th>
+                <th>Assigned</th>
+                <th>Mark</th>
+              </tr>
+
+              {% for task in tasks %}
+                <tr id="{{ task.id }}">
+                  <td>
+                      <a href="{% url 'todo:task_detail' task.id %}">{{ task.title|truncatewords:10 }}</a>
+                  </td>
+                  <td>
+                      {{ task.created_date|date:"m/d/Y" }}
+                  </td>
+                  <td>
+                    <span {% if task.overdue_status %}class="overdue"{% endif %}>
+                      {{ task.due_date|date:"m/d/Y" }}
+                    </span>
+                  </td>
+                  <td>
+                    {{ task.created_by }}
+                  </td>
+                  <td>
+                    {% if task.assigned_to %}{{ task.assigned_to }}{% else %}Anyone{% endif %}
+                  </td>
+                  <td>
+                    <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form">
+                      {% csrf_token %}
+                      <button class="btn btn-info btn-sm" type="submit" name="toggle_done">
+                        {% if view_completed %}
+                          Not Done
+                        {% else %}
+                          Done
+                        {% endif %}
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </table>
+          {% else %}
+            <h4>No tasks on this list yet (add one!)</h4>
+            {% include 'todo/include/toggle_delete.html' %}
+          {% endif %}
+        </div>
+      </div>
     </div>
-    <hr />
-  {% endif %}
+  </div>
 
-  {% if tasks %}
-    {% if list_slug == "mine" %}
-      <h1>Tasks assigned to me (in all groups)</h1>
-    {% else %}
-      <h1>{{ view_completed|yesno:"Completed tasks, Tasks" }} in "{{ task_list.name }}"</h1>
-      <p><small><i>In workgroup "{{ task_list.group }}" - drag rows to set priorities.</i></small></p>
-    {% endif %}
-
-      <table class="table" id="tasktable">
-        <tr class="nodrop">
-          <th>Task</th>
-          <th>Created</th>
-          <th>Due on</th>
-          <th>Owner</th>
-          <th>Assigned</th>
-          <th>Mark</th>
-        </tr>
-
-        {% for task in tasks %}
-          <tr id="{{ task.id }}">
-            <td>
-                <a href="{% url 'todo:task_detail' task.id %}">{{ task.title|truncatewords:10 }}</a>
-            </td>
-            <td>
-                {{ task.created_date|date:"m/d/Y" }}
-            </td>
-            <td>
-              <span {% if task.overdue_status %}class="overdue"{% endif %}>
-                {{ task.due_date|date:"m/d/Y" }}
-              </span>
-            </td>
-            <td>
-              {{ task.created_by }}
-            </td>
-            <td>
-              {% if task.assigned_to %}{{ task.assigned_to }}{% else %}Anyone{% endif %}
-            </td>
-            <td>
-              <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form">
-                {% csrf_token %}
-                <button class="btn btn-info btn-sm" type="submit" name="toggle_done">
-                  {% if view_completed %}
-                    Not Done
-                  {% else %}
-                    Done
-                  {% endif %}
-                </button>
-              </form>
-            </td>
-          </tr>
-        {% endfor %}
-      </table>
-
-      {% include 'todo/include/toggle_delete.html' %}
-
-  {% else %}
-    <h4>No tasks on this list yet (add one!)</h4>
-    {% include 'todo/include/toggle_delete.html' %}
-
-  {% endif %}
 {% endblock %}
 
 {% block extra_js %}

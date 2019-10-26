@@ -395,6 +395,11 @@ button.change_pass_btn {
     border-right-color: #8d0a15;
   }
 
+.bs-tooltip-auto[x-placement^=left] .arrow::before,
+  .bs-tooltip-left .arrow::before {
+    border-left-color: #8d0a15;
+  }
+
 .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
   .bs-tooltip-bottom .arrow::before {
     border-bottom-color: #8d0a15;
@@ -443,4 +448,22 @@ button.change_pass_btn {
 
 .custom_all_tasks_ul {
   margin-bottom: 20px;
+}
+
+.custom_task_subtitle {
+  color: #fff !important;
+}
+.custom_tasks_button_add_new {
+  color: #8a8a8a;
+  background-color: #d9d9d9;
+  margin-left: -15px;
+  border-bottom: 2px solid #8a8a8a;
+  margin-bottom: 1.25rem;
+}
+.custom_tasks_button_add_new i {
+  padding-left: 10px;
+}
+.custom_tasks_button_add_new:hover {
+  color: #8d0a15;
+  border-bottom: 2px solid #8d0a15;
 }

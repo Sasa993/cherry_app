@@ -1583,3 +1583,27 @@ footer .useful-links li{
         order: 2
     }
 }
+
+/* Detail Tasks */
+.details_tasks2 .details_tasks2_header{
+    background: url('../images/details_banner.png') no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.details_tasks2 .details_tasks2_header h3{
+    color: #ffffff;
+    padding: 50px 0
+}
+.details_tasks2 .details_tasks2_container .details_tasks2_table_container .table tbody tr td button{
+    background-color: #1c7f1c;
+    color: #ffffff;
+    border: none;
+}
+@media screen and (max-width: 450px){
+    .details_tasks2 .details_tasks2_header h3{
+        padding: 8px 0 8px 0;
+        font-size: .8rem;
+    }
+}
