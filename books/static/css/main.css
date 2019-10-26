@@ -387,6 +387,8 @@ body {
 .sidebar-content {
     max-height: calc(100% - 10px);
     height: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
     position: relative;
 }
@@ -476,6 +478,20 @@ body {
     transform: rotate(90deg);
     right: 17px;
 }
+
+
+
+/* Center progressbar */
+.sidebar-wrapper .progressbar_wrapper{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content:center;
+}
+.sidebar-wrapper .progressbar_wrapper .progressbar_container{
+    border: 2px solid blue;
+}
+/* /Center progressbar*/
 
 /* Page Content */
 .page-wrapper .page-content {

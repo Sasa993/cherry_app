@@ -121,15 +121,21 @@
                     </ul>
                 </div>
                 <!-- Progress bar -->
-                <div style="width:200px;height:200px; margin: 50px auto;">
-                    <div class="percent" style="width:200px; height:200px;">
-                        <p style="display:none;">{{ all_tasks_percentage }}</p>
+                <div class="progressbar_wrapper">
+                   <div class="progressbar_container">
+                    <div style="width:170px;height:170px; margin: 10px auto 0px;">
+                        <div class="percent" style="width:170px; height:170px;">
+                            <p style="display:none;">{{ all_tasks_percentage }}</p>
+                        </div>
                     </div>
-                    {% if user.is_superuser %}
+                    <div>
+                        {% if user.is_superuser %}
                         <div class="custom_task_count">There are <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} in total. <span>{{ all_tasks_completed }}</span> of them have been completed.</div>
                     {% else %}
                         <div class="custom_task_count">You have <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} that have been assigned to you. You have completed <span>{{ all_tasks_completed }}</span> of them.</div>
                     {% endif %}
+                    </div>
+                   </div>
                 </div>
             </div>
         </nav>
