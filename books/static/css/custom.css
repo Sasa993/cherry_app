@@ -467,6 +467,9 @@ button.change_pass_btn {
   color: #8d0a15;
   border-bottom: 2px solid #8d0a15;
 }
+.custom_tasks_button_add_new:focus {
+  box-shadow: none;
+}
 .custom_tasks_button_done_notdone {
   background-color: #9f313a;
   border-color: #9f313a;
