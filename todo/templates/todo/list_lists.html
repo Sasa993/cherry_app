@@ -17,10 +17,10 @@
             <div class="col-12 col-sm-6 col-md-6 new_task_btn">
               {% if user.is_staff %}
                 <a href="{% url 'todo:add_list' %}">
-                  <button class="all_tasks_btn btn float-right">Create New Task<i class="fas fa-plus"></i></button>
+                  <button class="all_tasks_btn btn float-right">Add a New List<i class="fas fa-plus"></i></button>
                 </a>
               {% else %}
-                    <button class="all_tasks_btn btn float-right disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Create New Task<i class="fas fa-plus"></i></button>
+                    <button class="all_tasks_btn btn float-right disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Add a New List<i class="fas fa-plus"></i></button>
               {% endif %}
             </div>
           </div>

@@ -3,21 +3,31 @@
 {% block title %}Add Todo List{% endblock %}
 {% block content %}
 
-  <h2>Add a list:</h2>
+  <div class="details_tasks2 mt-4">
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2">
+        <div class="card-body details_tasks2_header">
+            <h3 class="mb-1">ADD A NEW LIST</h3>
+        </div>
+        <div class="card-body details_tasks2_container">
+          <form action="" method="post">
+            {% csrf_token %}
 
-  <form action="" method="post">
-    {% csrf_token %}
+            <div class="form-group">
+              <label for="id_name">List Name</label>
+              <input type="text" class="form-control" id="id_name" name="name" aria-describedby="inputNameHelp" placeholder="">
+              <small id="inputNameHelp" class="form-text text-muted">The full display name for this list.</small>
+            </div>
+            <div class="form-group">
+              <label for="id_group">Group</label>
+              {{form.group}}
+            </div>
 
-    <div class="form-group">
-      <label for="id_name">List Name</label>
-      <input type="text" class="form-control" id="id_name" name="name" aria-describedby="inputNameHelp" placeholder="">
-      <small id="inputNameHelp" class="form-text text-muted">The full display name for this list.</small>
+            <button type="submit" class="btn btn-primary custom_tasks_button_done_notdone">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="id_group">Group</label>
-      {{form.group}}
-    </div>
+  </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
 {% endblock %}
