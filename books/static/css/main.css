@@ -488,9 +488,6 @@ body {
     align-items: center;
     justify-content:center;
 }
-.sidebar-wrapper .progressbar_wrapper .progressbar_container{
-    border: 2px solid blue;
-}
 /* /Center progressbar*/
 
 /* Page Content */
