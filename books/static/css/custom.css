@@ -485,3 +485,31 @@ button.change_pass_btn {
 .custom_tasks_button_done_notdone:focus {
   box-shadow: 0 0 0 0.2rem rgb(159, 49, 58);
 }
+
+tbody tr.custom_todo_table_tbody {
+  display: table-row;
+}
+.custom_card_header {
+  background-color: #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  color: #8a8a8a;
+}
+.custom_task_comment_textarea:focus {
+  border-color: #8d0a15;
+  box-shadow: 0 0 0 0.2rem rgba(159, 49, 58, .25);
+}
+.custom_task_comment_textarea:focus-within {
+  border-color: #8d0a15;
+  box-shadow: 0 0 0 0.2rem rgba(159, 49, 58, .25);
+}
+.custom_task_comment_card {
+  border: none;
+}
+.custom_task_comment_author {
+  color: #8d0a15 !important;
+  font-weight: 800 !important;
+}
+
+.custom_new_task_form label {
+  color: #8d0a15;
+}
