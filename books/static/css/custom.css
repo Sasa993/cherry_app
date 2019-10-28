@@ -467,3 +467,18 @@ button.change_pass_btn {
   color: #8d0a15;
   border-bottom: 2px solid #8d0a15;
 }
+.custom_tasks_button_done_notdone {
+  background-color: #9f313a;
+  border-color: #9f313a;
+}
+.custom_tasks_button_done_notdone:hover {
+  background-color: #8d0a15;
+  border-color: #8d0a15;
+}
+.custom_tasks_button_done_notdone:not(:disabled):not(.disabled):active {
+  background-color: #8d0a15;
+  border-color: #8d0a15;
+}
+.custom_tasks_button_done_notdone:focus {
+  box-shadow: 0 0 0 0.2rem rgb(159, 49, 58);
+}
