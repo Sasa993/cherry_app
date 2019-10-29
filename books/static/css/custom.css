@@ -98,9 +98,11 @@ button {
 }
 /* END Drag&Drop Effect */
 
+
 .custom_task_count {
   text-align: justify;
-  padding: 40px 0;
+  padding: 4px 10px 30px 4px;
+  margin-bottom: 21px;
 }
 
 .custom_task_count span {

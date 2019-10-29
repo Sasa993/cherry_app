@@ -387,6 +387,8 @@ body {
 .sidebar-content {
     max-height: calc(100% - 10px);
     height: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
     position: relative;
 }
@@ -476,6 +478,17 @@ body {
     transform: rotate(90deg);
     right: 17px;
 }
+
+
+
+/* Center progressbar */
+.sidebar-wrapper .progressbar_wrapper{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content:center;
+}
+/* /Center progressbar*/
 
 /* Page Content */
 .page-wrapper .page-content {
@@ -703,7 +716,7 @@ footer .useful-links li{
 }
 .change_pass_form .change_pass_header h3{
     color: #ffffff;
-    padding: 50px 0
+    padding: 50px 0;
 }
 .change_pass_form .pass_form .pass_input_container img{
     width: 19px;
@@ -728,14 +741,14 @@ footer .useful-links li{
    border-bottom: 2px solid #8d0a15;
    transition: .5s border-bottom linear; 
 }  
-@media screen and (max-width: 450px){ 
+/* @media screen and (max-width: 450px){ 
     change_pass_form .change_pass_header{
         background-position: top left;
     }
     .change_pass_form .change_pass_header h3{
         padding: 5px;
-    }
-}
+    } 
+} */
 
 /* 2FA settings */
 .two_fa_settings_form .two_fa_settings_header{
@@ -887,7 +900,7 @@ footer .useful-links li{
    border-bottom: 2px solid #8d0a15;
    transition: .5s border-bottom linear; 
 }
-..backup_token_form .backup_token_container .token_backup_form .backup_token_btn_container button:focus{
+.backup_token_form .backup_token_container .token_backup_form .backup_token_btn_container button:focus{
     outline: none;
 }
 @media screen and (max-width: 450px){

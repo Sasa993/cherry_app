@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <!-- Css For responsive -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static '../../static/css/responsive.css' %}"> -->
+    <!-- /Css For responsive -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     {% block other_css %} {% endblock %}
@@ -117,15 +121,21 @@
                     </ul>
                 </div>
                 <!-- Progress bar -->
-                <div style="width:200px;height:200px; margin: 90px auto;">
-                    <div class="percent" style="width:200px; height:200px;">
-                        <p style="display:none;">{{ all_tasks_percentage }}</p>
+                <div class="progressbar_wrapper">
+                   <div class="progressbar_container">
+                    <div style="width:170px;height:170px; margin: 10px auto 0px;">
+                        <div class="percent" style="width:170px; height:170px;">
+                            <p style="display:none;">{{ all_tasks_percentage }}</p>
+                        </div>
                     </div>
-                    {% if user.is_superuser %}
+                    <div>
+                        {% if user.is_superuser %}
                         <div class="custom_task_count">There are <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} in total. <span>{{ all_tasks_completed }}</span> of them have been completed.</div>
                     {% else %}
                         <div class="custom_task_count">You have <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} that have been assigned to you. You have completed <span>{{ all_tasks_completed }}</span> of them.</div>
                     {% endif %}
+                    </div>
+                   </div>
                 </div>
             </div>
         </nav>
