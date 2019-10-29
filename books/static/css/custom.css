@@ -536,10 +536,12 @@ tbody tr.custom_todo_table_tbody {
 
 .btn-radio {
   cursor: pointer;
-  display: inline-block;
+  /*display: inline-block;*/
+  display: block;
   /*float: left;*/
   -webkit-user-select: none;
   user-select: none;
+  margin-bottom: 10px;
 }
 .btn-radio:not(:first-child) {
   /*margin-left: 20px;*/
@@ -591,4 +593,11 @@ tbody tr.custom_todo_table_tbody {
 .btn-radio span {
   display: inline-block;
   vertical-align: middle;
+}
+
+.custom_backup_phone_method {
+  text-align: center;
+  font-size: 125%;
+  font-weight: 600;
+  color: #8d0a15;
 }

@@ -33,7 +33,7 @@ class MethodForm(forms.Form):
 class PhoneNumberMethodForm(ModelForm):
     number = forms.CharField(label=_("Phone Number"),
                              validators=[validate_international_phonenumber])
-    method = forms.ChoiceField(widget=forms.RadioSelect, label=_('Method'))
+    method = forms.ChoiceField(widget=forms.RadioSelect, label=_('Please select the method:'))
 
     class Meta:
         model = PhoneDevice

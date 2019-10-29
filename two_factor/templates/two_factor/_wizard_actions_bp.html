@@ -9,7 +9,7 @@
   <!--<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class="btn btn-default">{% trans "Back" %}</button>-->
   {# <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class="back" id="back">{% trans "Back" %}</button> #}
   {# <button type="submit" class="next" id="next">{% trans "Nexdt" %}</button> #}
-  	<div class="form-inline backup_phone_btn_container form-group button_group mt-4">
+  <div class="form-inline backup_phone_btn_container form-group button_group mt-4">
 		<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class="mr-3 phone_back">{% trans "Back" %}</button>
 		<button type="submit" class="phone_next" id="next">{% trans "Next" %}</button>
 	</div>
@@ -17,7 +17,7 @@
   {# <button disabled name="" type="button" class="btn btn-disabled">{% trans "Back" %}</button> #}
   {# <button type="submit" id="login_btn">{% trans "Next" %}</button> #}
 	<div class="form-inline backup_phone_btn_container form-group button_group mt-4">
-		<button disabled type="submit" class="mr-3 phone_back">{% trans "Back" %}</button>
+		<button disabled class="mr-3 phone_back btn disabled">{% trans "Back" %}</button>
 		<button type="submit" class="phone_next" id="next">{% trans "Next" %}</button>
 	</div>
 {% endif %}
