@@ -668,7 +668,9 @@ footer .useful-links li{
 }
 .change_email_form .form .button_group button:hover, .change_email_form .add_email:hover{
     border-bottom: 2px solid #8d0a15;
-    transition: .5s border-bottom linear;
+    /*transition: .5s border-bottom linear;*/
+    transition: all .5s;
+    color: #8d0a15;
 }
 .change_email_form .form .email_input_group .email_input_container span, .email_input_group form span{
     background-color: #d9d9d9;    
@@ -691,6 +693,10 @@ footer .useful-links li{
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
+    font-weight: 500;
+}
+.add_email {
+    margin-bottom: 20px;
 }
 @media screen and (max-width: 450px){   
     .change_email_form .form .button_group{
@@ -770,9 +776,14 @@ footer .useful-links li{
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
 }
+.two_fa_settings_btn {
+    font-weight: 500;
+}
 .two_fa_settings_form .two_fa_settings_btn_container .two_fa_settings_btn:hover{
    border-bottom: 2px solid #8d0a15;
-   transition: .5s border-bottom linear; 
+   /*transition: .5s border-bottom linear;*/
+   transition: all .5s;
+   color: #8d0a15;
 }
 .two_fa_settings_form .two_fa_settings_btn_container .two_fa_settings_btn:focus{
     outline: none;
@@ -1619,4 +1630,10 @@ footer .useful-links li{
         padding: 8px 0 8px 0;
         font-size: .8rem;
     }
+}
+.unverified {
+    color: #8d0a15;
+}
+.verified {
+    color: forestgreen;
 }
