@@ -527,13 +527,11 @@ tbody tr.custom_todo_table_tbody {
   font-weight: 500;
 }
 
-
-/* TESTING */
+/* Radio Buttons */
 .cntr {
   margin: auto;
   /*display: flex;*/
 }
-
 .btn-radio {
   cursor: pointer;
   /*display: inline-block;*/

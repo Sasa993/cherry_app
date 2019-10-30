@@ -739,13 +739,15 @@ footer .useful-links li{
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
+    font-weight: 500;
 }
 .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn:focus{
     outline: none;
 }
 .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn:hover{
    border-bottom: 2px solid #8d0a15;
-   transition: .5s border-bottom linear; 
+   color: #8d0a15;
+   transition: .5s all; 
 }  
 /* @media screen and (max-width: 450px){ 
     change_pass_form .change_pass_header{
@@ -755,6 +757,10 @@ footer .useful-links li{
         padding: 5px;
     } 
 } */
+.pass_form {
+    text-align: center;
+    padding: 0 30%;
+}
 
 /* 2FA settings */
 .two_fa_settings_form .two_fa_settings_header{
@@ -816,10 +822,12 @@ footer .useful-links li{
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
+    font-weight: 500;
 }
 .disable_2fa_form .disable_2fa_btn:hover{
    border-bottom: 2px solid #8d0a15;
-   transition: .5s border-bottom linear; 
+   color: #8d0a15;
+   transition: .5s all; 
 }
 .disable_2fa_form .disable_2fa_btn:focus{
     outline: none;
@@ -969,10 +977,12 @@ footer .useful-links li{
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
+    font-weight: 500;
 }
 .token_list_form .token_list_container .token_list_btn_container .token_list_generate:hover{
    border-bottom: 2px solid #8d0a15;
-   transition: .5s border-bottom linear; 
+   color: #8d0a15;
+   transition: .5s all; 
 }
 .token_list_form .token_list_container .token_list_btn_container .token_list_generate:focus{
     outline: none;
@@ -1396,6 +1406,7 @@ footer .useful-links li{
 .import_csv .import_csv_wrapper span{
     color: #8a8a8a;
     margin-left: 10px;
+    font-weight: 500;
 }
 .import_csv .import_csv_btn{
     padding-right: 15px;
@@ -1411,6 +1422,7 @@ footer .useful-links li{
     margin-left: -15px;
     border-bottom: 2px solid #8a8a8a;
     padding: 11px 25px;
+    font-weight: 500;
 }
 .import_csv .import_csv_container .upload_csv_btn:hover{
     color: #8d0a15;
@@ -1424,6 +1436,7 @@ footer .useful-links li{
     background-color: #d9d9d9;
     margin-left: -15px;
     border-bottom: 2px solid #8a8a8a;
+    font-weight: 500;
 }
 .import_csv .import_csv_container .download_cvs_template_btn:hover{
     color: #8d0a15;
