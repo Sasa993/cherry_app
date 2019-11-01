@@ -622,3 +622,11 @@ tbody tr.custom_todo_table_tbody {
   display: flex;
   justify-content: space-between;
 }
+
+.custom_reducing_header_height h3 {
+  margin-bottom: 0 !important;
+  padding: 40px 0 !important;
+}
+.custom_reducing_header_height p {
+  margin-bottom: 0 !important;
+}

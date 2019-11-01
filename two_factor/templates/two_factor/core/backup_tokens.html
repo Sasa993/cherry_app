@@ -1,31 +1,34 @@
 {% extends "two_factor/_base_focus.html" %}
 {% load i18n %}
+{% block title %} Backup Tokens {% endblock %}
 
 {% block content %}
   <div class="token_list_form mt-4">
-    <div class="col-md-6 offset-md-3">
-      <div class="card-body token_list_header">
-        <h3 class="mb-1">{% trans "BACKUP TOKENS" %}</h3>
-      </div>
-      <div class="card-body token_list_container">
-        <h6>{% blocktrans %}Backup tokens can be used when your primary and backup phone numbers aren't available. <br> Tokens can be used for login verification. <br> If you've used up all backup tokens, you can generate a new set of backup tokens. <br> Only tokens shown below are valid.</h6>{% endblocktrans %}
-        {% if device.token_set.count %}
-          <ul class="token_list mt-4 text-center">
-            {% for token in device.token_set.all %}
-              <li>{{ token.token }}</li>
-            {% endfor %}
-          </ul>
-          <p>{% blocktrans %}Print these tokens and keep them somewhere safe.{% endblocktrans %}</p>
-        {% else %}
-          <h6 class="custom_no_backup_codes">{% trans "You don't have any backup codes yet." %}</h6>
-        {% endif %}
-        <div class="token_list_btn_container form-group button_group mt-4">
-          <form method="post">
-            {% csrf_token %}
-            {{ form }}
-            <button class="token_list_generate mr-3 mb-3" type="submit">{% trans "Generate Tokens" %}</button><br>
-            <a href="{% url 'two_factor:profile'%}" class="mr-3 mt-3">{% trans "Back to Account Security" %}</a>
-          </form>
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2">
+        <div class="card-body token_list_header">
+          <h3 class="mb-1">{% trans "BACKUP TOKENS" %}</h3>
+        </div>
+        <div class="card-body token_list_container">
+          <h6>{% blocktrans %}Backup tokens can be used when your primary and backup phone numbers aren't available. <br> Tokens can be used for login verification. <br> If you've used up all backup tokens, you can generate a new set of backup tokens. <br> Only tokens shown below are valid.</h6>{% endblocktrans %}
+          {% if device.token_set.count %}
+            <ul class="token_list mt-4 text-center">
+              {% for token in device.token_set.all %}
+                <li>{{ token.token }}</li>
+              {% endfor %}
+            </ul>
+            <p>{% blocktrans %}Print these tokens and keep them somewhere safe.{% endblocktrans %}</p>
+          {% else %}
+            <h6 class="custom_no_backup_codes">{% trans "You don't have any backup codes yet." %}</h6>
+          {% endif %}
+          <div class="token_list_btn_container form-group button_group mt-4">
+            <form method="post">
+              {% csrf_token %}
+              {{ form }}
+              <button class="token_list_generate mr-3 mb-3" type="submit">{% trans "Generate Tokens" %}</button><br>
+              <a href="{% url 'two_factor:profile'%}" class="mr-3 mt-3">{% trans "Back to Account Security" %}</a>
+            </form>
+          </div>
         </div>
       </div>
     </div>

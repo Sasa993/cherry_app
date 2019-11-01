@@ -764,9 +764,10 @@ footer .useful-links li{
 
 /* 2FA settings */
 .two_fa_settings_form .two_fa_settings_header{
-    background: url('../images/2FA_banner.png') no-repeat;
-    background-position: 0;
+    background: url('../images/account_security_banner.png') no-repeat;
+    /*background-position: 0;*/
     background-size: cover;
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -844,9 +845,10 @@ footer .useful-links li{
 
 /* Phone Backup */
 .backup_phone_form  .backup_phone_header{
-    background: url('../images/phone_backup.png') no-repeat;
+    background: url('../images/backup_phone_banner.png') no-repeat;
     background-size: cover;
-    background-position: top;
+    /*background-position: top;*/
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -936,9 +938,9 @@ footer .useful-links li{
 
 /* Token List */
 .token_list_form .token_list_header{
-    background: url('../images/token_security.png') no-repeat;
+    background: url('../images/backup_codes_banner.png') no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -1557,7 +1559,8 @@ footer .useful-links li{
 
 /* All Tasks */
 .all_tasks .all_tasks_header{
-    background: url('../images/all_tasks_banner.png') no-repeat;
+    /*background: url('../images/all_tasks_banner.png') no-repeat;*/
+    background: url('../images/pencil-banner.png') no-repeat;
     background-size: cover;
     background-position: center bottom;
     border-top-left-radius: 8px;
@@ -1631,7 +1634,19 @@ footer .useful-links li{
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
-.details_tasks2 .details_tasks2_header h3{
+.details_tasks2_header_new_detail {
+    background: url('../images/notebook-banner.png') no-repeat;
+}
+.details_tasks2_header_new_add {
+    background: url('../images/cards-banner.png') no-repeat;
+}
+.details_tasks2_header_new_detail, .details_tasks2_header_new_add {
+    background-size: cover;
+    background-position: center bottom;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
     color: #ffffff;
     padding: 50px 0
 }
@@ -1641,7 +1656,7 @@ footer .useful-links li{
     border: none;
 }
 @media screen and (max-width: 450px){
-    .details_tasks2 .details_tasks2_header h3{
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
         padding: 8px 0 8px 0;
         font-size: .8rem;
     }
