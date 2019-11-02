@@ -806,7 +806,7 @@ footer .useful-links li{
 
 /* Disable 2FA */
 .disable_2fa_form .disable_2fa_header{
-    background: url('../images/2FA_banner.png') no-repeat;
+    background: url('../images/disable_2fa_banner.png') no-repeat;
     background-size: cover;
     background-position: top;
     border-top-left-radius: 8px;
@@ -1001,9 +1001,9 @@ footer .useful-links li{
 
 /* Contact Us */
 .contact_us_form .contact_us_header{
-    background: url('../images/contact_header.png') no-repeat;
+    background: url('../images/contact_us_banner.png') no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }

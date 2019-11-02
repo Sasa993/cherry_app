@@ -517,11 +517,13 @@ tbody tr.custom_todo_table_tbody {
 }
 
 .custom_form_email_address {
-  padding: 0 18%;
+  /*padding: 0 18%;*/
+  padding: 0 10%;
 }
 .custom_add_email_address {
   text-align: center;
-  padding: 0 30%;
+  /*padding: 0 30%;*/
+  padding: 0 25%;
 }
 .custom_mail_options_buttons button {
   font-weight: 500;
