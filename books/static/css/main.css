@@ -636,7 +636,7 @@ footer .useful-links li{
 
 /* Change Email */
 .change_email_form .change_email_header{
-    background: url('../images/change_email_banner.png') no-repeat;
+    background: url('../images/banners/change_email_banner.png') no-repeat;
     background-size: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -715,7 +715,8 @@ footer .useful-links li{
 
 /* Change Password */
 .change_pass_form .change_pass_header{
-    background: url('../images/password_banner.png') no-repeat;
+    background: url('../images/banners/change_password_banner.png') no-repeat;
+    background-position: center bottom;
     background-size: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -764,7 +765,7 @@ footer .useful-links li{
 
 /* 2FA settings */
 .two_fa_settings_form .two_fa_settings_header{
-    background: url('../images/account_security_banner.png') no-repeat;
+    background: url('../images/banners/account_security_banner.png') no-repeat;
     /*background-position: 0;*/
     background-size: cover;
     background-position: center bottom;
@@ -806,7 +807,7 @@ footer .useful-links li{
 
 /* Disable 2FA */
 .disable_2fa_form .disable_2fa_header{
-    background: url('../images/disable_2fa_banner.png') no-repeat;
+    background: url('../images/banners/disable_2fa_banner.png') no-repeat;
     background-size: cover;
     background-position: top;
     border-top-left-radius: 8px;
@@ -845,7 +846,7 @@ footer .useful-links li{
 
 /* Phone Backup */
 .backup_phone_form  .backup_phone_header{
-    background: url('../images/backup_phone_banner.png') no-repeat;
+    background: url('../images/banners/backup_phone_banner.png') no-repeat;
     background-size: cover;
     /*background-position: top;*/
     background-position: center bottom;
@@ -938,7 +939,14 @@ footer .useful-links li{
 
 /* Token List */
 .token_list_form .token_list_header{
-    background: url('../images/backup_codes_banner.png') no-repeat;
+    background: url('../images/banners/backup_codes_banner.png') no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.token_list_form .log_out_banner {
+    background: url('../images/banners/log_out_banner.png') no-repeat;
     background-size: cover;
     background-position: center bottom;
     border-top-left-radius: 8px;
@@ -1001,7 +1009,7 @@ footer .useful-links li{
 
 /* Contact Us */
 .contact_us_form .contact_us_header{
-    background: url('../images/contact_us_banner.png') no-repeat;
+    background: url('../images/banners/contact_us_banner.png') no-repeat;
     background-size: cover;
     background-position: center bottom;
     border-top-left-radius: 8px;
@@ -1071,9 +1079,9 @@ footer .useful-links li{
 
 /* All Uploaded Books */
 .upload_books_front .upload_books_front_header{
-    background: url('../images/detail_book_banner.png') no-repeat;
+    background: url('../images/banners/all_books_banner.png') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -1153,7 +1161,7 @@ footer .useful-links li{
 
 /* Upload Books Types*/
 .upload_book .upload_book_header{
-    background: url('../images/detail_book_banner.png') no-repeat;
+    background: url('../images/banners/create_book_type_banner.png') no-repeat;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 8px;
@@ -1191,7 +1199,7 @@ footer .useful-links li{
 
 /* Upload E-Book */
 .upload_e-book .upload_e-book_header{
-    background: url('../images/detail_book_banner.png') no-repeat;
+    background: url('../images/banners/create_book_type_banner.png') no-repeat;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 8px;
@@ -1253,9 +1261,9 @@ footer .useful-links li{
 
 /* Single Book Details*/
 .single_book_detail .single_book_detail_header{
-    background: url('../images/detail_book_banner.png') no-repeat;
+    background: url('../images/banners/details_books_banner.png') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -1387,9 +1395,9 @@ footer .useful-links li{
 
 /* Import CSV */
 .import_csv .import_csv_header{
-    background: url('../images/import_csv_banner.png') no-repeat;
+    background: url('../images/banners/import_csv_banner.png') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -1456,9 +1464,9 @@ footer .useful-links li{
 
 /* Search Results */
 .search_results .search_results_header{
-    background: url('../images/search-banner.png') no-repeat;
+    background: url('../images/banners/search_banner.png') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -1560,7 +1568,7 @@ footer .useful-links li{
 /* All Tasks */
 .all_tasks .all_tasks_header{
     /*background: url('../images/all_tasks_banner.png') no-repeat;*/
-    background: url('../images/pencil-banner.png') no-repeat;
+    background: url('../images/banners/pencil_banner.png') no-repeat;
     background-size: cover;
     background-position: center bottom;
     border-top-left-radius: 8px;
@@ -1628,17 +1636,17 @@ footer .useful-links li{
 
 /* Detail Tasks */
 .details_tasks2 .details_tasks2_header{
-    background: url('../images/details_banner.png') no-repeat;
+    background: url('../images/banners/tasks_details_banner.png') no-repeat;
     background-size: cover;
     background-position: center bottom;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 .details_tasks2_header_new_detail {
-    background: url('../images/notebook-banner.png') no-repeat;
+    background: url('../images/banners/notebook_banner.png') no-repeat;
 }
 .details_tasks2_header_new_add {
-    background: url('../images/cards-banner.png') no-repeat;
+    background: url('../images/banners/cards_banner.png') no-repeat;
 }
 .details_tasks2_header_new_detail, .details_tasks2_header_new_add {
     background-size: cover;

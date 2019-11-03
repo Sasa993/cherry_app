@@ -6,20 +6,22 @@
 
 {% block content %}
 	<div class="token_list_form mt-4">
-		<div class="col-md-6 offset-md-3">
-	    	<div class="card-body token_list_header">
-	        	<h3 class="mb-1">{% trans "SIGN OUT" %}</h3>
-	    	</div>
-	    	<div class="card-body token_list_container">
-	        	<h6>{% trans 'Are you sure you want to sign out?' %}</h6>
-		        <div class="token_list_btn_container form-group button_group mt-4">
-					<form method="post" action="{% url 'account_logout' %}">
-						{% csrf_token %}
-						{% if redirect_field_value %}
-							<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-						{% endif %}
-						<button type="submit" class="token_list_generate mr-3 mb-3">{% trans 'Sign Out' %}</button>
-					</form>
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2">
+		    	<div class="card-body token_list_header log_out_banner">
+		        	<h3 class="mb-1">{% trans "SIGN OUT" %}</h3>
+		    	</div>
+		    	<div class="card-body token_list_container">
+		        	<h6>{% trans 'Are you sure you want to sign out?' %}</h6>
+			        <div class="token_list_btn_container form-group button_group mt-4">
+						<form method="post" action="{% url 'account_logout' %}">
+							{% csrf_token %}
+							{% if redirect_field_value %}
+								<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+							{% endif %}
+							<button type="submit" class="token_list_generate mr-3 mb-3">{% trans 'Sign Out' %}</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

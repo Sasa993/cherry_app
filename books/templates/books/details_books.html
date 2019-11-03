@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block content %}
-	<div class="single_book_detail">
+	<div class="single_book_detail mt-4">
         <div class="row">
             <div class="col-12 col-md-8 offset-md-2">
-                <div class="card-body single_book_detail_header">
-                    <h3 class="mb-0">[{{ book.working_number|upper }}] {{ book.title }}</h3>
+                <div class="card-body single_book_detail_header custom_books_reducing_header_height">
+                    <h3 class="mb-1">[{{ book.working_number|upper }}] {{ book.title }}</h3>
                     <p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
                     {% if book.uploaded_at == book.modified_at %}
                         <p>It hasn't been modified yet!</p>

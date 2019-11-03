@@ -10,18 +10,10 @@
 {% load static %}
 
 {% block content %}
-	<div class="upload_e-book">
+	<div class="upload_e-book mt-4">
 		<div class="row">
         	<div class="col-12 col-md-8 offset-md-2">
-            	<div class="card-body upload_e-book_header single_book_detail_header">
-                	<h3 class="mb-0">{{ book.name|upper }} - [{{ main_book.working_number|upper }}] {{ main_book }}</h3>
-                	<p>Uploaded: <small>{{ book.uploaded_at|date:'d/m/Y, H:i' }}</small></p>
-                    {% if book.uploaded_at == book.modified_at %}
-                        <p>It hasn't been modified yet!</p>
-                    {% else %}
-                        <p>Modified: <small>{{ book.modified_at|date:'d/m/Y, H:i' }}</small></p>
-                    {% endif %}
-                </div> 
+            	{% include "uploaded_books/include/edit_banner_snippet.html" with book=book main_book=main_book %}
                 <div class="card-body">
                 	<h6 class="text-center">Once you're done with changes, click on "Save Changes" button!</h6>
                     <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
