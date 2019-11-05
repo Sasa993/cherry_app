@@ -12,7 +12,7 @@
         margin-bottom: 20px;
     }
     .change_email_form .change_email_header h3{
-        padding: 0px;
+        padding: 15px 0;
         font-size: 1rem;
     }
     .change_email_form h4{
@@ -24,7 +24,7 @@
     /* End of Change email template CSS*/
     /* Change password template CSS */
     .change_pass_form .change_pass_header h3{
-        padding: 0;
+        padding: 15px 0;
         font-size: 1rem;
     }
     .change_pass_form .pass_form{
@@ -47,7 +47,7 @@
         margin-bottom: 20px;
     }
     .change_email_form .change_email_header h3{
-        padding: 0px;
+        padding: 15px 0;
         font-size: 1.4rem;
     }
     .change_email_form h4{
@@ -59,7 +59,7 @@
     /* End of Change email template CSS*/
     /* Change password template CSS */
     .change_pass_form .change_pass_header h3{
-        padding: 0;
+        padding: 15px 0;
         font-size: 1.4rem;
     }
     .change_pass_form .pass_form{
@@ -75,7 +75,7 @@
     }
     /*Change email template CSS*/
     .change_email_form .change_email_header h3{
-        padding: 0px;
+        padding: 15px 0;
         font-size: 1.4rem;
     }
     .change_email_form h4{
@@ -87,7 +87,7 @@
     /* End of Change email template CSS*/
     /* Change password template CSS */
     .change_pass_form .change_pass_header h3{
-        padding: 0;
+        padding: 15px 0;
         font-size: 1.4rem;
     }
     .change_pass_form .pass_form{
