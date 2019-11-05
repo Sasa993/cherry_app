@@ -3,12 +3,12 @@ button {
 }
 
 .custom_buttons {
-	padding: 0 0 20px 0;
+	padding: 20px 0 20px 0;
 }
 
-.custom_buttons a {
+/*.custom_buttons a {
 	margin: 0 14px;
-}
+}*/
 
 .custom_co_authors span {
 	color: #270446;
@@ -297,6 +297,7 @@ button.change_pass_btn {
 .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+  border-radius: 8px 0 0 8px !important;
 }
 
 .custom_alert_upload_books {
@@ -635,4 +636,20 @@ tbody tr.custom_todo_table_tbody {
 .custom_books_reducing_header_height h3 {
   margin-bottom: 0 !important;
   padding: 28px 0 !important;
+}
+.custom_add_book_cover_button {
+  padding: 0 14px;
+  /*border-radius: 8px 0 0 8px !important;*/
+}
+.custom_input_red_focus input:focus, .custom_input_red_focus textarea:focus {
+  border-color: #8d0a15;
+  box-shadow: 0 0 0 0.2rem rgba(159, 49, 58, .25);
+}
+.custom_multiple_selection span span.selection span:focus-within {
+  border-color: #8d0a15 !important; 
+  box-shadow: 0 0 0 0.2rem rgba(159, 49, 58, .25) !important;
+  border-radius: .25rem !important;
+}
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #ced4da !important;
 }

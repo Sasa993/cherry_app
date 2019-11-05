@@ -3,6 +3,7 @@
 	{% if forloop.last %}
 		<a href="mailto:{{ mail.email }}">{{ mail.email }}</a>
 	{% else %}
-		<a href="mailto:{{ mail.email }}">{{ mail.email }} <span style="color:black">|</span></a>
+		{# <a href="mailto:{{ mail.email }}">{{ mail.email }} <span style="color:black">|</span></a> #}
+		<a href="mailto:{{ mail.email }}">{{ mail.email }}</a>
 	{% endif %}
 {% endfor %}

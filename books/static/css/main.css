@@ -1421,7 +1421,8 @@ footer .useful-links li{
 .import_csv .import_csv_btn{
     padding-right: 15px;
     border-right: 1px solid #8a8a8a;
-    border-radius: 0;
+    /*border-radius: 0;*/
+    border-radius: 8px 0 0 8px;
 }
 .import_csv .import_csv_container button img{
     width: 40px
@@ -1675,3 +1676,56 @@ footer .useful-links li{
 .verified {
     color: forestgreen;
 }
+
+/* Add New Book */
+.custom_buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.custom_buttons button, .custom_buttons a {
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+/*.custom_buttons a {
+    text-align: center;
+    padding-top: 2%;
+}*/
+.custom_buttons a:hover {
+    text-decoration: none;
+}
+.custom_buttons button:hover, .custom_buttons a:hover {
+    border-bottom: 2px solid #8d0a15;
+    transition: all .5s;
+    color: #8d0a15;
+}
+.custom_buttons button:focus, .custom_buttons a:focus {
+    outline: none;
+}
+.custom_add_book_cover {
+    padding-right: 15px;
+    border-right: 1px solid #8a8a8a;
+    border-radius: 0;
+}
+.custom_import_csv_wrapper {
+    padding-left: 0;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+}
+.custom_import_csv_wrapper span {
+    color: #8a8a8a;
+    margin-left: 10px;
+    font-weight: 500;
+}
+.custom_import_csv_wrapper #id_cover {
+    display: none;
+}
+/*#enterNewBookForm input:focus {
+    border-color: #8d0a15;
+    box-shadow: 0 0 0 0.2rem rgba(159, 49, 58, .25);
+}*/

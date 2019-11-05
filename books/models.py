@@ -64,6 +64,9 @@ class BookForm(forms.ModelForm):
 	class Meta:
 		model = Book
 		fields = '__all__'
+		# labels = {
+		# 	'working_number': _('Working No'),
+		# }
 		# widgets = {
 		# 	'author': Select2MultipleWidget,
 		# 	'co_author_name': Select2MultipleWidget

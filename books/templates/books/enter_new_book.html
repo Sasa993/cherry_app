@@ -1,24 +1,39 @@
 {% extends "books/base.html" %}
 
+{% load i18n %}
+{% load static %}
+
 {% block other_css %}
 	{{ form.media.css }}
 {% endblock %}
 
 {% block title %}
-	New Book
+	{% trans 'New Book' %}
 {% endblock %}
 
 {% block content %}
-	<div class="container">
-		<form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
-			{% csrf_token %}
-			{% include 'includes/bs4_form.html' with form=form %}
-			<div class="row custom_buttons">
-				<a href="./" class="btn btn-outline-danger page-scroll btn-lg col-md-3">Back</a>
-				<button type="submit" class="btn btn-outline-secondary btn-lg col-md-3 offset-md-2" name="save_and_add_another">Save and add another</button>
-				<button type="submit" class="btn btn-outline-primary btn-lg col-md-3">Save</button>
+	<div class="upload_books_front mt-4">
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+				<div class="card-body upload_books_front_header">
+		        	<h3 class="mb-1">{% trans 'CREATE NEW BOOK' %}</h3>
+		        </div>
+		        <div class="card-body">
+		        	<form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
+						{% csrf_token %}
+						{% include 'includes/bs4_form.html' with form=form %}
+						<div class="custom_buttons">
+							{# <a href="./" class="btn btn-outline-danger page-scroll btn-lg col-md-3">Back</a> #}
+							{# <button type="submit" class="btn btn-outline-secondary btn-lg col-md-3 offset-md-2" name="save_and_add_another">Save and add another</button> #}
+							{# <button type="submit" class="btn btn-outline-primary btn-lg col-md-3">Save</button> #}
+							<a href="./" class="btn btn-default">{% trans 'Back' %}</a>
+							<button type="submit" name="save_and_add_another">{% trans 'Save & Add Another' %}</button>
+							<button type="submit">{% trans 'Save' %}</button>
+						</div>
+					</form>
+		        </div>
 			</div>
-		</form>
+		</div>
 	</div>
 {% endblock %}
 
