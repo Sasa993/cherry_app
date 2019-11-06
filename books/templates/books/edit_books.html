@@ -1,24 +1,36 @@
 {% extends "books/base.html" %}
 
+{% load i18n %}
+{% load static %}
+
 {% block other_css %}
 	{{ form.media.css }}
 {% endblock %}
 
 {% block title %}
-	Book - {{ book.title }}
+	{% trans 'Book -' %} {{ book.title }}
 {% endblock %}
 
 {% block content %}
-	<div class="container">
-		<form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
-			{% csrf_token %}
-			{% include 'includes/bs4_edit_form.html' with form=form %}
-			<div class="row custom_buttons">
-				<a href="../" class="btn btn-outline-danger page-scroll btn-lg col-md-3">Cancel</a>
-				<button type="submit" class="btn btn-outline-primary btn-lg col-md-3 offset-md-5">Save</button>
-			</div>
-		</form>
-	</div>
+	<div class="upload_books_front mt-4">
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+				<div class="card-body upload_books_front_header">
+		        	<h3 class="mb-1">{% trans 'EDIT BOOK' %} - [{{ book.working_number }}] {{ book.title }}</h3>
+		        </div>
+		        <div class="card-body">
+		        	<form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
+		        		{% csrf_token %}
+		        		{% include 'includes/bs4_edit_form.html' with form=form %}
+		        		<div class="custom_buttons">
+		        			<a href="../" class="btn btn-default">{% trans 'Cancel' %}</a>
+							<button type="submit">{% trans 'Save' %}</button>
+		        		</div>
+		        	</form>
+		        </div>
+		    </div>
+		</div>
+	</div>	
 {% endblock %}
 
 {% block other_js %}

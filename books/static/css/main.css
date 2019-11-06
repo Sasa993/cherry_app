@@ -1729,3 +1729,18 @@ footer .useful-links li{
     border-color: #8d0a15;
     box-shadow: 0 0 0 0.2rem rgba(159, 49, 58, .25);
 }*/
+.custom_uploaded_cover_image {
+    width: 100%;
+    height: 40%;
+    padding-bottom: 10px;
+}
+.imagedropshadow {
+    padding: 5px;
+    border: solid 1px #EFEFEF;
+}
+a:hover img.imagedropshadow {
+    border: solid 1px #8d0a15;
+    -moz-box-shadow: 1px 1px 5px #999;
+    -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;
+}

@@ -1,4 +1,7 @@
 {% load widget_tweaks %}
+{% load shorten_file_name %}
+{% load remove_folder_path %}
+{% load static %}
 {% for hidden_field in form.hidden_fields %}
 	{{ hidden_field }}
 {% endfor %}
@@ -10,200 +13,231 @@
 		{% endfor %}
 	</div>
 {% endif %}
-<div class="row">
-	{% for field in form.visible_fields %}
-		{% if forloop.counter == 1 %}
-			<div class="form-group col-sm-6">
-				{{ field.label_tag }}
-
-				{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-					  	{% endfor %}
-					{% else %}
-						{% render_field field class="form-control is-valid" %}
-					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
-
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
-				{% endif %}
-			</div>
-		{% elif forloop.counter == 2 %}
-			<div class="form-group col-sm-4">
-				{{ field.label_tag }}
-
-				{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-					  	{% endfor %}
-					{% else %}
-						{% render_field field class="form-control is-valid" %}
-					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
-
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
-				{% endif %}
-			</div>
-		{% elif forloop.counter == 3 %}
-			<div class="form-group col-sm-2">
-				{{ field.label_tag }}
-
-				{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-					  	{% endfor %}
-					{% else %}
-						{% render_field field class="form-control is-valid" %}
-					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
-
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
-				{% endif %}
-			</div>
-		{% elif forloop.counter == 4 or forloop.counter == 7 %}
-			<div class="form-group col-sm-12">
-				{{ field.label_tag }}
-
-				{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-					  	{% endfor %}
-					{% else %}
-						{% render_field field class="form-control is-valid" %}
-					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
-
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
-				{% endif %}
-			</div>
-		{% elif forloop.counter == 5 %}
-			<div class="form-group col-sm-4">
-				{{ field.label_tag }}
-
-				{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-						{% endfor %}
-					{% else %}
-						{% render_field field class="form-control is-valid" %}
-					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
-
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
-				{% endif %}
-			</div>
-		{% elif forloop.counter == 6 %}
-			<div class="form-group col-sm-4">
+<div class="import_csv">
+	<div class="row">
+		{% for field in form.visible_fields %}
+			{% if forloop.counter == 1 %}
+				<div class="form-group col-sm-5 custom_input_red_focus">
 					{{ field.label_tag }}
 
 					{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-						{% endfor %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+						  	{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
 					{% else %}
-						{% render_field field class="form-control is-valid" %}
+						{% render_field field class="form-control" %}
 					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
 
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
-				{% endif %}
-			</div>
-			<div class="form-group col-sm-4">
-				<label for="id_co_author_name">Co author emails:</label>
-				<div id="id_co_author_email">
-					{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
 				</div>
-			</div>
-		{% elif forloop.counter == 8 or forloop.counter == 9 %}
-			<div class="form-group col-sm-6">
-				{{ field.label_tag }}<br>
+			{% elif forloop.counter == 2 %}
+				<div class="form-group col-sm-4 custom_input_red_focus">
+					{{ field.label_tag }}
 
-				{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-						{% endfor %}
+					{% if form.is_bound %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+						  	{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
 					{% else %}
-						{% render_field field class="form-control is-valid" %}
+						{% render_field field class="form-control" %}
 					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
 
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
-				{% endif %}
-			</div>
-		{% elif forloop.counter > 9 %}
-			<div class="form-group col-sm-6 custom_input_hidden">
-				{{ field.label_tag }}<br>
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
+				</div>
+			{% elif forloop.counter == 3 %}
+				<div class="form-group col-sm-3 custom_input_red_focus">
+					{{ field.label_tag }}
 
-				{% if form.is_bound %}
-					{% if field.errors %}
-						{% render_field field class="form-control is-invalid" %}
-						{% for error in field.errors %}
-							<div class="invalid-feedback">
-								{{ error }}
-							</div>
-						{% endfor %}
+					{% if form.is_bound %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+						  	{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
 					{% else %}
-						{% render_field field class="form-control is-valid" %}
+						{% render_field field class="form-control" %}
 					{% endif %}
-				{% else %}
-					{% render_field field class="form-control" %}
-				{% endif %}
 
-				{% if field.help_text %}
-					<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
+				</div>
+			{% elif forloop.counter == 4 or forloop.counter == 7 %}
+				<div class="form-group col-sm-12 custom_input_red_focus">
+					{{ field.label_tag }}
+
+					{% if form.is_bound %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+						  	{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
+					{% else %}
+						{% render_field field class="form-control" %}
+					{% endif %}
+
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
+				</div>
+			{% elif forloop.counter == 5 %}
+				<div class="form-group col-sm-4 custom_input_red_focus">
+					{{ field.label_tag }}
+
+					{% if form.is_bound %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+							{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
+					{% else %}
+						{% render_field field class="form-control" %}
+					{% endif %}
+
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
+				</div>
+			{% elif forloop.counter == 6 %}
+				<div class="form-group col-sm-5 custom_multiple_selection">
+						{{ field.label_tag }}
+
+						{% if form.is_bound %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+							{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
+					{% else %}
+						{% render_field field class="form-control" %}
+					{% endif %}
+
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
+				</div>
+				<div class="form-group col-sm-3">
+					<label for="id_co_author_name">Co author emails:</label>
+					<div id="id_co_author_email">
+						{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
+					</div>
+				</div>
+			{% elif forloop.counter == 8 %}
+				<div class="form-group col-sm-6 custom_multiple_selection">
+					{{ field.label_tag }}<br>
+
+					{% if form.is_bound %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+							{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
+					{% else %}
+						{% render_field field class="form-control" %}
+					{% endif %}
+
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
+				</div>
+			{% elif forloop.counter == 9 %}
+				<div class="form-group col-sm-6 import_csv_container custom_input_red_focus">
+					{{ field.label_tag }}<br>
+
+					{% if form.is_bound %}
+						{% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+								<div class="invalid-feedback">
+									{{ error }}
+								</div>
+							{% endfor %}
+						{% else %}
+							{% render_field field class="form-control is-valid" %}
+						{% endif %}
+					{% else %}
+						<div class="import_csv_wrapper">
+							<button class="btn import_csv_btn hvr-sweep-to-right custom_add_book_cover_button" type="button" id="custom_csv_button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
+							{% if book.cover %}
+			                	<span class="custom_csv_text" id="custom_csv_text">{{ book.cover|remove_folder_path|shorten_file_name }}</span>
+			                {% else %}
+			                	<span class="custom_csv_text" id="custom_csv_text">Choose Cover File</span>
+			                {% endif %}
+			                <input type="file" name="cover" accept="image/*" class="real_csv_file" id="id_cover" required>
+						</div>
+						{# {% render_field field class="form-control" %} #}
+					{% endif %}
+
+					{% if field.help_text %}
+						<small class="form-text text-muted">{{ field.help_text }}</small>
+					{% endif %}
+				</div>
+				{% if book.cover %}
+					<div class="form-group col-sm-6 offset-sm-3" style="height: fit-content;">
+						{# <input type="checkbox" name="cover-clear" id="cover-clear_id"> #}
+						{# <label for="cover-clear_id">Clear</label> #}
+						<label for="cover-clear_id" class="btn-radio form-check-label text-center">
+	                    	<input type="checkbox" id="cover-clear_id" name="cover-clear" />
+	                          <svg width="20px" height="20px" viewBox="0 0 20 20">
+	                            <circle cx="10" cy="10" r="9"></circle>
+	                            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+	                            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+	                          </svg>
+	                        <span>Clear The Cover</span>
+	                     </label>
+						<a href="/media/{{ book.cover }}" target="_blank">
+							<img src="/media/{{ book.cover }}" class="custom_uploaded_cover_image imagedropshadow" />
+						</a>
+					</div>
+					<div class="col-sm-3">
+					</div>
 				{% endif %}
-			</div>
-		{% endif %}
-	{% endfor %}
+			{% endif %}
+		{% endfor %}
+	</div>
 </div>
 {% block other_js %}
 <script
@@ -286,5 +320,23 @@
 		    	}
 		    });
 		});
+
+		const realCSVFileBtn = document.getElementById("id_cover");
+	    const customCSVBtn = document.getElementById("custom_csv_button");
+	    const customCSVText = document.getElementById("custom_csv_text");
+	    customCSVBtn.addEventListener('click', function(){
+	      realCSVFileBtn.click();
+	    });
+	    realCSVFileBtn.addEventListener('change', function(){
+	      if(realCSVFileBtn.value){
+	        if(realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].length > 15){
+	          customCSVText.innerHTML = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].substring(0, 15) + '...';
+	        }else{
+	          customCSVText.innerHTML = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+	        }
+	      }else{
+	        customCSVText.innerHTML = "No file choosen, yet.";
+	      }
+	    });
 	</script>
 {% endblock %}
