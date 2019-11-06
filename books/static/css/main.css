@@ -796,14 +796,14 @@ footer .useful-links li{
 .two_fa_settings_form .two_fa_settings_btn_container .two_fa_settings_btn:focus{
     outline: none;
 }
-@media screen and (max-width: 450px){ 
+/* @media screen and (max-width: 450px){ 
     .two_fa_settings_form .two_fa_settings_header{
         background-position: top left;
     }
     .two_fa_settings_form .two_fa_settings_header h3{
         padding: 5px;
     }
-}
+} */
 
 /* Disable 2FA */
 .disable_2fa_form .disable_2fa_header{
