@@ -796,6 +796,9 @@ footer .useful-links li{
 .two_fa_settings_form .two_fa_settings_btn_container .two_fa_settings_btn:focus{
     outline: none;
 }
+.two_fa_settings_form .two_fa_settings_btn_container p{
+    text-align: justify;
+}
 /* @media screen and (max-width: 450px){ 
     .two_fa_settings_form .two_fa_settings_header{
         background-position: top left;
@@ -948,7 +951,7 @@ footer .useful-links li{
 .token_list_form .log_out_banner {
     background: url('../images/banners/log_out_banner.png') no-repeat;
     background-size: cover;
-    background-position: center bottom;
+    background-position: 65% 70%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -983,7 +986,7 @@ footer .useful-links li{
 .token_list_form .token_list_container .token_list_btn_container .token_list_generate{
     background-color: #d9d9d9;
     color: #8a8a8a;
-    padding: 8px 15px;
+    padding: 8px 40px;
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
@@ -998,9 +1001,9 @@ footer .useful-links li{
     outline: none;
 }
 @media screen and (max-width: 450px){
-    .token_list_form .token_list_header{
+    /* .token_list_form .token_list_header{
         background-position: top left;
-    }
+    } */
     .token_list_form .token_list_header h3{
         padding: 5px;
         font-size: 1.2rem;

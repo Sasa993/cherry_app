@@ -43,6 +43,12 @@
         font-size: .9rem;
     }
     /* End of Account security template CSS */
+    /* Logout template CSS */
+    .token_list_form .log_out_banner h3{
+        padding: 15px 0;
+        font-size: 1rem; 
+    }
+    /* End of Logout template CSS */
 
 }
 
@@ -81,6 +87,12 @@
         font-size: 1.4rem;
     }
     /* End of Account security template CSS */
+        /* Logout template CSS */
+        .token_list_form .log_out_banner h3{
+            padding: 15px 0;
+            font-size: 1.4rem; 
+        }
+        /* End of Logout template CSS */
 }
 
 /* Tablet Devices Breakpoint */
@@ -115,6 +127,12 @@
             font-size: 1.4rem;
         }
         /* End of Account security template CSS */
+            /* Logout template CSS */
+    .token_list_form .log_out_banner h3{
+        padding: 15px 0;
+        font-size: 1.4rem; 
+    }
+    /* End of Logout template CSS */
 }
 
 /* Large Devices Breakpoint */
@@ -142,6 +160,12 @@
             font-size: 1.5rem;
         }
         /* End of Account security template CSS */
+        /* Logout template CSS */
+        .token_list_form .log_out_banner h3{
+            padding: 25px 0;
+            font-size: 1.5rem; 
+        }
+        /* End of Logout template CSS */
 }
 
 /* Extra Large Devices Breakpoint */
