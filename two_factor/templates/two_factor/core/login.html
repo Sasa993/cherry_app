@@ -9,7 +9,7 @@
   {# <h1>{% block title %}{% trans "Login" %}{% endblock %}</h1> #}
 
   {% if wizard.steps.current == 'auth' %}
-    <h5>{% blocktrans %}ENTER YOUR CREDENTIALS{% endblocktrans %}</h5>
+    <h5 class="custom_credentials">{% blocktrans %}ENTER YOUR CREDENTIALS{% endblocktrans %}</h5>
     <a class="button secondaryAction forgot-password" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   {% elif wizard.steps.current == 'token' %}
     {% if device.method == 'call' %}

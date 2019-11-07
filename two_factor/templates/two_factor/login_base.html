@@ -10,6 +10,7 @@
     </title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
 </head>
 
 <body>
@@ -28,6 +29,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script>
     	$(document).ready(function(){
+            var all_tbody_trs = $('.login-form form table tbody');
+
+            $('ul.errorlist').wrap('<div class="custom_alert custom_alert-danger mr-4 ml-4"><ul class="errorlist"><li></li></ul></div>');
+
+            if(all_tbody_trs.children().length == 3) {
+                all_tbody_trs.find(">:first-child").css("margin-bottom", 0);
+            }
+
     		$('<img src="{% static "images/login/user.svg" %}" class="input-icon username-icon" />').insertAfter('#id_auth-username');
             $('<img src="{% static "images/login/lock.svg" %}" class="input-icon username-icon" />').insertAfter('#id_auth-password');
             $('<img src="{% static "images/login/auth.svg" %}" class="input-icon username-icon" />').insertAfter('#id_token-otp_token');
@@ -49,6 +58,15 @@
                 "placeholder": "Enter your token",
                 "autocomplete": "off"
             });
+
+            // erros and messages disappear after certain time - 3 secs and 10 secs
+            setTimeout(function(){
+                $('.alert-danger').fadeOut();
+            }, 3000);
+
+            setTimeout(function(){
+                $('.custom_alert-danger').fadeOut();
+            }, 10000);
     	});
     </script>
 </body>
