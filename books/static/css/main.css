@@ -850,9 +850,9 @@ footer .useful-links li{
 /* Phone Backup */
 .backup_phone_form  .backup_phone_header{
     background: url('../images/banners/backup_phone_banner.png') no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     /*background-position: top;*/
-    background-position: center bottom;
+    background-position: 25%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -886,9 +886,9 @@ footer .useful-links li{
     outline: none;
 }
 @media screen and (max-width: 450px){
-    .backup_phone_form  .backup_phone_header{
+    /* .backup_phone_form  .backup_phone_header{
         background-position: top left;
-    }
+    } */
     .backup_phone_form  .backup_phone_header h3{
         padding: 5px;
         font-size: 1.2rem;

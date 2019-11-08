@@ -33,6 +33,7 @@
     .change_pass_form .pass_form .change_pass_btn_container .change_pass_btn{
         padding: 8px 40px;
     }
+    
     /* End of change password template CSS */
     /* Account security template CSS */
     .two_fa_settings_form .two_fa_settings_header h3{
@@ -49,6 +50,17 @@
         font-size: 1rem; 
     }
     /* End of Logout template CSS */
+
+    /* Backupe phone template CSS */
+    .backup_phone_form .backup_phone_header{
+        background-position: 27%;
+    }
+    
+    .backup_phone_form .backup_phone_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    /* End of Backup pohone template */
 
 }
 
@@ -87,12 +99,22 @@
         font-size: 1.4rem;
     }
     /* End of Account security template CSS */
-        /* Logout template CSS */
-        .token_list_form .log_out_banner h3{
-            padding: 15px 0;
-            font-size: 1.4rem; 
-        }
-        /* End of Logout template CSS */
+    /* Logout template CSS */
+    .token_list_form .log_out_banner h3{
+        padding: 15px 0;
+        font-size: 1.4rem; 
+    }
+    /* End of Logout template CSS */
+    /* Backupe phone template CSS */
+    .backup_phone_form .backup_phone_header{
+        background-position: 27%;
+    }
+    
+    .backup_phone_form .backup_phone_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of Backup pohone template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -126,13 +148,19 @@
             padding: 15px 0;
             font-size: 1.4rem;
         }
-        /* End of Account security template CSS */
-            /* Logout template CSS */
+    /* End of Account security template CSS */
+    /* Logout template CSS */
     .token_list_form .log_out_banner h3{
         padding: 15px 0;
         font-size: 1.4rem; 
     }
     /* End of Logout template CSS */
+    /* Backupe phone template CSS */
+    .backup_phone_form .backup_phone_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of Backup pohone template */
 }
 
 /* Large Devices Breakpoint */
@@ -154,18 +182,27 @@
         font-size: 1.5rem;
     }
     /* End of change password template CSS */
-        /* Account security template CSS */
-        .two_fa_settings_form .two_fa_settings_header h3{
-            padding: 25px 0;
-            font-size: 1.5rem;
-        }
-        /* End of Account security template CSS */
-        /* Logout template CSS */
-        .token_list_form .log_out_banner h3{
-            padding: 25px 0;
-            font-size: 1.5rem; 
-        }
-        /* End of Logout template CSS */
+    /* Account security template CSS */
+    .two_fa_settings_form .two_fa_settings_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    /* End of Account security template CSS */
+    /* Logout template CSS */
+    .token_list_form .log_out_banner h3{
+        padding: 25px 0;
+        font-size: 1.5rem; 
+    }
+    /* End of Logout template CSS */
+    /* Backupe phone template CSS */
+    .backup_phone_form .backup_phone_header{
+        background-size: 100% 100%;
+    }
+    .backup_phone_form .backup_phone_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    /* End of Backup pohone template */
 }
 
 /* Extra Large Devices Breakpoint */

@@ -6,7 +6,7 @@
 {% block content %}
   <div class="backup_phone_form mt-4">
     <div class="row">
-      <div class="col-12 col-md-8 offset-md-2">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body backup_phone_header">
           <h3 class="mb-1">{% trans "BACKUP PHONE" %}</h3>
         </div>
@@ -44,10 +44,10 @@
 
       main_div.wrap('<div class="cntr"><div class="form-group text-center checkbox_option mb-4"></div></div>');
       main_div.find("li").css("font-weight", 500);
-      $("p label[for='id_setup-method_0']").addClass("custom_backup_phone_method");
-      $("li label[for='id_setup-method_0']").addClass("btn-radio form-check-label");
+      $("p label[for='id_setup-method_0']").addClass("text-center custom_backup_phone_method");
+      $("li label[for='id_setup-method_0']").addClass("p-0 btn-radio form-check-label");
       $('<svg width="20px" height="20px" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9"></circle><path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path><path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path></svg>').insertAfter(backup_setup_phone);
-      $("label[for='id_setup-method_1']").addClass("btn-radio form-check-label");
+      $("label[for='id_setup-method_1']").addClass("p-0 btn-radio form-check-label");
       $('<svg width="20px" height="20px" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9"></circle><path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path><path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path></svg>').insertAfter(backup_setup_call);
       backup_setup_call.attr('checked', true);
 
