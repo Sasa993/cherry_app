@@ -860,6 +860,9 @@ footer .useful-links li{
     color: #ffffff;
     padding: 50px 0 
 }
+.backup_phone_form .backup_phone_container h6{
+    text-align: justify;
+}
 .backup_phone_form .backup_phone_container .backup_form .backup_input_container img{
     width: 19px;
 }
@@ -867,6 +870,9 @@ footer .useful-links li{
     box-shadow: none;
     border: 1px solid #8d0a15;
     transition: 1s all;
+}
+.backup_phone_form .backup_phone_container .backup_form .backup_phone_group .cntr #id_setup-method li label{
+    padding: 0;
 }
 .backup_phone_form .backup_phone_container .backup_form .backup_phone_btn_container button{
     background-color: #d9d9d9;
