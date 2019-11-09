@@ -965,6 +965,9 @@ footer .useful-links li{
     color: #ffffff;
     padding: 50px 0 
 }
+.token_list_form .token_list_container h6{
+    text-align: justify;
+}
 .token_list_form .token_list_container .token_list{
     padding: 0;
     list-style: none;

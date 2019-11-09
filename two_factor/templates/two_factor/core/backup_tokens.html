@@ -5,7 +5,7 @@
 {% block content %}
   <div class="token_list_form mt-4">
     <div class="row">
-      <div class="col-12 col-md-8 offset-md-2">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body token_list_header">
           <h3 class="mb-1">{% trans "BACKUP TOKENS" %}</h3>
         </div>
@@ -21,12 +21,12 @@
           {% else %}
             <h6 class="custom_no_backup_codes">{% trans "You don't have any backup codes yet." %}</h6>
           {% endif %}
-          <div class="token_list_btn_container form-group button_group mt-4">
+          <div class="text-center d-flex justify-content-center token_list_btn_container form-group button_group mt-4">
             <form method="post">
               {% csrf_token %}
               {{ form }}
-              <button class="token_list_generate mr-3 mb-3" type="submit">{% trans "Generate Tokens" %}</button><br>
-              <a href="{% url 'two_factor:profile'%}" class="mr-3 mt-3">{% trans "Back to Account Security" %}</a>
+              <button class="token_list_generate mb-3" type="submit">{% trans "Generate Tokens" %}</button><br>
+              <a href="{% url 'two_factor:profile'%}" class="mt-3">{% trans "Back to Account Security" %}</a>
             </form>
           </div>
         </div>
