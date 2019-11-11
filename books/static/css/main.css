@@ -1031,6 +1031,9 @@ footer .useful-links li{
     color: #ffffff;
     padding: 50px 0 
 }
+.contact_us_form h6{
+    text-align: justify;
+}
 .contact_us_form .contact_us_form_container .contact_us_input_container .rounded_top_corner{
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -1046,7 +1049,7 @@ footer .useful-links li{
     transition: 1s all;
 }
 .contact_us_form .contact_us_form_container .contact_us_btn_container .contact_us_btn{
-    padding: 10px 65px;
+    padding: 8px 40px;
     color: #ffffff;
     cursor: pointer;
     border: none;
@@ -1634,10 +1637,6 @@ footer .useful-links li{
     box-shadow: none;
 }
 @media screen and (max-width: 450px){
-    .all_tasks .all_tasks_header h3{
-        padding: 8px 0 8px 0;
-        font-size: .8rem;
-    }
     .all_tasks .all_tasks_container .all_tasks_btn{
         float: left;
     }

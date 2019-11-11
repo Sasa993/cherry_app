@@ -83,6 +83,20 @@
     }
     /* End of disable 2fa template*/
 
+    /* Contact us template CSS*/
+    .contact_us_form .contact_us_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    /* End of contact us template*/
+
+    /* All tasks template CSS*/
+    .all_tasks .all_tasks_header h3{
+        padding: 15px 0;
+        font-size: 1rem; 
+    }
+    /* End of all tasks template*/
+
 }
 
 /*Small Devices Breakpoint */
@@ -153,6 +167,18 @@
         background-position: 30%;
     }
     /* End of disable 2fa template*/
+    /* Contact us template CSS*/
+    .contact_us_form .contact_us_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of contact us template*/
+    /* All tasks template CSS*/
+    .all_tasks .all_tasks_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem; 
+    }
+    /* End of all tasks template*/
 }
 
 /* Tablet Devices Breakpoint */
@@ -216,6 +242,18 @@
         background-position: 30%;
     }
     /* End of disable 2fa template*/
+    /* Contact us template CSS*/
+    .contact_us_form .contact_us_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of contact us template*/
+    /* All tasks template CSS*/
+    .all_tasks .all_tasks_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem; 
+    }
+    /* End of all tasks template*/
 }
 
 /* Large Devices Breakpoint */
@@ -272,6 +310,18 @@
         font-size: 1.5rem;
     }
     /* End of disable 2fa template*/
+    /* Contact us template CSS*/
+    .contact_us_form .contact_us_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    /* End of contact us template*/
+    /* All tasks template CSS*/
+    .all_tasks .all_tasks_header h3{
+        padding: 25px 0;
+        font-size: 1.4rem; 
+    }
+    /* End of all tasks template*/
 }
 
 /* Extra Large Devices Breakpoint */

@@ -20,7 +20,7 @@
 		        	<h3 class="mb-1">GET IN TOUCH</h3>
 		        </div>
 		        <div class="card-body">
-		        	<h6 class="text-center">Our team is happy to answer your questions. <br> Fill out the form and we'll be in touch as soon as possible</h6>
+		        	<h6>Our team is happy to answer your questions. <br> Fill out the form and we'll be in touch as soon as possible</h6>
 		            <form method="post" class="contact_us_form_container mt-4 custom_form_email_address" role="form">
 		            	{% csrf_token %}
 		            	{% for field in form %}
@@ -37,7 +37,7 @@
 								</div>
 							</div>
 						{% endfor %}
-						<div class="form-group contact_us_btn_container">
+						<div class="form-group text-center contact_us_btn_container">
 		                	<button type="submit" class="contact_us_btn">Send</button>
 		                </div>
 					</form>
