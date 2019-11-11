@@ -73,6 +73,16 @@
     }
     /* End of token list template CSS */
 
+    /* Disable 2FA template CSS*/
+    .disable_2fa_form .disable_2fa_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    .disable_2fa_form .disable_2fa_header{
+        background-position: 30%;
+    }
+    /* End of disable 2fa template*/
+
 }
 
 /*Small Devices Breakpoint */
@@ -133,6 +143,16 @@
         font-size: 1.4rem;
     }
     /* End of token list template CSS */
+
+    /* Disable 2FA template CSS*/
+    .disable_2fa_form .disable_2fa_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    .disable_2fa_form .disable_2fa_header{
+        background-position: 30%;
+    }
+    /* End of disable 2fa template*/
 }
 
 /* Tablet Devices Breakpoint */
@@ -186,6 +206,16 @@
         font-size: 1.4rem;
     }
     /* End of token list template CSS */
+    
+    /* Disable 2FA template CSS*/
+    .disable_2fa_form .disable_2fa_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    .disable_2fa_form .disable_2fa_header{
+        background-position: 30%;
+    }
+    /* End of disable 2fa template*/
 }
 
 /* Large Devices Breakpoint */
@@ -235,6 +265,13 @@
         font-size: 1.5rem;
     }
     /* End of token list template CSS */
+    
+    /* Disable 2FA template CSS*/
+    .disable_2fa_form .disable_2fa_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    /* End of disable 2fa template*/
 }
 
 /* Extra Large Devices Breakpoint */
