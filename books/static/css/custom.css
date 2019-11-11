@@ -653,6 +653,6 @@ tbody tr.custom_todo_table_tbody {
 .select2-container--default .select2-selection--multiple {
   border: 1px solid #ced4da !important;
 }
-.custom_multiple_selection label {
+/*.custom_multiple_selection label {
   display: block;
-}
+}*/
