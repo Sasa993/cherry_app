@@ -97,6 +97,13 @@
     }
     /* End of all tasks template*/
 
+    /* Import CSV template CSS*/
+    .import_csv .import_csv_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    /* End of import CSV template */
+
 }
 
 /*Small Devices Breakpoint */
@@ -179,6 +186,13 @@
         font-size: 1.4rem; 
     }
     /* End of all tasks template*/
+
+    /* Import CSV template CSS*/
+    .import_csv .import_csv_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of import CSV template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -254,6 +268,13 @@
         font-size: 1.4rem; 
     }
     /* End of all tasks template*/
+
+    /* Import CSV template CSS*/
+    .import_csv .import_csv_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of import CSV template */
 }
 
 /* Large Devices Breakpoint */
@@ -319,9 +340,15 @@
     /* All tasks template CSS*/
     .all_tasks .all_tasks_header h3{
         padding: 25px 0;
-        font-size: 1.4rem; 
+        font-size: 1.5rem; 
     }
     /* End of all tasks template*/
+    /* Import CSV template CSS*/
+    .import_csv .import_csv_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    /* End of import CSV template */
 }
 
 /* Extra Large Devices Breakpoint */

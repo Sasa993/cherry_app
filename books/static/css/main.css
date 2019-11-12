@@ -1470,12 +1470,12 @@ footer .useful-links li{
 .import_csv .import_csv_container .download_cvs_template_btn i{
     padding-right: 10px;
 }
-@media screen and (max-width: 450px){
+/* @media screen and (max-width: 450px){
     .import_csv .import_csv_header h3{
         padding: 8px 0 8px 0;
         font-size: .8rem;
     }
-}
+} */
 
 /* Search Results */
 .search_results .search_results_header{
