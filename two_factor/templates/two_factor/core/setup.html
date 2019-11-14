@@ -54,7 +54,9 @@
             account.{% endblocktrans %}</p>
         {% endif %}
 
-        <form action="" method="post">{% csrf_token %}
+        <form action="" method="post">
+          {% csrf_token %}
+
           {% for field in form %}
             {% if field.errors %}
               <div class="custom_alert custom_alert-danger">
@@ -119,6 +121,9 @@
         "placeholder": "Enter Token",
       });
       $('<div class="input-group-prepend"><span class="input-group-text"><img src="{% static 'images/profile_token_icon.svg' %}" style="width: 19px;"></span></div>').insertBefore(backup_token_input);
+
+      // hide default error message
+      $('div.cntr').find('ul.errorlist').css("display", "none");
     });
   </script>
 {% endblock %}

@@ -18,8 +18,14 @@ def import_csv(request) -> HttpResponse:
     if request.method == "POST":
         filepath = request.FILES.get("csvfile")
 
+        print(filepath)
+
         if not filepath:
             messages.error(request, "You must supply a CSV file to import.")
+            return redirect(reverse("todo:import_csv"))
+
+        if not filepath.name.endswith('.csv'):
+            messages.error(request, "wadw")
             return redirect(reverse("todo:import_csv"))
 
         importer = CSVImporter()

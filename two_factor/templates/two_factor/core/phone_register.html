@@ -18,6 +18,15 @@
           {% endif %}
           <form class="backup_form" action="" method="POST">
             {% csrf_token %}
+
+            {% for field in form %}
+              {% if field.errors %}
+                <div class="custom_alert custom_alert-danger" style="margin: 12px 0;">
+                  {{ field.errors }}
+                </div>
+              {% endif %}
+            {% endfor %}
+
             <div class="backup_phone_group">
               {% include "two_factor/_wizard_forms_bp.html" %}
 
@@ -70,6 +79,9 @@
       $('<div class="input-group-prepend"><span class="input-group-text"><img src="{% static 'images/profile_token_icon.svg' %}"></span></div>').insertBefore(backup_token_input);
       $("label[for='id_validation-token']").remove();
       $(".backup_phone_group table").css("display", "none");
+
+      // hide default error message
+      $('div.backup_phone_group').find('ul.errorlist').css("display", "none");
     });
   </script>
 {% endblock %}

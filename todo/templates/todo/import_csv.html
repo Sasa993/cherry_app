@@ -14,54 +14,70 @@
           <h6>Batch-import tasks by uploading a specifically-formated CSV.</h6>
           <h6>Updated CSV files will update the task list as well. Success and failure will be reported here</h6>
           {% if results %}
-                  <div class="card-body csv_upload_result_container">
-                    {% if results.summaries %}
-                      <h6>SUMMARY: </h6>
-                      <ul class="list-group summary_group">
-                        {% for line in results.summaries %}
-                          <li class="list-group-item">{{ line }}</li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
+            <div class="card-body csv_upload_result_container">
+              {% if results.summaries %}
+                <h6>SUMMARY: </h6>
+                <ul class="list-group summary_group">
+                  {% for line in results.summaries %}
+                    <li class="list-group-item">{{ line }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
 
-                    {% if results.upserts %}
-                      <h6 class="mt-4">UPSERTS (TASKS CREATED OR UPDATED): </h6>
-                      <ul class="list-group created_task">
-                        {% for line in results.upserts %}
-                          <li class="list-group-item">{{ line }}</li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
+              {% if results.upserts %}
+                <h6 class="mt-4">UPSERTS (TASKS CREATED OR UPDATED): </h6>
+                <ul class="list-group created_task">
+                  {% for line in results.upserts %}
+                    <li class="list-group-item">{{ line }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
 
-                    {% if results.errors %}
-                      <h6 class="mt-4">ERRORS (TASKS NOT CREATED OR UPDATED): </h6>
-                      <ul class="list-group created_task">
-                        {% for error_row in results.errors %}
-                          {% for k, error_list in error_row.items  %}
-                            <li class="list-group-item">CSV row {{ k }}</li>
-                            <ul class="custom_poderror">
-                              {% for err in error_list %}
-                                <li class="list-group-item">{{ err }}</li>
-                              {% endfor %}
-                            </ul>
-                          {% endfor %}
+              {% if results.errors %}
+                <h6 class="mt-4">ERRORS (TASKS NOT CREATED OR UPDATED): </h6>
+                <ul class="list-group created_task">
+                  {% for error_row in results.errors %}
+                    {% for k, error_list in error_row.items  %}
+                      <li class="list-group-item">CSV row {{ k }}</li>
+                      <ul class="custom_poderror">
+                        {% for err in error_list %}
+                          <li class="list-group-item">{{ err }}</li>
                         {% endfor %}
                       </ul>
-                    {% endif %}
-                  </div>
+                    {% endfor %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
           {% endif %}
 
           <div class="row">
             <form method="post" enctype="multipart/form-data" style="display: contents;">
               {% csrf_token %}
+
+              {% for field in form %}
+                {% if field.errors %}
+                  <div class="custom_alert custom_alert-danger" style="margin: 12px 0;">
+                    {{ field.errors }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+
               <div class="col-12 col-sm-5 offset-sm-1 col-md-5 offset-md-1 mt-3 mr-4 import_csv_wrapper">
                 <button class="btn import_csv_btn hvr-sweep-to-right" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
                 <span class="custom_csv_text" id="custom_csv_text">Choose Source File</span>
-                <input type="file" name="csvfile" accept="text/csv" class="real_csv_file" id="import_csv_real_file" required>
+                <input type="file" name="csvfile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" class="custom_import_csv_error" id="import_csv_real_file" required>
               </div>
               <div class="col-12 col-sm-4 offset-sm-1 col-md-4 offset-md-1 mt-3">
                 <button class="upload_csv_btn btn" type="submit"><i class="fas fa-upload"></i>Upload</button>
               </div>
+              {% if messages %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                  {% for message in messages %}
+                    <strong>{{message}}</strong>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </form>
           </div>
           <div>
