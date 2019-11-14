@@ -612,6 +612,10 @@ body::-webkit-scrollbar {
 }
 
 /* Footer */
+footer{
+    border-top-style: solid;
+    border-top-color: rgba(136, 136, 136, 0.5);
+}
 footer p{
     color: #8d0a15;
     margin-bottom: 4px;
@@ -1418,7 +1422,7 @@ footer .useful-links li{
 }
 .import_csv .import_csv_header h3{
     color: #ffffff;
-    padding: 50px 0 
+    padding: 50px 0;
 }
 .import_csv .import_csv_container .real_csv_file{
     display: none;
@@ -1428,13 +1432,18 @@ footer .useful-links li{
     background-color: #d9d9d9;
     border-radius: 8px;
 }
+/* Hide 'Choose Source File' text*/
+.import_csv .import_csv_container .import_csv_wrapper .long_txt{
+    display: none;
+}
 .import_csv .import_csv_wrapper span{
     color: #8a8a8a;
     margin-left: 10px;
     font-weight: 500;
 }
 .import_csv .import_csv_btn{
-    padding-right: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
     border-right: 1px solid #8a8a8a;
     border-radius: 0;
 }
@@ -1444,7 +1453,7 @@ footer .useful-links li{
 .import_csv .import_csv_container .upload_csv_btn{
     color: #8a8a8a;
     background-color: #d9d9d9;
-    margin-left: -15px;
+    /* margin-left: -15px; */
     border-bottom: 2px solid #8a8a8a;
     padding: 11px 25px;
     font-weight: 500;
@@ -1462,6 +1471,7 @@ footer .useful-links li{
     margin-left: -15px;
     border-bottom: 2px solid #8a8a8a;
     font-weight: 500;
+    padding: 8px 40px;
 }
 .import_csv .import_csv_container .download_cvs_template_btn:hover{
     color: #8d0a15;
