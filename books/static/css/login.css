@@ -408,6 +408,11 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     font-size: 14px;
     font-style: italic;
     top: 0;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+.custom_credentials + a:hover {
+    transform: scale(1.1, 1.1);
 }
 .custom_credentials ~ form {
     margin-top: 20px;
