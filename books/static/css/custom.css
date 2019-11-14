@@ -662,3 +662,7 @@ label[for=id_author] {
   opacity: 0 !important;
   left: 80px !important;
 }
+.download_cvs_template_btn:focus, .upload_csv_btn:focus, .btn.import_csv_btn:focus {
+  outline: none;
+  box-shadow: none;
+}

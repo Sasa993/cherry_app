@@ -55,13 +55,15 @@
             <form method="post" enctype="multipart/form-data" style="display: contents;">
               {% csrf_token %}
 
-              {% for field in form %}
-                {% if field.errors %}
-                  <div class="custom_alert custom_alert-danger" style="margin: 12px 0;">
-                    {{ field.errors }}
+              {% if messages %}
+                <div class="form-group col-12 col-sm-12">
+                  <div class="custom_alert custom_alert-danger" style="margin: 12px 0 0 0;">
+                    {% for message in messages %}
+                      {{message}}
+                    {% endfor %}
                   </div>
-                {% endif %}
-              {% endfor %}
+                </div>
+              {% endif %}
 
               <div class="col-12 col-sm-5 offset-sm-1 col-md-5 offset-md-1 mt-3 mr-4 import_csv_wrapper">
                 <button class="btn import_csv_btn hvr-sweep-to-right" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
@@ -71,13 +73,7 @@
               <div class="col-12 col-sm-4 offset-sm-1 col-md-4 offset-md-1 mt-3">
                 <button class="upload_csv_btn btn" type="submit"><i class="fas fa-upload"></i>Upload</button>
               </div>
-              {% if messages %}
-                <div class="alert alert-danger alert-dismissible fade show">
-                  {% for message in messages %}
-                    <strong>{{message}}</strong>
-                  {% endfor %}
-                </div>
-              {% endif %}
+              
             </form>
           </div>
           <div>
