@@ -641,7 +641,7 @@ tbody tr.custom_todo_table_tbody {
   padding: 0 14px;
   /*border-radius: 8px 0 0 8px !important;*/
 }
-.custom_input_red_focus input:focus, .custom_input_red_focus textarea:focus {
+.custom_input_red_focus input:focus, .custom_input_red_focus textarea:focus, .custom_input_red_focus select:focus {
   border-color: #8d0a15;
   box-shadow: 0 0 0 0.2rem rgba(159, 49, 58, .25);
 }
@@ -653,6 +653,16 @@ tbody tr.custom_todo_table_tbody {
 .select2-container--default .select2-selection--multiple {
   border: 1px solid #ced4da !important;
 }
-/*.custom_multiple_selection label {
+label[for=id_author] {
   display: block;
-}*/
+}
+.custom_import_csv_error {
+  /*display: block !important;*/
+  position: absolute !important;
+  opacity: 0 !important;
+  left: 80px !important;
+}
+.download_cvs_template_btn:focus, .upload_csv_btn:focus, .btn.import_csv_btn:focus {
+  outline: none;
+  box-shadow: none;
+}
