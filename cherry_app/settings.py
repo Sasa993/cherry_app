@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'todo',
     'sendemail.apps.SendemailConfig',
     'uploaded_books',
+    'ckeditor',
 ]
 
 SITE_ID = 4

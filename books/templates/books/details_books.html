@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-12 text-center mt-4 book_container">
                             <h5>Description:</h5>
-                            {{ book.description }}
+                            {{ book.description|safe }}
                         </div>
                         <div class="col-4 text-center mt-4 book_container">
                             <h5>Comparible:</h5>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="col-12 text-center mt-4 book_container">
                             <h5>Co Authors Instructions:</h5>
-                            {{ book.co_author_instructions }}
+                            {{ book.co_author_instructions|safe }}
                         </div>
                         <div class="col-12 text-center mt-4 book_container">
                             <h5>Authors:</h5>

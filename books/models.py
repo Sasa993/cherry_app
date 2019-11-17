@@ -9,6 +9,8 @@ from uploaded_books.models import (
 # import os
 from .validators import (
 	validate_underscore, validate_digits_after_underscore, validate_alpha_before_underscore, validate_two_letters)
+from ckeditor.fields import RichTextField
+from ckeditor.widgets import CKEditorWidget
 
 
 class Author(models.Model):
@@ -24,12 +26,14 @@ class Book(models.Model):
 	title = models.CharField(max_length=200)
 	subtitle = models.CharField(max_length=200)
 	working_number = models.CharField(max_length=12, validators=[validate_underscore, validate_digits_after_underscore, validate_alpha_before_underscore, validate_two_letters])
-	description = models.TextField(blank=True)
+	# description = models.TextField(blank=True)
+	description = RichTextField()
 	comparible = models.URLField(max_length=200, blank=True)
 	co_author_name = models.ManyToManyField(Author, related_name='co_author')
 	# co_author_email = models.CharField(max_length=100)
 	# co_author_email = models.ManyToManyField(Author, related_name='co_author_email')
-	co_author_instructions = models.TextField(blank=True)
+	# co_author_instructions = models.TextField(blank=True)
+	co_author_instructions = RichTextField()
 	author = models.ManyToManyField(Author, related_name='author')
 	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
 	modified_at = models.DateTimeField(auto_now=True, blank=True)
@@ -60,6 +64,8 @@ class BookRequest(models.Model):
 class BookForm(forms.ModelForm):
 	author = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all(), required=False)
 	co_author_name = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=Author.objects.all(), required=False)
+	description = forms.CharField(widget=CKEditorWidget())
+	co_author_instructions = forms.CharField(widget=CKEditorWidget())
 
 	class Meta:
 		model = Book

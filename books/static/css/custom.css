@@ -666,3 +666,6 @@ label[for=id_author] {
   outline: none;
   box-shadow: none;
 }
+.django-ckeditor-widget {
+  display: flex !important;
+}
