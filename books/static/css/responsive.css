@@ -16,11 +16,15 @@
         padding: 15px 0;
         font-size: 1rem;
     }
-    .change_email_form h4{
+    .change_email_form h6{
         font-size: .9rem;
     }
     .custom_add_email_address{
         padding: 0;
+    }
+    .btn-radio svg {
+        display: block;
+        margin: auto;
     }
     /* End of Change email template CSS*/
 
@@ -88,6 +92,16 @@
         padding: 15px 0;
         font-size: 1rem;
     }
+    .all_tasks .all_tasks_container .new_task_btn{
+        display: flex;
+        justify-content: center;
+    }
+    .all_tasks .all_tasks_container .task_num{
+        text-align: center;
+    }
+    .contact_us_form h6{
+        font-size: .9rem;
+    }
     /* End of contact us template*/
 
     /* All tasks template CSS*/
@@ -95,6 +109,7 @@
         padding: 15px 0;
         font-size: 1rem; 
     }
+    .all_tasks
     /* End of all tasks template*/
 
     /* Import CSV template CSS*/
@@ -122,11 +137,12 @@
         padding: 15px 0;
         font-size: 1.4rem;
     }
-    .change_email_form h4{
-        font-size: 1.3rem;
-    }
     .custom_add_email_address{
         padding: 0 10%;
+    }
+    .btn-radio svg{
+        display: block;
+        margin: auto;
     }
     /* End of Change email template CSS*/
     /* Change password template CSS */
@@ -182,6 +198,9 @@
         padding: 15px 0;
         font-size: 1.4rem;
     }
+    .contact_us_form h6{
+        text-align: center;
+    }
     /* End of contact us template*/
     /* All tasks template CSS*/
     .all_tasks .all_tasks_header h3{
@@ -195,8 +214,8 @@
         padding: 15px 0;
         font-size: 1.4rem;
     }
-    .import_csv .uploading_csv_btn{
-        text-align: right;
+    .import_csv .uploading_csv_btn .upload_csv_btn{
+        float: right;
     }
     /* End of import CSV template */
 }
@@ -210,9 +229,6 @@
     .change_email_form .change_email_header h3{
         padding: 15px 0;
         font-size: 1.4rem;
-    }
-    .change_email_form h4{
-        font-size: 1.3rem;
     }
     .custom_add_email_address{
         padding: 0 15%;
@@ -267,6 +283,9 @@
         padding: 15px 0;
         font-size: 1.4rem;
     }
+    .contact_us_form h6{
+        text-align: center;
+    }
     /* End of contact us template*/
     /* All tasks template CSS*/
     .all_tasks .all_tasks_header h3{
@@ -292,9 +311,6 @@
     .change_email_form .change_email_header h3{
         padding: 25px 0px;
         font-size: 1.5rem;
-    }
-    .change_email_form h4{
-        font-size: 1.4rem;
     }
     /* End of Change password template CSS*/
     .change_pass_form .change_pass_header h3{
@@ -342,6 +358,9 @@
         padding: 25px 0;
         font-size: 1.5rem;
     }
+    .contact_us_form h6{
+        text-align: center;
+    }
     /* End of contact us template*/
     /* All tasks template CSS*/
     .all_tasks .all_tasks_header h3{
@@ -354,8 +373,8 @@
         padding: 25px 0;
         font-size: 1.5rem;
     }
-    .import_csv .uploading_csv_btn{
-        text-align: right;
+    .import_csv .uploading_csv_btn .upload_csv_btn{
+        float: right;
     }
     /* End of import CSV template */
 }
@@ -371,12 +390,30 @@
     .import_csv .import_csv_container .upload_csv_btn{
         margin-right: 10px;
     }
+    .contact_us_form h6{
+        text-align: center;
+    }
 }
+
+/* Showing text depending of width size*/
 @media (min-width: 1367px){
     .import_csv .import_csv_container .import_csv_wrapper .short_txt{
         display: none;
     }
     .import_csv .import_csv_container .import_csv_wrapper .long_txt{
         display: inline-block;
+    }
+}
+
+@media (min-width: 959px) and (max-width: 1023.98px){
+    .import_csv_container .import_csv_wrapper{
+        max-width: 70%;
+        margin: auto;
+    }
+}
+/* Centering h6 text for import CSV template, for resolutions above 768px*/
+@media (min-width:767.98px){
+    .import_csv .import_csv_container h6{
+        text-align: center
     }
 }

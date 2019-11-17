@@ -438,6 +438,9 @@ button.change_pass_btn {
 .custom_poderror li {
   background-color: beige !important;
 }
+.all_tasks .all_tasks_container .task_num span{
+  word-break: break-word;
+}
 
 .custom_book_id_error {
   color: #8d0a15 !important;
@@ -594,6 +597,7 @@ tbody tr.custom_todo_table_tbody {
 .btn-radio span {
   display: inline-block;
   vertical-align: middle;
+  word-break: break-word;
 }
 
 .custom_backup_phone_method {
