@@ -427,11 +427,11 @@
         max-width: 40%;
     }
     .page-wrapper.chiller-theme.toggled .card-body.import_csv_container form > div:first-of-type {
-        max-width: 90%;
+        max-width: 100%;
         flex: 0 0 100% !important;
+        margin-left: 0;
     }
     .page-wrapper.chiller-theme.toggled .card-body.import_csv_container form > div:nth-of-type(2) {
-        max-width: 90%;
-        margin-left: 8.33333%;
+        max-width: 100%;
     }
 }
