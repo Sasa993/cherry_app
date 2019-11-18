@@ -417,3 +417,21 @@
         text-align: center
     }
 }
+
+/* Import CSV Task (Responsive) - positioning Choose Source File and Upload button based on wheter the sidebar is opened or not */
+@media (min-width: 767.98px) and (max-width: 1111.98px) {
+    .page-wrapper.chiller-theme .card-body.import_csv_container form > div:first-of-type {
+        max-width: 50%;
+    }
+    .page-wrapper.chiller-theme .card-body.import_csv_container form > div:nth-of-type(2) {
+        max-width: 40%;
+    }
+    .page-wrapper.chiller-theme.toggled .card-body.import_csv_container form > div:first-of-type {
+        max-width: 90%;
+        flex: 0 0 100% !important;
+    }
+    .page-wrapper.chiller-theme.toggled .card-body.import_csv_container form > div:nth-of-type(2) {
+        max-width: 90%;
+        margin-left: 8.33333%;
+    }
+}
