@@ -266,3 +266,16 @@ DATE_INPUT_FORMATS = ['%m-%d-%Y']
 
 # To-Do System - user doesn't need to have "is stuff" permission to access his tasks/task lists
 TODO_STAFF_ONLY = False
+
+# CKEditor customizing
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
