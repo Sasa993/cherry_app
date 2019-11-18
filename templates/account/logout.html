@@ -7,7 +7,7 @@
 {% block content %}
 	<div class="token_list_form mt-4">
 		<div class="row">
-			<div class="col-12 col-md-8 offset-md-2">
+			<div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
 		    	<div class="card-body token_list_header log_out_banner">
 		        	<h3 class="mb-1">{% trans "SIGN OUT" %}</h3>
 		    	</div>
@@ -19,7 +19,7 @@
 							{% if redirect_field_value %}
 								<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
 							{% endif %}
-							<button type="submit" class="token_list_generate mr-3 mb-3">{% trans 'Sign Out' %}</button>
+							<div class="text-center"><button type="submit" class="token_list_generate mr-3 mb-3">{% trans 'Sign Out' %}</button></div>
 						</form>
 					</div>
 				</div>

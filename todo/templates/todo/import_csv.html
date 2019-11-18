@@ -6,7 +6,7 @@
 {% block content %}
   <div class="import_csv csv_upload_result mt-4">
     <div class="row">
-      <div class="col-12 col-md-8 offset-md-2">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body import_csv_header">
           <h3 class="mb-1">IMPORT CSV</h3>
         </div>
@@ -65,12 +65,15 @@
                 </div>
               {% endif %}
 
-              <div class="col-12 col-sm-5 offset-sm-1 col-md-5 offset-md-1 mt-3 mr-4 import_csv_wrapper">
-                <button class="btn import_csv_btn hvr-sweep-to-right" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
-                <span class="custom_csv_text" id="custom_csv_text">Choose Source File</span>
-                <input type="file" name="csvfile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" class="custom_import_csv_error" id="import_csv_real_file" required>
+              <div class="col-12 col-sm-7 offset-sm-0 col-md-10 offset-md-1 col-lg-6 offset-lg-1 col-xl-4 offset-xl-2 mt-3">
+                <div class="import_csv_wrapper">
+                  <button class="btn import_csv_btn hvr-sweep-to-right" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
+                  <span class="custom_csv_text short_txt" id="custom_csv_text">Choose File</span>
+                  <span class="custom_csv_text long_txt" id="custom_csv_text">Choose Source File</span>
+                  <input type="file" name="csvfile" accept="text/csv" class="real_csv_file" id="import_csv_real_file" required>
+                </div>
               </div>
-              <div class="col-12 col-sm-4 offset-sm-1 col-md-4 offset-md-1 mt-3">
+              <div class="text-center col-12 col-sm-5 col-md-12 col-lg-4 col-xl-5 mt-3 uploading_csv_btn">
                 <button class="upload_csv_btn btn" type="submit"><i class="fas fa-upload"></i>Upload</button>
               </div>
               
@@ -80,7 +83,7 @@
             <h6 class="text-center mt-4 mb-3">Download the template to create CSV easier.</h6>
           </div>
           <div class="row">
-            <div class="col-12 col-md-6 offset-md-3 text-center">
+            <div class="col-12 text-center mb-3">
               <a href="{% static 'todo/import_example.csv' %}" download="import_example.csv"><button class="download_cvs_template_btn btn" type="submit"><i class="fas fa-download"></i>Download template</button></a>
             </div>
           </div>
