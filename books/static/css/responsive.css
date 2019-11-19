@@ -130,6 +130,9 @@
     .search_results .search_results_container ul li{
         padding: 5px 10px;
     }
+    .search_results .search_results_container h6{
+        font-size: .9rem;
+    }
     /* End of Search Results template */
 
 }
