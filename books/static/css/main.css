@@ -1534,12 +1534,12 @@ footer .useful-links li{
 .search_results .search_results_container .search_list_item .not_completed{
     color: #8e1c1c;
 }
-@media screen and (max-width: 450px){
+/* @media screen and (max-width: 450px){
     .search_results .search_results_header h3{
         padding: 8px 0 8px 0;
         font-size: .8rem;
     }
-}
+} */
 
 /* CSV Upload Results */
 .csv_upload_result .csv_upload_result_header{

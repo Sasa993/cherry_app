@@ -122,6 +122,16 @@
     }
     /* End of import CSV template */
 
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    .search_results .search_results_container ul li{
+        padding: 5px 10px;
+    }
+    /* End of Search Results template */
+
 }
 
 /*Small Devices Breakpoint */
@@ -218,6 +228,13 @@
         float: right;
     }
     /* End of import CSV template */
+
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of Search Results template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -300,6 +317,13 @@
         font-size: 1.4rem;
     }
     /* End of import CSV template */
+
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of Search Results template */
 }
 
 /* Large Devices Breakpoint */
@@ -377,6 +401,13 @@
         float: right;
     }
     /* End of import CSV template */
+    
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    /* End of Search Results template */
 }
 
 /* Extra Large Devices Breakpoint */
@@ -393,7 +424,13 @@
     .contact_us_form h6{
         text-align: center;
     }
+    .search_results .search_results_header{
+        background-position: center;
+    }
 }
+
+
+
 
 /* Showing text depending of width size*/
 @media (min-width: 1367px){
@@ -433,5 +470,16 @@
     }
     .page-wrapper.chiller-theme.toggled .card-body.import_csv_container form > div:nth-of-type(2) {
         max-width: 100%;
+    }
+}
+
+/* Import CSV Task (Responsive) - positioning Choose Source File and Upload button based on wheter the sidebar is opened or not */
+@media (min-width: 767.98px) and (max-width: 1111.98px) {
+    .page-wrapper.chiller-theme.toggled .search_results .search_list_item .list_item_wrapper > div:first-of-type {
+        max-width: 100%;
+    }
+    .page-wrapper.chiller-theme.toggled .search_results .search_list_item .list_item_wrapper > div:nth-of-type(2) {
+        max-width: 100%;
+        flex: 0 0 100% !important;
     }
 }

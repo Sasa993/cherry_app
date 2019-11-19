@@ -6,22 +6,22 @@
 {% block content %}
   <div class="search_results mt-4">
     <div class="row">
-      <div class="col-12 col-md-8 offset-md-2 xol-xs-12">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body search_results_header">
           <h3 class="mb-1">SEARCH RESULTS</h3>
         </div>
         <div class="card-body search_results_container post_list">
           {% if found_tasks %}
-            <h6>{{ found_tasks.count }} search results for term: <strong>{{ query_string }}</strong></h6>
+            <h6 class="text-center">{{ found_tasks.count }} search results for term: <strong>{{ query_string }}</strong></h6>
 
             <ul class="list-group">
               {% for f in found_tasks %}
                 <li class="list-group-item search_list_item">
-                  <div class="row justify-content-between align-items-center">
-                    <div class="col-12 col-md-6 col-lg-3">
+                  <div class="row justify-content-between align-items-center list_item_wrapper">
+                    <div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6">
                       <a href="{% url 'todo:task_detail' f.id %}"><h5>{{ f.title }}</h5></a>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-9">
+                    <div class="col-12 col-sm-7 col-md-7 col-lg-8 col-xl-6">
                       <p>In list: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
                       <p>Assigned to: <strong>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
                       <p>Completed: 
