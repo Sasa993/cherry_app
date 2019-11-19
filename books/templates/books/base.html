@@ -41,102 +41,182 @@
                         <i class="fas fa-times"></i>
                     </div>
                 </div>
-              <!-- Side Bar Search  -->
-              <div class="sidebar-search">
-                <div>
-                  <div class="input-group">
-                    <div class="input-group-append">
-                    </div>
-                    <input type="text" class="form-control search-menu" placeholder="Search" aria-label="Search" name="q" value="" id="q">
-                    <span class="input-group-text">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- Side Bar Menu  -->
-                <div class="sidebar-menu">
-                    <ul>
-                        <li>
-                            <a href="/">
-                                <i class="fas fa-home"></i>
-                                <span>Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'dashboard:all_uploaded_books' %}">
-                                <i class="fas fa-book"></i>
-                                <span>Books</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'todo:mine' %}">
-                                <i class="fas fa-thumbtack"></i>
-                                <span>My Tasks</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'todo:lists' %}">
-                                <i class="fas fa-tasks"></i>
-                                <span>All Tasks</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#!">
-                                <i class="fa fa-user"></i>
-                                <span>Welcome {{ request.user.username|title }}</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="{% url 'admin:index' %}">My profile</a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'account_email' %}">Change E-Mail</a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'account_change_password' %}">Change Password</a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'account_logout' %}">Logout</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="{% url 'todo:import_csv' %}">
-                                <i class="fa fa-folder"></i>
-                                <span>Import CSV</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'sendemail:email' %}">
-                                <i class="fas fa-envelope-open"></i>
-                                <span>Contact Us</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Progress bar -->
-                <div class="progressbar_wrapper">
-                   <div class="progressbar_container">
-                    <div style="width:170px;height:170px; margin: 10px auto 0px;">
-                        <div class="percent" style="width:170px; height:170px;">
-                            <p style="display:none;">{{ all_tasks_percentage }}</p>
-                        </div>
-                    </div>
+              {% if user.is_authenticated %}
+                  <!-- Side Bar Search  -->
+                  <div class="sidebar-search">
                     <div>
-                        {% if user.is_superuser %}
-                        <div class="custom_task_count">There are <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} in total. <span>{{ all_tasks_completed }}</span> of them have been completed.</div>
-                    {% else %}
-                        <div class="custom_task_count">You have <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} that have been assigned to you. You have completed <span>{{ all_tasks_completed }}</span> of them.</div>
-                    {% endif %}
+                      <div class="input-group">
+                        <div class="input-group-append">
+                        </div>
+                        <input type="text" class="form-control search-menu" placeholder="Search" aria-label="Search" name="q" value="" id="q">
+                        <span class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                      </div>
                     </div>
-                   </div>
-                </div>
+                  </div>
+                  <!-- Side Bar Menu  -->
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li>
+                                <a href="/">
+                                    <i class="fas fa-home"></i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'dashboard:all_uploaded_books' %}">
+                                    <i class="fas fa-book"></i>
+                                    <span>Books</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'todo:mine' %}">
+                                    <i class="fas fa-thumbtack"></i>
+                                    <span>My Tasks</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'todo:lists' %}">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>All Tasks</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#!">
+                                    <i class="fa fa-user"></i>
+                                    <span>Welcome {{ request.user.username|title }}</span>
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'admin:index' %}">My profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account_email' %}">Change E-Mail</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account_change_password' %}">Change Password</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account_logout' %}">Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="{% url 'todo:import_csv' %}">
+                                    <i class="fa fa-folder"></i>
+                                    <span>Import CSV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'sendemail:email' %}">
+                                    <i class="fas fa-envelope-open"></i>
+                                    <span>Contact Us</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Progress bar -->
+                    <div class="progressbar_wrapper">
+                       <div class="progressbar_container">
+                        <div style="width:170px;height:170px; margin: 10px auto 0px;">
+                            <div class="percent" style="width:170px; height:170px;">
+                                <p style="display:none;">{{ all_tasks_percentage }}</p>
+                            </div>
+                        </div>
+                        <div>
+                            {% if user.is_superuser %}
+                            <div class="custom_task_count">There are <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} in total. <span>{{ all_tasks_completed }}</span> of them have been completed.</div>
+                        {% else %}
+                            <div class="custom_task_count">You have <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} that have been assigned to you. You have completed <span>{{ all_tasks_completed }}</span> of them.</div>
+                        {% endif %}
+                        </div>
+                       </div>
+                    </div>
+                {% else %}
+                    <!-- Side Bar Search DISABLED  -->
+                  <div class="sidebar-search disabled_side_bar_search">
+                    <div>
+                      <div class="input-group">
+                        <div class="input-group-append">
+                        </div>
+                        <input type="text" class="form-control search-menu" placeholder="Search" aria-label="Search" name="q" value="" id="q" disabled>
+                        <span class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Side Bar Menu DISABLED -->
+                    <div class="sidebar-menu disabled_side_bar_menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-home"></i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-book"></i>
+                                    <span>Books</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-thumbtack"></i>
+                                    <span>My Tasks</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>All Tasks</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="fa fa-user"></i>
+                                    <span>Welcome {{ request.user.username|title }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-folder"></i>
+                                    <span>Import CSV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-envelope-open"></i>
+                                    <span>Contact Us</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Progress bar DISABLED -->
+                    <div class="progressbar_wrapper disabled_progress_bar">
+                       <div class="progressbar_container">
+                        <div style="width:170px;height:170px; margin: 10px auto 0px;">
+                            <div class="percent" style="width:170px; height:170px;">
+                                <p style="display:none;">0</p>
+                            </div>
+                        </div>
+                        <div>
+                            {% if user.is_superuser %}
+                            <div class="custom_task_count">There are <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} in total. <span>{{ all_tasks_completed }}</span> of them have been completed.</div>
+                        {% else %}
+                            <div class="custom_task_count">You have <span>0</span> tasks that have been assigned to you. You have completed <span>0</span> of them.</div>
+                        {% endif %}
+                        </div>
+                       </div>
+                    </div>
+                {% endif %}
             </div>
         </nav>
         <!-- sidebar-wrapper  -->

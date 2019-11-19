@@ -1605,8 +1605,18 @@ footer .useful-links li{
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
+.password_reset_done_banner {
+    background: url('../images/banners/password_reset_done_banner.png') no-repeat !important;
+    background-size: cover !important;
+    background-position: center bottom !important;
+}
 .delete_list_banner {
     background: url('../images/banners/delete_list_banner.png') no-repeat !important;
+    background-size: cover !important;
+    background-position: center bottom !important;
+}
+.confirm_email_banner {
+    background: url('../images/banners/confirm_email_banner.png') no-repeat !important;
     background-size: cover !important;
     background-position: center bottom !important;
 }
@@ -1774,4 +1784,19 @@ a:hover img.imagedropshadow {
     -moz-box-shadow: 1px 1px 5px #999;
     -webkit-box-shadow: 1px 1px 5px #999;
         box-shadow: 1px 1px 5px #999;
+}
+
+.disabled_side_bar_menu ul li a {
+    color: #8d0a154a !important;
+}
+.disabled_side_bar_menu ul li:hover a i {
+    color: #8d0a154a !important;
+    text-shadow: none !important;
+    transform: none !important;
+}
+.disabled_side_bar_menu ul li:hover a, .disabled_side_bar_search:hover input, .disabled_progress_bar {
+    cursor: not-allowed !important;
+}
+.disabled_side_bar_search {
+    opacity: 0.4 !important;
 }
