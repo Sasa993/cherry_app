@@ -725,6 +725,13 @@ footer .useful-links li{
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
+.change_password_after_forget_banner {
+    background: url('../images/banners/change_password_after_forget_banner.png') no-repeat !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}
 .change_pass_form .change_pass_header h3{
     color: #ffffff;
     padding: 50px 0;
@@ -1799,4 +1806,20 @@ a:hover img.imagedropshadow {
 }
 .disabled_side_bar_search {
     opacity: 0.4 !important;
+}
+.custom_back_to_login {
+    background-color: #d9d9d9;
+    color: #8a8a8a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-color: transparent;
+    border-bottom: 2px solid #8a8a8a;
+}
+.custom_back_to_login:hover {
+    border-bottom: 2px solid #8d0a15;
+    transition: all .5s;
+    color: #8d0a15;
+}
+.custom_back_to_login:focus {
+    outline: none;
 }
