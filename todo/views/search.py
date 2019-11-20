@@ -6,6 +6,8 @@ from django.shortcuts import render
 from todo.models import Task
 from todo.utils import staff_check
 
+from django.core.paginator import Paginator
+
 
 @login_required
 @user_passes_test(staff_check)
@@ -21,13 +23,19 @@ def search(request) -> HttpResponse:
         if ("q" in request.GET) and request.GET["q"].strip():
             query_string = request.GET["q"]
 
-            found_tasks = Task.objects.filter(
+            found_tasks2 = Task.objects.filter(
                 Q(title__icontains=query_string) | Q(note__icontains=query_string)
             )
+            paginator = Paginator(found_tasks2, 4)
+            page = request.GET.get('page')
+            found_tasks = paginator.get_page(page)
         else:
             # What if they selected the "completed" toggle but didn't enter a query string?
             # We still need found_tasks in a queryset so it can be "excluded" below.
-            found_tasks = Task.objects.all()
+            found_tasks2 = Task.objects.all()
+            paginator = Paginator(found_tasks2, 4)
+            page = request.GET.get('page')
+            found_tasks = paginator.get_page(page)
 
         if "inc_complete" in request.GET:
             found_tasks = found_tasks.exclude(completed=True)

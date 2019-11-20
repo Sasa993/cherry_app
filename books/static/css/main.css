@@ -1823,3 +1823,53 @@ a:hover img.imagedropshadow {
 .custom_back_to_login:focus {
     outline: none;
 }
+
+/* Pagination */
+.pagination_container nav ul{
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    border-radius: 0px;
+}
+.pagination_container nav ul .prev_arrow, .pagination_container nav ul .next_arrow{
+    padding: 4px;
+}
+.pagination_container nav li a{
+    border: 0px solid transparent;
+    color: #8a8a8a;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.pagination_container nav li a:hover:not(.arrow){
+    background-color: #8d0a15;
+    color: #ffffff;
+}
+
+.pagination_container nav li .arrow{
+    border-radius: 0px;
+    width: 15px;
+    height: 15px;
+    vertical-align: bottom;
+}
+
+.pagination_container nav li .prev{
+  display: inline-block;
+  border-bottom: 4px solid #8d0a15;
+  border-left: 4px solid #8d0a15;
+  transition: all 200ms ease;
+  transform: rotate(45deg);
+}
+.pagination_container nav li .prev:hover{
+  box-shadow: -4px 4px rgba(141, 10, 21, .5);
+}
+
+.pagination_container nav li .next{
+  display: inline-block;
+  border-top: 4px solid #8d0a15;
+  border-right: 4px solid #8d0a15;
+  transition: all 200ms ease;
+  transform: rotate(45deg);
+}
+.pagination_container nav li .next:hover{
+  box-shadow: 4px -4px rgba(141, 10, 21, .5);
+}

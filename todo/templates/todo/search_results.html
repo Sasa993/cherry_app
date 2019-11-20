@@ -37,6 +37,24 @@
                   </div>
                 </li>
               {% endfor %}
+              <!--<div class="pagination">
+                <span class="step-links">
+                    {% if found_tasks.has_previous %}
+                        <a href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&laquo; first</a>
+                        <a href="?page={{ found_tasks.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ found_tasks.number }} of {{ found_tasks.paginator.num_pages }}.
+                    </span>
+
+                    {% if found_tasks.has_next %}
+                        <a href="?page={{ found_tasks.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+                        <a href="?page={{ found_tasks.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>--> 
+
               <!--<li class="list-group-item search_list_item">
                 <div class="row justify-content-between align-items-center">
                   <div class="col-12 col-lg-3">
@@ -61,7 +79,48 @@
                   </div>
                 </div>
               </li>-->
-            </ul> 
+            </ul>
+            <!-- pagination -->
+            <div class="pagination_container mt-4">
+              <nav class="mt-5 d-flex d-flex justify-content-center">
+                <ul class="pagination">
+                  {% if found_tasks.has_previous %}
+                    <li class="page-item prev_arrow">
+                      <a class="prev arrow" href="?page={{ found_tasks.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" tabindex="-1"></a>
+                    </li>
+                  {% else %}
+                    <li class="page-item prev_arrow custom_disabled">
+                      <a class="prev arrow" href="#!" tabindex="-1"></a>
+                    </li>
+                  {% endif %}
+
+                  {% for i in found_tasks.paginator.page_range %}
+                    {% if found_tasks.number == i %}
+                      {# <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> #}
+                      <li class="page-item custom_active">
+                        <a class="page-link" href="#!">{{ i }}</a>
+                      </li>
+                    {% else %}
+                      {# <li><a href="?page={{ i }}">{{ i }}</a></li> #}
+                      <li class="page-item">
+                        <a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if found_tasks.has_next %}
+                    <li class="page-item next_arrow">
+                      <a class="next arrow" href="?page={{ found_tasks.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"></a>
+                    </li>
+                  {% else %}
+                    <li class="page-item next_arrow custom_disabled">
+                      <a class="next arrow" href="#!"></a>
+                    </li>
+                  {% endif %}                  
+                </ul>
+              </nav>
+            </div>
+               <!-- /pagination -->
           {% else %}
             <h2>No results to show, sorry.</h2>
           {% endif %}

@@ -668,10 +668,21 @@ label[for=id_author] {
   opacity: 0 !important;
   left: 80px !important;
 }
-.download_cvs_template_btn:focus, .upload_csv_btn:focus, .btn.import_csv_btn:focus {
+.download_cvs_template_btn:focus, .upload_csv_btn:focus, .btn.import_csv_btn:focus, ul.pagination li a:focus {
   outline: none;
   box-shadow: none;
 }
 .django-ckeditor-widget {
   display: flex !important;
+}
+.custom_disabled {
+  opacity: 0.5;
+  cursor: no-drop;
+}
+.custom_disabled a {
+  cursor: no-drop;
+}
+.custom_active a {
+  background-color: #8d0a15;
+  color: #fff !important;
 }
