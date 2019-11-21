@@ -134,7 +134,11 @@
         font-size: .9rem;
     }
     /* End of Search Results template */
-
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: justify;
+    }
+    /* End of Upload CSV results template */
 }
 
 /*Small Devices Breakpoint */
@@ -238,6 +242,11 @@
         font-size: 1.4rem;
     }
     /* End of Search Results template */
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: justify;
+    }
+    /* End of Upload CSV results template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -327,6 +336,11 @@
         font-size: 1.4rem;
     }
     /* End of Search Results template */
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: center;
+    }
+    /* End of Upload CSV results template */
 }
 
 /* Large Devices Breakpoint */
@@ -411,6 +425,11 @@
         font-size: 1.5rem;
     }
     /* End of Search Results template */
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: center;
+    }
+    /* End of Upload CSV results template */
 }
 
 /* Extra Large Devices Breakpoint */
@@ -430,6 +449,11 @@
     .search_results .search_results_header{
         background-position: center;
     }
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: center;
+    }
+    /* End of Upload CSV results template */
 }
 
 
@@ -476,7 +500,7 @@
     }
 }
 
-/* Import CSV Task (Responsive) - positioning Choose Source File and Upload button based on wheter the sidebar is opened or not */
+/* Search results (Responsive) - positioning Choose Source File and Upload button based on wheter the sidebar is opened or not */
 @media (min-width: 767.98px) and (max-width: 1111.98px) {
     .page-wrapper.chiller-theme.toggled .search_results .search_list_item .list_item_wrapper > div:first-of-type {
         max-width: 100%;
@@ -486,3 +510,13 @@
         flex: 0 0 100% !important;
     }
 }
+
+/* Centering buttons for Upload CSV results */
+/* @media (min-width: 767.98px) and (max-width: 802px) {
+    .page-wrapper.chiller-theme .card-body.import_csv_container form > div:first-of-type {
+        max-width: 45%;
+    }
+    .page-wrapper.chiller-theme .card-body.import_csv_container form > div:nth-of-type(2) {
+        max-width: 37%;
+    }
+} */

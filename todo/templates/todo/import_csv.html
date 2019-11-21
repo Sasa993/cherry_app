@@ -14,18 +14,18 @@
           <h6>Batch-import tasks by uploading a specifically-formated CSV.</h6>
           <h6>Updated CSV files will update the task list as well. Success and failure will be reported here</h6>
           {% if results %}
-            <div class="card-body csv_upload_result_container">
+            <div class="row csv_upload_result_container">
               {% if results.summaries %}
-                <h6>SUMMARY: </h6>
-                <ul class="list-group summary_group">
+                <div class="col-12"><h6 class="text-center">SUMMARY: </h6></div>
+                <div class="col-12 col-sm-10 offset-sm-1 col-md-12 offset-md-0 col-xl-10 offset-xl-1"><ul class="list-group summary_group">
                   {% for line in results.summaries %}
                     <li class="list-group-item">{{ line }}</li>
                   {% endfor %}
-                </ul>
+                </ul></div>
               {% endif %}
 
               {% if results.upserts %}
-                <h6 class="mt-4">UPSERTS (TASKS CREATED OR UPDATED): </h6>
+                <h6 class="mt-4 text-center ">UPSERTS (TASKS CREATED OR UPDATED): </h6>
                 <ul class="list-group created_task">
                   {% for line in results.upserts %}
                     <li class="list-group-item">{{ line }}</li>
@@ -34,7 +34,7 @@
               {% endif %}
 
               {% if results.errors %}
-                <h6 class="mt-4">ERRORS (TASKS NOT CREATED OR UPDATED): </h6>
+                <h6 class="mt-4 text-center ">ERRORS (TASKS NOT CREATED OR UPDATED): </h6>
                 <ul class="list-group created_task">
                   {% for error_row in results.errors %}
                     {% for k, error_list in error_row.items  %}
@@ -51,7 +51,7 @@
             </div>
           {% endif %}
 
-          <div class="row">
+          <div class="row justify-content-center align-items-center">
             <form method="post" enctype="multipart/form-data" style="display: contents;">
               {% csrf_token %}
 
@@ -65,7 +65,7 @@
                 </div>
               {% endif %}
 
-              <div class="col-12 col-sm-7 offset-sm-0 col-md-10 offset-md-1 col-lg-6 offset-lg-1 col-xl-4 offset-xl-2 mt-3">
+              <div class="col-12 col-sm-7 col-md-10 col-lg-6 col-xl-4 mt-3">
                 <div class="import_csv_wrapper">
                   <button class="btn import_csv_btn hvr-sweep-to-right" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
                   <span class="custom_csv_text short_txt" id="custom_csv_text">Choose File</span>
