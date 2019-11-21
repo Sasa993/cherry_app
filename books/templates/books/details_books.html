@@ -1,6 +1,6 @@
 {% extends "books/base.html" %}
 {% load static %}
-
+    
 {% block title %}
 	Book - {{ book.title }}
 {% endblock %}
@@ -320,10 +320,20 @@
 	                            </button>
 	                        </div>
 	                    {% endif %}
+                        {# <button type="button" class="btn btn-primary" id="showtoast">Show Toast</button> #}
 	               	</div>
                 </div>
             </div>
         </div>
     </div>
     {% include 'books/modals/modal_delete_book.html' %}
+{% endblock %}
+
+{% block other_js %}
+    <script>
+        // triggering toastr notification once we delete a book 
+        $('#custom_btn_delete_book').click(function () {
+            toastr["success"]("The Book - <strong>{{ book.title }}</strong> has been deleted!");
+        });
+    </script>
 {% endblock %}

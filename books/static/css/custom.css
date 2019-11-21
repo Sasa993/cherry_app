@@ -686,3 +686,12 @@ label[for=id_author] {
   background-color: #8d0a15;
   color: #fff !important;
 }
+.custom_modal_form_saved {
+  background-color: #8d0a15;
+  opacity: 0.7;
+}
+.custom_modal_form_saved div.modal-header {
+  border-bottom: 1px solid #8d0a15;
+  color: #fff;
+  margin: 0 auto;
+}

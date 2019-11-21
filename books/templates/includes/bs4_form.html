@@ -11,6 +11,14 @@
 		{% endfor %}
 	</div>
 {% endif %}
+{% if messages %}
+  {% for msg in messages %}
+    <div class="alert alert-info alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {{msg.message}}
+    </div>
+  {% endfor %}
+{% endif %}
 <div class="import_csv">
 	<div class="row">
 		{% for field in form.visible_fields %}
@@ -291,8 +299,12 @@
 		    $('#enterNewBookForm').submit(function(e) {
 		    	if(!submitForm) {
 		    		e.preventDefault();
-		    		alert("You can not have one person as an author and co author! Please fix that in order to save your book.");
+		    		toastr["error"]("You can not have one person as an author and co author! Please fix that in order to save your book.")
+
 		    	}
+		    	else {
+				    toastr["success"]("Form has been saved!");
+				}
 		    });
 		});
 		

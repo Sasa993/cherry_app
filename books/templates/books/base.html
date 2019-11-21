@@ -18,6 +18,7 @@
     <!-- <link rel="stylesheet" href="{% static '../../static/css/responsive.css' %}"> -->
     <!-- /Css For responsive -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="{% static 'css/toastr.css' %}" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     {% block other_css %} {% endblock %}
     {% block extrahead %} {% endblock extrahead %}
@@ -256,6 +257,7 @@
     <script src="{% static 'script/jQuery.circleProgressBar.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
     <script src="{% static 'script/script.js' %}"></script>
+    <script src="{% static 'script/toastr.js' %}"></script>
     {% block other_js %} {% endblock %}
 
     {# RealTime Search Bar Implementation #}
@@ -304,6 +306,46 @@
         $(function () {
           $('[data-toggle="tooltip"]').tooltip();
         });
+
+        // toastr library
+        toastr.options = {
+            typeBasedOverrides: {
+                success: {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                },
+                error: {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                },
+              }
+            };
     </script>
 </body>
 </html>

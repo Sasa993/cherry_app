@@ -316,8 +316,12 @@
 		    $('#enterNewBookForm').submit(function(e) {
 		    	if(!submitForm) {
 		    		e.preventDefault();
-		    		alert("You can not have one person as an author and co author! Please fix that in order to save your book.");
+		    		toastr["error"]("You can not have one person as an author and co author! Please fix that in order to save your book.")
+
 		    	}
+		    	else {
+				    toastr["success"]("Form has been saved!");
+				}
 		    });
 		});
 
