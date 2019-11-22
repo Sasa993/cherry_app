@@ -246,6 +246,8 @@
   crossorigin="anonymous"></script>
 	<script>
 		$(document).ready(function(){
+			var submitForm = true;
+
 			$("#id_co_author_name").change(function () {
 		      var url = $("#enterNewBookForm").attr("data-emails-url");  // get the url of the `load_emails` view
 		      var authorId = $(this).val();  // get the selected author ID from the HTML input
@@ -322,7 +324,7 @@
 				    setTimeout(
 		    			function() {
 		    				toastr["success"]("Form has been saved!");
-		    			}, 50)
+		    			}, 500)
 				}
 		    });
 		});
