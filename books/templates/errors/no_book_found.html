@@ -7,7 +7,10 @@
 {% block content %}
     <div class="content_not_found_page mt-4">
         <div class="row">
-        	<div class="col-md-8 offset-md-2 text-center">
+        	<div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
+
+					<div class="card-body">
+
             	<svg id="mainImage_create" data-name="mainImage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.2 81.5">
           			<style id="svgStyle">
             			@import url('https://fonts.googleapis.com/css?family=Merriweather');
@@ -234,12 +237,15 @@
 		          	<path class="cls-5" d="M101.81,61a6.68,6.68,0,0,0,8.51,0Z"></path>
 		          	<polygon class="cls-5" points="90.92 30.25 77.46 29.69 77.46 28.64 90.92 29.22 90.92 30.25"></polygon>
     			</svg>  
-                <h5>Sorry, but there is no book with ID - <span class="custom_book_id_error">{{ book_id }}</span>.</h5><h5>If you are having an issues with finding what you're looking for, click below to ask for help!</h5>
-                <div class="change_email_form mt-4">
+                <h6>Sorry, but there is no book with ID - <span class="custom_book_id_error">{{ book_id }}</span>.</h6><h6>If you are having an issues with finding what you're looking for, click below to ask for help!</h6>
+                <div class="change_email_form mt-4 mb-3">
 		        	<a href="{% url 'sendemail:email' %}">
-		        		<button class="add_email">Contact Us</button>
+		        		<button class="add_email mb-4">Contact Us</button>
 		        	</a>
-		        </div>
+				</div>
+				
+				</div>
+
             </div>
         </div>
     </div>
