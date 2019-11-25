@@ -22,7 +22,7 @@
     .custom_add_email_address{
         padding: 0;
     }
-    .btn-radio svg {
+    .change_email_form .btn-radio svg {
         display: block;
         margin: auto;
     }
@@ -299,6 +299,9 @@
         padding: 15px 0;
         font-size: 1.4rem;
     }
+    .backup_phone_form .backup_phone_container h6{
+        text-align: center;
+    }
     /* End of Backup pohone template */
 
     /* Token list template CSS */
@@ -388,6 +391,9 @@
     .backup_phone_form .backup_phone_header h3{
         padding: 25px 0;
         font-size: 1.5rem;
+    }
+    .backup_phone_form .backup_phone_container h6{
+        text-align: center;
     }
     /* End of Backup pohone template */
 

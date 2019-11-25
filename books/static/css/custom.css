@@ -564,6 +564,7 @@ tbody tr.custom_todo_table_tbody {
 .btn-radio svg {
   fill: none;
   vertical-align: middle;
+  display: inline-block;
 }
 .btn-radio svg circle {
   stroke-width: 2;
