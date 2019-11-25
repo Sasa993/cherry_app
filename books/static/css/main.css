@@ -1433,9 +1433,9 @@ footer .useful-links li{
     border-radius: 8px;
 }
 /* Hide 'Choose Source File' text*/
-.import_csv .import_csv_container .import_csv_wrapper .long_txt{
+/* .import_csv .import_csv_container .import_csv_wrapper .long_txt{
     display: none;
-}
+} */
 .import_csv .import_csv_wrapper span{
     color: #8a8a8a;
     margin-left: 5px;

@@ -473,14 +473,14 @@
 
 
 /* Showing text depending of width size*/
-@media (min-width: 1367px){
+/* @media (min-width: 1367px){
     .import_csv .import_csv_container .import_csv_wrapper .short_txt{
         display: none;
     }
     .import_csv .import_csv_container .import_csv_wrapper .long_txt{
         display: inline-block;
     }
-}
+} */
 
 @media (min-width: 959px) and (max-width: 1023.98px){
     .import_csv_container .import_csv_wrapper{

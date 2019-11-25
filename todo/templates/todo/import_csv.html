@@ -69,7 +69,7 @@
                 <div class="import_csv_wrapper">
                   <button class="btn import_csv_btn hvr-sweep-to-right" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
                   <span class="custom_csv_text short_txt" id="custom_csv_text">Choose File</span>
-                  <span class="custom_csv_text long_txt" id="custom_csv_text">Choose Source File</span>
+                  <!-- <span class="custom_csv_text long_txt" id="custom_csv_text">Choose Source File</span> -->
                   <input type="file" name="csvfile" accept="text/csv" class="real_csv_file" id="import_csv_real_file" required>
                 </div>
               </div>
@@ -95,22 +95,34 @@
 
 {% block other_js %}
   <script>
-    const realCSVFileBtn = document.getElementById("import_csv_real_file");
-    const customCSVBtn = document.getElementById("custom_csv_button");
-    const customCSVText = document.getElementById("custom_csv_text");
-    customCSVBtn.addEventListener('click', function(){
-      realCSVFileBtn.click();
-    });
-    realCSVFileBtn.addEventListener('change', function(){
-      if(realCSVFileBtn.value){
-        if(realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].length > 15){
-          customCSVText.innerHTML = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].substring(0, 15) + '...';
-        }else{
-          customCSVText.innerHTML = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+const realCSVFileBtn = document.getElementById("import_csv_real_file");
+const customCSVBtn = document.getElementById("custom_csv_button");
+const customCSVText = document.getElementById("custom_csv_text");
+
+customCSVBtn.addEventListener('click', function () {
+    realCSVFileBtn.click();
+});
+
+function checkInputFile(){
+    realCSVFileBtn.addEventListener('change', function () {
+        if (realCSVFileBtn.value) {
+            if (realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].length > 15) {
+                customCSVText.textContent = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1].substring(0, 15) + '...';
+            } else {
+                customCSVText.textContent = realCSVFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+            }
+        } else {
+            customCSVText.textContent = "No file choosen, yet.";
         }
-      }else{
-        customCSVText.innerHTML = "No file choosen, yet.";
-      }
-    });
+    })
+}
+
+if (window.innerWidth < 1366.98) {
+    checkInputFile()
+} 
+else {
+    customCSVText.textContent = 'Choose Source File'
+    checkInputFile()
+}
   </script>
 {% endblock %}
