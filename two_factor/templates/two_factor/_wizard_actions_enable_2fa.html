@@ -1,8 +1,8 @@
 {% load i18n %}
 
-<div class="custom_three_buttons">
+<div class="custom_three_buttons d-flex justify-content-center">
 	{% if cancel_url %}
-		<a href="{{ cancel_url }}" class="btn btn-default custom_enable_2fa_login">{% trans "Cancel" %}</a>
+		<a href="{{ cancel_url }}" class="btn btn-default custom_enable_2fa_login mr-4">{% trans "Cancel" %}</a>
 	{% endif %}
 {% if wizard.steps.prev %}
   <!--<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class="btn btn-default">{% trans "Back" %}</button>-->

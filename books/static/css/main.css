@@ -1690,12 +1690,12 @@ footer .useful-links li{
     color: #ffffff;
     border: none;
 }
-@media screen and (max-width: 450px){
+/* @media screen and (max-width: 450px){
     .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
         padding: 8px 0 8px 0;
         font-size: .8rem;
     }
-}
+} */
 .unverified {
     color: #8d0a15;
 }

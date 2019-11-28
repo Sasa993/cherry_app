@@ -149,6 +149,28 @@
         font-size: .9rem;
     }
     /* End of No Book Error template*/
+
+    /* My Tasks Template CSS */
+    /*  */
+    .details_tasks2 .details_tasks2_header, .details_tasks2_header_new_detail, .details_tasks2_header_new_add{
+        background: url('../images/banners/my_tasks_mobile_banner.png') no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+        background-size: 100% 100%;
+    }
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1rem;
+        padding: 15px 0;
+    }
+    .details_tasks2 h6{
+        font-size: .9rem;
+    }
+    /* End of My Tasks template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: justify;
+    }
+    /* End of Enable 2FA Template */
 }
 
 /*Small Devices Breakpoint */
@@ -257,6 +279,18 @@
         text-align: justify;
     }
     /* End of Upload CSV results template */
+    /* My Tasks Template CSS */
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1.4rem;
+        padding: 15px 0;
+    }
+    /* End of My Tasks template */
+    
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: justify;
+    }
+    /* End of Enable 2FA Template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -354,6 +388,20 @@
         text-align: center;
     }
     /* End of Upload CSV results template */
+    /* My Tasks Template CSS */
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1,4rem;
+        padding: 15px 0;
+    }
+    .details_tasks2 h6{
+        text-align: center;
+    }
+    /* End of My Tasks template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: center;
+    }
+    /* End of Enable 2FA Template */
 }
 
 /* Large Devices Breakpoint */
@@ -446,6 +494,21 @@
         text-align: center;
     }
     /* End of Upload CSV results template */
+    
+    /* My Tasks Template CSS */
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1.5rem;
+        padding: 25px 0;
+    }
+    .details_tasks2 h6{
+        text-align: center;
+    }
+    /* End of My Tasks template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: center;
+    }
+    /* End of Enable 2FA Template */
 }
 
 /* Extra Large Devices Breakpoint */
@@ -473,6 +536,16 @@
         text-align: center;
     }
     /* End of Upload CSV results template */
+    /* My Tasks Template CSS */
+    .details_tasks2 h6{
+        text-align: center;
+    }
+    /* End of My Tasks Template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: center;
+    }
+    /* End of Enable 2FA Template */
 }
 
 
@@ -529,6 +602,21 @@
         flex: 0 0 100% !important;
     }
 }
+
+/* Hiding navbar for desktop devices
+@media (max-width: 767.98px){
+    .sidebar-menu.desktop_menu{
+        display: none;
+    }
+}*/
+
+/* Hiding navbar for desktop devices */
+/*
+@media (min-width: 768px){
+    .sidebar-menu.mobile_menu{
+        display: none;
+    }
+} */
 
 /* Centering buttons for Upload CSV results */
 /* @media (min-width: 767.98px) and (max-width: 802px) {

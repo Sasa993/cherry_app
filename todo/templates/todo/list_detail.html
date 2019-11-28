@@ -7,7 +7,7 @@
 
   <div class="details_tasks2 mt-4">
     <div class="row">
-      <div class="col-12 col-md-8 offset-md-2">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body details_tasks2_header custom_reducing_header_height">
           {% if list_slug == "mine" %}
             <h3 class="mb-1">MY TASKS</h3>
@@ -83,7 +83,7 @@
               {% endfor %}
             </table>
           {% else %}
-            <h4>No tasks on this list yet (add one!)</h4>
+            <h6>No tasks on this list yet (add one!)</h6>
             {% include 'todo/include/toggle_delete.html' %}
           {% endif %}
         </div>

@@ -613,7 +613,7 @@ tbody tr.custom_todo_table_tbody {
 .custom_enable_2fa_login {
   background-color: #d9d9d9;
   color: #8a8a8a;
-  padding: 8px 15px;
+  padding: 8px 20px;
   border-radius: 5px;
   border-color: transparent;
   border-bottom: 2px solid #8a8a8a;
@@ -633,10 +633,12 @@ tbody tr.custom_todo_table_tbody {
   justify-content: space-between;
 }
 
-.custom_reducing_header_height h3 {
+/* Commented line that sasa wrote CSS for this template */
+/* .custom_reducing_header_height h3 {
   margin-bottom: 0 !important;
   padding: 40px 0 !important;
-}
+} */
+
 .custom_reducing_header_height p, .custom_books_reducing_header_height p {
   margin-bottom: 0 !important;
 }
