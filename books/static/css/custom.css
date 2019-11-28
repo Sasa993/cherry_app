@@ -564,7 +564,8 @@ tbody tr.custom_todo_table_tbody {
 .btn-radio svg {
   fill: none;
   vertical-align: middle;
-  display: inline-block;
+  display: block;
+  margin: auto;
 }
 .btn-radio svg circle {
   stroke-width: 2;
@@ -613,7 +614,7 @@ tbody tr.custom_todo_table_tbody {
 .custom_enable_2fa_login {
   background-color: #d9d9d9;
   color: #8a8a8a;
-  padding: 8px 20px;
+  padding: 8px 15px;
   border-radius: 5px;
   border-color: transparent;
   border-bottom: 2px solid #8a8a8a;
@@ -630,7 +631,7 @@ tbody tr.custom_todo_table_tbody {
 }
 .custom_three_buttons {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 /* Commented line that sasa wrote CSS for this template */

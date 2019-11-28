@@ -170,6 +170,19 @@
     .two_fa_settings_form p{
         text-align: justify;
     }
+    .two_fa_settings_form .custom_three_buttons{
+        justify-content: space-around;
+    
+    }
+    .two_fa_settings_form .bck_to_profile_add_number{
+        display: flex;
+        flex-direction: column;
+        max-width: 175px;
+        margin: auto;
+    }
+    .two_fa_settings_form .bck_to_profile_add_number a{
+        margin-bottom: 15px;
+    }
     /* End of Enable 2FA Template */
 }
 
@@ -290,6 +303,12 @@
     .two_fa_settings_form p{
         text-align: justify;
     }
+    .two_fa_settings_form .custom_three_buttons{
+        max-width: 80%;
+        margin: auto;
+        justify-content: space-around;
+    
+    }
     /* End of Enable 2FA Template */
 }
 
@@ -401,6 +420,21 @@
     .two_fa_settings_form p{
         text-align: center;
     }
+    .two_fa_settings_form .custom_three_buttons{
+        max-width: 90%;
+        margin: auto;
+        justify-content: space-around;
+    
+    }
+    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number{
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 175px;
+    }
+    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number a:first-child{
+        flex: 1 1 100%;
+        margin-bottom: 15px;
+    }
     /* End of Enable 2FA Template */
 }
 
@@ -508,6 +542,23 @@
     .two_fa_settings_form p{
         text-align: center;
     }
+    
+    .two_fa_settings_form .custom_three_buttons{
+        max-width: 70%;
+        margin: auto;
+        justify-content: space-around;
+    
+    }
+    
+    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number a:first-child{
+        flex: 1 1 100%;
+        margin-bottom: 15px;
+        max-width: 175px;
+    }
     /* End of Enable 2FA Template */
 }
 
@@ -544,6 +595,12 @@
     /* Enable 2FA Template CSS */
     .two_fa_settings_form p{
         text-align: center;
+    }
+    .two_fa_settings_form .custom_three_buttons{
+        max-width: 50%;
+        margin: auto;
+        justify-content: space-around;
+    
     }
     /* End of Enable 2FA Template */
 }
@@ -603,6 +660,18 @@
     }
 }
 
+/* Align buttons for Enable 2FA template, last buttons switch to new row */
+@media (max-width: 369px){
+    .two_fa_settings_form .custom_three_buttons:not(.bck_to_profile_add_number){
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .two_fa_settings_form .two_fa_next{
+        flex: 1 1 100%;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+}
 /* Hiding navbar for desktop devices
 @media (max-width: 767.98px){
     .sidebar-menu.desktop_menu{
