@@ -300,6 +300,15 @@
         font-size: 1.4rem;
     }
     /* End of import CSV template */
+    .custom_responsive_error_404 h1 {
+        font-size: 6rem !important;
+    }
+    .custom_responsive_error_404 h2 {
+        font-size: 1.8rem !important;
+    }
+    .custom_responsive_error_404 h3 {
+        font-size: 1.5rem !important;
+    }
 }
 
 /* Large Devices Breakpoint */
