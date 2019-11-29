@@ -26,14 +26,14 @@ def search(request) -> HttpResponse:
             found_tasks2 = Task.objects.filter(
                 Q(title__icontains=query_string) | Q(note__icontains=query_string)
             )
-            paginator = Paginator(found_tasks2, 4)
+            paginator = Paginator(found_tasks2, 6)
             page = request.GET.get('page')
             found_tasks = paginator.get_page(page)
         else:
             # What if they selected the "completed" toggle but didn't enter a query string?
             # We still need found_tasks in a queryset so it can be "excluded" below.
             found_tasks2 = Task.objects.all()
-            paginator = Paginator(found_tasks2, 4)
+            paginator = Paginator(found_tasks2, 6)
             page = request.GET.get('page')
             found_tasks = paginator.get_page(page)
 
