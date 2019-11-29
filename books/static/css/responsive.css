@@ -300,6 +300,8 @@
         font-size: 1.4rem;
     }
     /* End of import CSV template */
+
+    /* Error 404 template */
     .custom_responsive_error_404 h1 {
         font-size: 6rem !important;
     }
@@ -309,6 +311,7 @@
     .custom_responsive_error_404 h3 {
         font-size: 1.5rem !important;
     }
+    /* End of Error 404 template */
 }
 
 /* Large Devices Breakpoint */
@@ -444,3 +447,12 @@
         max-width: 100%;
     }
 }
+
+/*@media (min-width: 1px) and (max-width: 767.98px) {
+    .custom_sidebar_opened {
+        display: none !important;
+    }
+    .custom_sidebar_closed {
+        display: block !important;
+    }
+}*/

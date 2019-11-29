@@ -1873,3 +1873,6 @@ a:hover img.imagedropshadow {
 .pagination_container nav li .next:hover{
   box-shadow: 4px -4px rgba(141, 10, 21, .5);
 }
+.search_list_item h5 {
+    overflow-wrap: break-word !important;
+}
