@@ -111,7 +111,7 @@ def book_requests(request, request_book_id):
 			BookRequest.objects.create(book=book, authors_accepted=author[0], deadline=request.POST['deadline'], decision=request.POST['decision'])
 		else:
 			author = Author.objects.filter(email=request.user.email)
-			BookRequest.objects.create(book=book, authors_accepted=author[0],decision=request.POST['decision'])
+			BookRequest.objects.create(book=book, authors_accepted=author[0], decision=request.POST['decision'])
 	else:
 		requested_book = BookRequest.objects.filter(book=book).values_list('authors_accepted__email', flat=True)
 		if request.user.email in [mail for mail in requested_book]:
@@ -133,8 +133,9 @@ def load_emails(request):
 	return render(request, 'includes/displaying_emails_using_ajax.html', {'mails': mails})
 
 
+@login_required
 def handler404(request, exception, template_name="errors/error_404.html"):
-	response = render_to_response("errors/error_404.html")
+	response = render(request, "errors/error_404.html")
 	response.status_code = 404
 	return response
 
