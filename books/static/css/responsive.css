@@ -190,20 +190,25 @@
         max-width: 175px;
         flex-basis: 175px;
     }
-    /* .two_fa_settings_form .custom_three_buttons{
-        justify-content: space-around;
-    
-    }
-    .two_fa_settings_form .bck_to_profile_add_number{
-        display: flex;
-        flex-direction: column;
-        max-width: 175px;
-        margin: auto;
-    }
-    .two_fa_settings_form .bck_to_profile_add_number a{
-        margin-bottom: 15px;
-    } */
     /* End of Enable 2FA Template */
+
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    .task_list_delete .task_list_delete_container h6{
+        font-size: 0.9rem;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 0;
+    }
+    /* End of Delete Item List Template */
 }
 
 /*Small Devices Breakpoint */
@@ -347,14 +352,21 @@
         max-width: 175px;
         flex-basis: 175px;
     }
-
-    /* .two_fa_settings_form .custom_three_buttons{
-        max-width: 80%;
-        margin: auto;
-        justify-content: space-around;
-    
-    } */
     /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 0;
+    }
+    /* End of Delete Item List Template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -465,9 +477,6 @@
     .two_fa_settings_form p{
         text-align: center;
     }
-
-
-    
     .two_fa_settings_form .custom_three_buttons{
         display: flex;
         flex-wrap: wrap;
@@ -491,24 +500,21 @@
         max-width: 175px;
         flex-basis: 175px;
     }
-
-
-    /* .two_fa_settings_form .custom_three_buttons{
-        max-width: 90%;
-        margin: auto;
-        justify-content: space-around;
-    
-    }
-    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number{
-        flex-wrap: wrap;
-        justify-content: center;
-        max-width: 175px;
-    }
-    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number a:first-child{
-        flex: 1 1 100%;
-        margin-bottom: 15px;
-    } */
     /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 130px;
+    }
+    /* End of Delete Item List Template */
 }
 
 /* Large Devices Breakpoint */
@@ -643,25 +649,28 @@
     .two_fa_settings_form .card-body h4, .two_fa_settings_form .card-body h6, .two_fa_settings_form .card-body p{
         text-align: center;
     }
-
-    /*     
-    .two_fa_settings_form .custom_three_buttons{
-        max-width: 70%;
-        margin: auto;
-        justify-content: space-around;
-    
+    /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
     }
-    
-    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number{
-        flex-wrap: wrap;
+    .task_list_delete .task_list_delete_container .info{
+        text-align: center;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 130px;
+    }
+    .task_list_delete .task_list_delete_container .delete_category{
+        display: flex;
         justify-content: center;
     }
-    .page-wrapper.chiller-theme.toggled .two_fa_settings_form .bck_to_profile_add_number a:first-child{
-        flex: 1 1 100%;
-        margin-bottom: 15px;
-        max-width: 175px;
-    } */
-    /* End of Enable 2FA Template */
+    /* End of Delete Item List Template */
 }
 
 /* Extra Large Devices Breakpoint */
@@ -725,13 +734,27 @@
     .two_fa_settings_form .card-body h4, .two_fa_settings_form .card-body h6, .two_fa_settings_form .card-body p{
         text-align: center;
     }
-    /* .two_fa_settings_form .custom_three_buttons{
-        max-width: 50%;
-        margin: auto;
-        justify-content: space-around;
-    
-    } */
     /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header{
+        background-position: 75%;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 130px;
+    }
+    .task_list_delete .task_list_delete_container .info{
+        text-align: center;
+    }
+    .task_list_delete .task_list_delete_container .delete_category{
+        display: flex;
+        justify-content: center;
+    }
+    /* End of Delete Item List Template */
 }
 
 

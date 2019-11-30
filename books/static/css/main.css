@@ -1703,6 +1703,36 @@ footer .useful-links li{
     color: forestgreen;
 }
 
+
+/* Task List Delete */
+.task_list_delete .task_list_delete_header{
+    background: url(../images/banners/task_list_delete_banner.png) no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.task_list_delete .task_list_delete_header h3{
+    color: #ffffff;
+    padding: 50px 0
+}
+/* .task_list_delete .task_list_delete_container ul{
+    list-style-type: none;
+    padding: 0;
+} */
+.task_list_delete .task_list_delete_container .task_list_delete_buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.task_list_delete .task_list_delete_container .task_list_delete_buttons a{
+    white-space: inherit;
+}
+.task_list_delete .task_list_delete_container .delete_category ul li:last-child{
+    list-style-type: none;
+    padding: 0px;
+}
+
 /* Add New Book */
 .custom_buttons {
     display: flex;
