@@ -153,10 +153,10 @@
     /* My Tasks Template CSS */
     /*  */
     .details_tasks2 .details_tasks2_header, .details_tasks2_header_new_detail, .details_tasks2_header_new_add{
-        background: url('../images/banners/my_tasks_mobile_banner.png') no-repeat;
+        /* background: url('../images/banners/my_tasks_mobile_banner.png') no-repeat; */
         background-size: cover;
-        background-position: center bottom;
-        background-size: 100% 100%;
+        background-position: 20%;
+        background-size: cover;
     }
     .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
         font-size: 1rem;
@@ -165,6 +165,10 @@
     .details_tasks2 h6{
         font-size: .9rem;
     }
+    .details_tasks2 .details_tasks2_container .details_tasks2_upload_file_container{
+        padding: 1.25rem 0.7rem;
+    }
+    
     /* End of My Tasks template */
     /* Enable 2FA Template CSS */
     .two_fa_settings_form p{
@@ -515,6 +519,19 @@
         flex-basis: 130px;
     }
     /* End of Delete Item List Template */
+
+    /* Task Detail Template CSS */
+    .chiller-theme.toggled .details_tasks2 .details_tasks2_container .description_details{
+        max-width: 100%;
+        justify-content: center;
+        margin: auto;
+    }
+    .chiller-theme.toggled .details_tasks2 .details_tasks2_container .description_details .card{
+        max-width: 100%;
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+    /* End of Task Detail Template */
 }
 
 /* Large Devices Breakpoint */
@@ -755,6 +772,11 @@
         justify-content: center;
     }
     /* End of Delete Item List Template */
+    /* Tasks Details Template CSS */
+    .details_tasks2 .details_tasks2_container .details_task2_attachment_container .details_tasks2_custom_file {
+        max-width: 350px;
+    }
+    /* End of Tasks Details Template */
 }
 
 

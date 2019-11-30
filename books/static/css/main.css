@@ -1733,6 +1733,25 @@ footer .useful-links li{
     padding: 0px;
 }
 
+/* Task Detail */
+.details_tasks2 .details_tasks2_container .task_control_btn_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.details_tasks2 .details_tasks2_container .details_task2_attachment_container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+.details_tasks2 .details_tasks2_container .details_task2_attachment_container .details_tasks2_custom_file{
+    flex-basis: 75%;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+
+
 /* Add New Book */
 .custom_buttons {
     display: flex;
