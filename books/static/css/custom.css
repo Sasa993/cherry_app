@@ -695,3 +695,9 @@ label[for=id_author] {
   color: #fff;
   margin: 0 auto;
 }
+.custom_tr_table_books td {
+  text-align: justify !important;
+  text-align-last: center !important;
+  vertical-align: middle !important;
+  word-break: break-all !important;
+}

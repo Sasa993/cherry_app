@@ -40,7 +40,7 @@
 		                        </thead>
 		                        <tbody>
 		                            {% for x in all_books %}
-			                            <tr>
+			                            <tr class="custom_tr_table_books">
 											<td class="hvr-pulse"><img src="{% static 'images/file_icon.png' %}" class="mr-2" alt="file icon" width="25px"><a href="{{ x.id }}" >{{ x.title }}</a></td>
 											<td>
 												{% for author in x.author.all %}
