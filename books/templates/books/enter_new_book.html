@@ -22,13 +22,14 @@
 		        	<form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 						{% csrf_token %}
 						{% include 'includes/bs4_form.html' with form=form %}
-						<div class="custom_buttons">
+						<div class="custom_buttons custom_buttons_create_new_book_container">
 							{# <a href="./" class="btn btn-outline-danger page-scroll btn-lg col-md-3">Back</a> #}
 							{# <button type="submit" class="btn btn-outline-secondary btn-lg col-md-3 offset-md-2" name="save_and_add_another">Save and add another</button> #}
 							{# <button type="submit" class="btn btn-outline-primary btn-lg col-md-3">Save</button> #}
-							<a href="./" class="btn btn-default">{% trans 'Back' %}</a>
-							<button type="submit" name="save_and_add_another">{% trans 'Save & Add Another' %}</button>
-							<button type="submit">{% trans 'Save' %}</button>
+							
+							<a href="./" class="btn mb-2 mr-1 ml-1 btn-sm create_new_book_back">{% trans 'Back' %}</a>
+							<button class="btn mb-2 mr-1 ml-1 btn-sm create_new_book_save" type="submit">{% trans 'Save' %}</button>
+							<button class="btn mb-2 mr-1 ml-1 btn-sm create_new_book_save_and_add" type="submit" name="save_and_add_another">{% trans 'Save & Add Another' %}</button>
 						</div>
 					</form>
 		        </div>

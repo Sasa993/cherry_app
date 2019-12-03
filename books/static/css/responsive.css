@@ -213,6 +213,27 @@
         flex-basis: 0;
     }
     /* End of Delete Item List Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: center;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        flex-basis: 90px;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        flex-basis: 90px;
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    /* End of Create New Book Template */
 }
 
 /*Small Devices Breakpoint */
@@ -371,6 +392,30 @@
         flex-basis: 0;
     }
     /* End of Delete Item List Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        flex-basis: 100px;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        flex-basis: 100px;
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front .create_book_wrapper_comparible_authname_authmail{
+        justify-content: center;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    /* End of Create New Book Template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -532,6 +577,37 @@
         margin-bottom: 10px;
     }
     /* End of Task Detail Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: center;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        flex-basis: 100px;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        flex-basis: 100px;
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container .input_author_field{
+        flex-grow: 0;
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container .create_new_book_import_cover_file{
+        flex-grow: 0;
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    /* End of Create New Book Template */
 }
 
 /* Large Devices Breakpoint */
@@ -688,6 +764,27 @@
         justify-content: center;
     }
     /* End of Delete Item List Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        flex-basis: 100px;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        flex-basis: 100px;
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    /* End of Create New Book Template */
 }
 
 /* Extra Large Devices Breakpoint */
@@ -777,6 +874,27 @@
         max-width: 350px;
     }
     /* End of Tasks Details Template */
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 50%;
+        margin: auto;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        flex-basis: 100px;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        flex-basis: 100px;
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    /* End of Create New Book Template */
 }
 
 
