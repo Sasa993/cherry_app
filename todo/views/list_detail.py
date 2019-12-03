@@ -10,6 +10,8 @@ from todo.forms import AddEditTaskForm
 from todo.models import Task, TaskList
 from todo.utils import send_notify_mail, staff_check
 
+from django.core.paginator import Paginator
+
 
 @login_required
 @user_passes_test(staff_check)
@@ -23,20 +25,32 @@ def list_detail(request, list_id=None, list_slug=None, view_completed=False) -> 
 
     # Which tasks to show on this list view?
     if list_slug == "mine":
-        tasks = Task.objects.filter(assigned_to=request.user)
+        pagination_tasks = Task.objects.filter(assigned_to=request.user)
+        paginator = Paginator(pagination_tasks, 6)
+        page = request.GET.get('page')
+        tasks = paginator.get_page(page)
 
     else:
         # Show a specific list, ensuring permissions.
         task_list = get_object_or_404(TaskList, id=list_id)
         if task_list.group not in request.user.groups.all() and not request.user.is_superuser:
             raise PermissionDenied
-        tasks = Task.objects.filter(task_list=task_list.id)
+        pagination_tasks = Task.objects.filter(task_list=task_list.id)
+        paginator = Paginator(pagination_tasks, 6)
+        page = request.GET.get('page')
+        tasks = paginator.get_page(page)
 
     # Additional filtering
     if view_completed:
-        tasks = tasks.filter(completed=True)
+        pagination_tasks = pagination_tasks.filter(completed=True)
+        paginator = Paginator(pagination_tasks, 6)
+        page = request.GET.get('page')
+        tasks = paginator.get_page(page)
     else:
-        tasks = tasks.filter(completed=False)
+        pagination_tasks = pagination_tasks.filter(completed=False)
+        paginator = Paginator(pagination_tasks, 6)
+        page = request.GET.get('page')
+        tasks = paginator.get_page(page)
 
     # ######################
     #  Add New Task Form

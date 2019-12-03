@@ -82,6 +82,47 @@
                 </tr>
               {% endfor %}
             </table>
+            <!-- pagination -->
+            <div class="pagination_container mt-4">
+              <nav class="mt-5 d-flex d-flex justify-content-center">
+                <ul class="pagination">
+                  {% if tasks.has_previous %}
+                    <li class="page-item prev_arrow">
+                      <a class="prev arrow" href="?page={{ tasks.previous_page_number }}" tabindex="-1"></a>
+                    </li>
+                  {% else %}
+                    <li class="page-item prev_arrow custom_disabled">
+                      <a class="prev arrow" href="#!" tabindex="-1"></a>
+                    </li>
+                  {% endif %}
+
+                  {% for i in tasks.paginator.page_range %}
+                    {% if tasks.number == i %}
+                      {# <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> #}
+                      <li class="page-item custom_active">
+                        <a class="page-link" href="#!">{{ i }}</a>
+                      </li>
+                    {% else %}
+                      {# <li><a href="?page={{ i }}">{{ i }}</a></li> #}
+                      <li class="page-item">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if tasks.has_next %}
+                    <li class="page-item next_arrow">
+                      <a class="next arrow" href="?page={{ tasks.next_page_number }}"></a>
+                    </li>
+                  {% else %}
+                    <li class="page-item next_arrow custom_disabled">
+                      <a class="next arrow" href="#!"></a>
+                    </li>
+                  {% endif %}                  
+                </ul>
+              </nav>
+            </div>
+            <!-- /pagination -->
           {% else %}
             <h4>No tasks on this list yet (add one!)</h4>
             {% include 'todo/include/toggle_delete.html' %}
