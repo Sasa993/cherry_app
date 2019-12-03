@@ -115,14 +115,22 @@
         }
       });
 
-    });
+      // When adding a task, change the text of the Add Task button
+      $("#AddTaskButton").bind("click", function() {
+        var $create = 'Create New Task<i class="fas fa-plus"></i>'
+        var $cancel = 'Cancel<i class="fas fa-minus"></i>'
+        var $this = $(this);
 
-    // When adding a task, change the text of the Add Task button
-    function handleClick()
-    {
-        console.log(this.innerHTML);
-        this.innerHTML = (this.innerHTML == 'Add Task' ? 'Cancel' : 'Add Task');
-    }
-    document.getElementById('AddTaskButton').onclick=handleClick;
+        // console.log($this.text());
+        if ($this.html() === $create) 
+        {
+          $this.html($cancel); 
+        }
+        else 
+        {
+          $this.html($create);
+        }
+      });
+    });
   </script>
 {% endblock extra_js %}
