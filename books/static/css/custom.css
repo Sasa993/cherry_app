@@ -696,13 +696,17 @@ label[for=id_author] {
   margin: 0 auto;
 }
 .custom_tr_table_books td {
-  text-align: justify !important;
+  /*text-align: justify !important;*/
+  text-align: center;
   text-align-last: center !important;
   vertical-align: middle !important;
-  word-break: break-all !important;
+  /*word-break: break-all !important;*/
+  word-break: break-word;
 }
 .custom_tr_table_books td:nth-child(1) {
   display: table-cell;
+  text-align: justify !important;
+  word-break: break-all !important;
 }
 .custom_tr_table_books_thead th {
   text-align: center;
