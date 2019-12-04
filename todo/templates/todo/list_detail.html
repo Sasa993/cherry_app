@@ -22,7 +22,7 @@
             <div class="row">
               <div class="col-12 col-sm-6 col-md-6 offset-sm-6 offset-md-6 new_task_btn col">
                 {% if user.is_staff %}
-                  <button class="all_tasks_btn btn float-right custom_tasks_button_add_new" id="AddTaskButton" type="button" data-toggle="collapse" data-target="#AddEditTask">Create New Task<i class="fas fa-plus"></i></button>
+                  <button class="all_tasks_btn btn float-right custom_tasks_button_add_new" id="AddTaskButton" type="button" data-toggle="collapse" data-target="#AddEditTask">Create New Task<span data-toggle="collapse" data-target="#AddEditTask"><i class="fas fa-plus"></i></span></button>
                 {% else %}
                   <button class="all_tasks_btn btn float-right custom_tasks_button_add_new disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Create New Task<i class="fas fa-plus"></i></button>
                 {% endif %}
@@ -158,19 +158,11 @@
 
       // When adding a task, change the text of the Add Task button
       $("#AddTaskButton").bind("click", function() {
-        var $create = 'Create New Task<i class="fas fa-plus"></i>'
-        var $cancel = 'Cancel<i class="fas fa-minus"></i>'
+        var $create = 'Create New Task<span data-toggle="collapse" data-target="#AddEditTask"><i class="fas fa-plus"></i></span>'
+        var $cancel = 'Cancel<span data-toggle="collapse" data-target="#AddEditTask"><i class="fas fa-minus"></i></span>'
         var $this = $(this);
 
-        // console.log($this.text());
-        if ($this.html() === $create) 
-        {
-          $this.html($cancel); 
-        }
-        else 
-        {
-          $this.html($create);
-        }
+        $this.html() == $create ? $this.html($cancel) : $this.html($create);
       });
     });
   </script>
