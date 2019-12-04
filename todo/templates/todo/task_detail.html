@@ -160,7 +160,7 @@
                     <tbody>
                       {% for attachment in task.attachment_set.all %}
                         <tr class="custom_todo_table_tbody">
-                          <td><a href="{{ attachment.file.url }}">{{ attachment.filename }}</a></td>
+                          <td><a href="{{ attachment.file.url }}" target="_blank">{{ attachment.filename }}</a></td>
                           <td>{{ attachment.timestamp }}</td>
                           <td>{{ attachment.added_by.get_username }}</td>
                           <td>{{ attachment.extension.lower }}</td>
@@ -242,11 +242,13 @@
 {% block extra_js %}
   {# Support file attachment uploader #}
   <script>
-    $('#attachment_file_input').on('change',function(){
-      // Get the file name and remove browser-added "fakepath."
-      // Then replace the "Choose a file" label.
-      var fileName = $(this).val().replace('C:\\fakepath\\', " ");
-      $(this).next('.custom-file-label').html(fileName);
+    $(document).ready(function() {
+      $('#attachment_file_input').on('change',function(){
+        // Get the file name and remove browser-added "fakepath."
+        // Then replace the "Choose a file" label.
+        var fileName = $(this).val().replace('C:\\fakepath\\', " ");
+        $(this).next('.custom-file-label').html(fileName);
+    });
     });
   </script>
 {% endblock extra_js %}
