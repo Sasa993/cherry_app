@@ -701,3 +701,10 @@ label[for=id_author] {
   vertical-align: middle !important;
   word-break: break-all !important;
 }
+.custom_tr_table_books td:nth-child(1) {
+  display: table-cell;
+}
+.custom_tr_table_books_thead th {
+  text-align: center;
+  vertical-align: middle !important;
+}
