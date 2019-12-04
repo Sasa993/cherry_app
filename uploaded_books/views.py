@@ -7,8 +7,8 @@ from uploaded_books.forms import (
 from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
 from books.models import Book, BookForm
-from itertools import chain
-import operator
+# from itertools import chain
+# import operator
 import zipfile
 
 

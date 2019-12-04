@@ -11,6 +11,8 @@ from .validators import (
 	validate_underscore, validate_digits_after_underscore, validate_alpha_before_underscore, validate_two_letters)
 from ckeditor.fields import RichTextField
 from ckeditor.widgets import CKEditorWidget
+from django.conf import settings
+import os
 
 
 class Author(models.Model):
@@ -49,6 +51,12 @@ class Book(models.Model):
 
 	def __str__(self):
 		return f"{self.title}"
+
+	def delete(self, *args, **kwargs):
+		if self.cover:
+			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover.name))
+		# print(f"Samo testiram-")
+		super(Book, self).delete(*args, **kwargs)
 
 
 class BookRequest(models.Model):

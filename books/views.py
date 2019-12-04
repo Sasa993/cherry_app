@@ -96,7 +96,26 @@ def edit_books(request, book_id):
 @login_required
 def delete_books(request, book_id):
 	book = Book.objects.get(pk=book_id)
+
+	if Book.objects.get(pk=book_id).ebook:
+		Book.objects.get(pk=book_id).ebook.delete()
+	if Book.objects.get(pk=book_id).book5x8:
+		Book.objects.get(pk=book_id).book5x8.delete()
+	if Book.objects.get(pk=book_id).book_A5_hardcover:
+		Book.objects.get(pk=book_id).book_A5_hardcover.delete()
+	if Book.objects.get(pk=book_id).book_115x18_fnsku:
+		Book.objects.get(pk=book_id).book_115x18_fnsku.delete()
+	if Book.objects.get(pk=book_id).book_115x18_isbn:
+		Book.objects.get(pk=book_id).book_115x18_isbn.delete()
+	if Book.objects.get(pk=book_id).book_125x19_hardcover:
+		Book.objects.get(pk=book_id).book_125x19_hardcover.delete()
+	if Book.objects.get(pk=book_id).book_125x19_fnsku:
+		Book.objects.get(pk=book_id).book_125x19_fnsku.delete()
+	if Book.objects.get(pk=book_id).book_125x19_isbn:
+		Book.objects.get(pk=book_id).book_125x19_isbn.delete()
+
 	book.delete()
+	# book2.delete()
 	time.sleep(1)
 	return redirect(reverse('dashboard:all_uploaded_books'))
 
