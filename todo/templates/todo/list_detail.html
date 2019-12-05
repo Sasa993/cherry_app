@@ -92,14 +92,26 @@
                   <td>
                     <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form">
                       {% csrf_token %}
-                      {% if view_completed %}
-                        <button class="btn btn-info btn-sm custom_tasks_button_done_notdone" type="submit" name="toggle_done">
-                          Not Done
-                        </button>
+                      {% if user.is_staff %}
+                        {% if view_completed %}
+                          <button class="btn btn-info btn-sm custom_tasks_button_done_notdone" type="submit" name="toggle_done">
+                            Not Done
+                          </button>
+                        {% else %}
+                          <button class="btn btn-success btn-sm" type="submit" name="toggle_done">
+                            Done
+                          </button>
+                        {% endif %}
                       {% else %}
-                        <button class="btn btn-success btn-sm" type="submit" name="toggle_done">
-                          Done
-                        </button>
+                        {% if view_completed %}
+                          <button class="btn btn-info btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+                            Not Done
+                          </button>
+                        {% else %}
+                          <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+                            Done
+                          </button>
+                        {% endif %}
                       {% endif %}
                     </form>
                   </td>
