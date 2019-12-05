@@ -139,9 +139,9 @@
 				</div>
 			{% elif forloop.counter == 6 %}
 				<div class="form-group col-sm-5 custom_multiple_selection">
-						{{ field.label_tag }}
+					{{ field.label_tag }}
 
-						{% if form.is_bound %}
+					{% if form.is_bound %}
 						{% if field.errors %}
 							{% render_field field class="form-control is-invalid" %}
 							{% for error in field.errors %}
@@ -201,7 +201,12 @@
 								</div>
 							{% endfor %}
 						{% else %}
-							{% render_field field class="form-control is-valid" %}
+							{# {% render_field field class="form-control is-valid" %} #}
+							<div class="import_csv_wrapper">
+								<button class="btn import_csv_btn hvr-sweep-to-right custom_add_book_cover_button" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
+				                <span class="custom_csv_text" id="custom_csv_text">Choose Cover File</span>
+				                <input type="file" name="cover" accept="image/*" class="real_csv_file" id="id_cover" required>
+				            </div>
 						{% endif %}
 					{% else %}
 						{# {% render_field field class="form-control" %} #}
