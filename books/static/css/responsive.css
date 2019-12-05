@@ -227,11 +227,26 @@
     .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
         flex-basis: 90px;
     }
-    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
         width: 40px;
     }
     .upload_books_front #id_co_author_email a{
         display: block;
+    }
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        flex-basis: 45%;
+        max-width: 80%;
+        flex-grow: 0;
+    }
+    .upload_books_front .edit_book_save_btn{
+        flex-basis: 45%;
+        max-width: 80%;
+        flex-grow: 0;
     }
     /* End of Create New Book Template */
 }
@@ -406,7 +421,8 @@
     .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
         flex-basis: 100px;
     }
-    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
         width: 40px;
     }
     .upload_books_front .create_book_wrapper_comparible_authname_authmail{
@@ -414,6 +430,22 @@
     }
     .upload_books_front #id_co_author_email a{
         display: block;
+    }
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 70%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
+    }
+    .upload_books_front .edit_book_save_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
     }
     /* End of Create New Book Template */
 }
@@ -591,13 +623,24 @@
     .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
         flex-basis: 100px;
     }
-    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .create_new_book_input_files_container .create_new_book_import_cover_file .edit_book_upload_file_container img{
         width: 40px;
     }
     .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container .input_author_field{
         flex-grow: 0;
         max-width: 100%;
         flex-basis: 100%;
+    }
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .create_new_book_comparible,
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .create_new_book_coauthor_name,
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .create_new_book_coauthor_email,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .edit_book_comparible,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .edit_book_coauthor_name,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .edit_book_coauthor_email{
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
     }
     .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container .create_new_book_import_cover_file{
         flex-grow: 0;
@@ -606,6 +649,25 @@
     }
     .upload_books_front #id_co_author_email a{
         display: block;
+    }
+    .upload_books_front #edit_book_upload_file_container{
+        max-width: 100%;
+    }
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 100%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
+    }
+    .upload_books_front .edit_book_save_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
     }
     /* End of Create New Book Template */
 }
@@ -778,11 +840,49 @@
     .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
         flex-basis: 100px;
     }
-    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
         width: 40px;
     }
     .upload_books_front #id_co_author_email a{
         display: block;
+    }
+
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div {
+        flex-basis: 50%;
+        max-width: 55%;
+        flex-grow: 0;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container{
+        max-width: 80%;
+        margin: auto;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container div{
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
+    }
+    .page-wrapper.chiller-theme.toggled .edit_book_title_subtitle_worknumber_container div{
+        flex-basis: 50%;
+        max-width: 55%;
+        flex-grow: 0;
+    }
+    
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 100%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
+    }
+    .upload_books_front .edit_book_save_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
     }
     /* End of Create New Book Template */
 }
@@ -888,11 +988,29 @@
     .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
         flex-basis: 100px;
     }
-    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img{
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
         width: 40px;
     }
     .upload_books_front #id_co_author_email a{
         display: block;
+    }
+    
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 50%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
+    }
+    .upload_books_front .edit_book_save_btn{
+        flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0;
     }
     /* End of Create New Book Template */
 }
@@ -952,6 +1070,28 @@
     }
 }
 
+@media (min-width: 1600px){
+    .upload_books_front .create_new_book_input_files_container{
+        max-width: 75%;
+        margin: auto;
+    }
+}
+@media (min-width: 767.98px) and (max-width: 788.98px){
+    .upload_books_front .create_new_book_input_files_container{
+        max-width: 80%;
+        margin: auto;
+    }
+    .upload_books_front .create_new_book_input_files_container .input_author_field,
+    .upload_books_front .create_new_book_input_files_container .create_new_book_import_cover_file{
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
+    }
+    .page-wrapper.chiller-theme.toggled .upload_books_front .create_new_book_input_files_container{
+        margin: 0;
+        max-width: 100%;
+    }
+}
 /* Align buttons for Enable 2FA template, last buttons switch to new row */
 /* @media (max-width: 369px){
     .two_fa_settings_form .custom_three_buttons:not(.bck_to_profile_add_number){

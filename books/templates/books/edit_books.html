@@ -22,9 +22,9 @@
 		        	<form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 		        		{% csrf_token %}
 		        		{% include 'includes/bs4_edit_form.html' with form=form %}
-		        		<div class="custom_buttons">
-		        			<a href="../" class="btn btn-default">{% trans 'Cancel' %}</a>
-							<button type="submit">{% trans 'Save' %}</button>
+		        		<div class="custom_buttons custom_buttons_edit_book_container">
+		        			<a href="../" class="btn btn-default edit_book_cancel_btn">{% trans 'Cancel' %}</a>
+							<button class="edit_book_save_btn" type="submit">{% trans 'Save' %}</button>
 		        		</div>
 		        	</form>
 		        </div>
