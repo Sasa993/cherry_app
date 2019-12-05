@@ -19,15 +19,39 @@
         </div>
         <div class="card-body details_tasks2_container">
           {% if list_slug != "mine" %}
-            <div class="row">
-              <div class="col-12 col-sm-6 col-md-6 offset-sm-6 offset-md-6 new_task_btn col">
+            {# <div class="row"> #}
+              <div class="row new_task_btn custom_list_detail_buttons">
                 {% if user.is_staff %}
-                  <button class="all_tasks_btn btn float-right custom_tasks_button_add_new" id="AddTaskButton" type="button" data-toggle="collapse" data-target="#AddEditTask">Create New Task<span data-toggle="collapse" data-target="#AddEditTask"><i class="fas fa-plus"></i></span></button>
+                  <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                    <button class="all_tasks_btn btn custom_tasks_button_add_new" id="AddTaskButton" type="button" data-toggle="collapse" data-target="#AddEditTask" title="Create New Task">Create New Task<span data-toggle="collapse" data-target="#AddEditTask"><i class="fas fa-plus"></i></span></button>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                    {% if view_completed %}
+                      <a href="{% url 'todo:list_detail' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Uncompleted<span><i class="fas fa-eye"></i></span></button></a>
+                    {% else %}
+                      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Completed<span><i class="fas fa-eye"></i></span></button></a>
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 col-md-12 col-sm-12 text-center">
+                    <a href="{% url 'todo:del_list' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="Delete This Tasks List">Delete This List<span><i class="fas fa-trash"></i></span></button></a>
+                  </div>
                 {% else %}
-                  <button class="all_tasks_btn btn float-right custom_tasks_button_add_new disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Create New Task<i class="fas fa-plus"></i></button>
+                  <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                    <button class="all_tasks_btn btn custom_tasks_button_add_new disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Create New Task<i class="fas fa-plus"></i></button>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                    {% if view_completed %}
+                      <a href="{% url 'todo:list_detail' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Uncompleted<span><i class="fas fa-eye"></i></span></button></a>
+                    {% else %}
+                      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Completed<span><i class="fas fa-eye"></i></span></button></a>
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 col-md-12 col-sm-12 text-center">
+                    <button class="all_tasks_btn btn custom_tasks_button_add_new disabled" type="button" data-toggle="tooltip" data-placement="right" title="You don't have permissions to do that!">Delete This List<span><i class="fas fa-trash"></i></span></button>
+                  </div>
                 {% endif %}
               </div>
-            </div>
+            {# </div> #}
 
             {# Task edit / new task form #}
             <div id="AddEditTask" class="collapse">
@@ -125,7 +149,7 @@
             <!-- /pagination -->
           {% else %}
             <h4>No tasks on this list yet (add one!)</h4>
-            {% include 'todo/include/toggle_delete.html' %}
+            {# {% include 'todo/include/toggle_delete.html' %} #}
           {% endif %}
         </div>
       </div>

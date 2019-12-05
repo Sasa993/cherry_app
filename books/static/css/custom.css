@@ -712,3 +712,10 @@ label[for=id_author] {
   text-align: center;
   vertical-align: middle !important;
 }
+.custom_list_detail_buttons {
+  justify-content: space-between;
+  display: flex;
+}
+.custom_list_detail_buttons button {
+  margin-left: 0 !important;
+}
