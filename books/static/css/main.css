@@ -1070,7 +1070,7 @@ footer .useful-links li{
 }
 .contact_us_form .contact_us_form_container .contact_us_btn_container .contact_us_btn:hover{
     background-position: 50% 0%;
-    moz-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
@@ -1749,7 +1749,11 @@ footer .useful-links li{
     flex-grow: 1;
     max-width: 100%;
 }
-
+.details_tasks2 .details_tasks2_container table{
+    width: 650px;
+    margin: auto;
+    word-break: break-word;
+}
 
 
 /* Add New Book */

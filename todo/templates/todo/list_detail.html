@@ -36,6 +36,8 @@
           {% endif %}
 
           {% if tasks %}
+          <div class="">
+          <div class="table-responsive">
             <table class="table" id="tasktable">
               <tr class="nodrop">
                 <th>Task</th>
@@ -47,7 +49,7 @@
               </tr>
 
               {% for task in tasks %}
-                <tr id="{{ task.id }}">
+                <tr class="" id="{{ task.id }}">
                   <td>
                       <a href="{% url 'todo:task_detail' task.id %}">{{ task.title|truncatewords:10 }}</a>
                   </td>
@@ -82,6 +84,8 @@
                 </tr>
               {% endfor %}
             </table>
+          </div>
+        </div>
           {% else %}
             <h6>No tasks on this list yet (add one!)</h6>
             {% include 'todo/include/toggle_delete.html' %}
