@@ -1,6 +1,7 @@
 {% load widget_tweaks %}
 {% load shorten_file_name %}
 {% load remove_folder_path %}
+{% load i18n %}
 {% load static %}
 {% for hidden_field in form.hidden_fields %}
 	{{ hidden_field }}
@@ -155,7 +156,7 @@
 					{% endif %}
 				</div>
 				<div class="form-group col-sm-3">
-					<label for="id_co_author_name">Co author emails:</label>
+					<label for="id_co_author_name">{% trans "Co author emails:" %}</label>
 					<div id="id_co_author_email">
 						{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
 					</div>
@@ -196,7 +197,16 @@
 								</div>
 							{% endfor %}
 						{% else %}
-							{% render_field field class="form-control is-valid" %}
+							{# {% render_field field class="form-control is-valid" %} #}
+							<div class="import_csv_wrapper">
+								<button class="btn import_csv_btn hvr-sweep-to-right custom_add_book_cover_button" type="button" id="custom_csv_button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
+								{% if book.cover %}
+									<span class="custom_csv_text" id="custom_csv_text">{{ book.cover|remove_folder_path|shorten_file_name }}</span>
+								{% else %}
+									<span class="custom_csv_text" id="custom_csv_text">{% trans "Choose Cover File" %}</span>
+								{% endif %}
+				                <input type="file" name="cover" accept="image/*" class="real_csv_file" id="id_cover" required>
+				            </div>
 						{% endif %}
 					{% else %}
 						<div class="import_csv_wrapper">
@@ -204,7 +214,7 @@
 							{% if book.cover %}
 			                	<span class="custom_csv_text" id="custom_csv_text">{{ book.cover|remove_folder_path|shorten_file_name }}</span>
 			                {% else %}
-			                	<span class="custom_csv_text" id="custom_csv_text">Choose Cover File</span>
+			                	<span class="custom_csv_text" id="custom_csv_text">{% trans "Choose Cover File" %}</span>
 			                {% endif %}
 			                <input type="file" name="cover" accept="image/*" class="real_csv_file" id="id_cover" required>
 						</div>
@@ -226,7 +236,7 @@
 	                            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
 	                            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
 	                          </svg>
-	                        <span>Clear The Cover</span>
+	                        <span>{% trans "Clear The Cover" %}</span>
 	                     </label>
 						<a href="/media/{{ book.cover }}" target="_blank">
 							<img src="/media/{{ book.cover }}" class="custom_uploaded_cover_image imagedropshadow" />

@@ -1,25 +1,28 @@
 {% extends "books/base.html" %}
 
-{% block title %} All Uploaded Books {% endblock %}
-
+{% load i18n %}
 {% load static %}
+
+{% block title %} 
+	{% trans "All Uploaded Books" %} 
+{% endblock %}
 
 {% block content %}
 	<div class="upload_books_front mt-4">
 	    <div class="row">
 	         <div class="col-12 col-md-8 offset-md-2">
 	            <div class="card-body upload_books_front_header">
-	                <h3 class="mb-1">BOOK UPLOAD</h3>
+	                <h3 class="mb-1">{% trans "BOOK UPLOAD" %}</h3>
 	            </div>
 
 	            <div class="card-body">
 	            	{% if request.user.is_superuser %}
-						<h6>If you want to upload a new <strong>book</strong>, please click on the button <strong>bellow</strong>:</h6>
+						<h6>{% blocktrans %}If you want to upload a new <strong>book</strong>, please click on the button <strong>bellow</strong>:{% endblocktrans %}</h6>
 		                <div class="upload_books_btn_container text-center mt-4">
 		                    <div>
 								<a href="{% url 'dashboard:enter_new_book' %}">
 									<button class="btn"><i class="fas fa-book fa-lg"></i>
-										<b>CREATE A BOOK</b>
+										<b>{% trans "CREATE A BOOK" %}</b>
 									</button>
 								</a>
 							</div>
@@ -31,10 +34,10 @@
 		                    <table id="file_list_table" class="table sortable">
 		                        <thead>
 		                            <tr class="custom_tr_table_books_thead">
-		                                <th class="pr-0">Title</th>
-		                                <th class="pr-0">Authors</th>
-		                                <th class="pr-0">Uploaded</th>
-		                                <th class="pr-0">Working No</th>
+		                                <th class="pr-0">{% trans "Title" %}</th>
+		                                <th class="pr-0">{% trans "Authors" %}</th>
+		                                <th class="pr-0">{% trans "Uploaded" %}</th>
+		                                <th class="pr-0">{% trans "Working No" %}</th>
 		                                {# <th class="pr-0">Type</th> #}
 		                            </tr>
 		                        </thead>
@@ -60,7 +63,7 @@
 		                    </table>
 		                </div>
 		            {% else %}
-		            	<h2 class="custom_h1_nobooks">There's no books in our database.</h2>
+		            	<h2 class="custom_h1_nobooks">{% trans "There's no books in our database." %}</h2>
 		            {% endif %}
 	            </div>
 	        </div>

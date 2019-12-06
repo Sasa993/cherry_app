@@ -87,24 +87,24 @@
                         <li class="sidebar-dropdown">
                             <a href="#!">
                                 <i class="fa fa-user"></i>
-                                <span>Welcome {{ request.user.username|title }}</span>
+                                <span>{% blocktrans %}Welcome {{ request.user.username|title }}{% endblocktrans %}</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="{% url 'admin:index' %}">My profile</a>
+                                        <a href="{% url 'admin:index' %}">{% trans "My profile" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
+                                        <a href="{% url 'two_factor:profile' %}">{% trans "Two-Factor Settings" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_email' %}">Change E-Mail</a>
+                                        <a href="{% url 'account_email' %}">{% trans "Change E-Mail" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_change_password' %}">Change Password</a>
+                                        <a href="{% url 'account_change_password' %}">{% trans "Change Password" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_logout' %}">Logout</a>
+                                        <a href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -112,13 +112,13 @@
                         <li>
                             <a href="{% url 'todo:import_csv' %}">
                                 <i class="fa fa-folder"></i>
-                                <span>Import CSV</span>
+                                <span>{% trans "Import CSV" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'sendemail:email' %}">
                                 <i class="fas fa-envelope-open"></i>
-                                <span>Contact Us</span>
+                                <span>{% trans "Contact Us" %}</span>
                             </a>
                         </li>
                     </ul>
@@ -132,10 +132,10 @@
                             </div>
                         </div>
                         <div>
-                            {% if user.is_superuser %}
-                            <div class="custom_task_count">There are <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} in total. <span>{{ all_tasks_completed }}</span> of them have been completed.</div>
+                        {% if user.is_superuser %}
+                            <div class="custom_task_count">{% blocktrans %}There are <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} in total. <span>{{ all_tasks_completed }}</span> of them have been completed.{% endblocktrans %}</div>
                         {% else %}
-                            <div class="custom_task_count">You have <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} that have been assigned to you. You have completed <span>{{ all_tasks_completed }}</span> of them.</div>
+                            <div class="custom_task_count">{% blocktrans %}You have <span>{{ all_tasks }}</span> task{{ all_tasks|pluralize }} that have been assigned to you. You have completed <span>{{ all_tasks_completed }}</span> of them.{% endblocktrans %}</div>
                         {% endif %}
                         </div>
                     </div>
@@ -157,13 +157,13 @@
                         <div class="row text-center justify-content-center">
                             <div class="col-xs-12 col-md-6 mt-1">
                                 <ul class="useful-links">
-                                    <li><a href="#!">Privacy</a></li>
-                                    <li><a href="#!">Terms and Conditions</a></li>
-                                    <li><a href="#!l">Sitemap</a></li>
+                                    <li><a href="#!">{% trans "Privacy" %}</a></li>
+                                    <li><a href="#!">{% trans "Terms and Conditions" %}</a></li>
+                                    <li><a href="#!l">{% trans "Sitemap" %}</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 mt-1">
-                                <p>© <script>document.write(new Date().getFullYear());</script> Cherry Media. All Rights Reserved</p>
+                                <p>© <script>document.write(new Date().getFullYear());</script> {% trans "Cherry Media. All Rights Reserved" %}</p>
                             </div>
                         </div>
                     </div>
