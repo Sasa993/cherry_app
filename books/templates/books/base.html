@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,7 @@
                         <div class="input-group">
                             <div class="input-group-append">
                             </div>
-                            <input type="text" class="form-control search-menu" placeholder="Search Tasks" aria-label="Search" name="q" value="" id="q">
+                            <input type="text" class="form-control search-menu" placeholder='{% trans "Search Tasks" %}' aria-label="Search" name="q" value="" id="q">
                             <span class="input-group-text">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </span>
@@ -62,25 +63,25 @@
                         <li>
                             <a href="/">
                                 <i class="fas fa-home"></i>
-                                <span>Home</span>
+                                <span>{% trans "Home" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'dashboard:all_uploaded_books' %}">
                                 <i class="fas fa-book"></i>
-                                <span>Books</span>
+                                <span>{% trans "Books" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'todo:mine' %}">
                                 <i class="fas fa-thumbtack"></i>
-                                <span>My Tasks</span>
+                                <span>{% trans "My Tasks" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'todo:lists' %}">
                                 <i class="fas fa-tasks"></i>
-                                <span>All Tasks</span>
+                                <span>{% trans "All Tasks" %}</span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">

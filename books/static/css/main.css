@@ -732,6 +732,11 @@ footer .useful-links li{
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
 }
+.sign_up_header {
+    background: url('../images/banners/sign_up_banner.png') no-repeat !important;
+    background-size: cover !important;
+    background-position: center bottom !important;
+}
 .change_pass_form .change_pass_header h3{
     color: #ffffff;
     padding: 50px 0;
