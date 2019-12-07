@@ -1835,3 +1835,11 @@ a:hover img.imagedropshadow {
     flex-grow: 0 !important;
     margin: 7px !important;
 }
+.django-ckeditor-widget #cke_id_description, .django-ckeditor-widget #cke_id_co_author_instructions,
+.custom_multiple_selection.create_new_book_coauthor_name > span {
+    width: 100% !important;
+}
+div#id_co_author_email {
+    text-align: left;
+    word-break: break-word;
+}
