@@ -160,7 +160,10 @@
     }
     .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
         font-size: 1rem;
-        padding: 15px 0;
+        padding: 15px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.6rem;
     }
     .details_tasks2 h6{
         font-size: .9rem;
@@ -366,7 +369,10 @@
     /* My Tasks Template CSS */
     .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
         font-size: 1.4rem;
-        padding: 15px 0;
+        padding: 15px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.65rem;
     }
     /* End of My Tasks template */
     
@@ -553,8 +559,11 @@
     /* End of Upload CSV results template */
     /* My Tasks Template CSS */
     .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
-        font-size: 1,4rem;
-        padding: 15px 0;
+        font-size: 1.4rem;
+        padding: 15px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.75rem;
     }
     .details_tasks2 h6{
         text-align: center;
@@ -772,7 +781,10 @@
     /* My Tasks Template CSS */
     .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
         font-size: 1.5rem;
-        padding: 25px 0;
+        padding: 25px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.85rem;
     }
     .details_tasks2 h6{
         text-align: center;
