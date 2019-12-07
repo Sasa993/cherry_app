@@ -960,7 +960,8 @@
         background-position: 75%;
     }
     .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
-    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons button{
         flex-grow: 0;
         margin: 7px;
     }

@@ -1831,3 +1831,7 @@ a:hover img.imagedropshadow {
     color: #8a8a8a;
     font-weight: 500;
 }
+.task_list_delete .task_list_delete_container .task_list_delete_buttons button{
+    flex-grow: 0 !important;
+    margin: 7px !important;
+}
