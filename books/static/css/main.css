@@ -1750,7 +1750,7 @@ footer .useful-links li{
     max-width: 100%;
 }
 .details_tasks2 .details_tasks2_container table{
-    width: 650px;
+    /*width: 650px;*/
     margin: auto;
     word-break: break-word;
 }

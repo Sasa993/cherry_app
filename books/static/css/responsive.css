@@ -1111,29 +1111,6 @@
     }
 } */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Hiding navbar for desktop devices
 @media (max-width: 767.98px){
     .sidebar-menu.desktop_menu{
@@ -1158,3 +1135,8 @@
         max-width: 37%;
     }
 } */
+@media screen and (max-width: 1200px ) {
+    .details_tasks2 .details_tasks2_container table {
+        width: 650px;
+    }
+}
