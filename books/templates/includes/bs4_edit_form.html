@@ -19,7 +19,7 @@
 			{% if forloop.counter == 1 %}
 			<div class="card-body edit_book_wrapper_title_subtitle_workno">
 				<div class="row edit_book_title_subtitle_worknumber_container">
-					<div class="form-group col-xs-12 col-sm-4 col-md-6 col-lg-4 col-xl-4 custom_input_red_focus">
+					<div class="form-group col-xs-12 col-sm-4 col-md-6 col-lg-5 col-xl-5 custom_input_red_focus">
 						{{ field.label_tag }}
 
 						{% if form.is_bound %}
@@ -65,7 +65,7 @@
 						{% endif %}
 					</div>
 				{% elif forloop.counter == 3 %}
-					<div class="form-group col-xs-12 col-sm-4 col-md-6 col-lg-4 col-xl-4 custom_input_red_focus">
+					<div class="form-group col-xs-12 col-sm-4 col-md-7 col-lg-3 col-xl-3 custom_input_red_focus">
 						{{ field.label_tag }}
 
 						{% if form.is_bound %}
@@ -113,12 +113,10 @@
 						<small class="form-text text-muted">{{ field.help_text }}</small>
 					{% endif %}
 				</div>
-
-
 			{% elif forloop.counter == 5 %}
 			<div class="card-body edit_book_wrapper_comparible_authname_authmail">
 				<div class="row d-flex">
-					<div class="edit_book_comparible form-group col-sm-6 col-md-6 col-xl-4 custom_input_red_focus">
+					<div class="edit_book_comparible form-group col-sm-6 col-md-6 col-lg-4 col-xl-4 custom_input_red_focus">
 						{{ field.label_tag }}
 
 						{% if form.is_bound %}
@@ -141,7 +139,7 @@
 						{% endif %}
 					</div>
 				{% elif forloop.counter == 6 %}
-					<div class="edit_book_coauthor_name form-group col-sm-6 col-md-6 col-xl-4 custom_multiple_selection">
+					<div class="edit_book_coauthor_name form-group col-sm-6 col-md-6 col-lg-5 col-xl-5 custom_multiple_selection edit_new_book_coauthor_name">
 							{{ field.label_tag }}
 
 							{% if form.is_bound %}
@@ -163,7 +161,7 @@
 							<small class="form-text text-muted">{{ field.help_text }}</small>
 						{% endif %}
 					</div>
-					<div class="edit_book_coauthor_email form-group col-sm-5 col-md-6 col-xl-4">
+					<div class="edit_book_coauthor_email form-group col-sm-5 col-md-6 col-lg-3 col-xl-3">
 						<label for="id_co_author_name">Co author emails:</label>
 						<div id="id_co_author_email">
 							{% include 'includes/displaying_emails_using_ajax.html' with mails=book.co_author_name.all %}
@@ -175,7 +173,7 @@
 			{% elif forloop.counter == 8 %}
 			<div class="card-body">	 
 				<div class="row create_new_book_input_files_container">
-					<div class="form-group col-sm-6 col-xl-5 offset-xl-1 custom_multiple_selection input_author_field">
+					<div class="form-group col-sm-6 col-xl-7 custom_multiple_selection input_author_field">
 						{{ field.label_tag }}
 
 						{% if form.is_bound %}

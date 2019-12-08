@@ -867,20 +867,24 @@
     }
 
     .page-wrapper.chiller-theme.toggled .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div,
-    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div {
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div {
         flex-basis: 50%;
         max-width: 55%;
         flex-grow: 0;
     }
-    .page-wrapper.chiller-theme.toggled .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div:nth-child(3) {
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div:nth-child(3),
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_title_subtitle_workno .edit_book_title_subtitle_worknumber_container div:nth-child(3) {
         margin: 0 auto;
     }
-    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3), 
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
         flex-basis: 100%;
         max-width: 100%;
         text-align: center;
     }
-    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div {
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div {
         flex-basis: 100%;
         max-width: 100%;
         text-align: center !important;
@@ -1178,21 +1182,32 @@
     }
 }
 @media (min-width: 767.98px) and (max-width: 992px) {
-    .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div:nth-child(3) {
+    .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div:nth-child(3),
+    .edit_book_wrapper_title_subtitle_workno .edit_book_title_subtitle_worknumber_container div:nth-child(3) {
         margin: 0 auto;
     }
-    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3),
+    .page-wrapper.chiller-theme .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
         text-align: center;
         margin: 0 auto;
     }
-    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3),
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
         text-align: inherit;
         margin-bottom : 1rem;
     }
-    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div {
+    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div,
+    .page-wrapper.chiller-theme .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div,
+     {
         text-align: center;
     }
-    .page-wrapper.chiller-theme .create_new_book_input_files_container .custom_multiple_selection.input_author_field > span {
+    .page-wrapper.chiller-theme .create_new_book_input_files_container .custom_multiple_selection.input_author_field > span{
         width: 100% !important;
+    }
+    .page-wrapper.chiller-theme.toggled div#id_co_author_email {
+        text-align: left;
+    }
+    .page-wrapper.chiller-theme div#id_co_author_email {
+        text-align: center;
     }
 }
