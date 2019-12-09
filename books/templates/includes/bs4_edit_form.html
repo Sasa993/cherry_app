@@ -209,7 +209,15 @@
 									</div>
 								{% endfor %}
 							{% else %}
-								{% render_field field class="form-control is-valid" %}
+								<div id="edit_book_upload_file_container" class="import_csv_wrapper edit_book_upload_file_container">
+									<button class="btn import_csv_btn hvr-sweep-to-right custom_add_book_cover_button" type="button" id="custom_csv_button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
+									{% if book.cover %}
+										<span class="custom_csv_text" id="custom_csv_text">{{ book.cover|remove_folder_path|shorten_file_name }}</span>
+									{% else %}
+										<span class="custom_csv_text" id="custom_csv_text">{% trans "Choose Cover File" %}</span>
+									{% endif %}
+									<input type="file" name="cover" accept="image/*" class="real_csv_file" id="id_cover" required>
+								</div>
 							{% endif %}
 						{% else %}
 							<div id="edit_book_upload_file_container" class="import_csv_wrapper edit_book_upload_file_container">
