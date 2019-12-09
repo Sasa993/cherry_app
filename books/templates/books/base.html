@@ -64,48 +64,48 @@
                         <li>
                             <a href="/">
                                 <i class="fas fa-home"></i>
-                                <span>Home</span>
+                                <span>{% trans "Home" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'dashboard:all_uploaded_books' %}">
                                 <i class="fas fa-book"></i>
-                                <span>Books</span>
+                                <span>{% trans "Books" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'todo:mine' %}">
                                 <i class="fas fa-thumbtack"></i>
-                                <span>My Tasks</span>
+                                <span>{% trans "My Tasks" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'todo:lists' %}">
                                 <i class="fas fa-tasks"></i>
-                                <span>All Tasks</span>
+                                <span>{% trans "All Tasks" %}</span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="#!">
                                 <i class="fa fa-user"></i>
-                                <span>Welcome {{ request.user.username|title }}</span>
+                                <span>{% blocktrans with wel_user=request.user.username|title %}Welcome {{ wel_user }} {% endblocktrans %}</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="{% url 'admin:index' %}">My profile</a>
+                                        <a href="{% url 'admin:index' %}">{% trans "My profile" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
+                                        <a href="{% url 'two_factor:profile' %}">{% trans "Two-Factor Settings" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_email' %}">Change E-Mail</a>
+                                        <a href="{% url 'account_email' %}">{% trans "Change E-Mail" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_change_password' %}">Change Password</a>
+                                        <a href="{% url 'account_change_password' %}">{% trans "Change Password" %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_logout' %}">Logout</a>
+                                        <a href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -113,13 +113,13 @@
                         <li>
                             <a href="{% url 'todo:import_csv' %}">
                                 <i class="fa fa-folder"></i>
-                                <span>Import CSV</span>
+                                <span>{% trans "Import CSV" %}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'sendemail:email' %}">
                                 <i class="fas fa-envelope-open"></i>
-                                <span>Contact Us</span>
+                                <span>{% trans "Contact Us" %}</span>
                             </a>
                         </li>
                     </ul>

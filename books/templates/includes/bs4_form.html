@@ -169,7 +169,7 @@
 								{% endif %}
 							</div>
 							<div class="form-group col-sm-5 col-md-6 col-lg-3 col-xl-3 create_new_book_coauthor_email">
-								<label for="id_co_author_name">Co author emails:</label>
+								<label for="id_co_author_name">{% trans "Co author emails:" %}</label>
 								<div id="id_co_author_email">
 								</div>
 							</div>
@@ -223,11 +223,11 @@
 								{# {% render_field field class="form-control" %} #}
 								<div class="create_new_book_import_csv_wrapper create_new_book_upload_file_container">
 									<button class="btn import_csv_btn hvr-sweep-to-right custom_add_book_cover_button" type="button" id="custom_csv_button"><img src="{% static 'images/folder_file.png' %}" alt="" class="hvr-bounce-in"></button>
-									<span class="custom_csv_text" id="custom_csv_text">Choose Cover File</span>
+									<span class="custom_csv_text" id="custom_csv_text">{% trans "Choose Cover File" %}</span>
 									<input type="file" name="cover" accept="image/*" class="real_csv_file" id="id_cover" required>
 								</div>
 							{% endif %}
-							
+
 							{% if field.help_text %}
 								<small class="form-text text-muted">{{ field.help_text }}</small>
 							{% endif %}
