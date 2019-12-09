@@ -22,7 +22,7 @@
     .custom_add_email_address{
         padding: 0;
     }
-    .btn-radio svg {
+    .change_email_form .btn-radio svg {
         display: block;
         margin: auto;
     }
@@ -67,6 +67,10 @@
     .backup_phone_form .backup_phone_header h3{
         padding: 15px 0;
         font-size: 1rem;
+    }
+    .backup_phone_form .backup_phone_container h6{
+        font-size: 0.9rem;
+        text-align: justify;
     }
     /* End of Backup pohone template */
 
@@ -113,7 +117,7 @@
     /* End of all tasks template*/
 
     /* Import CSV template CSS*/
-    .import_csv .import_csv_header h3{
+    .import_csv .import_csv_header h3, .upload_books_front .upload_books_front_header h3{
         padding: 15px 0;
         font-size: 1rem;
     }
@@ -122,6 +126,138 @@
     }
     /* End of import CSV template */
 
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    .search_results .search_results_container ul li{
+        padding: 5px 10px;
+    }
+    .search_results .search_results_container h6{
+        font-size: .9rem;
+    }
+    /* End of Search Results template */
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: justify;
+    }
+    /* End of Upload CSV results template */
+
+    /* No Book Error Template CSS*/
+    .content_not_found_page h6{
+        font-size: .9rem;
+    }
+    /* End of No Book Error template*/
+
+    /* My Tasks Template CSS */
+    /*  */
+    .details_tasks2 .details_tasks2_header, .details_tasks2_header_new_detail, .details_tasks2_header_new_add{
+        /* background: url('../images/banners/my_tasks_mobile_banner.png') no-repeat; */
+        background-size: cover;
+        background-position: 20%;
+        background-size: cover;
+    }
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1rem;
+        padding: 15px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.6rem;
+    }
+    .details_tasks2 h6{
+        font-size: .9rem;
+    }
+    .details_tasks2 .details_tasks2_container .details_tasks2_upload_file_container{
+        padding: 1.25rem 0.7rem;
+    }
+    
+    /* End of My Tasks template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: justify;
+    }
+    .two_fa_settings_form .custom_three_buttons{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 322px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    
+    }
+    .two_fa_settings_form .custom_enable_2fa_login{
+        text-align: center;
+        margin: 5px;
+        max-width: 80px;
+        flex-basis: 100px;
+        flex-grow: 0;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number .custom_enable_2fa_login{
+        max-width: 175px;
+        flex-basis: 175px;
+    }
+    /* End of Enable 2FA Template */
+
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    .task_list_delete .task_list_delete_container h6{
+        font-size: 0.9rem;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 0;
+    }
+    /* End of Delete Item List Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        /* flex-basis: 90px; */
+        order: 1;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        /* flex-basis: 90px; */
+        order: 2;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save_and_add{
+        order: 3;
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        /* flex-basis: 45%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    .upload_books_front .edit_book_save_btn{
+        /* flex-basis: 45%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    /* End of Create New Book Template */
 }
 
 /*Small Devices Breakpoint */
@@ -210,7 +346,7 @@
     /* End of all tasks template*/
 
     /* Import CSV template CSS*/
-    .import_csv .import_csv_header h3{
+    .import_csv .import_csv_header h3, .upload_books_front .upload_books_front_header h3{
         padding: 15px 0;
         font-size: 1.4rem;
     }
@@ -218,6 +354,112 @@
         float: right;
     }
     /* End of import CSV template */
+
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of Search Results template */
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: justify;
+    }
+    /* End of Upload CSV results template */
+    /* My Tasks Template CSS */
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1.4rem;
+        padding: 15px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.65rem;
+    }
+    /* End of My Tasks template */
+    
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: justify;
+    }
+
+    .two_fa_settings_form .custom_three_buttons{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 322px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    
+    }
+    .two_fa_settings_form .custom_enable_2fa_login{
+        text-align: center;
+        margin: 5px;
+        max-width: 80px;
+        flex-basis: 100px;
+        flex-grow: 0;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number{
+        max-width: 641px;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number .custom_enable_2fa_login{
+        max-width: 175px;
+        flex-basis: 175px;
+    }
+    /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 0;
+    }
+    /* End of Delete Item List Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front .create_book_wrapper_comparible_authname_authmail{
+        justify-content: center;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 70%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    .upload_books_front .edit_book_save_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    /* End of Create New Book Template */
 }
 
 /* Tablet Devices Breakpoint */
@@ -260,6 +502,9 @@
         padding: 15px 0;
         font-size: 1.4rem;
     }
+    .backup_phone_form .backup_phone_container h6{
+        text-align: center;
+    }
     /* End of Backup pohone template */
 
     /* Token list template CSS */
@@ -295,7 +540,7 @@
     /* End of all tasks template*/
 
     /* Import CSV template CSS*/
-    .import_csv .import_csv_header h3{
+    .import_csv .import_csv_header h3, .upload_books_front .upload_books_front_header h3{
         padding: 15px 0;
         font-size: 1.4rem;
     }
@@ -312,6 +557,146 @@
         font-size: 1.5rem !important;
     }
     /* End of Error 404 template */
+
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    /* End of Search Results template */
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: center;
+    }
+    /* End of Upload CSV results template */
+    /* My Tasks Template CSS */
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1.4rem;
+        padding: 15px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.75rem;
+    }
+    .details_tasks2 h6{
+        text-align: center;
+    }
+    /* End of My Tasks template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: center;
+    }
+    .two_fa_settings_form .custom_three_buttons{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 322px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    
+    }
+    .two_fa_settings_form .custom_enable_2fa_login{
+        text-align: center;
+        margin: 5px;
+        max-width: 80px;
+        flex-basis: 100px;
+        flex-grow: 0;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number{
+        max-width: 641px;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number .custom_enable_2fa_login{
+        max-width: 175px;
+        flex-basis: 175px;
+    }
+    /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 15px 0;
+        font-size: 1.4rem;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 130px;
+    }
+    /* End of Delete Item List Template */
+
+    /* Task Detail Template CSS */
+    .chiller-theme.toggled .details_tasks2 .details_tasks2_container .description_details{
+        max-width: 100%;
+        justify-content: center;
+        margin: auto;
+    }
+    .chiller-theme.toggled .details_tasks2 .details_tasks2_container .description_details .card{
+        max-width: 100%;
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+    /* End of Task Detail Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: center;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .create_new_book_input_files_container .create_new_book_import_cover_file .edit_book_upload_file_container img{
+        width: 40px;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container .input_author_field{
+        flex-grow: 0;
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .create_new_book_comparible,
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .create_new_book_coauthor_name,
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .create_new_book_coauthor_email,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .edit_book_comparible,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .edit_book_coauthor_name,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .edit_book_coauthor_email{
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container .create_new_book_import_cover_file{
+        flex-grow: 0;
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    .upload_books_front #edit_book_upload_file_container{
+        max-width: 100%;
+    }
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 100%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    .upload_books_front .edit_book_save_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    /* End of Create New Book Template */
 }
 
 /* Large Devices Breakpoint */
@@ -350,6 +735,9 @@
         padding: 25px 0;
         font-size: 1.5rem;
     }
+    .backup_phone_form .backup_phone_container h6{
+        text-align: center;
+    }
     /* End of Backup pohone template */
 
     /* Token list template CSS */
@@ -381,7 +769,7 @@
     }
     /* End of all tasks template*/
     /* Import CSV template CSS*/
-    .import_csv .import_csv_header h3{
+    .import_csv .import_csv_header h3, .upload_books_front .upload_books_front_header h3{
         padding: 25px 0;
         font-size: 1.5rem;
     }
@@ -389,12 +777,171 @@
         float: right;
     }
     /* End of import CSV template */
+    
+    /* Search results template CSS */
+    .search_results .search_results_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    /* End of Search Results template */
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: center;
+    }
+    /* End of Upload CSV results template */
+    
+    /* My Tasks Template CSS */
+    .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
+        font-size: 1.5rem;
+        padding: 25px 0 !important;
+    }
+    p.custom_task_subtitle {
+        font-size: 0.85rem;
+    }
+    .details_tasks2 h6{
+        text-align: center;
+    }
+    /* End of My Tasks template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: center;
+    }
+
+    .two_fa_settings_form .custom_three_buttons{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 640px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    
+    }
+    .two_fa_settings_form .custom_enable_2fa_login{
+        text-align: center;
+        margin: 5px;
+        max-width: 120px;
+        flex-basis: 120px;
+        flex-grow: 0;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number{
+        max-width: 641px;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number .custom_enable_2fa_login{
+        max-width: 175px;
+        flex-basis: 175px;
+    }
+
+    .two_fa_settings_form .card-body h4, .two_fa_settings_form .card-body h6, .two_fa_settings_form .card-body p{
+        text-align: center;
+    }
+    /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header h3{
+        padding: 25px 0;
+        font-size: 1.5rem;
+    }
+    .task_list_delete .task_list_delete_container .info{
+        text-align: center;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 130px;
+    }
+    .task_list_delete .task_list_delete_container .delete_category{
+        display: flex;
+        justify-content: center;
+    }
+    /* End of Delete Item List Template */
+
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div,
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div {
+        flex-basis: 50%;
+        max-width: 55%;
+        flex-grow: 0;
+    }
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div:nth-child(3),
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_title_subtitle_workno .edit_book_title_subtitle_worknumber_container div:nth-child(3) {
+        margin: 0 auto;
+    }
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3), 
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+        flex-basis: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div,
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div {
+        flex-basis: 100%;
+        max-width: 100%;
+        text-align: center !important;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container{
+        max-width: 80%;
+        margin: auto;
+    }
+    .page-wrapper.chiller-theme.toggled .create_new_book_input_files_container div{
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
+    }
+    .page-wrapper.chiller-theme.toggled .edit_book_title_subtitle_worknumber_container div{
+        flex-basis: 50%;
+        max-width: 55%;
+        flex-grow: 0;
+    }
+    
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 100%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    .upload_books_front .edit_book_save_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    /* End of Create New Book Template */
 }
 
 /* Extra Large Devices Breakpoint */
 @media (min-width: 1200px){
     body{
         font-size: 100%;
+    }
+    .backup_phone_form .backup_phone_container h6{
+        text-align: center;
     }
     .import_csv .uploading_csv_btn{
         text-align: right;
@@ -405,17 +952,130 @@
     .contact_us_form h6{
         text-align: center;
     }
+    .search_results .search_results_header{
+        background-position: center;
+    }
+    /* Upload CSV results CSS template */
+    .csv_upload_result .csv_upload_result_container h6{
+        text-align: center;
+    }
+    /* End of Upload CSV results template */
+    /* My Tasks Template CSS */
+    .details_tasks2 h6{
+        text-align: center;
+    }
+    /* End of My Tasks Template */
+    /* Enable 2FA Template CSS */
+    .two_fa_settings_form p{
+        text-align: center;
+    }
+    .two_fa_settings_form .custom_three_buttons{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 640px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    
+    }
+    .two_fa_settings_form .custom_enable_2fa_login{
+        text-align: center;
+        margin: 5px;
+        max-width: 120px;
+        flex-basis: 120px;
+        flex-grow: 0;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number{
+        max-width: 641px;
+    }
+    .two_fa_settings_form .custom_three_buttons.bck_to_profile_add_number .custom_enable_2fa_login{
+        max-width: 175px;
+        flex-basis: 175px;
+    }
+    
+    .two_fa_settings_form .card-body h4, .two_fa_settings_form .card-body h6, .two_fa_settings_form .card-body p{
+        text-align: center;
+    }
+    /* End of Enable 2FA Template */
+    /* Delete Item List Template CSS */
+    .task_list_delete .task_list_delete_header{
+        background-position: 75%;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons a,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input,
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons button{
+        flex-grow: 0;
+        margin: 7px;
+    }
+    .task_list_delete .task_list_delete_container .task_list_delete_buttons input{
+        flex-basis: 130px;
+    }
+    .task_list_delete .task_list_delete_container .info{
+        text-align: center;
+    }
+    .task_list_delete .task_list_delete_container .delete_category{
+        display: flex;
+        justify-content: center;
+    }
+    /* End of Delete Item List Template */
+    /* Tasks Details Template CSS */
+    .details_tasks2 .details_tasks2_container .details_task2_attachment_container .details_tasks2_custom_file {
+        max-width: 350px;
+    }
+    /* End of Tasks Details Template */
+    /* Create New Book Template CSS */
+    .upload_books_front .custom_buttons_create_new_book_container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 80%;
+        margin: auto;
+        justify-content: space-evenly;
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
+        /* flex-basis: 100px; */
+    }
+    .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
+    .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
+        width: 40px;
+    }
+    .upload_books_front #id_co_author_email a{
+        display: block;
+    }
+    
+    .upload_books_front .custom_buttons_edit_book_container{
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 50%;
+        margin: auto;
+    }
+    .upload_books_front .edit_book_cancel_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    .upload_books_front .edit_book_save_btn{
+        /* flex-basis: 35%;
+        max-width: 80%;
+        flex-grow: 0; */
+    }
+    /* End of Create New Book Template */
 }
 
+
+
+
 /* Showing text depending of width size*/
-@media (min-width: 1367px){
+/* @media (min-width: 1367px){
     .import_csv .import_csv_container .import_csv_wrapper .short_txt{
         display: none;
     }
     .import_csv .import_csv_container .import_csv_wrapper .long_txt{
         display: inline-block;
     }
-}
+} */
 
 @media (min-width: 959px) and (max-width: 1023.98px){
     .import_csv_container .import_csv_wrapper{
@@ -448,11 +1108,76 @@
     }
 }
 
-/*@media (min-width: 1px) and (max-width: 767.98px) {
-    .custom_sidebar_opened {
-        display: none !important;
+/* Search results (Responsive) - positioning Choose Source File and Upload button based on wheter the sidebar is opened or not */
+@media (min-width: 767.98px) and (max-width: 1111.98px) {
+    .page-wrapper.chiller-theme.toggled .search_results .search_list_item .list_item_wrapper > div:first-of-type {
+        max-width: 100%;
     }
-    .custom_sidebar_closed {
-        display: block !important;
+    .page-wrapper.chiller-theme.toggled .search_results .search_list_item .list_item_wrapper > div:nth-of-type(2) {
+        max-width: 100%;
+        flex: 0 0 100% !important;
     }
-}*/
+}
+
+@media (min-width: 1600px){
+    .upload_books_front .create_new_book_input_files_container{
+        max-width: 75%;
+        margin: auto;
+    }
+}
+@media (min-width: 767.98px) and (max-width: 788.98px){
+    .upload_books_front .create_new_book_input_files_container{
+        max-width: 80%;
+        margin: auto;
+    }
+    .upload_books_front .create_new_book_input_files_container .input_author_field,
+    .upload_books_front .create_new_book_input_files_container .create_new_book_import_cover_file{
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
+    }
+    .page-wrapper.chiller-theme.toggled .upload_books_front .create_new_book_input_files_container{
+        margin: 0;
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 1200px ) {
+    .details_tasks2 .details_tasks2_container table {
+        width: 650px;
+    }
+}
+@media screen and (max-width: 1304px) {
+    form#enterNewBookForm label {
+        font-size: 0.92rem;
+    }
+}
+@media (min-width: 767.98px) and (max-width: 992px) {
+    .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div:nth-child(3),
+    .edit_book_wrapper_title_subtitle_workno .edit_book_title_subtitle_worknumber_container div:nth-child(3) {
+        margin: 0 auto;
+    }
+    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3),
+    .page-wrapper.chiller-theme .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3),
+    .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+        text-align: inherit;
+        margin-bottom : 1rem;
+    }
+    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div,
+    .page-wrapper.chiller-theme .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) > div,
+     {
+        text-align: center;
+    }
+    .page-wrapper.chiller-theme .create_new_book_input_files_container .custom_multiple_selection.input_author_field > span{
+        width: 100% !important;
+    }
+    .page-wrapper.chiller-theme.toggled div#id_co_author_email {
+        text-align: left;
+    }
+    .page-wrapper.chiller-theme div#id_co_author_email {
+        text-align: center;
+    }
+}

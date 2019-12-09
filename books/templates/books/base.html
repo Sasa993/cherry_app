@@ -36,8 +36,8 @@
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
-              <div class="sidebar-header">
-                <a href="/" class="navbar-brand mt-0">
+                <div class="sidebar-header">
+                    <a href="/" class="navbar-brand mt-0">
                         <img class="img-fluid img-responsive" src="{% static 'images/Cherry_Media_Logo_Grey_Letter.png' %}" alt="">
                     </a>
                     <div id="close-sidebar">
@@ -57,54 +57,55 @@
                         </div>
                     </div>
                 </div>
-                  <!-- Side Bar Menu  -->
+
+                <!-- Side Bar Menu  -->
                 <div class="sidebar-menu">
                     <ul>
                         <li>
                             <a href="/">
                                 <i class="fas fa-home"></i>
-                                <span>{% trans "Home" %}</span>
+                                <span>Home</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'dashboard:all_uploaded_books' %}">
                                 <i class="fas fa-book"></i>
-                                <span>{% trans "Books" %}</span>
+                                <span>Books</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'todo:mine' %}">
                                 <i class="fas fa-thumbtack"></i>
-                                <span>{% trans "My Tasks" %}</span>
+                                <span>My Tasks</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'todo:lists' %}">
                                 <i class="fas fa-tasks"></i>
-                                <span>{% trans "All Tasks" %}</span>
+                                <span>All Tasks</span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="#!">
                                 <i class="fa fa-user"></i>
-                                <span>{% blocktrans %}Welcome {{ request.user.username|title }}{% endblocktrans %}</span>
+                                <span>Welcome {{ request.user.username|title }}</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="{% url 'admin:index' %}">{% trans "My profile" %}</a>
+                                        <a href="{% url 'admin:index' %}">My profile</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'two_factor:profile' %}">{% trans "Two-Factor Settings" %}</a>
+                                        <a href="{% url 'two_factor:profile' %}">Two-Factor Settings</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_email' %}">{% trans "Change E-Mail" %}</a>
+                                        <a href="{% url 'account_email' %}">Change E-Mail</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_change_password' %}">{% trans "Change Password" %}</a>
+                                        <a href="{% url 'account_change_password' %}">Change Password</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+                                        <a href="{% url 'account_logout' %}">Logout</a>
                                     </li>
                                 </ul>
                             </div>
@@ -112,13 +113,13 @@
                         <li>
                             <a href="{% url 'todo:import_csv' %}">
                                 <i class="fa fa-folder"></i>
-                                <span>{% trans "Import CSV" %}</span>
+                                <span>Import CSV</span>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'sendemail:email' %}">
                                 <i class="fas fa-envelope-open"></i>
-                                <span>{% trans "Contact Us" %}</span>
+                                <span>Contact Us</span>
                             </a>
                         </li>
                     </ul>

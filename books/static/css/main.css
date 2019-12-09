@@ -693,7 +693,7 @@ footer .useful-links li{
 .change_email_form .add_email{
     background-color: #d9d9d9;
     color: #8a8a8a;
-    padding: 8px 45px;
+    padding: 8px 40px;
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
@@ -893,7 +893,7 @@ footer .useful-links li{
 .backup_phone_form .backup_phone_container .backup_form .backup_phone_btn_container button{
     background-color: #d9d9d9;
     color: #8a8a8a;
-    padding: 8px 15px;
+    padding: 8px 25px;
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
@@ -1082,7 +1082,7 @@ footer .useful-links li{
 }
 .contact_us_form .contact_us_form_container .contact_us_btn_container .contact_us_btn:hover{
     background-position: 50% 0%;
-    moz-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
@@ -1445,12 +1445,12 @@ footer .useful-links li{
     border-radius: 8px;
 }
 /* Hide 'Choose Source File' text*/
-.import_csv .import_csv_container .import_csv_wrapper .long_txt{
+/* .import_csv .import_csv_container .import_csv_wrapper .long_txt{
     display: none;
-}
+} */
 .import_csv .import_csv_wrapper span{
     color: #8a8a8a;
-    margin-left: 10px;
+    margin-left: 5px;
     font-weight: 500;
 }
 .import_csv .import_csv_btn{
@@ -1546,12 +1546,12 @@ footer .useful-links li{
 .search_results .search_results_container .search_list_item .not_completed{
     color: #8e1c1c;
 }
-@media screen and (max-width: 450px){
+/* @media screen and (max-width: 450px){
     .search_results .search_results_header h3{
         padding: 8px 0 8px 0;
         font-size: .8rem;
     }
-}
+} */
 
 /* CSV Upload Results */
 .csv_upload_result .csv_upload_result_header{
@@ -1717,18 +1717,71 @@ footer .useful-links li{
     color: #ffffff;
     border: none;
 }
-@media screen and (max-width: 450px){
+/* @media screen and (max-width: 450px){
     .details_tasks2 .details_tasks2_header h3, .details_tasks2_header_new_detail h3, .details_tasks2_header_new_add h3{
         padding: 8px 0 8px 0;
         font-size: .8rem;
     }
-}
+} */
 .unverified {
     color: #8d0a15;
 }
 .verified {
     color: forestgreen;
 }
+
+
+/* Task List Delete */
+.task_list_delete .task_list_delete_header{
+    background: url(../images/banners/task_list_delete_banner.png) no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.task_list_delete .task_list_delete_header h3{
+    color: #ffffff;
+    padding: 50px 0
+}
+/* .task_list_delete .task_list_delete_container ul{
+    list-style-type: none;
+    padding: 0;
+} */
+.task_list_delete .task_list_delete_container .task_list_delete_buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.task_list_delete .task_list_delete_container .task_list_delete_buttons a{
+    white-space: inherit;
+}
+.task_list_delete .task_list_delete_container .delete_category ul li:last-child{
+    list-style-type: none;
+    padding: 0px;
+}
+
+/* Task Detail */
+.details_tasks2 .details_tasks2_container .task_control_btn_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.details_tasks2 .details_tasks2_container .details_task2_attachment_container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+.details_tasks2 .details_tasks2_container .details_task2_attachment_container .details_tasks2_custom_file{
+    flex-basis: 75%;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.details_tasks2 .details_tasks2_container table{
+    /*width: 650px;*/
+    margin: auto;
+    word-break: break-word;
+}
+
 
 /* Add New Book */
 .custom_buttons {
@@ -1738,7 +1791,7 @@ footer .useful-links li{
 .custom_buttons button, .custom_buttons a {
     background-color: #d9d9d9;
     color: #8a8a8a;
-    padding: 8px 15px;
+    padding: 8px 40px;
     border-radius: 5px;
     border-color: transparent;
     border-bottom: 2px solid #8a8a8a;
@@ -1798,6 +1851,7 @@ a:hover img.imagedropshadow {
         box-shadow: 1px 1px 5px #999;
 }
 
+<<<<<<< HEAD
 .disabled_side_bar_menu ul li a {
     color: #8d0a154a !important;
 }
@@ -1828,8 +1882,6 @@ a:hover img.imagedropshadow {
 .custom_back_to_login:focus {
     outline: none;
 }
-
-/* Pagination */
 .pagination_container nav ul{
     border-top: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
@@ -1880,4 +1932,24 @@ a:hover img.imagedropshadow {
 }
 .search_list_item h5 {
     overflow-wrap: break-word !important;
+}
+/* Create New book */
+.upload_books_front .create_new_book_import_csv_wrapper{
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    color: #8a8a8a;
+    font-weight: 500;
+}
+.task_list_delete .task_list_delete_container .task_list_delete_buttons button{
+    flex-grow: 0 !important;
+    margin: 7px !important;
+}
+.django-ckeditor-widget #cke_id_description, .django-ckeditor-widget #cke_id_co_author_instructions,
+.custom_multiple_selection.create_new_book_coauthor_name > span,
+.custom_multiple_selection.edit_new_book_coauthor_name > span {
+    width: 100% !important;
+}
+div#id_co_author_email {
+    text-align: left;
+    word-break: break-word;
 }

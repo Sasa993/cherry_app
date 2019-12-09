@@ -564,6 +564,8 @@ tbody tr.custom_todo_table_tbody {
 .btn-radio svg {
   fill: none;
   vertical-align: middle;
+  display: block;
+  margin: auto;
 }
 .btn-radio svg circle {
   stroke-width: 2;
@@ -629,13 +631,14 @@ tbody tr.custom_todo_table_tbody {
 }
 .custom_three_buttons {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .custom_reducing_header_height h3 {
   margin-bottom: 0 !important;
   padding: 40px 0 !important;
-}
+} 
+
 .custom_reducing_header_height p, .custom_books_reducing_header_height p {
   margin-bottom: 0 !important;
 }

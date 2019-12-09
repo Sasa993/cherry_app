@@ -1,45 +1,42 @@
 {% extends "todo/base.html" %}
-{% block title %}{{ task_list }} - Delete List{% endblock %}
+{% load i18n %}
+
+{% block title %}{{ task_list }} - Delete list{% endblock %}
 
 {% block content %}
-  <div class="all_tasks mt-4">
+  <div class="all_tasks task_list_delete mt-4">
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
-        <div class="card-body all_tasks_header delete_list_banner">
-          <h3 class="mb-1">DELETE LIST - "{{ task_list }}"</h3>
+        <div class="card-body all_tasks_header delete_list_banner task_list_delete_header">
+          <h3 class="mb-1">{% trans "DELETE ENTIRE LIST" %} - "{{ task_list }}"?</h3>
         </div>
         <div class="row">
-          <div class="card-body all_tasks_container">
+          <div class="card-body all_tasks_container task_list_delete_container">
             {% if user.is_staff %}
-              <h5>Delete entire list: {{ task_list.name }} ?</h5>
-
-              <p>Category tally:</p>
-
-              <ul>
-                <li>Incomplete: {{ task_count_undone }} </li>
-                <li>Complete: {{ task_count_done }} </li>
-                <li>
-                  <strong>Total: {{ task_count_total }}</strong>
-                </li>
-              </ul>
-
-              <p> ... all of which will be irretrievably
-                <strong>blown away</strong>. Are you sure you want to do that?</p>
-
+              <div class="delete_category">
+                <ul>
+                  <li>{% trans "Incomplete:" %} {{ task_count_undone }} </li>
+                  <li>{% trans "Complete:" %} {{ task_count_done }} </li>
+                  <li>
+                    <strong>{% trans "Total:" %} {{ task_count_total }}</strong>
+                  </li>
+                </ul>
+              </div>
+              <p class="info">{% blocktrans %} ... all of which will be irretrievably
+                <strong>blown away</strong>. Are you sure you want to do that?{% endblocktrans %}</p>
               <form action="" method="post" accept-charset="utf-8">
                 {% csrf_token %}
                 <input type="hidden" name="task_list" value="{{ task_list.id }}">
-                <p>
+                <p class="task_list_delete_buttons">
                   {# <a href="{% url 'todo:list_detail' task_list.id task_list.slug %}" class="btn btn-success">Return to list: {{ task_list.name }}</a> #}
-                  <a href="{% url 'todo:list_detail' task_list.id task_list.slug %}" class="all_tasks_btn btn">Return to list: {{ task_list.name }}
+                  <a href="{% url 'todo:list_detail' task_list.id task_list.slug %}" class="all_tasks_btn btn">{% trans "Return to list:" %} {{ task_list.name }}
                   </a>
                   {# <input type="submit" name="delete-confirm" value="Do it! &rarr;" class="btn btn-danger"> #}
-                  <button class="all_tasks_btn btn float-right" type="submit" name="delete-confirm">Do it! &rarr;</button>
+                  <button class="all_tasks_btn btn float-right" type="submit" name="delete-confirm">{% trans "Do it!" %} &rarr;</button>
                 </p>
               </form>
-
             {% else %}
-              <p>Sorry, you don't have permission to delete lists. Please contact your group administrator.</p>
+              <p>{% trans "Sorry, you don't have permission to delete lists. Please contact your group administrator." %}</p>
             {% endif %}
           </div>
         </div>
