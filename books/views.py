@@ -50,13 +50,12 @@ def enter_new_book(request):
 		form = BookForm(request.POST, request.FILES)
 		if (form.is_valid()):
 			f = form.save()
-			book_request.send(sender=Book, authors=form.cleaned_data['author'], requested_book=f.id)
+			# commented to avoid the 500 server error in production
+			# book_request.send(sender=Book, authors=form.cleaned_data['author'], requested_book=f.id)
 			time.sleep(1)
 			if ('save_and_add_another' in request.POST):
 				return redirect('dashboard:enter_new_book')
 			else:
-				# for the modal to display/fade in- the form has been save
-				# time.sleep(1)
 				return redirect('dashboard:all_uploaded_books')
 	else:
 		form = BookForm()
