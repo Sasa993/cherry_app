@@ -1960,6 +1960,13 @@ div#id_co_author_email {
 .btn.disabled, btn:disabled {
     opacity: .4;
 }
-.book_info .row > div {
+.book_info .row > div, .custom_back_button button {
     margin: 0 auto;
+}
+.custom_back_button {
+    padding: 10px 0;
+}
+.custom_back_button button i {
+    padding-left: 0;
+    padding-right: 10px;
 }

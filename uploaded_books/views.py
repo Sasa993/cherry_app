@@ -686,7 +686,7 @@ def zip_whole_125x19_hardcover(request, main_book_id, book_id):
 	if book.cover_interiour_psd:
 		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
-	response['Content-Disposition'] = f'attachment; filename=Book125x19Hardcover-[{main_book.working_number}] {main_book.title}.zip'
+	response['Content-Disposition'] = f'attachment; filename=Book125x19KDP-TB-ISBN-[{main_book.working_number}] {main_book.title}.zip'
 
 	return response
 
@@ -715,7 +715,7 @@ def zip_single_125x19_hardcover(request, book_id, ebook_type):
 	else:
 		zf.write(book.cover_interiour_psd.path, f'{book.cover_interiour_psd}')
 
-	response['Content-Disposition'] = f'attachment; filename=Book125x19Hardcover-{ebook_type} File.zip'
+	response['Content-Disposition'] = f'attachment; filename=Book125x19KDP-TB-ISBN-{ebook_type} File.zip'
 
 	return response
 
@@ -747,7 +747,7 @@ def details_125x19_fnsku(request, main_book_id, book_id):
 	try:
 		book = Book125x19Fnsku.objects.get(pk=book_id)
 		main_book = Book.objects.get(pk=main_book_id)
-		context = {'book': book}
+		context = {'book': book, 'main_book': main_book}
 		return render(request, 'uploaded_books/details/details_125x19_fnsku.html', context)
 	except Exception:
 		raise Http404("We can not find that Book 125x19 FNSKU in our database.")

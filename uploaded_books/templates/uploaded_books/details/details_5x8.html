@@ -12,7 +12,10 @@
 	<div class="single_book_detail mt-4">
         <div class="row">
             <div class="col-12 col-md-8 offset-md-2">
-                {% include "uploaded_books/include/details_banner_snippet.html" with book=book main_book=main_book %}  
+                {% include "uploaded_books/include/details_banner_snippet.html" with book=book main_book=main_book %}
+                <div class="custom_back_button">
+                    <a href="{% url 'dashboard:details_books' main_book.id %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button"><i class="fas fa-arrow-left"></i>{% trans "Go Back" %}</button></a>
+                </div>
                 <div class="card-body book_info">
                     <div class="row">
                         {% if book.cover_pdf_file %}
@@ -112,21 +115,21 @@
                         </div>
                         {% if request.user.is_superuser %}
                             <div class="col-6 col-md-4 text-center mt-5 book_container">
-                                <a href="edit/"><button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>{% trans "Edit 5x8 Book" %}</button></a>
+                                <a href="edit/"><button class="download_all_btn btn" type="button"><i class="fas fa-pencil-alt"></i>{% trans "Edit 5x8 Book" %}</button></a>
                             </div>
                             <div class="col-6 col-md-4 text-center mt-5 book_container">
                                 <!-- Button trigger modal -->
                                 <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteWhole5x8">
-                                    <i class="fas fa-download"></i>{% trans "Delete 5x8 Book" %}
+                                    <i class="fas fa-trash"></i>{% trans "Delete 5x8 Book" %}
                                 </button>
                             </div>
                         {% else %}
                             <div class="col-6 col-md-4 text-center mt-5 book_container">
-                                <button class="download_all_btn btn disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!"><i class="fas fa-download"></i>{% trans "Edit 5x8 Book" %}</button>
+                                <button class="download_all_btn btn disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!"><i class="fas fa-pencil-alt"></i>{% trans "Edit 5x8 Book" %}</button>
                             </div>
                             <div class="col-6 col-md-4 text-center mt-5 book_container">
                                 <button class="download_all_btn btn disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
-                                    <i class="fas fa-download"></i>{% trans "Delete 5x8 Book" %}
+                                    <i class="fas fa-trash"></i>{% trans "Delete 5x8 Book" %}
                                 </button>
                             </div>
                         {% endif %}

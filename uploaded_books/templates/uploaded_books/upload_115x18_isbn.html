@@ -21,6 +21,9 @@
                 <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 					{% csrf_token %}
 					<div class="custom_card_body card-body">
+						<div class="custom_back_button">
+                			<a href="{% url 'dashboard:details_books' main_book.id %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button"><i class="fas fa-arrow-left"></i>{% trans "Go Back" %}</button></a>
+                		</div>
                 		<h6 class="text-center">{% trans "Please select files in order to upload an 11,5 x 18 ISBN Book" %}</h6>
                     	<div class="e-book_btn_container">
                     		{% for field in form %}

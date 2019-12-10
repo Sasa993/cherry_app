@@ -19,6 +19,9 @@
                         <p>{% trans "Modified:" %} <small>{{ book.modified_at|date:'d/m/Y, H:i' }}</small></p>
                     {% endif %}
                 </div>
+                <div class="custom_back_button">
+                    <a href="{% url 'dashboard:all_uploaded_books' %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button"><i class="fas fa-arrow-left"></i>{% trans "Go Back" %}</button></a>
+                </div>
                 <div class="card-body book_info">
                     <div class="row">
                     	<div class="col-12 text-center mt-4 book_container">

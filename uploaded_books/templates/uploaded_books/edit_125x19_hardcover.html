@@ -15,6 +15,9 @@
 		<div class="row">
         	<div class="col-12 col-md-8 offset-md-2">
             	{% include "uploaded_books/include/edit_banner_snippet.html" with book=book main_book=main_book %}
+            	<div class="custom_back_button">
+                    <a href="{% url 'uploaded_books:details_125x19_hardcover' main_book.id book.id %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button"><i class="fas fa-arrow-left"></i>{% trans "Go Back" %}</button></a>
+                </div>
                 <div class="card-body">
                 	<h6 class="text-center">{% blocktrans %}Once you're done with changes, click on "Save Changes" button!{% endblocktrans %}</h6>
                     <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
@@ -82,7 +85,7 @@
                             </div>
                             <div class="row">
                             	<div  class="col-12 col-md-4 offset-md-2 mt-3">
-                                	<button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>{% trans "Save Changes" %}</button>
+                                	<button class="upload_e-book btn" type="submit"><i class="fas fa-save"></i>{% trans "Save Changes" %}</button>
                                 </div>
                             </div>
                         </div>
