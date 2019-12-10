@@ -1181,3 +1181,23 @@
         text-align: center;
     }
 }
+@media screen and (max-width: 667px) {
+    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3),
+    .page-wrapper.chiller-theme .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .page-wrapper.chiller-theme div#id_co_author_email {
+        text-align: center;
+    }
+}
+@media (min-width: 719.98px) and (max-width: 736px) {
+    .page-wrapper.chiller-theme .create_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3),
+    .page-wrapper.chiller-theme .edit_book_wrapper_comparible_authname_authmail .row.d-flex div:nth-child(3) {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .page-wrapper.chiller-theme div#id_co_author_email {
+        text-align: center;
+    }
+}

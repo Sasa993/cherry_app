@@ -1953,3 +1953,6 @@ div#id_co_author_email {
     text-align: left;
     word-break: break-word;
 }
+.btn.disabled, btn:disabled {
+    opacity: .4;
+}

@@ -43,24 +43,68 @@
             <div class="card">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item task_control_btn_container">
-                  <button class="m-1 btn btn-sm btn-primary" id="EditTaskButton" type="button" data-toggle="collapse" data-target="#TaskEdit">Edit Task</button>
+                  {% if user.is_staff %}
+                    <button class="m-1 btn btn-sm btn-primary" id="EditTaskButton" type="button" data-toggle="collapse" data-target="#TaskEdit">Edit Task</button>
 
-                  <form method="post" action="{% url "todo:delete_task" task.id %}" role="form" class="m-1 d-inline">
+                    <form method="post" action="{% url "todo:delete_task" task.id %}" role="form" class="m-1 d-inline">
+                        {% csrf_token %}
+                        <div style="display:inline;">
+                          <button class="btn btn-danger btn-sm" type="submit" name="submit_delete">
+                            Delete
+                          </button>
+                        </div>
+                      </form>
+                    <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form" class="m-1 d-inline">
                       {% csrf_token %}
                       <div style="display:inline;">
-                        <button class="btn btn-danger btn-sm" type="submit" name="submit_delete">
-                          Delete
+                        <button class="btn btn-info btn-sm" type="submit" name="toggle_done">
+                          {% if task.completed %} Mark Not Done {% else %} Mark Done {% endif %}
                         </button>
                       </div>
                     </form>
-                  <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form" class="m-1 d-inline">
-                    {% csrf_token %}
-                    <div style="display:inline;">
-                      <button class="btn btn-info btn-sm" type="submit" name="toggle_done">
-                        {% if task.completed %} Mark Not Done {% else %} Mark Done {% endif %}
+                  {% else %}
+                    {% if task.assigned_to == request.user %}
+                      <button class="m-1 btn btn-sm btn-primary" id="EditTaskButton" type="button" data-toggle="collapse" data-target="#TaskEdit">Edit Task</button>
+
+                      <form method="post" action="{% url "todo:delete_task" task.id %}" role="form" class="m-1 d-inline">
+                          {% csrf_token %}
+                          <div style="display:inline;">
+                            <button class="btn btn-danger btn-sm" type="submit" name="submit_delete">
+                              Delete
+                            </button>
+                          </div>
+                        </form>
+                      <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form" class="m-1 d-inline">
+                        {% csrf_token %}
+                        <div style="display:inline;">
+                          <button class="btn btn-info btn-sm" type="submit" name="toggle_done">
+                            {% if task.completed %} Mark Not Done {% else %} Mark Done {% endif %}
+                          </button>
+                        </div>
+                      </form>
+                    {% else %}
+                      <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that! Task is not assigned to you!">
+                        Edit Task
                       </button>
-                    </div>
-                  </form>
+                      <form method="post" action="{% url "todo:delete_task" task.id %}" role="form" class="m-1 d-inline">
+                          {% csrf_token %}
+                          <div style="display:inline;">
+                            <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that! Task is not assigned to you!">
+                              Delete
+                            </button>
+                          </div>
+                        </form>
+                      <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form" class="m-1 d-inline">
+                        {% csrf_token %}
+                        <div style="display:inline;">
+                          <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that! Task is not assigned to you!">
+                            {% if task.completed %} Mark Not Done {% else %} Mark Done {% endif %}
+                          </button>
+                        </div>
+                      </form>
+                    {% endif %}
+                    
+                  {% endif %}
 
                 </li>
                 <li class="list-group-item">

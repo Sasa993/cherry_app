@@ -14,7 +14,7 @@
             <p class="custom_task_subtitle">Tasks assigned to me (in all groups)</p>
           {% else %}
             <h3 class="mb-1">{{ view_completed|yesno:"COMPLETED TASKS, TASKS" }} IN "{{ task_list.name }}"</h3>
-            <p class="custom_task_subtitle">In workgroup "{{ task_list.group }}" - <i>drag rows to set priorities.</i></p>
+            <p class="custom_task_subtitle">In workgroup "{{ task_list.group }}" {% if user.is_staff %}- <i>drag rows to set priorities.</i>{% endif %}</p>
           {% endif %}
         </div>
         <div class="card-body details_tasks2_container">
@@ -62,7 +62,11 @@
           {% if tasks %}
           <div class="">
             <div class="table-responsive">
-              <table class="table" id="tasktable">
+              {% if user.is_staff %}
+                <table class="table" id="tasktable">
+              {% else %}
+                <table class="table" id="">
+              {% endif %}
                 <tr class="nodrop">
                   <th>Task</th>
                   <th>Created</th>
@@ -106,13 +110,25 @@
                           {% endif %}
                         {% else %}
                           {% if view_completed %}
-                            <button class="btn btn-info btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+                            {% if task.assigned_to == request.user %}
+                              <button class="btn btn-info btn-sm custom_tasks_button_done_notdone" type="submit" name="toggle_done">
                               Not Done
                             </button>
+                            {% else %}
+                              <button class="btn btn-info btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
+                                Not Done
+                              </button>
+                            {% endif %}
                           {% else %}
-                            <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
-                              Done
-                            </button>
+                            {% if task.assigned_to == request.user %}
+                              <button class="btn btn-success btn-sm" type="submit" name="toggle_done">
+                                Done
+                              </button>
+                            {% else %}
+                              <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that! Task is not assigned to you!">
+                                Done
+                              </button>
+                            {% endif %}
                           {% endif %}
                         {% endif %}
                       </form>
