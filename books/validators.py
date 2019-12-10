@@ -29,7 +29,7 @@ def validate_digits_after_underscore(value):
 def validate_two_letters(value):
 	if "_" in value:
 		splited_value = value.split('_')
-		if len(splited_value[0]) == 2:
+		if len(splited_value[0]) == 2 or len(splited_value[0]) == 3:
 			return value
 		else:
-			raise ValidationError("It is only allowed to have two letters before the underscore!")
+			raise ValidationError("It is only allowed to have two or three letters before the underscore!")

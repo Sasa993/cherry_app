@@ -645,7 +645,7 @@ def edit_125x19_hardcover(request, main_book_id, book_id):
 		form = Book125x19HardcoverForm(request.POST, request.FILES, instance=book)
 		if form.is_valid():
 			form.save()
-			return redirect(reverse('uploaded_books:details_125x19_hardcover', args=[book_id]))
+			return redirect(reverse('uploaded_books:details_125x19_hardcover', args=[main_book_id, book_id]))
 	else:
 		form = Book125x19HardcoverForm(instance=book)
 

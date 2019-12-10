@@ -29,7 +29,7 @@ class Book5x8Form(EBookForm):
 		labels = {
 			'cover_pdf_file': _('Cover PDF File'),
 			'cover_psd_file': _('Cover PSD File'),
-			'pdf_file': _('PDF File'),
+			'pdf_file': _('PDF Book'),
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),
@@ -44,7 +44,7 @@ class BookA5HardcoverForm(EBookForm):
 		labels = {
 			'cover_pdf_file': _('Cover PDF File'),
 			'cover_psd_file': _('Cover PSD File'),
-			'pdf_file': _('PDF File'),
+			'pdf_file': _('PDF Book'),
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),
@@ -61,7 +61,7 @@ class Book115x18FnskuForm(EBookForm):
 		labels = {
 			'cover_pdf_file': _('Cover PDF File'),
 			'cover_psd_file': _('Cover PSD File'),
-			'pdf_file': _('PDF File'),
+			'pdf_file': _('PDF Book'),
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),
@@ -78,7 +78,7 @@ class Book115x18IsbnForm(EBookForm):
 		labels = {
 			'cover_pdf_file': _('Cover PDF File'),
 			'cover_psd_file': _('Cover PSD File'),
-			'pdf_file': _('PDF File'),
+			'pdf_file': _('PDF Book'),
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),
@@ -95,7 +95,7 @@ class Book125x19HardcoverForm(EBookForm):
 		labels = {
 			'cover_pdf_file': _('Cover PDF File'),
 			'cover_psd_file': _('Cover PSD File'),
-			'pdf_file': _('PDF File'),
+			'pdf_file': _('PDF Book'),
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),
@@ -112,7 +112,7 @@ class Book125x19FnskuForm(EBookForm):
 		labels = {
 			'cover_pdf_file': _('Cover PDF File'),
 			'cover_psd_file': _('Cover PSD File'),
-			'pdf_file': _('PDF File'),
+			'pdf_file': _('PDF Book'),
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),
@@ -129,7 +129,7 @@ class Book125x19IsbnForm(EBookForm):
 		labels = {
 			'cover_pdf_file': _('Cover PDF File'),
 			'cover_psd_file': _('Cover PSD File'),
-			'pdf_file': _('PDF File'),
+			'pdf_file': _('PDF Book'),
 			'indesign_file': _('InDesign File'),
 			'pdf_old_version_file': _('PDF Old Version File'),
 			'barcode_file': _('Barcode File'),

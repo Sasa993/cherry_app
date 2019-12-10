@@ -2,6 +2,7 @@
 
 {% block title %} Choose Regular Book {% endblock %}
 
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -9,17 +10,17 @@
 		<div class="row">
             <div class="col-12 col-md-8 offset-md-2">
             	<div class="card-body upload_book_header">
-                	<h3 class="mb-0">BOOK</h3>
+                	<h3 class="mb-0">{% trans "BOOK" %}</h3>
                 </div>  
                 <div class="card-body">
-                	<h6 class="text-center">Please choose format of book to upload</h6>
+                	<h6 class="text-center">{% trans "Please choose format of book to upload" %}</h6>
                     <div class="version_book_container">
                        	<div class="row d-flex justify-content-center text-center">
                            	<div class="col-6 col-md-3">
                                	<div class="format_wrapper hvr-grow-shadow">
                                    	<a href="{% url 'uploaded_books:upload_5x8' %}">
                                        	<img src="{% static 'images/blank_book.svg' %}" alt="">
-                                        <p>5 x 8</p>
+                                        <p>{% trans "5 x 8" %}</p>
 									</a>
                             	</div>
                     		</div>
@@ -27,7 +28,7 @@
 		                        <div class="format_wrapper hvr-grow-shadow">
 		                            <a href="{% url 'uploaded_books:upload_a5_hardcover' %}">
 		                            	<img src="{% static 'images/blank_book.svg' %}" alt="">
-		                                <p>A5 <br>Hardcover</p>
+		                                <p>A5 <br>{% trans "Hardcover" %}</p>
 		                            </a>
 		                        </div>
 		                    </div>
@@ -53,7 +54,7 @@
                                 <div class="format_wrapper hvr-grow-shadow">
                                     <a href="{% url 'uploaded_books:upload_125x19_hardcover' %}">
                                         <img src="{% static 'images/blank_book.svg' %}" alt="">
-                                        <p>12,5 x 19 <br>Hardcover</p>
+                                        <p>12,5 x 19 <br>{% trans "Hardcover" %}</p>
                                     </a>
                                 </div>
                             </div>

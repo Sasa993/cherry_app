@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% load shorten_file_name %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -15,14 +16,14 @@
         	<div class="col-12 col-md-8 offset-md-2">
             	{% include "uploaded_books/include/edit_banner_snippet.html" with book=book main_book=main_book %}
                 <div class="card-body">
-                	<h6 class="text-center">Once you're done with changes, click on "Save Changes" button!</h6>
+                	<h6 class="text-center">{% blocktrans %}Once you're done with changes, click on "Save Changes" button!{% endblocktrans %}</h6>
                     <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 						{% csrf_token %}
 		                <div class="e-book_btn_container">
 		                	{% for field in form %}
 								{% if field.errors %}
 									<div class="custom_alert_upload_books custom_alert custom_alert-danger">
-										{{ field.label }} is required!
+										{{ field.label }} {% trans "is required!" %}
 									</div>
 								{% endif %}
 		                	{% endfor %}
@@ -81,7 +82,7 @@
                             </div>
                             <div class="row">
                             	<div  class="col-12 col-md-4 offset-md-2 mt-3">
-                                	<button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>Save Changes</button>
+                                	<button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>{% trans "Save Changes" %}</button>
                                 </div>
                             </div>
                         </div>

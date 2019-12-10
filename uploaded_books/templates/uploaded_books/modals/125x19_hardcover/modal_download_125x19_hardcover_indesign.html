@@ -1,18 +1,19 @@
+{% load i18n %}
 <div class="modal fade" id="download125x19HardcoverIndesign" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Choose wisely! [InDesign File]</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">{% trans "Choose wisely! [InDesign File]" %}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        How do you want to download your <strong>{{ book.indesign_file }}</strong> file?
+        {% blocktrans %}How do you want to download your <strong>{{ book.indesign_file }}</strong> file?{% endblocktrans %}
       </div>
       <div class="modal-footer">
-        <a href="/media/{{ book.indesign_file }}" download="{{ book.indesign_file }}"><button type="button" class="btn btn-secondary">Download raw!</button></a>
-        <a href="{% url 'uploaded_books:zip_single_125x19_hardcover' book_id=book.id ebook_type='InDesign' %}"><button type="button" class="btn btn-secondary">Download zipped!</button></a>
+        <a href="/media/{{ book.indesign_file }}" download="{{ book.indesign_file }}"><button type="button" class="btn btn-secondary">{% trans "Download raw!" %}</button></a>
+        <a href="{% url 'uploaded_books:zip_single_125x19_hardcover' book_id=book.id ebook_type='InDesign' %}"><button type="button" class="btn btn-secondary">{% trans "Download zipped!" %}</button></a>
       </div>
     </div>
   </div>

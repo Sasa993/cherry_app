@@ -6,6 +6,7 @@
 	{{ form.media.css }}
 {% endblock %}
 
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -13,19 +14,19 @@
 		<div class="row">
         	<div class="col-12 col-md-8 offset-md-2">
             	<div class="card-body single_book_detail_header upload_e-book_header custom_books_reducing_header_height">
-                	<h3 class="mb-1">[{{ main_book.working_number|upper }}] {{ main_book }} - 115x18 ISBN Book</h3>
-                	<p>Uploaded: <small>-</small></p>
-                    <p>Modified: <small>-</small></p>
+                	<h3 class="mb-1">[{{ main_book.working_number|upper }}] {{ main_book }} - {% trans "115x18 ISBN Book" %}</h3>
+                	<p>{% trans "Uploaded:" %} <small>-</small></p>
+                    <p>{% trans "Modified:" %} <small>-</small></p>
                 </div>
                 <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
 					{% csrf_token %}
 					<div class="custom_card_body card-body">
-                		<h6 class="text-center">Please select files in order to upload an 11,5 x 18 ISBN Book</h6>
+                		<h6 class="text-center">{% trans "Please select files in order to upload an 11,5 x 18 ISBN Book" %}</h6>
                     	<div class="e-book_btn_container">
                     		{% for field in form %}
 								{% if field.errors %}
 									<div class="custom_alert_upload_books custom_alert custom_alert-danger">
-										{{ field.label }} is required!
+										{{ field.label }} {% trans "is required!" %}
 									</div>
 								{% endif %}
 		                	{% endfor %}
@@ -34,13 +35,13 @@
 			                		{% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 5 or forloop.counter == 7 %}
 					                	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
 			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-			                                <span class="custom_text">Choose {{ field.label }}</span>
+			                                <span class="custom_text">{% trans "Choose" %} {{ field.label }}</span>
 			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
 			                            </div>
 			                        {% elif forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 6 or forloop.counter == 8 %}
 			                            <div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
 			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-			                                <span class="custom_text">Choose {{ field.label }}</span>
+			                                <span class="custom_text">{% trans "Choose" %} {{ field.label }}</span>
 			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
 			                            </div>
 			                        {% endif %}
@@ -48,7 +49,7 @@
 	                        </div>
 	                        <div class="row">
 	                            <div  class="col-12 col-md-4 offset-md-2 mt-3">
-	                                <button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>Upload Book</button>
+	                                <button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>{% trans "Upload Book" %}</button>
 	                            </div>
 	                        </div>
                         </div>

@@ -178,7 +178,7 @@ class Book115x18Isbn(models.Model):
 
 
 class Book125x19Hardcover(models.Model):
-	name = models.CharField(max_length=50, default='12,5x19 Hardcover Book', editable=False)
+	name = models.CharField(max_length=50, default='12,5x19 KDP TB ISBN Book', editable=False)
 	cover_pdf_file = models.FileField(blank=True)
 	cover_psd_file = models.FileField(blank=True)
 	pdf_file = models.FileField(blank=True)

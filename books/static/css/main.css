@@ -1813,6 +1813,10 @@ footer .useful-links li{
 .custom_buttons button:focus, .custom_buttons a:focus {
     outline: none;
 }
+#show-sidebar.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
 .custom_add_book_cover {
     padding-right: 15px;
     border-right: 1px solid #8a8a8a;
@@ -1955,4 +1959,7 @@ div#id_co_author_email {
 }
 .btn.disabled, btn:disabled {
     opacity: .4;
+}
+.book_info .row > div {
+    margin: 0 auto;
 }
