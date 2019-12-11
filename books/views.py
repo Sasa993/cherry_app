@@ -79,12 +79,8 @@ def send_request_to_authors(sender, **kwargs):
 @login_required
 def edit_books(request, book_id):
 	book = Book.objects.get(pk=book_id)
-	# print(f"Hello Maaan! --- {book.ebook.id}")
-	ebook_test = EBook.objects.get(pk=book.ebook.id)
-	# print(f"Test test - {ebook_test.uploaded_at}")
 	if (request.method == 'POST'):
 		form = BookForm(request.POST, request.FILES, instance=book)
-		ebook_form_test = EBookForm(request.POST, request.FILES, instance=ebook_test)
 		if(form.is_valid()):
 			form.save()
 			time.sleep(1)

@@ -1,12 +1,10 @@
 from django.db import models
-# from django.forms import ModelForm
 from django import forms
+# from django.dispatch import receiver
 from django_select2.forms import Select2MultipleWidget
 from django.contrib.auth.models import User
 from uploaded_books.models import (
 	EBook, Book5x8, BookA5Hardcover, Book115x18Fnsku, Book115x18Isbn, Book125x19Hardcover, Book125x19Fnsku, Book125x19Isbn)
-# from django.conf import settings
-# import os
 from .validators import (
 	validate_underscore, validate_digits_after_underscore, validate_alpha_before_underscore, validate_two_letters)
 from ckeditor.fields import RichTextField
@@ -28,13 +26,9 @@ class Book(models.Model):
 	title = models.CharField(max_length=200)
 	subtitle = models.CharField(max_length=200)
 	working_number = models.CharField(max_length=12, validators=[validate_underscore, validate_digits_after_underscore, validate_alpha_before_underscore, validate_two_letters])
-	# description = models.TextField(blank=True)
 	description = RichTextField(blank=True)
 	comparible = models.URLField(max_length=200, blank=True)
 	co_author_name = models.ManyToManyField(Author, related_name='co_author')
-	# co_author_email = models.CharField(max_length=100)
-	# co_author_email = models.ManyToManyField(Author, related_name='co_author_email')
-	# co_author_instructions = models.TextField(blank=True)
 	co_author_instructions = RichTextField(blank=True)
 	author = models.ManyToManyField(Author, related_name='author')
 	uploaded_at = models.DateTimeField(auto_now_add=True, blank=True)
@@ -55,8 +49,26 @@ class Book(models.Model):
 	def delete(self, *args, **kwargs):
 		if self.cover:
 			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover.name))
-		# print(f"Samo testiram-")
+
 		super(Book, self).delete(*args, **kwargs)
+
+
+# # if the book's cover is changed, remove the old one - optimization
+# @receiver(models.signals.pre_save, sender=Book)
+# def auto_delete_file_on_change(sender, instance, **kwargs):
+# 	if not instance.pk:
+# 		return False
+
+# 	try:
+# 		old_file = sender.objects.get(pk=instance.pk).cover
+# 	except sender.DoesNotExist:
+# 		return False
+
+# 	if old_file:
+# 		new_file = instance.cover
+# 		if not old_file == new_file:
+# 			if os.path.isfile(old_file.path):
+# 				os.remove(old_file.path)
 
 
 class BookRequest(models.Model):
