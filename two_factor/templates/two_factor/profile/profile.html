@@ -94,3 +94,12 @@
   </div>
 </div>
 {% endblock %}
+{% block other_js %}
+  <script>
+    $(document).ready(function() {
+      var text_message = $("div.two_fa_settings_btn_container").find("ul");
+
+      text_message.addClass("text-center");
+    });
+  </script>
+{% endblock %}

@@ -1960,7 +1960,7 @@ div#id_co_author_email {
 .btn.disabled, btn:disabled {
     opacity: .4;
 }
-.book_info .row > div, .custom_back_button button {
+.book_info .row > div, .custom_back_button button, .custom_margin_auto {
     margin: 0 auto;
 }
 .custom_back_button {
@@ -1969,4 +1969,7 @@ div#id_co_author_email {
 .custom_back_button button i {
     padding-left: 0;
     padding-right: 10px;
+}
+.backup_phone_container {
+    padding: 1.25rem;
 }
