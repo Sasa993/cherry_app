@@ -1990,3 +1990,6 @@ div#id_co_author_email {
 .custom_search_tasks_input span img {
     width: 19px;
 }
+.custom_whole_div_search_input {
+    padding: 0 15%;
+}

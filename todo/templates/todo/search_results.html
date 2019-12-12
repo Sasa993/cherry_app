@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block title %}Search results{% endblock %}
+{% block title %}{% trans "Search Results" %}{% endblock %}
 {% block content_title %}<h2 class="page_title">Search</h2>{% endblock %}
 
 {% block content %}
@@ -10,21 +10,23 @@
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body search_results_header">
-          <h3 class="mb-1">SEARCH RESULTS</h3>
+          <h3 class="mb-1">{% trans "SEARCH RESULTS" %}</h3>
         </div>
         <div class="card-body search_results_container">
-          <div class="form-group input-group">
-            <div class="input-group-prepend custom_search_tasks_input">
-              <span class="input-group-text" id="basic-addon1">
-                <img src="/static/images/envelope_profile_forms.svg" alt="">
-              </span>
+          <div class="custom_whole_div_search_input">
+            <div class="form-group input-group">
+              <div class="input-group-prepend custom_search_tasks_input">
+                <span class="input-group-text" id="basic-addon1">
+                  <img src="/static/images/loupe.svg" alt="">
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder='{% trans "Enter your keywords" %}' aria-label="Search" name="q" value="" id="q">
             </div>
-            <input type="text" class="form-control" placeholder='{% trans "Enter your keywords" %}' aria-label="Search" name="q" value="" id="q">
+            <small id="inputNameHelp" class="form-text text-muted">{% trans "This search bar does it's thing by title and description" %}</small>
           </div>
-          <small id="inputNameHelp" class="form-text text-muted">This search bar does it's thing by title and description</small>
-          <div class="post_list">
+          <div class="post_list mt-3">
             {% if found_tasks %}
-              <h6 class="text-center">{{ found_tasks.count }} search results for term: <strong>{{ query_string }}</strong></h6>
+              <h6 class="text-center">{% blocktrans with tasks_count=found_tasks2.count %}<strong>{{ tasks_count }}</strong> search results for term: <strong>{{ query_string }}</strong>{% endblocktrans %}</h6>
               <ul class="list-group">
                 {% for f in found_tasks %}
                   <li class="list-group-item search_list_item">
@@ -33,15 +35,15 @@
                         <a href="{% url 'todo:task_detail' f.id %}"><h5>{{ f.title }}</h5></a>
                       </div>
                       <div class="col-12 col-sm-7 col-md-7 col-lg-8 col-xl-6">
-                        <p>In list: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
-                        <p>Assigned to: <strong>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
-                        <p>Completed: 
+                        <p>{% trans "In list" %}: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
+                        <p>{% trans "Assigned to" %}: <strong>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
+                        <p>{% trans "Completed" %}: 
                           {% if f.completed %}
                             <b class="completed">
                           {% else %}
                             <b class="not_completed">
                           {% endif %}
-                          {{ f.completed|yesno:"Yes,No" }}
+                          {% blocktrans with check_if_completed=f.completed|yesno:"Yes,No" %}{{ check_if_completed }}{% endblocktrans %}
                           </b>
                         </p>
                       </div>
@@ -91,7 +93,11 @@
               </div>
               <!-- /pagination -->
             {% else %}
-              <h2>No results to show, sorry.</h2>
+              {% if query_string %}
+                <h2 class="text-center">{% blocktrans %}No results to show for term <strong>{{ query_string }}</strong>, sorry.{% endblocktrans %}</h2>
+              {% else %}
+                <h2 class="text-center">{%trans "Start searching by typing into an input above." %}</h2>
+              {% endif %}
             {% endif %}
           </div>
         </div>
@@ -104,21 +110,21 @@
     $(function() {
             //RealTime Search Bar Implementation
             // if the urls contains string "search" it will place "focus" on the input
-            // if (window.location.href.indexOf("search") > -1) {
-            //     $('#q').focus();
-            //     // to make sure that the sidebar stays open if we are typing search keywords
-            //     $('.page-wrapper').addClass('toggled');
-            // }
+            if (window.location.href.indexOf("search") > -1) {
+                $('#q').focus();
+                // to make sure that the sidebar stays open if we are typing search keywords
+                $('.page-wrapper').addClass('toggled');
+            }
 
-            // if (window.location.href.indexOf("search/?page") > -1 && screen_width <= 767) {
-            //     $('.page-wrapper').removeClass('toggled');
-            // }
+            if (window.location.href.indexOf("search/?page") > -1 && screen_width <= 767) {
+                $('.page-wrapper').removeClass('toggled');
+            }
     
-            // $('#q').click(function(){
-            //     if (window.location.href.indexOf("search") <= -1) {
-            //         location.href = "/todo/search/?q=";
-            //     }
-            // });
+            $('#q').click(function(){
+                if (window.location.href.indexOf("search") <= -1) {
+                    location.href = "/todo/search/?q=";
+                }
+            });
 
             $('#q').keyup(function() {
                 $.ajax({

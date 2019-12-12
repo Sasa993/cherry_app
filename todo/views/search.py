@@ -20,6 +20,7 @@ def search(request) -> HttpResponse:
     if request.GET:
 
         found_tasks = None
+        found_tasks2 = None
         if ("q" in request.GET) and request.GET["q"].strip():
             query_string = request.GET["q"]
 
@@ -42,6 +43,7 @@ def search(request) -> HttpResponse:
 
     else:
         found_tasks = None
+        found_tasks2 = None
 
     # Only include tasks that are in groups of which this user is a member:
     if not request.user.is_superuser:
@@ -50,5 +52,5 @@ def search(request) -> HttpResponse:
         page = request.GET.get('page')
         found_tasks = paginator.get_page(page)
 
-    context = {"query_string": query_string, "found_tasks": found_tasks}
+    context = {"query_string": query_string, "found_tasks2": found_tasks2, "found_tasks": found_tasks}
     return render(request, "todo/search_results.html", context)
