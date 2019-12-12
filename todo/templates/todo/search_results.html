@@ -1,5 +1,7 @@
 {% extends "todo/base.html" %}
 
+{% load i18n %}
+
 {% block title %}Search results{% endblock %}
 {% block content_title %}<h2 class="page_title">Search</h2>{% endblock %}
 
@@ -10,80 +12,130 @@
         <div class="card-body search_results_header">
           <h3 class="mb-1">SEARCH RESULTS</h3>
         </div>
-        <div class="card-body search_results_container post_list">
-          {% if found_tasks %}
-            <h6 class="text-center">{{ found_tasks.count }} search results for term: <strong>{{ query_string }}</strong></h6>
-
-            <ul class="list-group">
-              {% for f in found_tasks %}
-                <li class="list-group-item search_list_item">
-                  <div class="row justify-content-between align-items-center list_item_wrapper">
-                    <div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6">
-                      <a href="{% url 'todo:task_detail' f.id %}"><h5>{{ f.title }}</h5></a>
+        <div class="card-body search_results_container">
+          <div class="form-group input-group">
+            <div class="input-group-prepend custom_search_tasks_input">
+              <span class="input-group-text" id="basic-addon1">
+                <img src="/static/images/envelope_profile_forms.svg" alt="">
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder='{% trans "Enter your keywords" %}' aria-label="Search" name="q" value="" id="q">
+          </div>
+          <small id="inputNameHelp" class="form-text text-muted">This search bar does it's thing by title and description</small>
+          <div class="post_list">
+            {% if found_tasks %}
+              <h6 class="text-center">{{ found_tasks.count }} search results for term: <strong>{{ query_string }}</strong></h6>
+              <ul class="list-group">
+                {% for f in found_tasks %}
+                  <li class="list-group-item search_list_item">
+                    <div class="row justify-content-between align-items-center list_item_wrapper">
+                      <div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6">
+                        <a href="{% url 'todo:task_detail' f.id %}"><h5>{{ f.title }}</h5></a>
+                      </div>
+                      <div class="col-12 col-sm-7 col-md-7 col-lg-8 col-xl-6">
+                        <p>In list: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
+                        <p>Assigned to: <strong>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
+                        <p>Completed: 
+                          {% if f.completed %}
+                            <b class="completed">
+                          {% else %}
+                            <b class="not_completed">
+                          {% endif %}
+                          {{ f.completed|yesno:"Yes,No" }}
+                          </b>
+                        </p>
+                      </div>
                     </div>
-                    <div class="col-12 col-sm-7 col-md-7 col-lg-8 col-xl-6">
-                      <p>In list: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
-                      <p>Assigned to: <strong>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
-                      <p>Completed: 
-                        {% if f.completed %}
-                          <b class="completed">
-                        {% else %}
-                          <b class="not_completed">
-                        {% endif %}
-                        {{ f.completed|yesno:"Yes,No" }}
-                        </b>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              {% endfor %}
-            </ul>
-            <!-- pagination -->
-            <div class="pagination_container mt-4">
-              <nav class="mt-5 d-flex d-flex justify-content-center">
-                <ul class="pagination">
-                  {% if found_tasks.has_previous %}
-                    <li class="page-item prev_arrow">
-                      <a class="prev arrow" href="?page={{ found_tasks.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" tabindex="-1"></a>
-                    </li>
-                  {% else %}
-                    <li class="page-item prev_arrow custom_disabled">
-                      <a class="prev arrow" href="#!" tabindex="-1"></a>
-                    </li>
-                  {% endif %}
-
-                  {% for i in found_tasks.paginator.page_range %}
-                    {% if found_tasks.number == i %}
-                      {# <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> #}
-                      <li class="page-item custom_active">
-                        <a class="page-link" href="#!">{{ i }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <!-- pagination -->
+              <div class="pagination_container mt-4">
+                <nav class="mt-5 d-flex d-flex justify-content-center">
+                  <ul class="pagination">
+                    {% if found_tasks.has_previous %}
+                      <li class="page-item prev_arrow">
+                        <a class="prev arrow" href="?page={{ found_tasks.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" tabindex="-1"></a>
                       </li>
                     {% else %}
-                      {# <li><a href="?page={{ i }}">{{ i }}</a></li> #}
-                      <li class="page-item">
-                        <a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                      <li class="page-item prev_arrow custom_disabled">
+                        <a class="prev arrow" href="#!" tabindex="-1"></a>
                       </li>
                     {% endif %}
-                  {% endfor %}
 
-                  {% if found_tasks.has_next %}
-                    <li class="page-item next_arrow">
-                      <a class="next arrow" href="?page={{ found_tasks.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"></a>
-                    </li>
-                  {% else %}
-                    <li class="page-item next_arrow custom_disabled">
-                      <a class="next arrow" href="#!"></a>
-                    </li>
-                  {% endif %}                  
-                </ul>
-              </nav>
-            </div>
-            <!-- /pagination -->
-          {% else %}
-            <h2>No results to show, sorry.</h2>
-          {% endif %}
+                    {% for i in found_tasks.paginator.page_range %}
+                      {% if found_tasks.number == i %}
+                        {# <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> #}
+                        <li class="page-item custom_active">
+                          <a class="page-link" href="#!">{{ i }}</a>
+                        </li>
+                      {% else %}
+                        {# <li><a href="?page={{ i }}">{{ i }}</a></li> #}
+                        <li class="page-item">
+                          <a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if found_tasks.has_next %}
+                      <li class="page-item next_arrow">
+                        <a class="next arrow" href="?page={{ found_tasks.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"></a>
+                      </li>
+                    {% else %}
+                      <li class="page-item next_arrow custom_disabled">
+                        <a class="next arrow" href="#!"></a>
+                      </li>
+                    {% endif %}                  
+                  </ul>
+                </nav>
+              </div>
+              <!-- /pagination -->
+            {% else %}
+              <h2>No results to show, sorry.</h2>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
   </div>
+{% endblock %}
+{% block other_js %}
+  <script>
+    $(function() {
+            //RealTime Search Bar Implementation
+            // if the urls contains string "search" it will place "focus" on the input
+            // if (window.location.href.indexOf("search") > -1) {
+            //     $('#q').focus();
+            //     // to make sure that the sidebar stays open if we are typing search keywords
+            //     $('.page-wrapper').addClass('toggled');
+            // }
+
+            // if (window.location.href.indexOf("search/?page") > -1 && screen_width <= 767) {
+            //     $('.page-wrapper').removeClass('toggled');
+            // }
+    
+            // $('#q').click(function(){
+            //     if (window.location.href.indexOf("search") <= -1) {
+            //         location.href = "/todo/search/?q=";
+            //     }
+            // });
+
+            $('#q').keyup(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "/todo/search/",
+                    data: {
+                        'q' : $('#q').val(),
+                        'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+                    },
+                    dataType: 'html',
+                    success: searchSuccess
+                });
+            });
+        });
+    function searchSuccess(data, textStatus, jqXHR)
+        {
+            $('.post_list').html($(data).find('.post_list').html());
+        }
+  </script>
 {% endblock %}

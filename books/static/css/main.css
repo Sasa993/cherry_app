@@ -1973,3 +1973,20 @@ div#id_co_author_email {
 .backup_phone_container {
     padding: 1.25rem;
 }
+.custom_search_tasks_input {
+    margin-right: -1px;
+    display: flex;
+}
+.custom_search_tasks_input ~ input:focus {
+    box-shadow: none;
+    border: 1px solid #8d0a15;
+    transition: 1s all;
+}
+.custom_search_tasks_input span {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #d9d9d9;
+}
+.custom_search_tasks_input span img {
+    width: 19px;
+}
