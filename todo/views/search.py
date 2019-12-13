@@ -25,7 +25,7 @@ def search(request) -> HttpResponse:
             query_string = request.GET["q"]
 
             found_tasks2 = Task.objects.filter(
-                Q(title__icontains=query_string) | Q(note__icontains=query_string)
+                Q(title__icontains=query_string) | Q(note__icontains=query_string) | Q(task_list__name__icontains=query_string) | Q(created_by__username__icontains=query_string) | Q(assigned_to__username__icontains=query_string)
             )
             paginator = Paginator(found_tasks2, 6)
             page = request.GET.get('page')

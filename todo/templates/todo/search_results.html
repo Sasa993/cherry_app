@@ -2,15 +2,16 @@
 
 {% load i18n %}
 
-{% block title %}{% trans "Search Results" %}{% endblock %}
-{% block content_title %}<h2 class="page_title">Search</h2>{% endblock %}
+{% block title %}
+  {% trans "Search Results" %}
+{% endblock %}
 
 {% block content %}
   <div class="search_results mt-4">
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body search_results_header">
-          <h3 class="mb-1">{% trans "SEARCH RESULTS" %}</h3>
+          <h3 class="mb-1">{% trans "TASKS SEARCH RESULTS" %}</h3>
         </div>
         <div class="card-body search_results_container">
           <div class="custom_whole_div_search_input">
@@ -20,32 +21,37 @@
                   <img src="/static/images/loupe.svg" alt="">
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder='{% trans "Enter your keywords" %}' aria-label="Search" name="q" value="" id="q">
+              <input type="text" class="form-control" placeholder='{% trans "Enter your keywords" %}' aria-label="Search" name="q" value="" id="q" autocomplete="off">
             </div>
-            <small id="inputNameHelp" class="form-text text-muted">{% trans "This search bar does it's thing by title and description" %}</small>
+            <small id="inputNameHelp" class="form-text text-muted">
+              {% trans "You can search by Title, Description, Task List, Assigned by and Assigned to..." %}
+            </small>
           </div>
           <div class="post_list mt-3">
             {% if found_tasks %}
               <h6 class="text-center">{% blocktrans with tasks_count=found_tasks2.count %}<strong>{{ tasks_count }}</strong> search results for term: <strong>{{ query_string }}</strong>{% endblocktrans %}</h6>
               <ul class="list-group">
                 {% for f in found_tasks %}
-                  <li class="list-group-item search_list_item">
+                  <li class="list-group-item search_list_item hvr-grow-shadow">
                     <div class="row justify-content-between align-items-center list_item_wrapper">
-                      <div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6">
-                        <a href="{% url 'todo:task_detail' f.id %}"><h5>{{ f.title }}</h5></a>
+                      <div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6 custom_search_task_title">
+                        <a href="{% url 'todo:task_detail' f.id %}" class="hvr-icon-fade"><i class="fas fa-thumbtack hvr-icon"></i><h5>{{ f.title }}</h5></a>
                       </div>
                       <div class="col-12 col-sm-7 col-md-7 col-lg-8 col-xl-6">
-                        <p>{% trans "In list" %}: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
-                        <p>{% trans "Assigned to" %}: <strong>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
-                        <p>{% trans "Completed" %}: 
-                          {% if f.completed %}
-                            <b class="completed">
-                          {% else %}
-                            <b class="not_completed">
-                          {% endif %}
-                          {% blocktrans with check_if_completed=f.completed|yesno:"Yes,No" %}{{ check_if_completed }}{% endblocktrans %}
-                          </b>
-                        </p>
+                        <div class="row">
+                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "In list" %}: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
+                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "Assigned to" %}: <strong style="color:#8d0a15;">{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
+                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "Completed" %}: 
+                            {% if f.completed %}
+                              <b class="completed">
+                            {% else %}
+                              <b class="not_completed">
+                            {% endif %}
+                            {% blocktrans with check_if_completed=f.completed|yesno:"Yes,No" %}{{ check_if_completed }}{% endblocktrans %}
+                            </b>
+                          </p>
+                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "Assigned by" %}: <strong style="color:#8d0a15;">{% if f.created_by %}{{ f.created_by }}{% else %}Anyone{% endif %}</strong></p>
+                        </b>
                       </div>
                     </div>
                   </li>

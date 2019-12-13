@@ -50,7 +50,7 @@
                         <div class="input-group">
                             <div class="input-group-append">
                             </div>
-                            <input type="text" class="form-control search-menu" placeholder='{% trans "Search Books" %}' aria-label="Search" name="q2" value="" id="q2">
+                            <input type="text" class="form-control search-menu" placeholder='{% trans "Search Books" %}' aria-label="Search" name="s_book" value="" id="s_book">
                             <span class="input-group-text">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </span>
@@ -211,40 +211,40 @@
 
             //RealTime Search Bar Implementation
             // if the urls contains string "search" it will place "focus" on the input
-            // if (window.location.href.indexOf("search") > -1) {
-            //     $('#q').focus();
-            //     // to make sure that the sidebar stays open if we are typing search keywords
-            //     $('.page-wrapper').addClass('toggled');
-            // }
+            if (window.location.href.indexOf("book_search") > -1) {
+                $('#s_book').focus();
+                // to make sure that the sidebar stays open if we are typing search keywords
+                $('.page-wrapper').addClass('toggled');
+            }
 
-            // if (window.location.href.indexOf("search/?page") > -1 && screen_width <= 767) {
-            //     $('.page-wrapper').removeClass('toggled');
-            // }
+            if (window.location.href.indexOf("book_search/?page") > -1 && screen_width <= 767) {
+                $('.page-wrapper').removeClass('toggled');
+            }
     
-            // $('#q').click(function(){
-            //     if (window.location.href.indexOf("search") <= -1) {
-            //         location.href = "/todo/search/?q=";
-            //     }
-            // });
+            $('#s_book').click(function(){
+                if (window.location.href.indexOf("book_search") <= -1) {
+                    location.href = "/dashboard/book_search/?s_book=";
+                }
+            });
 
-            // $('#q').keyup(function() {
-            //     $.ajax({
-            //         type: "GET",
-            //         url: "/todo/search/",
-            //         data: {
-            //             'q' : $('#q').val(),
-            //             'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
-            //         },
-            //         dataType: 'html',
-            //         success: searchSuccess
-            //     });
-            // });
+            $('#s_book').keyup(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "/dashboard/book_search/",
+                    data: {
+                        's_book' : $('#s_book').val(),
+                        'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+                    },
+                    dataType: 'html',
+                    success: searchSuccess_books
+                });
+            });
         });
 
-        // function searchSuccess(data, textStatus, jqXHR)
-        // {
-        //     $('.post_list').html($(data).find('.post_list').html());
-        // }
+        function searchSuccess_books(data, textStatus, jqXHR)
+        {
+            $('.display_search_books_results').html($(data).find('.display_search_books_results').html());
+        }
 
         // Toastr Notifications
         // erros and messages disappear after certain time - 3 secs and 10 secs

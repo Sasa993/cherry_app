@@ -1525,12 +1525,12 @@ footer .useful-links li{
     border-radius: 8px;
     background-color: #d9d9d9;
 }
-.search_results .search_results_container .search_list_item:hover{
+/*.search_results .search_results_container .search_list_item:hover{
     -webkit-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.55);
     -moz-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.55);
     box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.55);
     transition: .2s box-shadow linear;
-}
+}*/
 .search_results .search_results_container .search_list_item h5{
     color: #8a8a8a
 }
@@ -1993,3 +1993,55 @@ div#id_co_author_email {
 .custom_whole_div_search_input {
     padding: 0 15%;
 }
+.custom_search_task_title a > i {
+    margin-right: 10px;
+    color: #8a8a8a;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+}
+.custom_search_task_title a > h5 {
+    display: inline-block;
+}
+/* Grow Shadow */
+.search_list_item.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.search_list_item.hvr-grow-shadow:hover, .search_list_item.hvr-grow-shadow:focus, .search_list_item.hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+/* Grow Shadow End */
+/* Icon Fade */
+.hvr-icon-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-icon-fade .hvr-icon,
+.hvr-icon-fade h5 {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+.hvr-icon-fade:hover .hvr-icon, .hvr-icon-fade:focus .hvr-icon, .hvr-icon-fade:active .hvr-icon,
+.hvr-icon-fade:hover h5, .hvr-icon-fade:focus h5, .hvr-icon-fade:active h5 {
+  color: #8d0a15 !important;
+}
+/* Icon Fade End */

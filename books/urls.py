@@ -14,5 +14,6 @@ urlpatterns = [
     path('<int:book_id>/delete/', views.delete_books, name='delete_books'),
     path('enter_new_book', views.enter_new_book, name="enter_new_book"),
     path('ajax/load-emails', views.load_emails, name='ajax_load_emails'),
-    path('book-request/<int:request_book_id>', views.book_requests, name='book-request')
+    path('book-request/<int:request_book_id>', views.book_requests, name='book-request'),
+    path('book_search/', views.book_search, name='book_search')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

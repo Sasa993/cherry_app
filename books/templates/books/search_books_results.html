@@ -1,0 +1,90 @@
+{% extends "books/base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+	{% trans "Search Books Results" %}
+{% endblock %}
+
+{% block content %}
+	<div class="search_results mt-4">
+    	<div class="row">
+      		<div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+        		<div class="card-body search_results_header">
+          			<h3 class="mb-1">{% trans "BOOKS SEARCH RESULTS" %}</h3>
+        		</div>
+        		<div class="card-body search_results_container">
+        			<small class="form-text text-muted">
+						{% trans "You can search by Title, Subtitle, Working Number, Description, Co Author Name/Lastname and Author Name/Lastname..." %}
+					</small>
+					<div class="display_search_books_results mt-3">
+						
+				        {% if found_books %}
+				        	<h6 class="text-center">{% blocktrans with books_count=found_books2.count %}<strong>{{ books_count }}</strong> search results for term: <strong>{{ query_string }}</strong>{% endblocktrans %}</h6>
+				            <ul class="list-group">
+				            	{% for f in found_books %}
+				                	<li class="list-group-item search_list_item">
+				                    	<div class="row justify-content-between align-items-center list_item_wrapper">
+				                      		<div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6">
+				                        		<a href="{% url 'dashboard:details_books' f.id %}">
+				                        			<h5>{{ f.title }}</h5>
+				                        		</a>
+				                      		</div>
+				                    	</div>
+				                  	</li>
+				                {% endfor %}
+				           	</ul>
+				            <!-- pagination -->
+				            <div class="pagination_container mt-4">
+				            	<nav class="mt-5 d-flex d-flex justify-content-center">
+				                	<ul class="pagination">
+				                    	{% if found_books.has_previous %}
+				                      		<li class="page-item prev_arrow">
+				                        		<a class="prev arrow" href="?page={{ found_books.previous_page_number }}{% if request.GET.s_book %}&s_book={{ request.GET.s_book }}{% endif %}" tabindex="-1"></a>
+				                      		</li>
+				                    	{% else %}
+				                      		<li class="page-item prev_arrow custom_disabled">
+				                        		<a class="prev arrow" href="#!" tabindex="-1"></a>
+				                      		</li>
+				                    	{% endif %}
+
+				                    	{% for i in found_books.paginator.page_range %}
+				                      		{% if found_books.number == i %}
+				                        		{# <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> #}
+				                        		<li class="page-item custom_active">
+				                          			<a class="page-link" href="#!">{{ i }}</a>
+				                        		</li>
+				                      		{% else %}
+				                        		{# <li><a href="?page={{ i }}">{{ i }}</a></li> #}
+				                        		<li class="page-item">
+				                          			<a class="page-link" href="?page={{ i }}{% if request.GET.q %}&s_book={{ request.GET.q }}{% endif %}">{{ i }}</a>
+				                        		</li>
+				                      		{% endif %}
+				                    	{% endfor %}
+
+				                    	{% if found_books.has_next %}
+				                      		<li class="page-item next_arrow">
+				                        		<a class="next arrow" href="?page={{ found_books.next_page_number }}{% if request.GET.s_book %}&s_book={{ request.GET.s_book }}{% endif %}"></a>
+				                      		</li>
+				                    	{% else %}
+				                      		<li class="page-item next_arrow custom_disabled">
+				                        		<a class="next arrow" href="#!"></a>
+				                      		</li>
+				                    	{% endif %}                  
+				                  	</ul>
+				                </nav>
+				            </div>
+				            <!-- /pagination -->
+				        {% else %}
+				        	{% if query_string %}
+				            	<h2 class="text-center">{% blocktrans %}No results to show for term <strong>{{ query_string }}</strong>, sorry.{% endblocktrans %}</h2>
+				            {% else %}
+				            	<h2 class="text-center">{%trans "Start searching by typing into an input above." %}</h2>
+				            {% endif %}
+				        {% endif %}
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
