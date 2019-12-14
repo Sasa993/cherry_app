@@ -29,7 +29,11 @@
           </div>
           <div class="post_list mt-3">
             {% if found_tasks %}
-              <h6 class="text-center">{% blocktrans with tasks_count=found_tasks2.count %}<strong>{{ tasks_count }}</strong> search results for term: <strong>{{ query_string }}</strong>{% endblocktrans %}</h6>
+              <h6 class="text-center">
+                {% blocktrans with tasks_count=found_tasks2.count %}
+                  <strong>{{ tasks_count }}</strong> search results for term: <strong>{{ query_string }}</strong>
+                {% endblocktrans %}
+              </h6>
               <ul class="list-group">
                 {% for f in found_tasks %}
                   <li class="list-group-item search_list_item hvr-grow-shadow">
@@ -105,9 +109,13 @@
               <!-- /pagination -->
             {% else %}
               {% if query_string %}
-                <h2 class="text-center">{% blocktrans %}No results to show for term <strong>{{ query_string }}</strong>, sorry.{% endblocktrans %}</h2>
+                <h2 class="text-center">
+                  {% blocktrans %}
+                    No results to show for term <strong>{{ query_string }}</strong>, sorry.
+                  {% endblocktrans %}
+                </h2>
               {% else %}
-                <h2 class="text-center">{%trans "Start searching by typing into an input above." %}</h2>
+                <h2 class="text-center">{% trans "Start searching by typing into an input above." %}</h2>
               {% endif %}
             {% endif %}
           </div>

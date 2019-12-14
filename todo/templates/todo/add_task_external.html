@@ -1,6 +1,11 @@
 {% extends "todo/base.html" %}
 {% block page_heading %}{% endblock %}
-{% block title %}File Ticket{% endblock %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans "File Ticket" %}
+{% endblock %}
 
 {% block content %}
 
@@ -9,16 +14,18 @@
   <form action="" method="POST">
     {% csrf_token %}
 
-    <h3>File Trouble Ticket</h3>
+    <h3>{% trans "File Trouble Ticket" %}</h3>
     <p>
-      Have a support issue? Use this form to report the difficulty - we'll get right back to you.
+      {% trans "Have a support issue? Use this form to report the difficulty - we'll get right back to you." %}
     </p>
 
     {% if form.errors %}
       {% for error in form.errors %}
         <ul class="errorlist">
           <li>
-            <strong>The {{ error|escape }} field is required.</strong>
+            <strong>
+              {% blocktrans %}The {{ error|escape }} field is required.{% endblocktrans %}
+            </strong>
           </li>
         </ul>
       {% endfor %}
@@ -27,16 +34,16 @@
     <form action="" name="add_task" method="post">
         {% csrf_token %}
         <div class="form-group">
-          <label for="id_title" name="title">Subject</label>
+          <label for="id_title" name="title">{% trans "Subject" %}</label>
           <input type="text" class="form-control" id="id_title" name="title" required placeholder="Our spaceship doesn't go"
             value="{% if form.title.value %}{{ form.title.value }}{% endif %}">
         </div>
         <div class="form-group">
-          <label for="id_note">Description</label>
+          <label for="id_note">{% trans "Description" %}</label>
           <textarea class="form-control" id="id_note" name="note" rows="5"
             aria-describedby="inputNoteHelp">{% if form.note.value %}{{ form.note.value }}{% endif %}</textarea>
           <small id="inputNoteHelp" class="form-text text-muted">
-            Describe the issue. Please include essential details.
+            {% trans "Describe the issue. Please include essential details." %}
           </small>
         </div>
 

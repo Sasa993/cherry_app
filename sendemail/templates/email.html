@@ -1,6 +1,9 @@
 {% extends "books/base.html" %}
+
+{% load i18n %}
+
 {% block title %}
-	Contact Us
+	{% trans "Contact Us" %}
 {% endblock %}
 
 {% block content %}
@@ -17,10 +20,12 @@
 		<div class="row">
 			<div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
 		    	<div class="card-body contact_us_header">
-		        	<h3 class="mb-1">GET IN TOUCH</h3>
+		        	<h3 class="mb-1">{% trans "GET IN TOUCH" %}</h3>
 		        </div>
 		        <div class="card-body">
-						<h6>Our team is happy to answer your questions. <br> Fill out the form and we'll be in touch as soon as possible</h6>
+		        		{% blocktrans %}
+							<h6>Our team is happy to answer your questions. <br> Fill out the form and we'll be in touch as soon as possible</h6>
+						{% endblocktrans %}
 		            <form method="post" class="contact_us_form_container mt-4 custom_form_email_address" role="form">
 		            	{% csrf_token %}
 		            	{% for field in form %}
@@ -38,7 +43,7 @@
 							</div>
 						{% endfor %}
 						<div class="form-group contact_us_btn_container">
-		                	<button type="submit" class="contact_us_btn">Send</button>
+		                	<button type="submit" class="contact_us_btn">{% trans "Send" %}</button>
 		                </div>
 					</form>
 

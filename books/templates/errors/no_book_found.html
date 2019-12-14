@@ -1,7 +1,9 @@
 {% extends "books/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	Error 500
+	{% trans "Error 500" %}
 {% endblock %}
 
 {% block content %}
@@ -236,8 +238,10 @@
 		          	<path class="cls-12" d="M88.15,60.27s1.7.95,1.7,2.22"></path>
 		          	<path class="cls-5" d="M101.81,61a6.68,6.68,0,0,0,8.51,0Z"></path>
 		          	<polygon class="cls-5" points="90.92 30.25 77.46 29.69 77.46 28.64 90.92 29.22 90.92 30.25"></polygon>
-    			</svg>  
-                <h6>Sorry, but there is no book with ID - <span class="custom_book_id_error">{{ book_id }}</span>.</h6><h6>If you are having an issues with finding what you're looking for, click below to ask for help!</h6>
+    			</svg>
+    			{% blocktrans %}  
+                	<h6>Sorry, but there is no book with ID - <span class="custom_book_id_error">{{ book_id }}</span>.</h6><h6>If you are having an issues with finding what you're looking for, click below to ask for help!</h6>
+                {% endblocktrans %}
                 <div class="change_email_form mt-4 mb-3">
 		        	<a href="{% url 'sendemail:email' %}">
 		        		<button class="add_email mb-4">Contact Us</button>

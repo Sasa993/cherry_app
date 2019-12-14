@@ -1,33 +1,41 @@
 {% extends "todo/base.html" %}
 
-{% block title %}{{ list_title }} Todo Lists{% endblock %}
+{% load i18n %}
+
+{% block title %}
+  {{ list_title }} {% trans "Todo Lists" %}
+{% endblock %}
 
 {% block content %}
   <div class="all_tasks mt-4">
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body all_tasks_header">
-          <h3 class="mb-1">ALL TASKS</h3>
+          <h3 class="mb-1">{% trans "ALL TASKS" %}</h3>
         </div>
         <div class="row">
           <div class="card-body all_tasks_container">
             <div class="row mb-3">
               <div class="col-12 col-sm-6 col-md-6 task_num">
-                <span><span class="custom_book_id_error">{{ task_count }}</span> uncompleted task{{ task_count|pluralize }} in <span class="custom_book_id_error">{{ list_count }}</span> list{{ list_count|pluralize }}</span>
+                <span>
+                  {% blocktrans with block_task_count=task_count|pluralize block_list_count=list_count|pluralize %}
+                    <span class="custom_book_id_error">{{ task_count }}</span> uncompleted task{{ block_task_count }} in <span class="custom_book_id_error">{{ list_count }}</span> list{{ block_list_count }}
+                  {% endblocktrans %}
+                </span>
               </div>
               <div class="col-12 col-sm-6 col-md-6 new_task_btn">
                 {% if user.is_staff %}
                   <a href="{% url 'todo:add_list' %}">
-                    <button class="all_tasks_btn btn float-right">Add a New List<i class="fas fa-plus"></i></button>
+                    <button class="all_tasks_btn btn float-right">{% trans "Add a New List" %}<i class="fas fa-plus"></i></button>
                   </a>
                 {% else %}
-                      <button class="all_tasks_btn btn float-right disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Add a New List<i class="fas fa-plus"></i></button>
+                      <button class="all_tasks_btn btn float-right disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">{% trans "Add a New List" %}<i class="fas fa-plus"></i></button>
                 {% endif %}
               </div>
             </div>
             {% regroup lists by group as section_list %}
             {% for group in section_list %}
-              <h6>Group: {{ group.grouper }}</h6>
+              <h6>{% trans "Group" %}: {{ group.grouper }}</h6>
               <ul class="list-group custom_all_tasks_ul">
                 {% for task in group.list %}
                   <a href="{% url 'todo:list_detail' task.id task.slug %}">

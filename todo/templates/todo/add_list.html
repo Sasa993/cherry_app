@@ -1,29 +1,35 @@
 {% extends "todo/base.html" %}
 {% block page_heading %}{% endblock %}
-{% block title %}Add Todo List{% endblock %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans "Add Todo List" %}
+{% endblock %}
+
 {% block content %}
 
   <div class="details_tasks2 mt-4">
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2">
         <div class="card-body details_tasks2_header_new_add">
-            <h3 class="mb-1">ADD A NEW LIST</h3>
+            <h3 class="mb-1">{% trans "ADD A NEW LIST" %}</h3>
         </div>
         <div class="card-body details_tasks2_container">
           <form action="" method="post">
             {% csrf_token %}
 
             <div class="form-group custom_input_red_focus">
-              <label for="id_name">List Name</label>
+              <label for="id_name">{% trans "List Name" %}</label>
               <input type="text" class="form-control" id="id_name" name="name" aria-describedby="inputNameHelp" placeholder="">
-              <small id="inputNameHelp" class="form-text text-muted">The full display name for this list.</small>
+              <small id="inputNameHelp" class="form-text text-muted">{% trans "The full display name for this list." %}</small>
             </div>
             <div class="form-group custom_input_red_focus">
-              <label for="id_group">Group</label>
+              <label for="id_group">{% trans "Group" %}</label>
               {{form.group}}
             </div>
 
-            <button type="submit" class="btn btn-primary custom_tasks_button_done_notdone">Submit</button>
+            <button type="submit" class="btn btn-primary custom_tasks_button_done_notdone">{% trans "Submit" %}</button>
           </form>
         </div>
       </div>

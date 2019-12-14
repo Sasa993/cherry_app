@@ -1,6 +1,10 @@
 {% extends "todo/base.html" %}
 
-{% block title %}Task:{{ task.title }}{% endblock %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Task" %}:{{ task.title }}
+{% endblock %}
 
 {% block extrahead %}
 <style>
@@ -24,13 +28,13 @@
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body details_tasks2_header_new_detail">
-            <h3>TASK: {{ task.title }}</h3>
+            <h3>{% trans "TASK" %}: {{ task.title }}</h3>
         </div>
         <div class="card-body details_tasks2_container">
           <div class="card-deck description_details">
             <div class="card">
               <h5 class="card-header custom_card_header">
-                Description
+                {% trans "Description" %}
               </h5>
               <div class="card-body">
                 {# <h3 class="card-title">{{ task.title }}</h3> #}
@@ -44,7 +48,7 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item task_control_btn_container">
                   {% if user.is_staff %}
-                    <button class="m-1 btn btn-sm btn-primary" id="EditTaskButton" type="button" data-toggle="collapse" data-target="#TaskEdit">Edit Task</button>
+                    <button class="m-1 btn btn-sm btn-primary" id="EditTaskButton" type="button" data-toggle="collapse" data-target="#TaskEdit">{% trans "Edit Task" %}</button>
 
                     <form method="post" action="{% url "todo:delete_task" task.id %}" role="form" class="m-1 d-inline">
                         {% csrf_token %}
@@ -64,13 +68,13 @@
                     </form>
                   {% else %}
                     {% if task.assigned_to == request.user %}
-                      <button class="m-1 btn btn-sm btn-primary" id="EditTaskButton" type="button" data-toggle="collapse" data-target="#TaskEdit">Edit Task</button>
+                      <button class="m-1 btn btn-sm btn-primary" id="EditTaskButton" type="button" data-toggle="collapse" data-target="#TaskEdit">{% trans "Edit Task" %}</button>
 
                       <form method="post" action="{% url "todo:delete_task" task.id %}" role="form" class="m-1 d-inline">
                           {% csrf_token %}
                           <div style="display:inline;">
                             <button class="btn btn-danger btn-sm" type="submit" name="submit_delete">
-                              Delete
+                              {% trans "Delete" %}
                             </button>
                           </div>
                         </form>
@@ -84,13 +88,13 @@
                       </form>
                     {% else %}
                       <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that! Task is not assigned to you!">
-                        Edit Task
+                        {% trans "Edit Task" %}
                       </button>
                       <form method="post" action="{% url "todo:delete_task" task.id %}" role="form" class="m-1 d-inline">
                           {% csrf_token %}
                           <div style="display:inline;">
                             <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that! Task is not assigned to you!">
-                              Delete
+                              {% trans "Delete" %}
                             </button>
                           </div>
                         </form>
@@ -108,7 +112,7 @@
 
                 </li>
                 <li class="list-group-item">
-                  <strong>Assigned to:</strong>
+                  <strong>{% trans "Assigned to" %}:</strong>
                   {% if task.assigned_to %} 
                     {{ task.assigned_to.get_username }}
                     {# if the user has the full name (with lastname) it will be displayed inside the brackets #}
@@ -120,28 +124,28 @@
                   {% endif %}
                 </li>
                 <li class="list-group-item">
-                  <strong>Reported by:</strong> 
+                  <strong>{% trans "Reported by" %}:</strong> 
                   {{ task.created_by.get_username }}
                   {% if task.created_by.get_full_name %}
                     ({{ task.created_by.get_full_name }})
                   {% endif %}
                 </li>
                 <li class="list-group-item">
-                  <strong>Due date:</strong> {{ task.due_date }}
+                  <strong>{% trans "Due date" %}:</strong> {{ task.due_date }}
                 </li>
 
                 {% if task.completed %}
                   <li class="list-group-item">
-                    <strong>Completed on:</strong> {{ task.completed_date}}
+                    <strong>{% trans "Completed on" %}:</strong> {{ task.completed_date}}
                   </li>
                 {% else %}
                   <li class="list-group-item">
-                    <strong>Completed:</strong> {{ task.completed|yesno:"Yes,No" }}
+                    <strong>{% trans "Completed" %}:</strong> {{ task.completed|yesno:"Yes,No" }}
                   </li>
                 {% endif %}
 
                 <li class="list-group-item">
-                  <strong>In list:</strong>
+                  <strong>{% trans "In list" %}:</strong>
                   <a href="{% url 'todo:list_detail' task.task_list.id task.task_list.slug %}">
                     {{ task.task_list }}
                   </a>
@@ -156,10 +160,10 @@
             {% if merge_form is not None %}
             <form action="" method="post">
               <div class="card border-danger">
-              <div class="card-header">Merge task</div>
+              <div class="card-header">{% trans "Merge task" %}</div>
               <div class="card-body">
                 <div class="">
-                  <p>Merging is a destructive operation. This task will not exist anymore, and comments will be moved to the target task.</p>
+                  <p>{% trans "Merging is a destructive operation. This task will not exist anymore, and comments will be moved to the target task." %}</p>
                 {% csrf_token %}
                 {% for field in merge_form.visible_fields %}
                 <p>
@@ -178,7 +182,7 @@
         {% if attachments_enabled %}
           <div class="card mt-4">
             <h5 class="card-header custom_card_header">
-              Attachments
+              {% trans "Attachments" %}
             </h5>
 
             <div class="card-body details_tasks2_upload_file_container pb-0 ">
@@ -187,11 +191,11 @@
                   <table class="table mb-3">
                     <thead>
                       <tr>
-                        <th>File</th>
-                        <th>Uploaded</th>
-                        <th>By</th>
-                        <th>Type</th>
-                        <th>Remove</th>
+                        <th>{% trans "File" %}</th>
+                        <th>{% trans "Uploaded" %}</th>
+                        <th>{% trans "By" %}</th>
+                        <th>{% trans "Type" %}</th>
+                        <th>{% trans "Remove" %}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -219,10 +223,10 @@
                 <div class="mb-3 details_task2_attachment_container">
                   <div class="custom-file details_tasks2_custom_file">
                     <input type="file" class="custom-file-input" id="attachment_file_input" name="attachment_file_input" />
-                    <label class="custom-file-label" for="attachment_file_input">Choose file</label>
+                    <label class="custom-file-label" for="attachment_file_input">{% trans "Choose file" %}</label>
                   </div>
                   <div class="input-group-append">
-                    <button class="btn btn-primary custom_tasks_button_done_notdone">Upload</button>
+                    <button class="btn btn-primary custom_tasks_button_done_notdone">{% trans "Upload" %}</button>
                   </div>
                 </div>
               </form>
@@ -232,7 +236,7 @@
         {% endif %}
 
           <div class="mt-3 card custom_task_comment_card">
-            <h5 class="card-header custom_card_header">Add comment</h5>
+            <h5 class="card-header custom_card_header">{% trans "Add comment" %}</h5>
             <form action="" method="post">
               {% csrf_token %}
               <div class="form-group">

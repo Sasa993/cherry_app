@@ -6,10 +6,8 @@
     #show-sidebar{
         z-index: 3;
     }
-
     /*Change email template CSS*/
     .page-wrapper .page-content > div{
-        
         margin-bottom: 20px;
     }
     .change_email_form .change_email_header h3{
@@ -247,16 +245,6 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-    .upload_books_front .edit_book_cancel_btn{
-        /* flex-basis: 45%;
-        max-width: 80%;
-        flex-grow: 0; */
-    }
-    .upload_books_front .edit_book_save_btn{
-        /* flex-basis: 45%;
-        max-width: 80%;
-        flex-grow: 0; */
-    }
     /* End of Create New Book Template */
 }
 
@@ -427,12 +415,6 @@
         max-width: 100%;
         justify-content: space-evenly;
     }
-    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
-        /* flex-basis: 100px; */
-    }
-    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
-        /* flex-basis: 100px; */
-    }
     .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
     .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
         width: 40px;
@@ -448,16 +430,6 @@
         justify-content: space-around;
         max-width: 70%;
         margin: auto;
-    }
-    .upload_books_front .edit_book_cancel_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
-    }
-    .upload_books_front .edit_book_save_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
     }
     /* End of Create New Book Template */
 }
@@ -686,16 +658,6 @@
         max-width: 100%;
         margin: auto;
     }
-    .upload_books_front .edit_book_cancel_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
-    }
-    .upload_books_front .edit_book_save_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
-    }
     /* End of Create New Book Template */
 }
 
@@ -864,12 +826,6 @@
         max-width: 100%;
         justify-content: space-evenly;
     }
-    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
-        /* flex-basis: 100px; */
-    }
-    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
-        /* flex-basis: 100px; */
-    }
     .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
     .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
         width: 40px;
@@ -921,16 +877,6 @@
         justify-content: space-around;
         max-width: 100%;
         margin: auto;
-    }
-    .upload_books_front .edit_book_cancel_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
-    }
-    .upload_books_front .edit_book_save_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
     }
     /* End of Create New Book Template */
 }
@@ -1031,12 +977,6 @@
         margin: auto;
         justify-content: space-evenly;
     }
-    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_back{
-        /* flex-basis: 100px; */
-    }
-    .upload_books_front .custom_buttons_create_new_book_container .create_new_book_save{
-        /* flex-basis: 100px; */
-    }
     .upload_books_front .create_new_book_upload_file_container .custom_add_book_cover_button img,
     .upload_books_front .edit_book_upload_file_container .custom_add_book_cover_button img{
         width: 40px;
@@ -1050,16 +990,6 @@
         justify-content: space-around;
         max-width: 50%;
         margin: auto;
-    }
-    .upload_books_front .edit_book_cancel_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
-    }
-    .upload_books_front .edit_book_save_btn{
-        /* flex-basis: 35%;
-        max-width: 80%;
-        flex-grow: 0; */
     }
     /* End of Create New Book Template */
 }
@@ -1299,5 +1229,9 @@
     .custom_search_task_title a i,
     .custom_search_task_title a h5 {
         font-size: 1.1rem;
+    }
+    .custom_all_tasks_p p:nth-child(3),
+    .custom_all_tasks_p p:nth-child(4) {
+        margin-top: 10px !important;
     }
 }

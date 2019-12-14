@@ -1,7 +1,11 @@
 {% extends "todo/base.html" %}
+
+{% load i18n %}
 {% load static %}
 
-{% block title %}My Tasks{% endblock %}
+{% block title %}
+  {% trans "My Tasks" %}
+{% endblock %}
 
 {% block content %}
 
@@ -10,11 +14,17 @@
       <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
         <div class="card-body details_tasks2_header custom_reducing_header_height">
           {% if list_slug == "mine" %}
-            <h3 class="mb-1">MY TASKS</h3>
-            <p class="custom_task_subtitle">Tasks assigned to me (in all groups)</p>
+            <h3 class="mb-1">{% trans "MY TASKS" %}</h3>
+            <p class="custom_task_subtitle">{% trans "Tasks assigned to me (in all groups)" %}</p>
           {% else %}
-            <h3 class="mb-1">{{ view_completed|yesno:"COMPLETED TASKS, TASKS" }} IN "{{ task_list.name }}"</h3>
-            <p class="custom_task_subtitle">In workgroup "{{ task_list.group }}" {% if user.is_staff %}- <i>drag rows to set priorities.</i>{% endif %}</p>
+            <h3 class="mb-1">
+              {% blocktrans with block_check_view_completed=view_completed|yesno:"COMPLETED TASK, TASKS" block_task_list_name=task_list.name %}
+                {{ block_check_view_completed }} IN "{{ block_task_list_name }}"
+              {% endblocktrans %}
+            </h3>
+            <p class="custom_task_subtitle">
+                {% trans "In workgroup" %} "{{ task_list.group }}" {% if user.is_staff %}- <i>{% trans "drag rows to set priorities." %}</i>{% endif %}
+            </p>
           {% endif %}
         </div>
         <div class="card-body details_tasks2_container">
@@ -23,31 +33,31 @@
               <div class="row new_task_btn custom_list_detail_buttons">
                 {% if user.is_staff %}
                   <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-                    <button class="all_tasks_btn btn custom_tasks_button_add_new" id="AddTaskButton" type="button" data-toggle="collapse" data-target="#AddEditTask" title="Create New Task">Create New Task<span data-toggle="collapse" data-target="#AddEditTask"><i class="fas fa-plus"></i></span></button>
+                    <button class="all_tasks_btn btn custom_tasks_button_add_new" id="AddTaskButton" type="button" data-toggle="collapse" data-target="#AddEditTask" title="Create New Task">{% trans "Create New Task" %}<span data-toggle="collapse" data-target="#AddEditTask"><i class="fas fa-plus"></i></span></button>
                   </div>
                   <div class="col-lg-4 col-md-6 col-sm-12 text-center">
                     {% if view_completed %}
-                      <a href="{% url 'todo:list_detail' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Uncompleted<span><i class="fas fa-eye"></i></span></button></a>
+                      <a href="{% url 'todo:list_detail' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">{% trans "View Uncompleted" %}<span><i class="fas fa-eye"></i></span></button></a>
                     {% else %}
-                      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Completed<span><i class="fas fa-eye"></i></span></button></a>
+                      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">{% trans "View Completed" %}<span><i class="fas fa-eye"></i></span></button></a>
                     {% endif %}
                   </div>
                   <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-                    <a href="{% url 'todo:del_list' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="Delete This Tasks List">Delete This List<span><i class="fas fa-trash"></i></span></button></a>
+                    <a href="{% url 'todo:del_list' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="Delete This Tasks List">{% trans "Delete This List" %}<span><i class="fas fa-trash"></i></span></button></a>
                   </div>
                 {% else %}
                   <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-                    <button class="all_tasks_btn btn custom_tasks_button_add_new disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">Create New Task<i class="fas fa-plus"></i></button>
+                    <button class="all_tasks_btn btn custom_tasks_button_add_new disabled" data-toggle="tooltip" data-placement="left" title="You don't have permissions to do that!">{% trans "Create New Task" %}<i class="fas fa-plus"></i></button>
                   </div>
                   <div class="col-lg-4 col-md-6 col-sm-12 text-center">
                     {% if view_completed %}
-                      <a href="{% url 'todo:list_detail' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Uncompleted<span><i class="fas fa-eye"></i></span></button></a>
+                      <a href="{% url 'todo:list_detail' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">{% trans "View Uncompleted" %}<span><i class="fas fa-eye"></i></span></button></a>
                     {% else %}
-                      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">View Completed<span><i class="fas fa-eye"></i></span></button></a>
+                      <a href="{% url 'todo:list_detail_completed' list_id list_slug %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button" title="View Completed Tasks">{% trans "View Completed" %}<span><i class="fas fa-eye"></i></span></button></a>
                     {% endif %}
                   </div>
                   <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-                    <button class="all_tasks_btn btn custom_tasks_button_add_new disabled" type="button" data-toggle="tooltip" data-placement="right" title="You don't have permissions to do that!">Delete This List<span><i class="fas fa-trash"></i></span></button>
+                    <button class="all_tasks_btn btn custom_tasks_button_add_new disabled" type="button" data-toggle="tooltip" data-placement="right" title="You don't have permissions to do that!">{% trans "Delete This List" %}<span><i class="fas fa-trash"></i></span></button>
                   </div>
                 {% endif %}
               </div>
@@ -68,12 +78,12 @@
                 <table class="table" id="">
               {% endif %}
                 <tr class="nodrop">
-                  <th>Task</th>
-                  <th>Created</th>
-                  <th>Due on</th>
-                  <th>Owner</th>
-                  <th>Assigned</th>
-                  <th>Mark</th>
+                  <th>{% trans "Task" %}</th>
+                  <th>{% trans "Created" %}</th>
+                  <th>{% trans "Due on" %}</th>
+                  <th>{% trans "Owner" %}</th>
+                  <th>{% trans "Assigned" %}</th>
+                  <th>{% trans "Mark" %}</th>
                 </tr>
 
                 {% for task in tasks %}
@@ -93,7 +103,7 @@
                       {{ task.created_by }}
                     </td>
                     <td>
-                      {% if task.assigned_to %}{{ task.assigned_to }}{% else %}Anyone{% endif %}
+                      {% if task.assigned_to %}{{ task.assigned_to }}{% else %}{% trans "Anyone" %}{% endif %}
                     </td>
                     <td>
                       <form method="post" action="{% url "todo:task_toggle_done" task.id %}" role="form">
@@ -101,32 +111,32 @@
                         {% if user.is_staff %}
                           {% if view_completed %}
                             <button class="btn btn-info btn-sm custom_tasks_button_done_notdone" type="submit" name="toggle_done">
-                              Not Done
+                              {% trans "Not Done" %}
                             </button>
                           {% else %}
                             <button class="btn btn-success btn-sm" type="submit" name="toggle_done">
-                              Done
+                              {% trans "Done" %}
                             </button>
                           {% endif %}
                         {% else %}
                           {% if view_completed %}
                             {% if task.assigned_to == request.user %}
                               <button class="btn btn-info btn-sm custom_tasks_button_done_notdone" type="submit" name="toggle_done">
-                              Not Done
+                              {% trans "Not Done" %}
                             </button>
                             {% else %}
                               <button class="btn btn-info btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
-                                Not Done
+                                {% trans "Not Done" %}
                               </button>
                             {% endif %}
                           {% else %}
                             {% if task.assigned_to == request.user %}
                               <button class="btn btn-success btn-sm" type="submit" name="toggle_done">
-                                Done
+                                {% trans "Done" %}
                               </button>
                             {% else %}
-                              <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that! Task is not assigned to you!">
-                                Done
+                              <button class="btn btn-success btn-sm disabled" type="button" data-toggle="tooltip" data-placement="top" title="{% trans 'You don&rsquo;t have permissions to do that! Task is not assigned to you!' %}">
+                                {% trans "Done" %}
                               </button>
                             {% endif %}
                           {% endif %}
@@ -180,7 +190,7 @@
               </div>
             <!-- /pagination -->
           {% else %}
-            <h4>No tasks on this list yet (add one!)</h4>
+            <h4>{% trans "No tasks on this list yet (add one!)" %}</h4>
             {# {% include 'todo/include/toggle_delete.html' %} #}
           {% endif %}
         </div>
