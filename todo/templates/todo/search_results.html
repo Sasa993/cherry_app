@@ -34,23 +34,28 @@
                 {% for f in found_tasks %}
                   <li class="list-group-item search_list_item hvr-grow-shadow">
                     <div class="row justify-content-between align-items-center list_item_wrapper">
-                      <div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6 custom_search_task_title">
+                      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 custom_search_task_title">
                         <a href="{% url 'todo:task_detail' f.id %}" class="hvr-icon-fade"><i class="fas fa-thumbtack hvr-icon"></i><h5>{{ f.title }}</h5></a>
                       </div>
-                      <div class="col-12 col-sm-7 col-md-7 col-lg-8 col-xl-6">
-                        <div class="row">
-                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "In list" %}: <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name">{{ f.task_list.name }}</a></p>
-                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "Assigned to" %}: <strong style="color:#8d0a15;">{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</strong></p>
-                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "Completed" %}: 
+                      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <div class="row custom_all_tasks_p">
+                          <p class="col-md-6 col-lg-6 col-xl-3 col-6 hvr-icon-fade">
+                            <span>{% trans "In list" %}:</span><br> 
+                            <a href="{% url 'todo:list_detail' f.task_list.id f.task_list.slug %}" class="list_name hvr-icon">{{ f.task_list.name }}</a>
+                          </p>
+                          <p class="col-md-6 col-lg-6 col-xl-3 col-6"><span>{% trans "Assigned to" %}:</span><br>{% if f.assigned_to %}{{ f.assigned_to }}{% else %}Anyone{% endif %}</p>
+                          <p class="col-md-6 col-lg-6 col-xl-3 col-6"><span>{% trans "Assigned by" %}:</span><br>{% if f.created_by %}{{ f.created_by }}{% else %}Anyone{% endif %}</p>
+                          <p class="col-md-6 col-lg-6 col-xl-3 col-6"><span>{% trans "Completed" %}: </span><br>
                             {% if f.completed %}
-                              <b class="completed">
+                              {# <b class="completed"> #}
+                                <i class="fas fa-thumbs-up"></i>
                             {% else %}
-                              <b class="not_completed">
+                              {# <b class="not_completed"> #}
+                                <i class="fas fa-thumbs-down"></i>
                             {% endif %}
-                            {% blocktrans with check_if_completed=f.completed|yesno:"Yes,No" %}{{ check_if_completed }}{% endblocktrans %}
+                            {# {% blocktrans with check_if_completed=f.completed|yesno:"Yes,No" %}{{ check_if_completed }}{% endblocktrans %} #}
                             </b>
                           </p>
-                          <p class="col-md-6 col-lg-6 col-xl-6">{% trans "Assigned by" %}: <strong style="color:#8d0a15;">{% if f.created_by %}{{ f.created_by }}{% else %}Anyone{% endif %}</strong></p>
                         </b>
                       </div>
                     </div>

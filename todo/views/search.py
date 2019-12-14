@@ -47,10 +47,12 @@ def search(request) -> HttpResponse:
 
     # Only include tasks that are in groups of which this user is a member:
     if not request.user.is_superuser:
-        found_tasks2 = found_tasks2.filter(task_list__group__in=request.user.groups.all())
-        paginator = Paginator(found_tasks2, 6)
-        page = request.GET.get('page')
-        found_tasks = paginator.get_page(page)
+        # print(f"HELLO - {found_tasks2}")
+        if not found_tasks2 == None:
+            found_tasks2 = found_tasks2.filter(task_list__group__in=request.user.groups.all())
+            paginator = Paginator(found_tasks2, 6)
+            page = request.GET.get('page')
+            found_tasks = paginator.get_page(page)
 
     context = {"query_string": query_string, "found_tasks2": found_tasks2, "found_tasks": found_tasks}
     return render(request, "todo/search_results.html", context)

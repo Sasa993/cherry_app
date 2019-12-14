@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import login_required
 from django.dispatch import receiver, Signal
 import time
 
-
 book_request = Signal(providing_args=['authors', 'requested_book'])
 
 
@@ -156,11 +155,6 @@ def handler404(request, exception, template_name="errors/error_404.html"):
 	return response
 
 
-# def handler500(request, template_name="error_500.html"):
-# 	response = render_to_response("error_500.html")
-# 	response.status_code = 500
-# 	return response
-
 @login_required
 def book_search(request):
 
@@ -173,9 +167,15 @@ def book_search(request):
 		if ("s_book" in request.GET) and request.GET["s_book"].strip():
 			query_string = request.GET["s_book"]
 
-			found_books2 = Book.objects.filter(
-				Q(title__icontains=query_string) | Q(subtitle__icontains=query_string) | Q(working_number__icontains=query_string) | Q(description__icontains=query_string) | Q(co_author_name__name__icontains=query_string) | Q(co_author_name__last_name__icontains=query_string) | Q(author__name__icontains=query_string) | Q(author__last_name__icontains=query_string)
+			# querying through the "ModelMultipleChoiceField" fields and later uniting with found_books2 - so that we don't get duplicates in our search results, when there is more than 1 author or co_author
+			search_for_multiple = found_books2 = Book.objects.filter(
+				Q(author__name__icontains=query_string) | Q(author__last_name__icontains=query_string) | Q(co_author_name__name__icontains=query_string) | Q(co_author_name__last_name__icontains=query_string)
 			)
+			found_books2 = Book.objects.filter(
+				Q(title__icontains=query_string) | Q(subtitle__icontains=query_string) | Q(working_number__icontains=query_string) | Q(description__icontains=query_string)
+			)
+
+			found_books2 = search_for_multiple.union(found_books2)
 			paginator = Paginator(found_books2, 6)
 			page = request.GET.get('page')
 			found_books = paginator.get_page(page)
@@ -187,19 +187,12 @@ def book_search(request):
 			page = request.GET.get('page')
 			found_books = paginator.get_page(page)
 
-		if "inc_complete" in request.GET:
-			found_books = found_books.exclude(completed=True)
+		# if "inc_complete" in request.GET:
+		# 	found_books = found_books.exclude(completed=True)
 
 	else:
 		found_books = None
 		found_books2 = None
-
-	# Only include tasks that are in groups of which this user is a member:
-	if not request.user.is_superuser:
-		found_books2 = found_books2.filter(task_list__group__in=request.user.groups.all())
-		paginator = Paginator(found_books2, 6)
-		page = request.GET.get('page')
-		found_books = paginator.get_page(page)
 
 	context = {"query_string": query_string, "found_books2": found_books2, "found_books": found_books}
 	return render(request, "books/search_books_results.html", context)

@@ -18,18 +18,50 @@
 						{% trans "You can search by Title, Subtitle, Working Number, Description, Co Author Name/Lastname and Author Name/Lastname..." %}
 					</small>
 					<div class="display_search_books_results mt-3">
-						
 				        {% if found_books %}
 				        	<h6 class="text-center">{% blocktrans with books_count=found_books2.count %}<strong>{{ books_count }}</strong> search results for term: <strong>{{ query_string }}</strong>{% endblocktrans %}</h6>
 				            <ul class="list-group">
 				            	{% for f in found_books %}
-				                	<li class="list-group-item search_list_item">
+				                	<li class="list-group-item search_list_item hvr-grow-shadow">
 				                    	<div class="row justify-content-between align-items-center list_item_wrapper">
-				                      		<div class="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-6">
-				                        		<a href="{% url 'dashboard:details_books' f.id %}">
+				                      		<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 custom_search_task_title">
+				                        		<a href="{% url 'dashboard:details_books' f.id %}" class="hvr-icon-fade">
+				                        			<i class="fas fa-bookmark hvr-icon"></i>
 				                        			<h5>{{ f.title }}</h5>
 				                        		</a>
 				                      		</div>
+				                      		<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+						                        <div class="row custom_all_tasks_p">
+						                          <p class="col-md-6 col-lg-6 col-xl-3 col-6 hvr-icon-fade">
+						                            <span>{% trans "Working Number" %}:</span><br> 
+						                            <a href="#" class="list_name hvr-icon">{{ f.working_number|upper }}</a>
+						                          </p>
+						                          <p class="col-md-6 col-lg-6 col-xl-3 col-6">
+						                          	<span>{% trans "Author" %}:</span><br>
+						                         	{% for author in f.author.all %}
+						                          		{% if forloop.last %}
+						                          			{{ author }}
+						                          		{% else %}
+						                          			{{ author }},<br>
+						                          		{% endif %}
+						                          	{% endfor %}
+						                      	  </p>
+						                          <p class="col-md-6 col-lg-6 col-xl-3 col-6">
+						                          	<span>{% trans "Co Author" %}:</span><br>
+						                          	{% for co_author in f.co_author_name.all %}
+						                          		{% if forloop.last %}
+						                          			{{ co_author }}
+						                          		{% else %}
+						                          			{{ co_author }},<br>
+						                          		{% endif %}
+						                          	{% endfor %}
+						                          </p>
+						                          <p class="col-md-6 col-lg-6 col-xl-3 col-6"><span>{% trans "Uploaded" %}: </span><br>
+						                            {{ f.uploaded_at|date }}
+						                            </b>
+						                          </p>
+						                        	</b>
+						                     	</div>
 				                    	</div>
 				                  	</li>
 				                {% endfor %}

@@ -7,6 +7,9 @@ body{
 body::-webkit-scrollbar {
     width: 0px;
 }
+a:hover {
+    text-decoration: none !important;
+}
 .form-container .wrapper h5{
     color: white;
     padding: 0 10px;
@@ -1540,18 +1543,6 @@ footer .useful-links li{
 .search_results .search_results_container .search_list_item p a{
     text-decoration: none;
 }
-.search_results .search_results_container .search_list_item .completed{
-    color: #317c2d;
-}
-.search_results .search_results_container .search_list_item .not_completed{
-    color: #8e1c1c;
-}
-/* @media screen and (max-width: 450px){
-    .search_results .search_results_header h3{
-        padding: 8px 0 8px 0;
-        font-size: .8rem;
-    }
-} */
 
 /* CSV Upload Results */
 .csv_upload_result .csv_upload_result_header{
@@ -1994,7 +1985,7 @@ div#id_co_author_email {
     padding: 0 15%;
 }
 .custom_search_task_title a > i {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
     color: #8a8a8a;
     width: 30px;
     height: 30px;
@@ -2004,6 +1995,10 @@ div#id_co_author_email {
 }
 .custom_search_task_title a > h5 {
     display: inline-block;
+}
+.custom_search_task_title a {
+    display: flex;
+    word-break: break-word;
 }
 /* Grow Shadow */
 .search_list_item.hvr-grow-shadow {
@@ -2023,6 +2018,7 @@ div#id_co_author_email {
   transform: scale(1.05);
 }
 /* Grow Shadow End */
+
 /* Icon Fade */
 .hvr-icon-fade {
   display: inline-block;
@@ -2040,8 +2036,32 @@ div#id_co_author_email {
   -webkit-transition-property: color;
   transition-property: color;
 }
-.hvr-icon-fade:hover .hvr-icon, .hvr-icon-fade:focus .hvr-icon, .hvr-icon-fade:active .hvr-icon,
-.hvr-icon-fade:hover h5, .hvr-icon-fade:focus h5, .hvr-icon-fade:active h5 {
+.hvr-icon-fade:hover .hvr-icon, 
+.hvr-icon-fade:focus .hvr-icon, 
+.hvr-icon-fade:active .hvr-icon,
+.hvr-icon-fade:hover h5, 
+.hvr-icon-fade:focus h5, 
+.hvr-icon-fade:active h5 {
   color: #8d0a15 !important;
 }
 /* Icon Fade End */
+.custom_all_tasks_p p {
+    text-align: center;
+    text-align-last: center;
+    color: #8a8a8a;
+    font-weight: 700;
+}
+.custom_all_tasks_p span {
+    color: #8d0a15;
+    font-weight: 900;
+}
+.custom_all_tasks_p a {
+    /*color: #212529;*/
+    color: #8a8a8a;
+}
+.custom_search_task_title h5 {
+    margin-left: .3rem;
+}
+.card-body.search_results_container .custom_whole_div_search_input small {
+    text-align: justify;
+}

@@ -1225,3 +1225,79 @@
         margin-top: 1rem !important;
     }
 }
+@media (min-width: 991.98px) and (max-width: 1116px) {
+    div.chiller-theme.toggled .custom_search_task_title {
+        max-width: 100%;
+        flex: 0 0 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    div.chiller-theme.toggled .custom_search_task_title > a {
+        display: inline-block !important;
+    }
+    .custom_all_tasks_p p:nth-child(3),
+    .custom_all_tasks_p p:nth-child(4) {
+        margin-top: 10px !important;
+    }
+}
+@media (min-width: 767.98px) and (max-width: 992px) {
+    div.chiller-theme.toggled .custom_search_task_title {
+        max-width: 100%;
+        flex: 0 0 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    div.chiller-theme.toggled .custom_search_task_title > a {
+        display: inline-block !important;
+    }
+    .custom_all_tasks_p p:nth-child(3),
+    .custom_all_tasks_p p:nth-child(4) {
+        margin-top: 10px !important;
+    }
+    .custom_search_tasks_input span img {
+        width: 10px;
+    }
+    .card-body.search_results_container .custom_whole_div_search_input small {
+        font-size: 0.6rem;
+    }
+    input#q {
+        font-size: 0.7rem;
+    }
+    .search_results_container .post_list > h2 {
+        font-size: 1.5rem;
+    }
+    .custom_all_tasks_p {
+        font-size: 0.8rem;
+    }
+    .custom_search_task_title a i,
+    .custom_search_task_title a h5 {
+        font-size: 1.1rem;
+    }
+}
+@media(min-width: 319.78px) and (max-width: 450px) {
+    .custom_search_task_title {
+        text-align: center;
+    }
+    .custom_search_task_title > a {
+        display: inline-block !important;
+    }
+    .custom_search_tasks_input span img {
+        width: 10px;
+    }
+    .card-body.search_results_container .custom_whole_div_search_input small {
+        font-size: 0.6rem;
+    }
+    input#q {
+        font-size: 0.7rem;
+    }
+    .search_results_container .post_list > h2 {
+        font-size: 1.5rem;
+    }
+    .custom_all_tasks_p {
+        font-size: 0.8rem;
+    }
+    .custom_search_task_title a i,
+    .custom_search_task_title a h5 {
+        font-size: 1.1rem;
+    }
+}
