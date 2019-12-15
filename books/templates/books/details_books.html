@@ -169,7 +169,7 @@
                                 <img src="{% static 'images/book_details/co_author_emails.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Author Emails" %}
                             </h5>
                             <div class="card-body">
-                                {% if book.co_author_name %}
+                                {% if book.co_author_name.all %}
                                     {% for co_author in book.co_author_name.all %}
                                         {% if forloop.last %}
                                             <span>{{ co_author.email }}</span>
