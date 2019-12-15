@@ -1,9 +1,14 @@
 {% extends "books/base.html" %}
+
 {% load i18n %}
 {% load static %}
-    
+
+{% block other_css %}
+    <link href="{% static 'css/animated_book.css' %}" rel="stylesheet"/>
+{% endblock %}
+
 {% block title %}
-	Book - {{ book.title }}
+	{% trans "Book" %} - {{ book.title }}
 {% endblock %}
 
 {% block content %}
@@ -23,304 +28,225 @@
                     <a href="{% url 'dashboard:all_uploaded_books' %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button"><i class="fas fa-arrow-left"></i>{% trans "Go Back" %}</button></a>
                 </div>
                 <div class="card-body book_info">
-                    <div class="row">
-                    	<div class="col-12 text-center mt-4 book_container">
-                            <h5>{% trans "Cover:" %}</h5>
+                    <div class="card custom_card_cover_image">
+                        <h5 class="card-header custom_card_header">
+                            <img src="{% static 'images/book_details/cover.png' %}" class="mr-2" alt="" width="25px" />{% trans "Cover" %}
+                        </h5>
+                        <div class="card-body">
                             {% if book.cover %}
-                            	<img src="/media/{{ book.cover }}" width="30%" />
+                                <div class"animated_book_body">
+                                    <div class="component">
+                                      <ul class="align">
+                                        <li>
+                                          <figure class='book'>        
+                                            <!-- Front -->        
+                                            <ul class='hardcover_front'>
+                                              <li>
+                                                <img src="/media/{{ book.cover }}" alt="" width="100%" height="100%">
+                                              </li>
+                                              <li></li>
+                                            </ul>        
+                                            <!-- Pages -->        
+                                            <ul class='page'>
+                                              <li></li>
+                                              <li>
+                                                <a class="animated_book_btn" href="#" data-toggle="modal" data-target="#bookTypes">{% trans "Book Types" %}</a>
+                                              </li>
+                                              <li></li>
+                                              <li></li>
+                                              <li></li>
+                                            </ul>        
+                                            <!-- Back -->        
+                                            <ul class='hardcover_back'>
+                                              <li></li>
+                                              <li></li>
+                                            </ul>
+                                            <ul class='book_spine'>
+                                              <li></li>
+                                              <li></li>
+                                            </ul>
+                                          </figure>
+                                        </li>
+                                      </ul>  
+                                    </div>
+                                </div>
                             {% else %}
-                            	<p>{% trans "Not uploaded!" %}</p>
+                                <div class"animated_book_body">
+                                    <div class="component">
+                                      <ul class="align">
+                                        <li>
+                                          <figure class='book'>        
+                                            <!-- Front -->        
+                                            <ul class='hardcover_front'>
+                                              <li>
+                                                {# <img src="/static/images/navbar_logo.png" alt="" width="100%" height="100%"> #}
+                                                <span style="line-height: 10;">Cover Not Uploaded</span>
+                                              </li>
+                                              <li></li>
+                                            </ul>        
+                                            <!-- Pages -->        
+                                            <ul class='page'>
+                                              <li></li>
+                                              <li>
+                                                <a class="animated_book_btn" href="#" data-toggle="modal" data-target="#bookTypes">{% trans "Book Types" %}</a>
+                                              </li>
+                                              <li></li>
+                                              <li></li>
+                                              <li></li>
+                                            </ul>        
+                                            <!-- Back -->        
+                                            <ul class='hardcover_back'>
+                                              <li></li>
+                                              <li></li>
+                                            </ul>
+                                            <ul class='book_spine'>
+                                              <li></li>
+                                              <li></li>
+                                            </ul>
+                                          </figure>
+                                        </li>
+                                      </ul>  
+                                    </div>
+                                </div>
                             {% endif %}
                         </div>
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>{% trans "Working Number:" %}</h5>
-                            {{ book.working_number }}
+                    </div>
+                    <div class="card-deck">
+                        <div class="card mt-4">
+                            <h5 class="card-header custom_card_header">
+                                <img src="{% static 'images/book_details/title.png' %}" class="mr-2" alt="" width="25px" />{% trans "Title" %}
+                            </h5>
+                            <div class="card-body">
+                                <span>{{ book.title }}</span>
+                            </div>
                         </div>
-                        <div class="col-6 text-center mt-4 book_container">
-                            <h5>{% trans "Title:" %}</h5>
-                            {{ book.title }}
-                        </div>
-                        <div class="col-6 text-center mt-4 book_container">
-                            <h5>{% trans "Subtitle:" %}</h5>
-                            {{ book.subtitle }}
-                        </div>
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>{% trans "Description:" %}</h5>
-                            {{ book.description|safe }}
-                        </div>
-                        <div class="col-4 text-center mt-4 book_container">
-                            <h5>{% trans "Comparible:" %}</h5>
-                            {{ book.comparible }}
-                        </div>
-                        <div class="col-4 text-center mt-4 book_container">
-                            <h5>{% trans "Co Authors:" %}</h5>
-                            {% for co_author in book.co_author_name.all %}
-                                {% if forloop.last %}
-                                    {{ co_author }}
+                        <div class="card mt-4">
+                            <h5 class="card-header custom_card_header">
+                                <img src="{% static 'images/book_details/subtitle.png' %}" class="mr-2" alt="" width="25px" />{% trans "Subtitle" %}
+                            </h5>
+                            <div class="card-body">
+                                {% if book.subtitle %}
+                                    <span>{{ book.subtitle }}</span>
                                 {% else %}
-                                    {{ co_author }},<br>
+                                    <span class="custom_not_written">{% trans "It hasn't been written." %}</span>
                                 {% endif %}
-                            {% endfor %}
+                            </div>
                         </div>
-                        <div class="col-4 text-center mt-4 book_container">
-                            <h5>{% trans "Co Author Emails:" %}</h5>
-                            {% for co_author in book.co_author_name.all %}
-                                {% if forloop.last %}
-                                    {{ co_author.email }}
+                    </div>
+                    <div class="card mt-4">
+                        <h5 class="card-header custom_card_header">
+                            <img src="{% static 'images/book_details/description.png' %}" class="mr-2" alt="" width="25px" />{% trans "Description" %}
+                        </h5>
+                        <div class="card-body">
+                            {% if book.description %}
+                                <span>{{ book.description }}</span>
+                            {% else %}
+                                <span class="custom_not_written">{% trans "It hasn't been written." %}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card mt-4">
+                            <h5 class="card-header custom_card_header">
+                                <img src="{% static 'images/book_details/co_author.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Authors" %}
+                            </h5>
+                            <div class="card-body">
+                                {% if book.co_author_name %}
+                                    {% for co_author in book.co_author_name.all %}
+                                        {% if forloop.last %}
+                                            <span>{{ co_author }}</span>
+                                        {% else %}
+                                            <span>{{ co_author }}</span>,<br>
+                                        {% endif %}
+                                    {% endfor %}
                                 {% else %}
-                                    {{ co_author.email }},<br>
+                                    <span class="custom_not_written">{% trans "It hasn't been written." %}</span>
                                 {% endif %}
-                            {% endfor %}
+                            </div>
                         </div>
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>{% trans "Co Authors Instructions:" %}</h5>
-                            {{ book.co_author_instructions|safe }}
-                        </div>
-                        <div class="col-12 text-center mt-4 book_container">
-                            <h5>{% trans "Authors:" %}</h5>
-                            {% for author in book.author.all %}
-                                {% if forloop.last %}
-                                    {{ author }}
+                        <div class="card mt-4">
+                            <h5 class="card-header custom_card_header">
+                                <img src="{% static 'images/book_details/co_author_emails.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Author Emails" %}
+                            </h5>
+                            <div class="card-body">
+                                {% if book.co_author_name %}
+                                    {% for co_author in book.co_author_name.all %}
+                                        {% if forloop.last %}
+                                            <span>{{ co_author.email }}</span>
+                                        {% else %}
+                                            <span>{{ co_author.email }}</span>,<br>
+                                        {% endif %}
+                                    {% endfor %}
                                 {% else %}
-                                    {{ author }},<br>
+                                    <span class="custom_not_written">{% trans "It hasn't been written." %}</span>
                                 {% endif %}
-                            {% endfor %}
+                            </div>
                         </div>
-                        {% if book.ebook %}
-	                        <div class="upload_books_front col-6">
-		                        <div class="upload_books_btn_container text-center mt-4">
-					                <div>
-										<a href="{% url 'uploaded_books:details_ebook' main_book_id=book.id book_id=book.ebook.id %}">
-											<button class="btn"><i class="fas fa-book fa-lg"></i>
-												<b>{% trans "OPEN E-BOOK" %}</b>
-											</button>
-										</a>
-									</div>
-					            </div>
-					        </div>
-	                    {% else %}
-                            {% if request.user.is_superuser %}
-    		                    <div class="upload_books_front col-6">
-    		                        <div class="upload_books_btn_container text-center mt-4">
-    					                <div>
-    										<a href="{% url 'uploaded_books:upload_ebook' book_id=book.id %}">
-    											<button class="btn"><i class="fas fa-book fa-lg"></i>
-    												<b>{% trans "CREATE E-BOOK" %}</b>
-    											</button>
-    										</a>
-    									</div>
-    					            </div>
-    					        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <h5 class="card-header custom_card_header">
+                            <img src="{% static 'images/book_details/co_author_instructions.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Author Instructions" %}
+                        </h5>
+                        <div class="card-body">
+                            {% if book.co_author_instructions %}
+                                <span>{{ book.co_author_instructions|safe }}</span>
+                            {% else %}
+                                <span class="custom_not_written">{% trans "It hasn't been written." %}</span>
                             {% endif %}
-	                    {% endif %}
-	                    {% if book.book5x8 %}
-	                    	<div class="upload_books_front col-6">
-		                        <div class="upload_books_btn_container text-center mt-4">
-					                <div>
-										<a href="{% url 'uploaded_books:details_5x8' main_book_id=book.id book_id=book.book5x8.id %}">
-											<button class="btn"><i class="fas fa-book fa-lg"></i>
-												<b>{% trans "OPEN 5x8 BOOK" %}</b>
-											</button>
-										</a>
-									</div>
-					            </div>
-					        </div>
-	                    {% else %}
-                            {% if request.user.is_superuser %}
-    	                    	<div class="upload_books_front col-6">
-    		                        <div class="upload_books_btn_container text-center mt-4">
-    					                <div>
-    										<a href="{% url 'uploaded_books:upload_5x8' book_id=book.id %}">
-    											<button class="btn"><i class="fas fa-book fa-lg"></i>
-    												<b>{% trans "CREATE 5x8 BOOK" %}</b>
-    											</button>
-    										</a>
-    									</div>
-    					            </div>
-    					        </div>
-                            {% endif %}
-	                    {% endif %}
-                        {% if book.book_A5_hardcover %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:details_a5_hardcover' main_book_id=book.id book_id=book.book_A5_hardcover.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>{% trans "OPEN A5 HARDCOVER BOOK" %}</b>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card mt-4">
+                            <h5 class="card-header custom_card_header">
+                                <img src="{% static 'images/book_details/author.png' %}" class="mr-2" alt="" width="25px" />{% trans "Authors" %}
+                            </h5>
+                            <div class="card-body">
+                                {% if book.author %}
+                                    {% for author in book.author.all %}
+                                        {% if forloop.last %}
+                                            <span>{{ author }}</span>
+                                        {% else %}
+                                            <span>{{ author }}</span>,<br>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <span class="custom_not_written">{% trans "It hasn't been written." %}</span>
+                                {% endif %}
                             </div>
-                        {% else %}
-                            {% if request.user.is_superuser %}
-                                <div class="upload_books_front col-6">
-                                    <div class="upload_books_btn_container text-center mt-4">
-                                        <div>
-                                            <a href="{% url 'uploaded_books:upload_a5_hardcover' book_id=book.id %}">
-                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                    <b>{% trans "CREATE A5 HARDCOVER BOOK" %}</b>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endif %}
-                        {% if book.book_115x18_fnsku %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:details_115x18_fnsku' main_book_id=book.id book_id=book.book_115x18_fnsku.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>{% trans "OPEN 115x18 FNSKU BOOK" %}</b>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="card mt-4">
+                            <h5 class="card-header custom_card_header">
+                                <img src="{% static 'images/book_details/comparible.png' %}" class="mr-2" alt="" width="25px" />{% trans "Comparible" %}
+                            </h5>
+                            <div class="card-body">
+                                {% if book.comparible %}
+                                    <span>{{ book.comparible }}</span>
+                                {% else %}
+                                    <span class="custom_not_written">{% trans "It hasn't been written." %}</span>
+                                {% endif %}
                             </div>
-                        {% else %}
-                            {% if request.user.is_superuser %}
-                                <div class="upload_books_front col-6">
-                                    <div class="upload_books_btn_container text-center mt-4">
-                                        <div>
-                                            <a href="{% url 'uploaded_books:upload_115x18_fnsku' book_id=book.id %}">
-                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                    <b>{% trans "CREATE 115x18 FNSKU BOOK" %}</b>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endif %}
-                        {% if book.book_115x18_isbn %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:details_115x18_isbn' main_book_id=book.id book_id=book.book_115x18_isbn.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>{% trans "OPEN 115x18 ISBN BOOK" %}</b>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% else %}
-                            {% if request.user.is_superuser %}
-                                <div class="upload_books_front col-6">
-                                    <div class="upload_books_btn_container text-center mt-4">
-                                        <div>
-                                            <a href="{% url 'uploaded_books:upload_115x18_isbn' book_id=book.id %}">
-                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                    <b>{% trans "CREATE 115x18 ISBN BOOK" %}</b>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endif %}
-                        {% if book.book_125x19_hardcover %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:details_125x19_hardcover' main_book_id=book.id book_id=book.book_125x19_hardcover.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>{% trans "OPEN 125x19 KDP TB ISBN BOOK" %}</b>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% else %}
-                            {% if request.user.is_superuser %}
-                                <div class="upload_books_front col-6">
-                                    <div class="upload_books_btn_container text-center mt-4">
-                                        <div>
-                                            <a href="{% url 'uploaded_books:upload_125x19_hardcover' book_id=book.id %}">
-                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                    <b>{% trans "CREATE 125X19 KDP TB ISBN BOOK" %}</b>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endif %}
-                        {% if book.book_125x19_fnsku %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:details_125x19_fnsku' main_book_id=book.id book_id=book.book_125x19_fnsku.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>{% trans "OPEN 125x19 FNSKU BOOK" %}</b>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% else %}
-                            {% if request.user.is_superuser %}
-                                <div class="upload_books_front col-6">
-                                    <div class="upload_books_btn_container text-center mt-4">
-                                        <div>
-                                            <a href="{% url 'uploaded_books:upload_125x19_fnsku' book_id=book.id %}">
-                                                <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                    <b>{% trans "CREATE 125X19 FNSKU BOOK" %}</b>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endif %}
-                        {% if book.book_125x19_isbn %}
-                            <div class="upload_books_front col-6">
-                                <div class="upload_books_btn_container text-center mt-4">
-                                    <div>
-                                        <a href="{% url 'uploaded_books:details_125x19_isbn' main_book_id=book.id book_id=book.book_125x19_isbn.id %}">
-                                            <button class="btn"><i class="fas fa-book fa-lg"></i>
-                                                <b>{% trans "OPEN 125x19 ISBN BOOK" %}</b>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% else %}
-                            {% if request.user.is_superuser %}
-                                <div class="upload_books_front col-6">
-                                    <div class="upload_books_btn_container text-center mt-4">
-                                        <div>
-                                            <a href="{% url 'uploaded_books:upload_125x19_isbn' book_id=book.id %}">
-                                                <button class="btn"><i class="fas fa-book fa-lg"></i><b>{% trans "CREATE 125X19 ISBN BOOK" %}</b></button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endif %}
+                        </div>
                     </div>
                     <div class="row">
 	                    {% if request.user.is_superuser %}
 	                        <div class="col-6 col-md-6 text-center mt-5 book_container">
 	                        	<a href="{% url 'dashboard:edit_books' book_id=book.id %}">
-	                        		<button class="download_all_btn btn" type="button"><i class="fas fa-download"></i>{% trans "Edit Book" %}</button>
+	                        		<button class="download_all_btn btn" type="button"><i class="fas fa-pencil-alt"></i>{% trans "Edit Book" %}</button>
 	                        	</a>
 	                        </div>
 	                        <div class="col-6 col-md-6 text-center mt-5 book_container">
 	                        	<!-- Button trigger modal -->
 	                            <button class="download_all_btn btn" type="button" data-toggle="modal" data-target="#deleteBook">
-	                            	<i class="fas fa-download"></i>{% trans "Delete Book" %}
+	                            	<i class="fas fa-trash"></i>{% trans "Delete Book" %}
 	                            </button>
 	                        </div>
 	                    {% else %}
 	                    	<div class="col-6 col-md-6 text-center mt-5 book_container">
-	                        	<button class="download_all_btn btn disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!"><i class="fas fa-download"></i>{% trans "Edit Book" %}</button>
+	                        	<button class="download_all_btn btn disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!"><i class="fas fa-pencil-alt"></i>{% trans "Edit Book" %}</button>
 	                        </div>
 	                        <div class="col-6 col-md-6 text-center mt-5 book_container">
 	                            <button class="download_all_btn btn disabled" type="button" data-toggle="tooltip" data-placement="top" title="You don't have permissions to do that!">
-	                            	<i class="fas fa-download"></i>{% trans "Delete Book" %}
+	                            	<i class="fas fa-trash"></i>{% trans "Delete Book" %}
 	                            </button>
 	                        </div>
 	                    {% endif %}
@@ -331,6 +257,7 @@
         </div>
     </div>
     {% include 'books/modals/modal_delete_book.html' %}
+    {% include 'books/modals/modal_book_types.html' %}
 {% endblock %}
 
 {% block other_js %}

@@ -1768,7 +1768,6 @@ a:hover img.imagedropshadow {
         box-shadow: 1px 1px 5px #999;
 }
 
-<<<<<<< HEAD
 .disabled_side_bar_menu ul li a {
     color: #8d0a154a !important;
 }
@@ -1987,4 +1986,46 @@ div#id_co_author_email {
 .card-body.search_results_container .custom_whole_div_search_input small,
 .search_results_container small.text-muted {
     text-align: justify;
+}
+.book_info .card .card-body {
+    color: #8d0a15;
+}
+.custom_not_written {
+    color: grey;
+}
+.custom_card_cover_image {
+    padding: 0;
+}
+.custom_card_cover_image .card-body {
+    text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+}
+.book_info .card .card-body {
+    text-align: center;
+    transition: all 1s ease-out;
+}
+.book_info .card .card-body:hover {
+    background-color: gainsboro;
+    transition: all .5s ease-in;
+}
+.custom_card_cover_image .card-body img {
+    /*width: 50%;*/
+}
+.book_info .card h5.custom_card_header {
+    background-color: #8d0a15;
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+}
+.custom_modal_dialog_book_types {
+    max-width: 750px;
+}
+.modal-header {
+    background-color: #8d0a15;
+    border-radius: 0;
+    color: #fff;
+}
+.modal-header > button span {
+    color: #fff;
 }
