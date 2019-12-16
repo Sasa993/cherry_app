@@ -797,6 +797,7 @@
         text-align: center;
     }
     /* End of Enable 2FA Template */
+
     /* Delete Item List Template CSS */
     .task_list_delete .task_list_delete_header h3{
         padding: 25px 0;
@@ -833,7 +834,6 @@
     .upload_books_front #id_co_author_email a{
         display: block;
     }
-
     .page-wrapper.chiller-theme.toggled .create_book_wrapper_title_subtitle_workno .create_book_title_subtitle_worknumber_container div,
     .page-wrapper.chiller-theme.toggled .create_book_wrapper_comparible_authname_authmail .row.d-flex div,
     .page-wrapper.chiller-theme.toggled .edit_book_wrapper_comparible_authname_authmail .row.d-flex div {
@@ -871,7 +871,6 @@
         max-width: 55%;
         flex-grow: 0;
     }
-    
     .upload_books_front .custom_buttons_edit_book_container{
         flex-wrap: wrap;
         justify-content: space-around;
@@ -906,11 +905,13 @@
         text-align: center;
     }
     /* End of Upload CSV results template */
+
     /* My Tasks Template CSS */
     .details_tasks2 h6{
         text-align: center;
     }
     /* End of My Tasks Template */
+    
     /* Enable 2FA Template CSS */
     .two_fa_settings_form p{
         text-align: center;
