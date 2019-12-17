@@ -33,82 +33,46 @@
                             <img src="{% static 'images/book_details/cover.png' %}" class="mr-2" alt="" width="25px" />{% trans "Cover" %}
                         </h5>
                         <div class="card-body">
-                            {% if book.cover %}
-                                <div class"animated_book_body">
-                                    <div class="component">
-                                      <ul class="align">
+                            <div class"animated_book_body">
+                                <div class="component">
+                                    <ul class="align">
                                         <li>
-                                          <figure class='book'>        
-                                            <!-- Front -->        
-                                            <ul class='hardcover_front'>
-                                              <li>
-                                                <img src="/media/{{ book.cover }}" alt="" width="100%" height="100%">
-                                              </li>
-                                              <li></li>
-                                            </ul>        
-                                            <!-- Pages -->        
-                                            <ul class='page'>
-                                              <li></li>
-                                              <li>
-                                                <a class="animated_book_btn" href="#" data-toggle="modal" data-target="#bookTypes">{% trans "Book Types" %}</a>
-                                              </li>
-                                              <li></li>
-                                              <li></li>
-                                              <li></li>
-                                            </ul>        
-                                            <!-- Back -->        
-                                            <ul class='hardcover_back'>
-                                              <li></li>
-                                              <li></li>
-                                            </ul>
-                                            <ul class='book_spine'>
-                                              <li></li>
-                                              <li></li>
-                                            </ul>
-                                          </figure>
+                                            <figure class='book'>        
+                                                <!-- Front -->        
+                                                <ul class='hardcover_front'>
+                                                    <li>
+                                                        {% if book.cover %}
+                                                            <img src="/media/{{ book.cover }}" alt="" width="100%" height="100%">
+                                                        {% else %}
+                                                            <img src="/static/images/no_cover_cover.jpg" alt="" width="100%" height="100%">
+                                                        {% endif %}
+                                                    </li>
+                                                    <li></li>
+                                                </ul>        
+                                                <!-- Pages -->        
+                                                <ul class='page'>
+                                                    <li></li>
+                                                    <li>
+                                                        <a class="animated_book_btn" href="#" data-toggle="modal" data-target="#bookTypes">{% trans "Book Types" %}</a>
+                                                    </li>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>        
+                                                <!-- Back -->        
+                                                <ul class='hardcover_back'>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                                <ul class='book_spine'>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                            </figure>
                                         </li>
-                                      </ul>  
-                                    </div>
+                                    </ul>  
                                 </div>
-                            {% else %}
-                                <div class"animated_book_body">
-                                    <div class="component">
-                                      <ul class="align">
-                                        <li>
-                                          <figure class='book'>        
-                                            <!-- Front -->        
-                                            <ul class='hardcover_front'>
-                                              <li>
-                                                <img src="/static/images/no_cover_cover.jpg" alt="" width="100%" height="100%">
-                                                {# <span style="line-height: 10;">{% trans "Cover Not Uploaded" %}</span> #}
-                                              </li>
-                                              <li></li>
-                                            </ul>        
-                                            <!-- Pages -->        
-                                            <ul class='page'>
-                                              <li></li>
-                                              <li>
-                                                <a class="animated_book_btn" href="#" data-toggle="modal" data-target="#bookTypes">{% trans "Book Types" %}</a>
-                                              </li>
-                                              <li></li>
-                                              <li></li>
-                                              <li></li>
-                                            </ul>        
-                                            <!-- Back -->        
-                                            <ul class='hardcover_back'>
-                                              <li></li>
-                                              <li></li>
-                                            </ul>
-                                            <ul class='book_spine'>
-                                              <li></li>
-                                              <li></li>
-                                            </ul>
-                                          </figure>
-                                        </li>
-                                      </ul>  
-                                    </div>
-                                </div>
-                            {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="card-deck">
@@ -116,7 +80,7 @@
                             <h5 class="card-header custom_card_header">
                                 <img src="{% static 'images/book_details/title.png' %}" class="mr-2" alt="" width="25px" />{% trans "Title" %}
                             </h5>
-                            <div class="card-body">
+                            <div class="card-body hvr-shutter-in-vertical">
                                 <span>{{ book.title }}</span>
                             </div>
                         </div>
@@ -124,7 +88,7 @@
                             <h5 class="card-header custom_card_header">
                                 <img src="{% static 'images/book_details/subtitle.png' %}" class="mr-2" alt="" width="25px" />{% trans "Subtitle" %}
                             </h5>
-                            <div class="card-body">
+                            <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.subtitle %}
                                     <span>{{ book.subtitle }}</span>
                                 {% else %}
@@ -137,7 +101,7 @@
                         <h5 class="card-header custom_card_header">
                             <img src="{% static 'images/book_details/description.png' %}" class="mr-2" alt="" width="25px" />{% trans "Description" %}
                         </h5>
-                        <div class="card-body">
+                        <div class="card-body hvr-shutter-in-vertical">
                             {% if book.description %}
                                 <span>{{ book.description }}</span>
                             {% else %}
@@ -150,7 +114,7 @@
                             <h5 class="card-header custom_card_header">
                                 <img src="{% static 'images/book_details/co_author.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Authors" %}
                             </h5>
-                            <div class="card-body">
+                            <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.co_author_name.all %}
                                     {% for co_author in book.co_author_name.all %}
                                         {% if forloop.last %}
@@ -168,7 +132,7 @@
                             <h5 class="card-header custom_card_header">
                                 <img src="{% static 'images/book_details/co_author_emails.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Author Emails" %}
                             </h5>
-                            <div class="card-body">
+                            <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.co_author_name.all %}
                                     {% for co_author in book.co_author_name.all %}
                                         {% if forloop.last %}
@@ -187,7 +151,7 @@
                         <h5 class="card-header custom_card_header">
                             <img src="{% static 'images/book_details/co_author_instructions.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Author Instructions" %}
                         </h5>
-                        <div class="card-body">
+                        <div class="card-body hvr-shutter-in-vertical">
                             {% if book.co_author_instructions %}
                                 <span>{{ book.co_author_instructions|safe }}</span>
                             {% else %}
@@ -200,7 +164,7 @@
                             <h5 class="card-header custom_card_header">
                                 <img src="{% static 'images/book_details/author.png' %}" class="mr-2" alt="" width="25px" />{% trans "Authors" %}
                             </h5>
-                            <div class="card-body">
+                            <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.author.all %}
                                     {% for author in book.author.all %}
                                         {% if forloop.last %}
@@ -218,7 +182,7 @@
                             <h5 class="card-header custom_card_header">
                                 <img src="{% static 'images/book_details/comparible.png' %}" class="mr-2" alt="" width="25px" />{% trans "Comparible" %}
                             </h5>
-                            <div class="card-body">
+                            <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.comparible %}
                                     <span>{{ book.comparible }}</span>
                                 {% else %}
