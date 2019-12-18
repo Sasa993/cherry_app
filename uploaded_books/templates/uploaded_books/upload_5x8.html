@@ -34,26 +34,52 @@
 										</div>
 								{% endif %}
 		                	{% endfor %}
-			                <div class="row">
+			                <div class="row justify-content-center align-items-center">
 			                	{% for field in form %}
 			                		{% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 5 %}
-					                	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
-			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-			                                <span class="custom_text">{% trans "Choose" %} {{ field.label }}</span>
-			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-			                            </div>
-			                        {% elif forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 6 %}
-			                            <div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
-			                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-			                                <span class="custom_text">{% trans "Choose" %} {{ field.label }}</span>
-			                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-			                            </div>
+			                			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+						                	<div class="e-book_btn_wrapper">
+				                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/book_details/pdf_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                <span class="custom_text d-none d-xl-inline">{% trans "Choose" %} {{ field.label }}</span>
+				                                <span class="custom_text2 d-inline d-xl-none">{{ field.label }}</span>
+				                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                            </div>
+			                        	</div>
+			                        {% elif forloop.counter == 2 %}
+			                        	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+				                        	<div class="e-book_btn_wrapper">
+				                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/book_details/psd_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                <span class="custom_text d-none d-xl-inline">{% trans "Choose" %} {{ field.label }}</span>
+				                                <span class="custom_text2 d-inline d-xl-none">{{ field.label }}</span>
+				                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                            </div>
+			                        	</div>
+			                        {% elif forloop.counter == 4 %}
+			                        	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+				                        	<div class="e-book_btn_wrapper">
+				                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/book_details/indesign_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                <span class="custom_text d-none d-xl-inline">{% trans "Choose" %} {{ field.label }}</span>
+				                                <span class="custom_text2 d-inline d-xl-none">{{ field.label }}</span>
+				                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                            </div>
+			                        	</div>
+			                        {% elif forloop.counter == 6 %}
+			                        	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+				                            <div class="e-book_btn_wrapper">
+				                                <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button"><img src="{% static 'images/book_details/barcode_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                <span class="custom_text d-none d-xl-inline">{% trans "Choose" %} {{ field.label }}</span>
+				                                <span class="custom_text2 d-inline d-xl-none">{{ field.label }}</span>
+				                                <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                            </div>
+			                        	</div>
 			                        {% endif %}
 		                        {% endfor %}
 	                        </div>
-	                        <div class="row">
-	                            <div  class="col-12 col-md-4 offset-md-2 mt-3">
-	                                <button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>{% trans "Upload Book" %}</button>
+	                        <div class="row justify-content-center align-items-center">
+	                            <div class="mt-3 mb-4">
+	                            	<div class="e-book_btn_wrapper">
+	                                	<button class="upload_e-book btn" type="submit"><i class="fas fa-upload"></i>{% trans "Upload Book" %}</button>
+	                            	</div>
 	                            </div>
 	                        </div>
                         </div>

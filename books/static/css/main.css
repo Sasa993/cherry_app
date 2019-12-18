@@ -2078,3 +2078,6 @@ div#id_co_author_email {
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
 }
+.e-book_btn_container {
+    padding: 0 10%;
+}

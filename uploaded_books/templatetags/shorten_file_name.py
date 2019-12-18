@@ -12,5 +12,5 @@ def shorten_file_name(value):
 	# takes everyother element but removes the extension - we could make it take the first element, but there might be a filename with dots mixed with the name
 	value_without_ext = value.replace(extension, "")
 
-	# returns the first 15 characters of the file name and the extension at the end
-	return value_without_ext[:15] + extension
+	# returns the first 12 characters of the file name and the extension at the end
+	return value_without_ext[:12] + extension

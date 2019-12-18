@@ -112,7 +112,10 @@
                     <div class="card-deck">
                         <div class="card mt-4">
                             <h5 class="card-header custom_card_header">
-                                <img src="{% static 'images/book_details/co_author.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Authors" %}
+                                <img src="{% static 'images/book_details/co_author.png' %}" class="mr-2" alt="" width="25px" />
+                                {% blocktrans with block_co_author_count=book.co_author_name.all.count|pluralize %}
+                                    Co Author{{ block_co_author_count }}
+                                {% endblocktrans %}
                             </h5>
                             <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.co_author_name.all %}
@@ -130,7 +133,10 @@
                         </div>
                         <div class="card mt-4">
                             <h5 class="card-header custom_card_header">
-                                <img src="{% static 'images/book_details/co_author_emails.png' %}" class="mr-2" alt="" width="25px" />{% trans "Co Author Emails" %}
+                                <img src="{% static 'images/book_details/co_author_emails.png' %}" class="mr-2" alt="" width="25px" />
+                                {% blocktrans with block_co_author_count=book.co_author_name.all.count|pluralize %}
+                                    Co Author Email{{ block_co_author_count }}
+                                {% endblocktrans %}
                             </h5>
                             <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.co_author_name.all %}
@@ -162,7 +168,10 @@
                     <div class="card-deck">
                         <div class="card mt-4">
                             <h5 class="card-header custom_card_header">
-                                <img src="{% static 'images/book_details/author.png' %}" class="mr-2" alt="" width="25px" />{% trans "Authors" %}
+                                <img src="{% static 'images/book_details/author.png' %}" class="mr-2" alt="" width="25px" />
+                                {% blocktrans with block_author_count=book.author.all.count|pluralize %}
+                                    Author{{ block_author_count }}
+                                {% endblocktrans %}
                             </h5>
                             <div class="card-body hvr-shutter-in-vertical">
                                 {% if book.author.all %}

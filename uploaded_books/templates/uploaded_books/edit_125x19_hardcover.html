@@ -15,80 +15,99 @@
 		<div class="row">
         	<div class="col-12 col-md-8 offset-md-2">
             	{% include "uploaded_books/include/edit_banner_snippet.html" with book=book main_book=main_book %}
-            	<div class="custom_back_button">
-                    <a href="{% url 'uploaded_books:details_125x19_hardcover' main_book.id book.id %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button"><i class="fas fa-arrow-left"></i>{% trans "Go Back" %}</button></a>
-                </div>
-                <div class="card-body">
-                	<h6 class="text-center">{% blocktrans %}Once you're done with changes, click on "Save Changes" button!{% endblocktrans %}</h6>
                     <form id="enterNewBookForm" data-emails-url="{% url 'dashboard:ajax_load_emails' %}" method="post" novalidate enctype="multipart/form-data">
                     	{% csrf_token %}
-		                <div class="e-book_btn_container">
-		                	{% for field in form %}
-								{% if field.errors %}
-									<div class="custom_alert_upload_books custom_alert custom_alert-danger">
-										{{ field.label }} {% trans "is required!" %}
-									</div>
-								{% endif %}
-		                	{% endfor %}
-		                	<div class="row">
-		                		{% for field in form %}
-		                			{% if forloop.counter == 1 %}
-				                		<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.cover_pdf_file|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 2 %}
-		                            	<div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.cover_psd_file|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 3 %}
-		                            	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.pdf_file|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 4 %}
-		                            	<div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.indesign_file|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 5 %}
-		                            	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.pdf_old_version_file|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 6 %}
-		                            	<div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.barcode_file|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 7 %}
-		                            	<div class="col-12 col-md-4 offset-md-2 mt-3 mr-4 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.cover_interiour_pdf|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% elif forloop.counter == 8 %}
-		                            	<div class="col-12 col-md-4 mt-3 e-book_btn_wrapper">
-		                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/folder_file.png' %}" class="hvr-bounce-in" alt=""></button>
-		                                    <span class="custom_text">{{ book.cover_interiour_psd|shorten_file_name }}</span>
-		                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
-		                                </div>
-		                            {% endif %}
-	                            {% endfor %}
-                            </div>
-                            <div class="row">
-                            	<div  class="col-12 col-md-4 offset-md-2 mt-3">
-                                	<button class="upload_e-book btn" type="submit"><i class="fas fa-save"></i>{% trans "Save Changes" %}</button>
-                                </div>
-                            </div>
-                        </div>
+                    	<div class="custom_card_body card-body">
+                    		<div class="custom_back_button">
+			                    <a href="{% url 'uploaded_books:details_125x19_hardcover' main_book.id book.id %}"><button class="all_tasks_btn btn custom_tasks_button_add_new" type="button"><i class="fas fa-arrow-left"></i>{% trans "Go Back" %}</button></a>
+			                </div>
+                			<h6 class="text-center">{% blocktrans %}Once you're done with changes, click on "Save Changes" button!{% endblocktrans %}</h6>
+			                <div class="e-book_btn_container">
+			                	{% for field in form %}
+									{% if field.errors %}
+										<div class="custom_alert_upload_books custom_alert custom_alert-danger">
+											{{ field.label }} {% trans "is required!" %}
+										</div>
+									{% endif %}
+			                	{% endfor %}
+			                	<div class="row justify-content-center align-items-center">
+			                		{% for field in form %}
+			                			{% if forloop.counter == 1 %}
+					                		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/pdf_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.cover_pdf_file|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% elif forloop.counter == 2 %}
+			                            	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/psd_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.cover_psd_file|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% elif forloop.counter == 3 %}
+			                            	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/pdf_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.pdf_file|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% elif forloop.counter == 4 %}
+			                            	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/indesign_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.indesign_file|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% elif forloop.counter == 5 %}
+			                            	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/pdf_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.pdf_old_version_file|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% elif forloop.counter == 6 %}
+			                            	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/barcode_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.barcode_file|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% elif forloop.counter == 7 %}
+			                            	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/pdf_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.cover_interiour_pdf|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% elif forloop.counter == 8 %}
+			                            	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 custom_margin_auto">
+							                	<div class="e-book_btn_wrapper">
+				                                    <button class="btn e-book_btn custom_button hvr-sweep-to-right" type="button" id="custom-button" data-toggle="tooltip" data-placement="right" title="Change {{ field.label }}"><img src="{% static 'images/book_details/psd_file.png' %}" class="hvr-bounce-in" alt=""></button>
+				                                    <span class="custom_text">{{ book.cover_interiour_psd|shorten_file_name }}</span>
+				                                    <input type="file" class="real_file" id="{{ field.id_for_label }}" name="{{ field.name }}">
+				                                </div>
+			                                </div>
+			                            {% endif %}
+		                            {% endfor %}
+	                            </div>
+	                            <div class="row justify-content-center align-items-center">
+		                            <div class="mt-3 mb-4">
+		                            	<div class="e-book_btn_wrapper">
+	                                		<button class="upload_e-book btn" type="submit"><i class="fas fa-save"></i>{% trans "Save Changes" %}</button>
+	                                	</div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
                     </form>
                 </div>
             </div>
