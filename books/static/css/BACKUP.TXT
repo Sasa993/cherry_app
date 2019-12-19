@@ -1,0 +1,69 @@
+/* TEST */
+/* Card Styles */
+.kita_card {
+  display: table-cell;
+  max-width: 600px;
+  width: 1%;
+  min-height: 300px;
+  margin: auto;
+  text-align: center;
+  border: 4px solid #d9d9d9;
+}
+
+.card__container {
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 0.2em 0.4em;
+  vertical-align: middle;
+  background-color: #d9d9d9;
+  border: 1px solid #8d0a15 ;
+}
+
+.card__title {
+  display: inline-block;
+  margin: 0 0 .35em;
+  color: #8d0a15;
+  /*font-family: "Droid Serif", "Times New Roman", sans-serif;*/
+  font-family: Alegreya Sans SC;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1em;
+  text-align: center;
+  /*text-align-last: center;*/
+  word-break: break-word;
+}
+
+.card__subtitle {
+  margin: 5px 0 0 0;
+  letter-spacing: .063em;
+  font-size: 0.7em;
+  font-family: Kalam;
+  color: #000;
+  text-align: left;
+}
+
+/* End of TEST */
+
+
+
+
+                        <div class="kurcina">
+                        <div class="kita_card">
+                          <div class="card__container">
+                            <h1 class="card__title">{{ book.title }}</h1>
+                            <p class="card__subtitle">
+                              {% if book.author.all %}
+                                By
+                              {% for author in book.author.all %}
+                                {% if forloop.last %}<span>{{ author }}</span>{% else %}<span>{{ author }},</span>{% endif %}
+                              {% endfor %}
+                            {% else %}
+                              Author Not Assigned
+                            {% endif %}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+

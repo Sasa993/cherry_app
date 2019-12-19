@@ -8,67 +8,72 @@
 {% endblock %}
 
 {% block content %}
-	<div class="upload_books_front mt-4">
-	    <div class="row">
-	         <div class="col-12 col-md-8 offset-md-2">
-	            <div class="card-body upload_books_front_header">
-	                <h3 class="mb-1">{% trans "BOOK UPLOAD" %}</h3>
-	            </div>
+<div class="upload_books_front mt-4">
+	<div class="row">
+		<div class="col-12 col-md-8 offset-md-2">
+		    <div class="card-body upload_books_front_header">
+		    	<h3 class="mb-1">{% trans "BOOK UPLOAD" %}</h3>
+		    </div>
+		    <div class="card-body">
+		    	<div class="upload_books_btn_container text-center mt-4">
+					<div class="custom_all_upload_books_container">
+						{% if all_books %}
+							<div class="row justify-content-center align-items-center">
+								{% for book in all_books %}
+									<div class="col-3">
+										<a href="{{ book.id }}">
+												<div class="all-uploaded-books-book custom_margin_auto">
+													{% if book.cover %}
+														<img src="/media/{{ book.cover }}" alt="" />
+													{% else %}
+														<img src="/static/images/no_cover_cover.jpg" alt="" />
+													{% endif %}
+												</div>
+											<div class="kurcina">
+												<div class="kita_card">
+												  <div class="card__container">
+												    <h1 class="card__title">{{ book.title }}</h1>
+												    <p class="card__subtitle">
+												    	{% if book.author.all %}
+												    		By
+															{% for author in book.author.all %}
+																{% if forloop.last %}<span>{{ author }}</span>{% else %}<span>{{ author }},</span>{% endif %}
+															{% endfor %}
+														{% else %}
+															Author Not Assigned
+														{% endif %}
+												    </p>
+												  </div>
+												</div>
+											</div>
 
-	            <div class="card-body">
-	            	{% if request.user.is_superuser %}
-						<h6>{% blocktrans %}If you want to upload a new <strong>book</strong>, please click on the button <strong>bellow</strong>:{% endblocktrans %}</h6>
-		                <div class="upload_books_btn_container text-center mt-4">
-		                    <div>
-								<a href="{% url 'dashboard:enter_new_book' %}">
-									<button class="btn"><i class="fas fa-book fa-lg"></i>
-										<b>{% trans "CREATE A BOOK" %}</b>
-									</button>
-								</a>
+											<!--
+											<div class="custom_all_upload_books_title">
+												{{ book.title }}
+											</div>
+											<div class="custom_all_upload_books_authors">
+												{% if book.author.all %}
+													{% for author in book.author.all %}
+														By {% if forloop.last %}<span>{{ author }}</span>{% else %}<span>{{ author }},</span>{% endif %}
+													{% endfor %}
+												{% else %}
+													Author Not Assigned
+												{% endif %}
+											</div>
+											-->
+										</a>
+									</div>
+								{% endfor %}
 							</div>
-		                </div>
-	            	{% endif %}
-	                <!-- Table -->
-	                {% if all_books %}
-		                <div class="table_container table-responsive mt-5">
-		                    <table id="file_list_table" class="table sortable">
-		                        <thead>
-		                            <tr class="custom_tr_table_books_thead">
-		                                <th class="pr-0">{% trans "Title" %}</th>
-		                                <th class="pr-0">{% trans "Authors" %}</th>
-		                                <th class="pr-0">{% trans "Uploaded" %}</th>
-		                                <th class="pr-0">{% trans "Working No" %}</th>
-		                                {# <th class="pr-0">Type</th> #}
-		                            </tr>
-		                        </thead>
-		                        <tbody>
-		                            {% for x in all_books %}
-			                            <tr class="custom_tr_table_books">
-											<td class="hvr-pulse"><img src="{% static 'images/file_icon.png' %}" class="mr-2" alt="file icon" width="25px"><a href="{{ x.id }}" >{{ x.title }}</a></td>
-											<td>
-												{% for author in x.author.all %}
-					                                {% if forloop.last %}
-					                                    {{ author }}
-					                                {% else %}
-					                                    {{ author }},<br>
-					                                {% endif %}
-					                            {% endfor %}
-											</td>
-											<td>{{ x.uploaded_at|date:'d/m/Y, H:i' }}</td>
-											<td>{{ x.working_number|upper }}</td>
-											{# <td>{{ x.name }}</td> #}
-										</tr>
-		                            {% endfor %}
-		                        </tbody>
-		                    </table>
-		                </div>
-		            {% else %}
-		            	<h2 class="custom_h1_nobooks">{% trans "There's no books in our database." %}</h2>
-		            {% endif %}
-	            </div>
-	        </div>
-	    </div>
+						{% else %}
+							<h2 class="custom_h1_nobooks">{% trans "There's no books in our database." %}</h2>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 {% endblock %}
 
 {% block other_js %}
