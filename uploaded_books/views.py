@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.urls import reverse
+from django.core.paginator import Paginator
+from django.http import JsonResponse
+from django.core.serializers.json import DjangoJSONEncoder
+from django.forms.models import model_to_dict
+import json as simplejson
 from uploaded_books.forms import (
 	EBookForm, Book5x8Form, BookA5HardcoverForm, Book115x18FnskuForm, Book115x18IsbnForm, Book125x19HardcoverForm, Book125x19FnskuForm, Book125x19IsbnForm)
 from uploaded_books.models import (
@@ -26,11 +31,28 @@ def all_uploaded_books(request):
 	# every_fking_book = chain(all_ebooks, all_books_5x8, all_books_a5hardcover, all_books_115x18fnsku, all_books_115x18isbn, all_books_125x19hardcover, all_books_125x19fnsku, all_books_125x19isbn)
 	# every_fking_book = sorted(every_fking_book, key=operator.attrgetter('uploaded_at'), reverse=True)
 
-	all_books = Book.objects.all().order_by('-uploaded_at')
+	# all_books = Book.objects.all().order_by('-uploaded_at')
+	pagination_all_books = Book.objects.all().order_by('-uploaded_at')
+	paginator = Paginator(pagination_all_books, 11)
+
+	page = request.GET.get('page')
+	all_books = paginator.get_page(page)
 
 	context = {'all_books': all_books}
 
 	return render(request, 'uploaded_books/all_uploaded_books.html', context)
+
+
+def ajax_test(request):
+	if request.method == "GET" and request.is_ajax():
+		red = request.GET.get("red")
+		try:
+			knjige = Book.objects.all().values_list('title')
+			print(f"asdas - {red}")
+		except:
+			return JsonResponse({"success": False}, status=400)
+		return JsonResponse({"knjige": list(knjige)}, status=200)
+	return JsonResponse({"success": False}, status=400)
 
 
 # E-Book
