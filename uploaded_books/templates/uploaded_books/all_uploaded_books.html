@@ -8,6 +8,15 @@
 	{% trans "All Uploaded Books" %} 
 {% endblock %}
 
+{% block other_css %}
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	<style>
+		select{
+        	font-family: fontAwesome
+    	}
+	</style>
+{% endblock %}
+
 {% block content %}
 <div class="upload_books_front mt-4">
 	<div class="row">
@@ -16,19 +25,21 @@
 		    	<h3 class="mb-1">{% trans "BOOK UPLOAD" %}</h3>
 		    </div>
 		    <div class="card-body">
-		    	<div class="upload_books_btn_container text-center mt-4">
+		    	<div class="upload_books_btn_container text-center">
 					<div class="custom_all_upload_books_container">
-						<label>Select Username</label>
-						<select class="form-control" id = "users">
-							<option selected="true" disabled="disabled">Select user</option>
-							<option value ="uploaded_at">uploaded_at</option>
+						<h6 class="text-center">{% trans 'In order to create a new book - click on the first cover with a "+" sign. If you want to order the displayed books - choose the order type.' %}</h6>
+						<select class="form-control" id="sort_books">
+							<option value="uploaded_at" selected="true">{% trans "Uploaded" %} &#xf175;</option>
+							<option value="-uploaded_at">{% trans "Uploaded" %} &#xf176;</option>
+							<option value="modified_at">{% trans "Modifed" %} &#xf175;</option>
+							<option value="-modified_at">{% trans "Modifed" %} &#xf176;</option>
+							<option value="title">{% trans "Title" %} &#xf175;</option>
+							<option value="-title">{% trans "Title" %} &#xf176;</option>
+							<option value="author">{% trans "Author" %} &#xf175;</option>
+							<option value="-author">{% trans "Author" %} &#xf176;</option>
 						</select>
-						<div class="row justify-content-center align-items-center" id="ajax_test">
-							
-						</div>
-						<!--
 						{% if all_books %}
-							<div class="row justify-content-center align-items-center">
+							<div class="row justify-content-center align-items-center mt-4" id="ajax_display_all_books">
 								{% for book in all_books %}
 									{% if forloop.counter == 1 %}
 										<div class="col-3">
@@ -78,9 +89,9 @@
 										</a>
 									</div>
 								{% endfor %}
-							</div>-->
+							</div>
 							<!-- pagination -->
-				            <!--<div class="pagination_container mt-4">
+				            <div class="pagination_container mt-4">
 				            	<nav class="mt-5 d-flex d-flex justify-content-center">
 				                	<ul class="pagination">
 				                    	{% if all_books.has_previous %}
@@ -95,12 +106,10 @@
 
 				                    	{% for i in all_books.paginator.page_range %}
 				                      		{% if all_books.number == i %}
-				                        		{# <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> #}
 				                        		<li class="page-item custom_active">
 				                          			<a class="page-link" href="#!">{{ i }}</a>
 				                        		</li>
 				                      		{% else %}
-				                        		{# <li><a href="?page={{ i }}">{{ i }}</a></li> #}
 				                        		<li class="page-item">
 				                          			<a class="page-link" href="?page={{ i }}{% if request.GET.q %}&s_book={{ request.GET.q }}{% endif %}">{{ i }}</a>
 				                        		</li>
@@ -118,7 +127,7 @@
 				                    	{% endif %}                  
 				                  	</ul>
 				                </nav>
-				            </div>-->
+				            </div>
 				            <!-- /pagination -->
 						{% else %}
 							<h2 class="custom_h1_nobooks">{% trans "There's no books in our database." %}</h2>
@@ -138,26 +147,22 @@
 				$('#custom_box').slideToggle("slow");
 				$('.custom_click').toggleClass('custom_promjena_buttona');
 			});
-			$("#users").change(function(e){
-				e.preventDefault();
-				var red = $(this).val();
-				var data = {red};
+
+			$("#sort_books").change(function(){
 				$.ajax({
 					type: 'GET',
-					url: "{% url 'dashboard:ajax_test' %}",
-					data: data,
-					success: function(response){
-						$("#ajax_test").html(
-							response.knjige
-						)
-						console.log("asdasd")
+					url: "{% url 'dashboard:all_uploaded_books' %}",
+					data: {
+						'red':$(this).val()
 					},
-					error: function(response){
-						console.log(response);
-						console.log("NE valja!");
-					}
+					dataType: 'html',
+					success: books_success
 				});
 			});
+			function books_success(data, textStatus, jqXHR)
+        	{
+        		$('#ajax_display_all_books').html($(data).find('#ajax_display_all_books').html());
+        	}
 		});
 	</script>
 	<script src="{% static 'script/sorttable.js' %}"></script>

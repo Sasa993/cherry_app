@@ -7,6 +7,7 @@ from django.http import JsonResponse
 from django.core.serializers.json import DjangoJSONEncoder
 from django.forms.models import model_to_dict
 import json as simplejson
+from django.db.models.functions import Lower
 from uploaded_books.forms import (
 	EBookForm, Book5x8Form, BookA5HardcoverForm, Book115x18FnskuForm, Book115x18IsbnForm, Book125x19HardcoverForm, Book125x19FnskuForm, Book125x19IsbnForm)
 from uploaded_books.models import (
@@ -19,27 +20,35 @@ import zipfile
 
 @login_required
 def all_uploaded_books(request):
-	# all_ebooks = EBook.objects.all()
-	# all_books_5x8 = Book5x8.objects.all()
-	# all_books_a5hardcover = BookA5Hardcover.objects.all()
-	# all_books_115x18fnsku = Book115x18Fnsku.objects.all()
-	# all_books_115x18isbn = Book115x18Isbn.objects.all()
-	# all_books_125x19hardcover = Book125x19Hardcover.objects.all()
-	# all_books_125x19fnsku = Book125x19Fnsku.objects.all()
-	# all_books_125x19isbn = Book125x19Isbn.objects.all()
+	sort_order = ""
 
-	# every_fking_book = chain(all_ebooks, all_books_5x8, all_books_a5hardcover, all_books_115x18fnsku, all_books_115x18isbn, all_books_125x19hardcover, all_books_125x19fnsku, all_books_125x19isbn)
-	# every_fking_book = sorted(every_fking_book, key=operator.attrgetter('uploaded_at'), reverse=True)
+	if request.GET:
+		found_books = None
+		if ("red" in request.GET) and request.GET["red"].strip():
+			sort_order = request.GET["red"]
 
-	# all_books = Book.objects.all().order_by('-uploaded_at')
-	pagination_all_books = Book.objects.all().order_by('-uploaded_at')
-	paginator = Paginator(pagination_all_books, 11)
+			if sort_order == "-title":
+				all_books2 = Book.objects.all().extra(select={'lower_name': f'lower(title)'}).order_by('-lower_name')
+			elif sort_order == "title":
+				all_books2 = Book.objects.all().extra(select={'lower_name': f'lower({sort_order})'}).order_by('lower_name')
+			else:
+				all_books2 = Book.objects.all().order_by(sort_order)
 
-	page = request.GET.get('page')
-	all_books = paginator.get_page(page)
+			paginator = Paginator(all_books2, 11)
+			page = request.GET.get('page')
+			all_books = paginator.get_page(page)
+		else:
+			all_books2 = Book.objects.all().order_by("uploaded_at")
+			paginator = Paginator(all_books2, 11)
+			page = request.GET.get('page')
+			all_books = paginator.get_page(page)
+	else:
+		all_books2 = Book.objects.all().order_by("uploaded_at")
+		paginator = Paginator(all_books2, 11)
+		page = request.GET.get('page')
+		all_books = paginator.get_page(page)
 
-	context = {'all_books': all_books}
-
+	context = {"all_books": all_books}
 	return render(request, 'uploaded_books/all_uploaded_books.html', context)
 
 
@@ -47,10 +56,11 @@ def ajax_test(request):
 	if request.method == "GET" and request.is_ajax():
 		red = request.GET.get("red")
 		try:
-			knjige = Book.objects.all().values_list('title')
+			knjige = Book.objects.all().order_by(red).values_list('title')
 			print(f"asdas - {red}")
 		except:
 			return JsonResponse({"success": False}, status=400)
+
 		return JsonResponse({"knjige": list(knjige)}, status=200)
 	return JsonResponse({"success": False}, status=400)
 
