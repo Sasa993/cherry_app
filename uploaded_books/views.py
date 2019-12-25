@@ -23,7 +23,7 @@ def all_uploaded_books(request):
 	sort_order = ""
 
 	if request.GET:
-		found_books = None
+		# found_books = None
 		if ("red" in request.GET) and request.GET["red"].strip():
 			sort_order = request.GET["red"]
 
@@ -38,12 +38,12 @@ def all_uploaded_books(request):
 			page = request.GET.get('page')
 			all_books = paginator.get_page(page)
 		else:
-			all_books2 = Book.objects.all().order_by("uploaded_at")
+			all_books2 = Book.objects.all().order_by("-uploaded_at")
 			paginator = Paginator(all_books2, 11)
 			page = request.GET.get('page')
 			all_books = paginator.get_page(page)
 	else:
-		all_books2 = Book.objects.all().order_by("uploaded_at")
+		all_books2 = Book.objects.all().order_by("-uploaded_at")
 		paginator = Paginator(all_books2, 11)
 		page = request.GET.get('page')
 		all_books = paginator.get_page(page)
