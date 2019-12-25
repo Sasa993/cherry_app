@@ -28,16 +28,26 @@
 		    	<div class="upload_books_btn_container text-center">
 					<div class="custom_all_upload_books_container">
 						<h6 class="text-center">{% trans 'In order to create a new book - click on the first cover with a "+" sign. If you want to order the displayed books - choose the order type.' %}</h6>
-						<select class="form-control" id="sort_books">
-							<option value="uploaded_at" selected="true">{% trans "Uploaded" %} &#xf175;</option>
-							<option value="-uploaded_at">{% trans "Uploaded" %} &#xf176;</option>
-							<option value="modified_at">{% trans "Modifed" %} &#xf175;</option>
-							<option value="-modified_at">{% trans "Modifed" %} &#xf176;</option>
-							<option value="title">{% trans "Title" %} &#xf175;</option>
-							<option value="-title">{% trans "Title" %} &#xf176;</option>
-							<option value="author">{% trans "Author" %} &#xf175;</option>
-							<option value="-author">{% trans "Author" %} &#xf176;</option>
-						</select>
+						{# <div class=""> #}
+						      <div class="custom_select_dropdown custom_select_container" id="sort_books">
+						        <div class="select">
+						          <span>{% trans "Select Order Type" %}</span>
+						          <i class="fa fa-chevron-left"></i>
+						        </div>
+						        <input type="hidden" name="gender">
+						        <ul class="dropdown-menu">
+									<li id="uploaded_at">{% trans "Uploaded " %}<i class="fas fa-sort-numeric-down"></i></li>
+									<li id="-uploaded_at">{% trans "Uploaded " %}<i class="fas fa-sort-numeric-up"></i></li>
+									<li id="modified_at">{% trans "Modifed " %}<i class="fas fa-sort-numeric-down"></i></li>
+									<li id="-modified_at">{% trans "Modifed " %}<i class="fas fa-sort-numeric-up"></i></li>
+						        	<li id="title">{% trans "Title " %}<i class="fas fa-sort-alpha-down"></i></li>
+						        	<li id="-title">{% trans "Title " %}<i class="fas fa-sort-alpha-up"></i></li>
+						        	<li id="author">{% trans "Author " %}<i class="fas fa-sort-alpha-down"></i></li>
+						        	<li id="-author">{% trans "Author " %}<i class="fas fa-sort-alpha-up"></i></li>
+						        </ul>
+						      </div>
+						  	<span class="msg"></span>
+						{# </div> #}
 						{% if all_books %}
 							<div class="row justify-content-center align-items-center mt-4" id="ajax_display_all_books">
 								{% for book in all_books %}
@@ -148,12 +158,12 @@
 				$('.custom_click').toggleClass('custom_promjena_buttona');
 			});
 
-			$("#sort_books").change(function(){
+			$(".custom_select_dropdown .dropdown-menu li").click(function(){
 				$.ajax({
 					type: 'GET',
 					url: "{% url 'dashboard:all_uploaded_books' %}",
 					data: {
-						'red':$(this).val()
+						'red':$(this).parents('.custom_select_dropdown').find('input').val()
 					},
 					dataType: 'html',
 					success: books_success
@@ -164,6 +174,22 @@
         		$('#ajax_display_all_books').html($(data).find('#ajax_display_all_books').html());
         	}
 		});
+		/* Custom Selectbox */
+		$('.custom_select_dropdown').click(function () {
+		        $(this).attr('tabindex', 1).focus();
+		        $(this).toggleClass('active');
+		        $(this).find('.dropdown-menu').slideToggle(300);
+		    });
+		    $('.custom_select_dropdown').focusout(function () {
+		        $(this).removeClass('active');
+		        $(this).find('.dropdown-menu').slideUp(300);
+		    });
+		    $('.custom_select_dropdown .dropdown-menu li').click(function () {
+		        // $(this).parents('.custom_select_dropdown').find('span').text($(this).text());
+		        $(this).parents('.custom_select_dropdown').find('span').html($(this).html());
+		        $(this).parents('.custom_select_dropdown').find('input').attr('value', $(this).attr('id'));
+		    });
+		/* End of Custom Selectbox */ 
 	</script>
 	<script src="{% static 'script/sorttable.js' %}"></script>
 {% endblock %}
