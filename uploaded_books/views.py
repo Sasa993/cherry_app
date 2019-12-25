@@ -52,19 +52,6 @@ def all_uploaded_books(request):
 	return render(request, 'uploaded_books/all_uploaded_books.html', context)
 
 
-def ajax_test(request):
-	if request.method == "GET" and request.is_ajax():
-		red = request.GET.get("red")
-		try:
-			knjige = Book.objects.all().order_by(red).values_list('title')
-			print(f"asdas - {red}")
-		except:
-			return JsonResponse({"success": False}, status=400)
-
-		return JsonResponse({"knjige": list(knjige)}, status=200)
-	return JsonResponse({"success": False}, status=400)
-
-
 # E-Book
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
