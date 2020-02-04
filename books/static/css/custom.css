@@ -725,3 +725,12 @@ label[for=id_author] {
 .custom_signup_email {
   cursor: not-allowed;
 }
+.custom_disabled_opacity {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+.custom_disabled_opacity a,
+.custom_disabled_opacity a div,
+.custom_disabled_opacity a div::after {
+  cursor: not-allowed !important;
+}

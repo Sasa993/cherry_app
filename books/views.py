@@ -5,7 +5,7 @@ from .models import (Author, Book, BookForm,
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django.core.mail import EmailMessage
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.dispatch import receiver, Signal
 import time
 
@@ -42,6 +42,7 @@ def details_books(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def enter_new_book(request):
 	if (request.method == 'POST'):
 		form = BookForm(request.POST, request.FILES)
@@ -73,6 +74,7 @@ def send_request_to_authors(sender, **kwargs):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_books(request, book_id):
 	book = Book.objects.get(pk=book_id)
 	if (request.method == 'POST'):
@@ -90,6 +92,7 @@ def edit_books(request, book_id):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_books(request, book_id):
 	book = Book.objects.get(pk=book_id)
 
