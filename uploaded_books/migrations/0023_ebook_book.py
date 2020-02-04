@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ebook',
             name='book',
-            field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='books.Book'),
+            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='books.Book'),
             preserve_default=False,
         ),
     ]
