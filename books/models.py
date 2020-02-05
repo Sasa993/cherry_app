@@ -11,6 +11,9 @@ from ckeditor.fields import RichTextField
 from ckeditor.widgets import CKEditorWidget
 from django.conf import settings
 import os
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 
 class Author(models.Model):
@@ -51,6 +54,30 @@ class Book(models.Model):
 			os.remove(os.path.join(settings.MEDIA_ROOT, self.cover.name))
 
 		super(Book, self).delete(*args, **kwargs)
+
+	def save(self):
+		# opening the uploaded image
+		im = Image.open(self.cover)
+
+		output = BytesIO()
+
+		# resize/modify the image
+		# im = im.resize((100, 100))
+
+		# after modifications, save it to the output
+		try:
+			im.save(output, format='JPEG', quality=30)
+			output.seek(0)
+			self.cover = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.cover.name.split('.')[0], 'image/jpeg', os.sys.getsizeof(output), None)
+		except Exception:
+			pass
+
+		# output.seek(0)
+
+		# change the imagefield value to be the newly modifed image value
+		# self.cover = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.cover.name.split('.')[0], 'image/jpeg', os.sys.getsizeof(output), None)
+
+		super(Book, self).save()
 
 
 # # if the book's cover is changed, remove the old one - optimization
