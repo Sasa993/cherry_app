@@ -68,14 +68,10 @@ class Book(models.Model):
 		try:
 			im.save(output, format='JPEG', quality=30)
 			output.seek(0)
+			# change the imagefield value to be the newly modifed image value
 			self.cover = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.cover.name.split('.')[0], 'image/jpeg', os.sys.getsizeof(output), None)
 		except Exception:
 			pass
-
-		# output.seek(0)
-
-		# change the imagefield value to be the newly modifed image value
-		# self.cover = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.cover.name.split('.')[0], 'image/jpeg', os.sys.getsizeof(output), None)
 
 		super(Book, self).save()
 
